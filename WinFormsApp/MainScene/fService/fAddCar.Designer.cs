@@ -1,6 +1,6 @@
-﻿namespace WinFormsApp
+﻿namespace WinFormsApp.MainScene
 {
-    partial class fOption
+    partial class fAddCar
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@
         {
             SuspendLayout();
             // 
-            // fOption
+            // fAddCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "fOption";
+            Name = "fAddCar";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Option";
-            Load += fOption_Load;
+            Text = "AddNewCar";
+            Load += fAddCar_Load;
             ResumeLayout(false);
         }
 

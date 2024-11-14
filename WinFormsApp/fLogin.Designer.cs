@@ -135,9 +135,9 @@
             MaximumSize = new Size(436, 559);
             MinimumSize = new Size(436, 559);
             Name = "fLogin";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            FormClosing += this.fLogin_FormClosing;
+            FormClosing += fLogin_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

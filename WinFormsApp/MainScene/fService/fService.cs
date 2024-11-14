@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.MainScene;
 
 namespace WinFormsApp
 {
@@ -71,7 +72,8 @@ namespace WinFormsApp
 
         private void bnThemXe_Click(object sender, EventArgs e)
         {
-
+            fAddCar f = new fAddCar();
+            f.ShowDialog();
         }
 
         private void dgvService_CellContentClick(object sender, DataGridViewCellEventArgs e)

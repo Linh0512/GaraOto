@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp
+namespace WinFormsApp.MainScene
 {
-    public partial class fOption : Form
+    public partial class fAddCar : Form
     {
-        public fOption()
+        public fAddCar()
         {
             InitializeComponent();
         }
 
-        private void fOption_Load(object sender, EventArgs e)
+        private void fAddCar_Load(object sender, EventArgs e)
         {
 
         }
