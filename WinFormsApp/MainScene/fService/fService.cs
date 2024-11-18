@@ -20,7 +20,10 @@ namespace WinFormsApp
 
         private void Service_Load(object sender, EventArgs e)
         {
-
+            this.SetPlaceHolder(cbbLicensePlate, "Biển số");
+            this.SetPlaceHolder(cbbHieuXe, "Hiệu xe");
+            this.SetPlaceHolder(cbbChuXe, "Chủ xe");
+            this.SetPlaceHolder(cbbTienNo, "Tiền nợ");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,6 +34,30 @@ namespace WinFormsApp
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void SetPlaceHolder(ComboBox cbb, string sph)
+        {
+            cbb.Text = sph;
+            cbb.ForeColor = Color.Gray;
+
+            cbb.Enter += (sender, e) =>
+            {
+                if (cbb.Text == sph)
+                {
+                    cbb.Text = "";
+                    cbb.ForeColor = Color.Black;
+                }
+            };
+
+            cbb.Leave += (sender, e) => 
+            {
+                if (string.IsNullOrWhiteSpace(cbb.Text))
+                {
+                    cbb.Text = sph;
+                    cbb.ForeColor = Color.Gray;
+                }
+            };
         }
 
         private void cbbLicensePlate_Click(object sender, EventArgs e)
@@ -82,6 +109,11 @@ namespace WinFormsApp
         }
 
         private void dgvService_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbbLicensePlate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

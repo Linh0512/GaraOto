@@ -161,6 +161,7 @@
             cbbLicensePlate.Size = new Size(84, 28);
             cbbLicensePlate.TabIndex = 0;
             cbbLicensePlate.Text = "Biển Số";
+            cbbLicensePlate.SelectedIndexChanged += cbbLicensePlate_SelectedIndexChanged;
             cbbLicensePlate.Click += cbbLicensePlate_Click;
             // 
             // panel3
