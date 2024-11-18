@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             panel1 = new Panel();
             txbUserName = new TextBox();
             panel2 = new Panel();
@@ -57,6 +58,7 @@
             txbUserName.Size = new Size(193, 27);
             txbUserName.TabIndex = 0;
             txbUserName.Text = "UserName";
+            txbUserName.TextChanged += txbUserName_TextChanged;
             // 
             // panel2
             // 
@@ -73,7 +75,6 @@
             txbPassword.Anchor = AnchorStyles.None;
             txbPassword.Location = new Point(11, 11);
             txbPassword.Name = "txbPassword";
-            txbPassword.PasswordChar = '*';
             txbPassword.Size = new Size(193, 27);
             txbPassword.TabIndex = 1;
             txbPassword.Text = "Password";
@@ -132,12 +133,14 @@
             Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(436, 559);
             MinimumSize = new Size(436, 559);
             Name = "fLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             FormClosing += fLogin_FormClosing;
+            Load += fLogin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

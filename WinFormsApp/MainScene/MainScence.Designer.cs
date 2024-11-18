@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScence));
             panel1 = new Panel();
             panel8 = new Panel();
             bnOption = new Button();
@@ -245,6 +246,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1051, 667);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "MainScence";
             StartPosition = FormStartPosition.CenterParent;

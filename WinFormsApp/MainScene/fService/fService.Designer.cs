@@ -284,6 +284,7 @@
             dgvService.TabIndex = 4;
             dgvService.TabStop = false;
             dgvService.CellContentClick += dgvService_CellContentClick;
+            dgvService.CellDoubleClick += dgvService_CellDoubleClick;
             // 
             // IDcolumn
             // 

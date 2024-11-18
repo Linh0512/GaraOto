@@ -80,5 +80,10 @@ namespace WinFormsApp
         {
 
         }
+
+        private void dgvService_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
