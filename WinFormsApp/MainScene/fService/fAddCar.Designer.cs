@@ -31,14 +31,18 @@
             panel1 = new Panel();
             lbTiepNhanXe = new Label();
             panel2 = new Panel();
-            txbNameCarOwner = new TextBox();
-            txbLicensePlate = new TextBox();
-            txbAddress = new TextBox();
-            txbPhoneNumber = new TextBox();
-            cbbTypeOfCar = new ComboBox();
             dateTimePicker1 = new DateTimePicker();
+            cbbTypeOfCar = new ComboBox();
+            txbPhoneNumber = new TextBox();
+            txbAddress = new TextBox();
+            txbLicensePlate = new TextBox();
+            txbNameCarOwner = new TextBox();
+            panel3 = new Panel();
+            btClose = new Button();
+            btConfirm = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -74,38 +78,12 @@
             panel2.Size = new Size(450, 282);
             panel2.TabIndex = 1;
             // 
-            // txbNameCarOwner
+            // dateTimePicker1
             // 
-            txbNameCarOwner.Location = new Point(82, 23);
-            txbNameCarOwner.Name = "txbNameCarOwner";
-            txbNameCarOwner.Size = new Size(250, 27);
-            txbNameCarOwner.TabIndex = 0;
-            txbNameCarOwner.Text = "Tên Chủ Xe";
-            // 
-            // txbLicensePlate
-            // 
-            txbLicensePlate.Location = new Point(82, 67);
-            txbLicensePlate.Name = "txbLicensePlate";
-            txbLicensePlate.Size = new Size(250, 27);
-            txbLicensePlate.TabIndex = 1;
-            txbLicensePlate.Text = "Biển số xe";
-            // 
-            // txbAddress
-            // 
-            txbAddress.Location = new Point(82, 202);
-            txbAddress.Name = "txbAddress";
-            txbAddress.Size = new Size(250, 27);
-            txbAddress.TabIndex = 3;
-            txbAddress.Text = "Địa Chỉ";
-            // 
-            // txbPhoneNumber
-            // 
-            txbPhoneNumber.Location = new Point(82, 157);
-            txbPhoneNumber.Name = "txbPhoneNumber";
-            txbPhoneNumber.Size = new Size(250, 27);
-            txbPhoneNumber.TabIndex = 4;
-            txbPhoneNumber.Text = "Số điện thoại";
-            txbPhoneNumber.TextChanged += textBox1_TextChanged;
+            dateTimePicker1.Location = new Point(82, 252);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 6;
             // 
             // cbbTypeOfCar
             // 
@@ -116,18 +94,75 @@
             cbbTypeOfCar.TabIndex = 5;
             cbbTypeOfCar.Text = "Hiệu xe";
             // 
-            // dateTimePicker1
+            // txbPhoneNumber
             // 
-            dateTimePicker1.Location = new Point(82, 252);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 6;
+            txbPhoneNumber.Location = new Point(82, 157);
+            txbPhoneNumber.Name = "txbPhoneNumber";
+            txbPhoneNumber.Size = new Size(250, 27);
+            txbPhoneNumber.TabIndex = 4;
+            txbPhoneNumber.Text = "Số điện thoại";
+            txbPhoneNumber.TextChanged += textBox1_TextChanged;
+            // 
+            // txbAddress
+            // 
+            txbAddress.Location = new Point(82, 202);
+            txbAddress.Name = "txbAddress";
+            txbAddress.Size = new Size(250, 27);
+            txbAddress.TabIndex = 3;
+            txbAddress.Text = "Địa Chỉ";
+            // 
+            // txbLicensePlate
+            // 
+            txbLicensePlate.Location = new Point(82, 67);
+            txbLicensePlate.Name = "txbLicensePlate";
+            txbLicensePlate.Size = new Size(250, 27);
+            txbLicensePlate.TabIndex = 1;
+            txbLicensePlate.Text = "Biển số xe";
+            // 
+            // txbNameCarOwner
+            // 
+            txbNameCarOwner.Location = new Point(82, 23);
+            txbNameCarOwner.Name = "txbNameCarOwner";
+            txbNameCarOwner.Size = new Size(250, 27);
+            txbNameCarOwner.TabIndex = 0;
+            txbNameCarOwner.Text = "Tên Chủ Xe";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(btClose);
+            panel3.Controls.Add(btConfirm);
+            panel3.Location = new Point(58, 406);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(450, 84);
+            panel3.TabIndex = 2;
+            // 
+            // btClose
+            // 
+            btClose.BackColor = Color.IndianRed;
+            btClose.Location = new Point(238, 30);
+            btClose.Name = "btClose";
+            btClose.Size = new Size(94, 29);
+            btClose.TabIndex = 1;
+            btClose.Text = "Đóng";
+            btClose.UseVisualStyleBackColor = false;
+            btClose.Click += btClose_Click;
+            // 
+            // btConfirm
+            // 
+            btConfirm.BackColor = Color.DeepSkyBlue;
+            btConfirm.Location = new Point(82, 30);
+            btConfirm.Name = "btConfirm";
+            btConfirm.Size = new Size(94, 29);
+            btConfirm.TabIndex = 0;
+            btConfirm.Text = "Xác nhận";
+            btConfirm.UseVisualStyleBackColor = false;
             // 
             // fAddCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(556, 502);
+            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "fAddCar";
@@ -138,6 +173,7 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -152,5 +188,8 @@
         private TextBox txbPhoneNumber;
         private ComboBox cbbTypeOfCar;
         private DateTimePicker dateTimePicker1;
+        private Panel panel3;
+        private Button btClose;
+        private Button btConfirm;
     }
 }

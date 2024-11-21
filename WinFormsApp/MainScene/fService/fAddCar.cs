@@ -45,13 +45,19 @@ namespace WinFormsApp.MainScene
                 }
             };
 
-            text.Leave += (sender, e) => {
+            text.Leave += (sender, e) =>
+            {
                 if (string.IsNullOrWhiteSpace(text.Text))
                 {
                     text.Text = placeHolder;
                     text.ForeColor = Color.Gray;
                 }
             };
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

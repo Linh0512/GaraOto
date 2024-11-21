@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.DAO;
 using WinFormsApp.MainScene;
 
 namespace WinFormsApp
@@ -16,6 +17,7 @@ namespace WinFormsApp
         public fService()
         {
             InitializeComponent();
+            this.LoadCarData();
         }
 
         private void Service_Load(object sender, EventArgs e)
@@ -26,6 +28,12 @@ namespace WinFormsApp
             this.SetPlaceHolder(cbbTienNo, "Tiền nợ");
         }
 
+        private void LoadCarData()
+        {
+            string query = "SELECT * FROM dbo.XE";
+            DataProvider dataProvider = new DataProvider();
+            dgvService.DataSource = dataProvider.ExecuteQuery(query);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 

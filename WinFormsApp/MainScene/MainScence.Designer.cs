@@ -73,7 +73,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(195, 667);
+            panel1.Size = new Size(195, 801);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -244,7 +244,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1051, 667);
+            ClientSize = new Size(1509, 801);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;

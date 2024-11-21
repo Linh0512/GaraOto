@@ -48,12 +48,6 @@
             label2 = new Label();
             panel5 = new Panel();
             dgvService = new DataGridView();
-            IDcolumn = new DataGridViewTextBoxColumn();
-            ClBienSo = new DataGridViewTextBoxColumn();
-            ClHieuXe = new DataGridViewTextBoxColumn();
-            ClChuXe = new DataGridViewTextBoxColumn();
-            ClNgayTiepNhan = new DataGridViewTextBoxColumn();
-            ClTienNo = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -69,7 +63,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1108, 77);
+            panel1.Size = new Size(1271, 77);
             panel1.TabIndex = 1;
             // 
             // label1
@@ -264,70 +258,33 @@
             panel5.Controls.Add(dgvService);
             panel5.Location = new Point(12, 233);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1084, 358);
+            panel5.Size = new Size(1202, 552);
             panel5.TabIndex = 6;
             // 
             // dgvService
             // 
             dgvService.AllowUserToAddRows = false;
             dgvService.AllowUserToDeleteRows = false;
+            dgvService.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvService.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvService.BackgroundColor = SystemColors.ButtonHighlight;
             dgvService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvService.Columns.AddRange(new DataGridViewColumn[] { IDcolumn, ClBienSo, ClHieuXe, ClChuXe, ClNgayTiepNhan, ClTienNo });
-            dgvService.Dock = DockStyle.Fill;
             dgvService.GridColor = SystemColors.InactiveCaptionText;
-            dgvService.Location = new Point(0, 0);
+            dgvService.Location = new Point(11, 3);
             dgvService.Name = "dgvService";
             dgvService.RowHeadersWidth = 51;
             dgvService.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvService.Size = new Size(1084, 358);
+            dgvService.Size = new Size(1188, 535);
             dgvService.TabIndex = 4;
             dgvService.TabStop = false;
             dgvService.CellContentClick += dgvService_CellContentClick;
             dgvService.CellDoubleClick += dgvService_CellDoubleClick;
             // 
-            // IDcolumn
-            // 
-            IDcolumn.HeaderText = "ID";
-            IDcolumn.MinimumWidth = 6;
-            IDcolumn.Name = "IDcolumn";
-            // 
-            // ClBienSo
-            // 
-            ClBienSo.HeaderText = "Biển số";
-            ClBienSo.MinimumWidth = 6;
-            ClBienSo.Name = "ClBienSo";
-            // 
-            // ClHieuXe
-            // 
-            ClHieuXe.HeaderText = "Hiệu xe";
-            ClHieuXe.MinimumWidth = 6;
-            ClHieuXe.Name = "ClHieuXe";
-            // 
-            // ClChuXe
-            // 
-            ClChuXe.HeaderText = "Chủ xe";
-            ClChuXe.MinimumWidth = 6;
-            ClChuXe.Name = "ClChuXe";
-            // 
-            // ClNgayTiepNhan
-            // 
-            ClNgayTiepNhan.HeaderText = "Ngày Tiếp Nhận";
-            ClNgayTiepNhan.MinimumWidth = 6;
-            ClNgayTiepNhan.Name = "ClNgayTiepNhan";
-            // 
-            // ClTienNo
-            // 
-            ClTienNo.HeaderText = "Tiền nợ";
-            ClTienNo.MinimumWidth = 6;
-            ClTienNo.Name = "ClTienNo";
-            // 
             // fService
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1108, 628);
+            ClientSize = new Size(1271, 797);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel3);
@@ -370,11 +327,5 @@
         private ComboBox cbbTypeCar;
         private Panel panel5;
         private DataGridView dgvService;
-        private DataGridViewTextBoxColumn IDcolumn;
-        private DataGridViewTextBoxColumn ClBienSo;
-        private DataGridViewTextBoxColumn ClHieuXe;
-        private DataGridViewTextBoxColumn ClChuXe;
-        private DataGridViewTextBoxColumn ClNgayTiepNhan;
-        private DataGridViewTextBoxColumn ClTienNo;
     }
 }
