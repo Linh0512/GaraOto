@@ -279,7 +279,7 @@ namespace WinFormsApp
             btnUpdatePassword.TabIndex = 16;
             btnUpdatePassword.Text = "Update password";
             btnUpdatePassword.UseVisualStyleBackColor = false;
-            btnUpdatePassword.Click += this.btnUpdatePassword_Click;
+            btnUpdatePassword.Click += btnUpdatePassword_Click;
             // 
             // btnChange
             // 
@@ -347,6 +347,7 @@ namespace WinFormsApp
             // txtEmail
             // 
             txtEmail.BackColor = SystemColors.ControlLightLight;
+            txtEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEmail.Location = new Point(1237, 366);
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
@@ -357,6 +358,7 @@ namespace WinFormsApp
             // txtPhoneNumber
             // 
             txtPhoneNumber.BackColor = SystemColors.ControlLightLight;
+            txtPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPhoneNumber.Location = new Point(1237, 155);
             txtPhoneNumber.Multiline = true;
             txtPhoneNumber.Name = "txtPhoneNumber";
@@ -367,6 +369,7 @@ namespace WinFormsApp
             // txtAddress
             // 
             txtAddress.BackColor = SystemColors.ControlLightLight;
+            txtAddress.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtAddress.Location = new Point(445, 568);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
@@ -377,6 +380,7 @@ namespace WinFormsApp
             // txtBirthdate
             // 
             txtBirthdate.BackColor = SystemColors.ControlLightLight;
+            txtBirthdate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtBirthdate.Location = new Point(445, 366);
             txtBirthdate.Multiline = true;
             txtBirthdate.Name = "txtBirthdate";
@@ -387,6 +391,7 @@ namespace WinFormsApp
             // txtUsername
             // 
             txtUsername.BackColor = SystemColors.ControlLightLight;
+            txtUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsername.Location = new Point(445, 155);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
@@ -620,6 +625,7 @@ namespace WinFormsApp
             // 
             // txtWageAmount
             // 
+            txtWageAmount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtWageAmount.Location = new Point(529, 131);
             txtWageAmount.Multiline = true;
             txtWageAmount.Name = "txtWageAmount";
@@ -628,6 +634,7 @@ namespace WinFormsApp
             // 
             // txtWageType
             // 
+            txtWageType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtWageType.Location = new Point(99, 131);
             txtWageType.Multiline = true;
             txtWageType.Name = "txtWageType";
@@ -695,6 +702,7 @@ namespace WinFormsApp
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(876, 316);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
@@ -837,6 +845,7 @@ namespace WinFormsApp
             // 
             // txtBrandName
             // 
+            txtBrandName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtBrandName.Location = new Point(99, 131);
             txtBrandName.Multiline = true;
             txtBrandName.Name = "txtBrandName";
@@ -918,6 +927,7 @@ namespace WinFormsApp
             // 
             // txtSupplierPhoneNumber
             // 
+            txtSupplierPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSupplierPhoneNumber.Location = new Point(429, 131);
             txtSupplierPhoneNumber.Multiline = true;
             txtSupplierPhoneNumber.Name = "txtSupplierPhoneNumber";
@@ -1097,6 +1107,7 @@ namespace WinFormsApp
             // 
             // txtSupplierName
             // 
+            txtSupplierName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSupplierName.Location = new Point(99, 131);
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
@@ -1115,6 +1126,7 @@ namespace WinFormsApp
             // 
             // txtSupplierEmail
             // 
+            txtSupplierEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSupplierEmail.Location = new Point(766, 131);
             txtSupplierEmail.Multiline = true;
             txtSupplierEmail.Name = "txtSupplierEmail";

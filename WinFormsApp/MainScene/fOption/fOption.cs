@@ -75,8 +75,8 @@ namespace WinFormsApp
 
         private void btnUpdatePassword_Click(object sender, EventArgs e)
         {
-            AddSupplier addSupplier = new AddSupplier();
-            addSupplier.ShowDialog();
+            UpdatePassword updatePassword = new UpdatePassword();
+            updatePassword.ShowDialog();
             this.Show();
         }
     }
