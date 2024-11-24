@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.EnvironmentVariables;
 
 namespace WinFormsApp.DAO
 {
@@ -11,13 +12,34 @@ namespace WinFormsApp.DAO
 
         public static DataProvider Instance { get; private set; } = new DataProvider();
 
-        private DataProvider()
+        public DataProvider()
         {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json")
-                .Build();
-            connectionSTR = configuration.GetConnectionString("DefaultConnection");
+            try
+            {
+                var configuration = new ConfigurationBuilder()
+                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                    .AddJsonFile("appsettings.json")
+                    .AddEnvironmentVariables()
+                    .Build();
+
+                string dbServer = Environment.GetEnvironmentVariable("DB_SERVER") ?? "localhost";
+
+                string dbName = Environment.GetEnvironmentVariable("DB_NAME") ?? "QUANLIGARA";
+
+                string connectionTemplate = configuration.GetConnectionString("DefaultConnection")
+                                            ?? throw new InvalidOperationException(
+                                                "Bị lỗi không tìm thấy connection string trong appsettings.json");
+
+                connectionSTR = connectionTemplate
+                    .Replace("${DB_SERVER}", dbServer)
+                    .Replace("${DB_NAME}", dbName);
+
+                Console.WriteLine($"Connection String: {connectionSTR}"); // Dùng để kiểm tra connection string
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Lỗi khởi tạo DataProvider: " + ex.Message, ex);
+            }
         }
 
         public DataTable ExecuteQuery(string query)
