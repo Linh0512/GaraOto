@@ -2,14 +2,12 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.EnvironmentVariables;
 
 namespace WinFormsApp.DAO
 {
     internal class DataProvider
     {
         private readonly string connectionSTR;
-
         public static DataProvider Instance { get; private set; } = new DataProvider();
 
         public DataProvider()
@@ -19,22 +17,14 @@ namespace WinFormsApp.DAO
                 var configuration = new ConfigurationBuilder()
                     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                     .AddJsonFile("appsettings.json")
-                    .AddEnvironmentVariables()
                     .Build();
 
-                string dbServer = Environment.GetEnvironmentVariable("DB_SERVER") ?? "localhost";
+                connectionSTR = configuration.GetConnectionString("DefaultConnection")
+                                ?? throw new InvalidOperationException(
+                                    "Connection string not found.");
 
-                string dbName = Environment.GetEnvironmentVariable("DB_NAME") ?? "QUANLIGARA";
 
-                string connectionTemplate = configuration.GetConnectionString("DefaultConnection")
-                                            ?? throw new InvalidOperationException(
-                                                "Bị lỗi không tìm thấy connection string trong appsettings.json");
-
-                connectionSTR = connectionTemplate
-                    .Replace("${DB_SERVER}", dbServer)
-                    .Replace("${DB_NAME}", dbName);
-
-                Console.WriteLine($"Connection String: {connectionSTR}"); // Dùng để kiểm tra connection string
+                Console.WriteLine("Connected to AWS database."); // Log để kiểm tra kết nối
             }
             catch (Exception ex)
             {
@@ -51,7 +41,6 @@ namespace WinFormsApp.DAO
                 DataTable data = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
-                connection.Close();
                 return data;
             }
         }
