@@ -70,9 +70,10 @@ namespace WinFormsApp
             btn_close.BackColor = SystemColors.GrayText;
             btn_close.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_close.ForeColor = Color.White;
-            btn_close.Location = new Point(1319, 720);
+            btn_close.Location = new Point(1507, 910);
+            btn_close.Margin = new Padding(3, 4, 3, 4);
             btn_close.Name = "btn_close";
-            btn_close.Size = new Size(143, 44);
+            btn_close.Size = new Size(163, 59);
             btn_close.TabIndex = 0;
             btn_close.Text = "Đóng";
             btn_close.UseVisualStyleBackColor = false;
@@ -83,9 +84,9 @@ namespace WinFormsApp
             a.AutoSize = true;
             a.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             a.ForeColor = SystemColors.ButtonHighlight;
-            a.Location = new Point(542, 10);
+            a.Location = new Point(619, 13);
             a.Name = "a";
-            a.Size = new Size(396, 45);
+            a.Size = new Size(497, 54);
             a.TabIndex = 1;
             a.Text = "Lập phiếu nhập phụ tùng";
             // 
@@ -96,30 +97,36 @@ namespace WinFormsApp
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { vat_tu, gia_nhap, so_luong, don_gia });
-            dataGridView1.Location = new Point(554, 133);
+            dataGridView1.Location = new Point(633, 127);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(908, 516);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1038, 688);
             dataGridView1.TabIndex = 2;
             // 
             // vat_tu
             // 
             vat_tu.HeaderText = "Vật tư";
+            vat_tu.MinimumWidth = 6;
             vat_tu.Name = "vat_tu";
             // 
             // gia_nhap
             // 
             gia_nhap.HeaderText = "Giá nhập";
+            gia_nhap.MinimumWidth = 6;
             gia_nhap.Name = "gia_nhap";
             // 
             // so_luong
             // 
             so_luong.HeaderText = "Số lượng";
+            so_luong.MinimumWidth = 6;
             so_luong.Name = "so_luong";
             // 
             // don_gia
             // 
             don_gia.HeaderText = "Đơn giá";
+            don_gia.MinimumWidth = 6;
             don_gia.Name = "don_gia";
             // 
             // panel1
@@ -136,18 +143,19 @@ namespace WinFormsApp
             panel1.Controls.Add(label2);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button3);
-            panel1.Location = new Point(61, 133);
+            panel1.Location = new Point(70, 127);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(467, 612);
+            panel1.Size = new Size(533, 815);
             panel1.TabIndex = 4;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(40, 260);
+            label5.Location = new Point(46, 347);
             label5.Name = "label5";
-            label5.Size = new Size(45, 20);
+            label5.Size = new Size(59, 25);
             label5.TabIndex = 18;
             label5.Text = "Tổng";
             // 
@@ -155,9 +163,9 @@ namespace WinFormsApp
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(40, 203);
+            label4.Location = new Point(46, 271);
             label4.Name = "label4";
-            label4.Size = new Size(71, 20);
+            label4.Size = new Size(94, 25);
             label4.TabIndex = 17;
             label4.Text = "Số lượng";
             // 
@@ -165,49 +173,53 @@ namespace WinFormsApp
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(40, 153);
+            label3.Location = new Point(46, 204);
             label3.Name = "label3";
-            label3.Size = new Size(71, 20);
+            label3.Size = new Size(91, 25);
             label3.TabIndex = 16;
             label3.Text = "Giá nhập";
             // 
             // txt_total
             // 
-            txt_total.Location = new Point(179, 261);
+            txt_total.Location = new Point(205, 348);
+            txt_total.Margin = new Padding(3, 4, 3, 4);
             txt_total.Name = "txt_total";
-            txt_total.Size = new Size(256, 23);
+            txt_total.Size = new Size(292, 27);
             txt_total.TabIndex = 15;
             // 
             // txt_quantity
             // 
-            txt_quantity.Location = new Point(179, 204);
+            txt_quantity.Location = new Point(205, 272);
+            txt_quantity.Margin = new Padding(3, 4, 3, 4);
             txt_quantity.Name = "txt_quantity";
-            txt_quantity.Size = new Size(256, 23);
+            txt_quantity.Size = new Size(292, 27);
             txt_quantity.TabIndex = 14;
             // 
             // txt_price
             // 
-            txt_price.Location = new Point(179, 150);
+            txt_price.Location = new Point(205, 200);
+            txt_price.Margin = new Padding(3, 4, 3, 4);
             txt_price.Name = "txt_price";
-            txt_price.Size = new Size(256, 23);
+            txt_price.Size = new Size(292, 27);
             txt_price.TabIndex = 13;
             // 
             // cbb_inventory
             // 
             cbb_inventory.FormattingEnabled = true;
             cbb_inventory.Items.AddRange(new object[] { "Chọn phụ tùng", "Phụ tùng 1", "Phụ tùng 2", "Phụ tùng 3" });
-            cbb_inventory.Location = new Point(179, 92);
+            cbb_inventory.Location = new Point(205, 123);
+            cbb_inventory.Margin = new Padding(3, 4, 3, 4);
             cbb_inventory.Name = "cbb_inventory";
-            cbb_inventory.Size = new Size(256, 23);
+            cbb_inventory.Size = new Size(292, 28);
             cbb_inventory.TabIndex = 12;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(40, 95);
+            label2.Location = new Point(46, 127);
             label2.Name = "label2";
-            label2.Size = new Size(102, 20);
+            label2.Size = new Size(131, 25);
             label2.TabIndex = 11;
             label2.Text = "Tên phụ tùng";
             // 
@@ -217,9 +229,10 @@ namespace WinFormsApp
             button2.BackColor = SystemColors.Highlight;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(89, 372);
+            button2.Location = new Point(102, 496);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(108, 44);
+            button2.Size = new Size(123, 59);
             button2.TabIndex = 10;
             button2.Text = "Thêm";
             button2.UseVisualStyleBackColor = false;
@@ -230,9 +243,10 @@ namespace WinFormsApp
             button3.BackColor = Color.Red;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(260, 372);
+            button3.Location = new Point(297, 496);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(108, 44);
+            button3.Size = new Size(123, 59);
             button3.TabIndex = 9;
             button3.Text = "Xóa";
             button3.UseVisualStyleBackColor = false;
@@ -242,9 +256,10 @@ namespace WinFormsApp
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.GrayText;
             panel2.Controls.Add(a);
-            panel2.Location = new Point(12, 12);
+            panel2.Location = new Point(14, -34);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1479, 67);
+            panel2.Size = new Size(1690, 89);
             panel2.TabIndex = 5;
             // 
             // panel3
@@ -252,9 +267,10 @@ namespace WinFormsApp
             panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = SystemColors.GrayText;
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(61, 133);
+            panel3.Location = new Point(70, 127);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(467, 49);
+            panel3.Size = new Size(534, 65);
             panel3.TabIndex = 6;
             // 
             // label1
@@ -262,18 +278,19 @@ namespace WinFormsApp
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(150, 9);
+            label1.Location = new Point(171, 12);
             label1.Name = "label1";
-            label1.Size = new Size(183, 30);
+            label1.Size = new Size(237, 37);
             label1.TabIndex = 1;
             label1.Text = "Bảng nhập vật tư";
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Anchor = AnchorStyles.None;
-            dateTimePicker1.Location = new Point(1262, 667);
+            dateTimePicker1.Location = new Point(1442, 839);
+            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.Size = new Size(228, 27);
             dateTimePicker1.TabIndex = 7;
             // 
             // btn_payment
@@ -283,9 +300,10 @@ namespace WinFormsApp
             btn_payment.BackColor = SystemColors.Highlight;
             btn_payment.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_payment.ForeColor = Color.White;
-            btn_payment.Location = new Point(1146, 720);
+            btn_payment.Location = new Point(1310, 910);
+            btn_payment.Margin = new Padding(3, 4, 3, 4);
             btn_payment.Name = "btn_payment";
-            btn_payment.Size = new Size(146, 44);
+            btn_payment.Size = new Size(167, 59);
             btn_payment.TabIndex = 8;
             btn_payment.Text = "Thanh toán";
             btn_payment.UseVisualStyleBackColor = false;
@@ -298,9 +316,10 @@ namespace WinFormsApp
             button1.BackColor = SystemColors.Highlight;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(963, 790);
+            button1.Location = new Point(1101, 1003);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(146, 44);
+            button1.Size = new Size(167, 59);
             button1.TabIndex = 9;
             button1.Text = "Thêm phụ tùng";
             button1.UseVisualStyleBackColor = false;
@@ -313,9 +332,10 @@ namespace WinFormsApp
             button4.BackColor = SystemColors.Highlight;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(1146, 790);
+            button4.Location = new Point(1310, 1003);
+            button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
-            button4.Size = new Size(146, 44);
+            button4.Size = new Size(167, 59);
             button4.TabIndex = 10;
             button4.Text = "Lập phiếu";
             button4.UseVisualStyleBackColor = false;
@@ -328,9 +348,10 @@ namespace WinFormsApp
             button5.BackColor = SystemColors.Highlight;
             button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button5.ForeColor = Color.White;
-            button5.Location = new Point(1319, 790);
+            button5.Location = new Point(1507, 1003);
+            button5.Margin = new Padding(3, 4, 3, 4);
             button5.Name = "button5";
-            button5.Size = new Size(146, 44);
+            button5.Size = new Size(167, 59);
             button5.TabIndex = 11;
             button5.Text = "Lịch sử";
             button5.UseVisualStyleBackColor = false;
@@ -338,10 +359,10 @@ namespace WinFormsApp
             // 
             // Inventory
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1503, 857);
+            ClientSize = new Size(1718, 1043);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button1);
@@ -352,7 +373,6 @@ namespace WinFormsApp
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
             Controls.Add(btn_close);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Inventory";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nhập phụ tùng";
