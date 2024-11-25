@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(577, 98);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 0;
+            button1.Text = "Them";
+            button1.UseVisualStyleBackColor = true;
             // 
             // fStaff
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
+            Controls.Add(button1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "fStaff";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Staff";
@@ -42,5 +54,7 @@
         }
 
         #endregion
+
+        private Button button1;
     }
 }
