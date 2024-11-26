@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp.MainScene.fOption
 {
-    partial class UpdatePassword
+    partial class UpdatePassword: Form
     {
         /// <summary>
         /// Required designer variable.
@@ -46,9 +46,10 @@
             // 
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(lblUpdatePassword);
-            panel1.Location = new Point(2, 0);
+            panel1.Location = new Point(1, 0);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1205, 132);
+            panel1.Size = new Size(742, 82);
             panel1.TabIndex = 14;
             // 
             // lblUpdatePassword
@@ -56,9 +57,10 @@
             lblUpdatePassword.AutoSize = true;
             lblUpdatePassword.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUpdatePassword.ForeColor = Color.White;
-            lblUpdatePassword.Location = new Point(314, 34);
+            lblUpdatePassword.Location = new Point(193, 21);
+            lblUpdatePassword.Margin = new Padding(2, 0, 2, 0);
             lblUpdatePassword.Name = "lblUpdatePassword";
-            lblUpdatePassword.Size = new Size(566, 59);
+            lblUpdatePassword.Size = new Size(357, 37);
             lblUpdatePassword.TabIndex = 0;
             lblUpdatePassword.Text = "UPDATE YOUR PASSWORD";
             // 
@@ -70,9 +72,10 @@
             btnClose.ForeColor = Color.White;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
             btnClose.ImageAlign = ContentAlignment.MiddleRight;
-            btnClose.Location = new Point(711, 552);
+            btnClose.Location = new Point(438, 345);
+            btnClose.Margin = new Padding(2, 2, 2, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(162, 58);
+            btnClose.Size = new Size(100, 36);
             btnClose.TabIndex = 20;
             btnClose.Text = "Close";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -87,9 +90,10 @@
             btnUpdate.ForeColor = Color.White;
             btnUpdate.Image = (Image)resources.GetObject("btnUpdate.Image");
             btnUpdate.ImageAlign = ContentAlignment.MiddleRight;
-            btnUpdate.Location = new Point(367, 552);
+            btnUpdate.Location = new Point(226, 345);
+            btnUpdate.Margin = new Padding(2, 2, 2, 2);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(162, 58);
+            btnUpdate.Size = new Size(100, 36);
             btnUpdate.TabIndex = 19;
             btnUpdate.Text = "Update";
             btnUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -98,28 +102,31 @@
             // txtNewPassword
             // 
             txtNewPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNewPassword.Location = new Point(567, 303);
+            txtNewPassword.Location = new Point(349, 189);
+            txtNewPassword.Margin = new Padding(2, 2, 2, 2);
             txtNewPassword.Multiline = true;
             txtNewPassword.Name = "txtNewPassword";
-            txtNewPassword.Size = new Size(455, 53);
+            txtNewPassword.Size = new Size(282, 35);
             txtNewPassword.TabIndex = 18;
             // 
             // txtCurrentPassword
             // 
             txtCurrentPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCurrentPassword.Location = new Point(567, 196);
+            txtCurrentPassword.Location = new Point(349, 122);
+            txtCurrentPassword.Margin = new Padding(2, 2, 2, 2);
             txtCurrentPassword.Multiline = true;
             txtCurrentPassword.Name = "txtCurrentPassword";
-            txtCurrentPassword.Size = new Size(455, 53);
+            txtCurrentPassword.Size = new Size(282, 35);
             txtCurrentPassword.TabIndex = 17;
             // 
             // lblNewPassword
             // 
             lblNewPassword.AutoSize = true;
             lblNewPassword.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNewPassword.Location = new Point(230, 302);
+            lblNewPassword.Location = new Point(142, 189);
+            lblNewPassword.Margin = new Padding(2, 0, 2, 0);
             lblNewPassword.Name = "lblNewPassword";
-            lblNewPassword.Size = new Size(263, 50);
+            lblNewPassword.Size = new Size(168, 32);
             lblNewPassword.TabIndex = 16;
             lblNewPassword.Text = "New password";
             // 
@@ -127,9 +134,10 @@
             // 
             lblCurrentPassword.AutoSize = true;
             lblCurrentPassword.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCurrentPassword.Location = new Point(181, 195);
+            lblCurrentPassword.Location = new Point(111, 122);
+            lblCurrentPassword.Margin = new Padding(2, 0, 2, 0);
             lblCurrentPassword.Name = "lblCurrentPassword";
-            lblCurrentPassword.Size = new Size(312, 50);
+            lblCurrentPassword.Size = new Size(200, 32);
             lblCurrentPassword.TabIndex = 15;
             lblCurrentPassword.Text = "Current password";
             // 
@@ -137,26 +145,28 @@
             // 
             lblConfirmNewPassword.AutoSize = true;
             lblConfirmNewPassword.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblConfirmNewPassword.Location = new Point(95, 408);
+            lblConfirmNewPassword.Location = new Point(58, 255);
+            lblConfirmNewPassword.Margin = new Padding(2, 0, 2, 0);
             lblConfirmNewPassword.Name = "lblConfirmNewPassword";
-            lblConfirmNewPassword.Size = new Size(398, 50);
+            lblConfirmNewPassword.Size = new Size(257, 32);
             lblConfirmNewPassword.TabIndex = 21;
             lblConfirmNewPassword.Text = "Confirm new password";
             // 
             // txtConfirmNewPassword
             // 
             txtConfirmNewPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtConfirmNewPassword.Location = new Point(567, 409);
+            txtConfirmNewPassword.Location = new Point(349, 256);
+            txtConfirmNewPassword.Margin = new Padding(2, 2, 2, 2);
             txtConfirmNewPassword.Multiline = true;
             txtConfirmNewPassword.Name = "txtConfirmNewPassword";
-            txtConfirmNewPassword.Size = new Size(455, 53);
+            txtConfirmNewPassword.Size = new Size(282, 35);
             txtConfirmNewPassword.TabIndex = 22;
             // 
             // UpdatePassword
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1208, 665);
+            ClientSize = new Size(743, 434);
             Controls.Add(txtConfirmNewPassword);
             Controls.Add(lblConfirmNewPassword);
             Controls.Add(panel1);
@@ -166,6 +176,7 @@
             Controls.Add(txtCurrentPassword);
             Controls.Add(lblNewPassword);
             Controls.Add(lblCurrentPassword);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UpdatePassword";
             Text = "Update Password";
             panel1.ResumeLayout(false);

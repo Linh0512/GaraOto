@@ -8,18 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp
+namespace WinFormsApp.MainScene.fInventory
 {
-    public partial class Inventory : Form
+    public partial class add : Form
     {
-        public Inventory()
+        public add()
         {
             InitializeComponent();
+            cbb_inventory.SelectedIndex = 0;
+            txt_price.Text = "0";
         }
 
-        private void Inventory_Load(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

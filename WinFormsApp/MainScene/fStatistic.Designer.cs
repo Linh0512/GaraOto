@@ -32,9 +32,10 @@
             // 
             // fStatistic
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1523, 867);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "fStatistic";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Statistic";

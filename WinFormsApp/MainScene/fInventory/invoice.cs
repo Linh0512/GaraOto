@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp
+namespace WinFormsApp.MainScene.fInventory
 {
-    public partial class fStaff : Form
+    public partial class invoice : Form
     {
-        public fStaff()
+        public invoice()
         {
             InitializeComponent();
+            cbb_inventory.SelectedIndex = 0;
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
