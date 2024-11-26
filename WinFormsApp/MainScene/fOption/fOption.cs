@@ -79,5 +79,10 @@ namespace WinFormsApp
             updatePassword.ShowDialog();
             this.Show();
         }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
