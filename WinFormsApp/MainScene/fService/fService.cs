@@ -58,7 +58,7 @@ namespace WinFormsApp
                 }
             };
 
-            cbb.Leave += (sender, e) => 
+            cbb.Leave += (sender, e) =>
             {
                 if (string.IsNullOrWhiteSpace(cbb.Text))
                 {
@@ -124,6 +124,15 @@ namespace WinFormsApp
         private void cbbLicensePlate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bnFind_Click(object sender, EventArgs e)
+        {
+            string s = cbbChuXe.Text;
+            if (!string.IsNullOrEmpty(s))
+            {
+                dgvService.DataSource = ServiceDAO.instance.FindBaseName(s);
+            }
         }
     }
 }

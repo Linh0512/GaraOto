@@ -42,7 +42,7 @@
             bnXoa = new Button();
             bnXuat = new Button();
             bnLamMoi = new Button();
-            bnThem = new Button();
+            bnFind = new Button();
             panel4 = new Panel();
             cbbTypeCar = new ComboBox();
             label2 = new Label();
@@ -165,8 +165,9 @@
             panel3.Controls.Add(bnXoa);
             panel3.Controls.Add(bnXuat);
             panel3.Controls.Add(bnLamMoi);
-            panel3.Controls.Add(bnThem);
-            panel3.Location = new Point(672, 102);
+            panel3.Controls.Add(bnFind);
+            panel3.Location = new Point(588, 76);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(424, 110);
             panel3.TabIndex = 3;
@@ -217,14 +218,16 @@
             bnLamMoi.Text = "Làm mới";
             bnLamMoi.UseVisualStyleBackColor = true;
             // 
-            // bnThem
+            // bnFind
             // 
-            bnThem.Location = new Point(0, 1);
-            bnThem.Name = "bnThem";
-            bnThem.Size = new Size(94, 50);
-            bnThem.TabIndex = 0;
-            bnThem.Text = "Thêm";
-            bnThem.UseVisualStyleBackColor = true;
+            bnFind.Location = new Point(0, 1);
+            bnFind.Margin = new Padding(3, 2, 3, 2);
+            bnFind.Name = "bnFind";
+            bnFind.Size = new Size(82, 38);
+            bnFind.TabIndex = 0;
+            bnFind.Text = "Tìm";
+            bnFind.UseVisualStyleBackColor = true;
+            bnFind.Click += bnFind_Click;
             // 
             // panel4
             // 
@@ -317,7 +320,7 @@
         private DateTimePicker dtpDateService;
         private Panel panel3;
         private Button bnLamMoi;
-        private Button bnThem;
+        private Button bnFind;
         private Button bnThemXe;
         private Button bnChiTiet;
         private Button bnXoa;
