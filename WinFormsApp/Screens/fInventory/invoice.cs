@@ -8,18 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp
+namespace WinFormsApp.MainScene.fInventory
 {
-    public partial class fOption : Form
+    public partial class invoice : Form
     {
-        public fOption()
+        public invoice()
         {
             InitializeComponent();
+            cbb_inventory.SelectedIndex = 0;
+
         }
 
-        private void fOption_Load(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

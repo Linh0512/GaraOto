@@ -8,18 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp
+namespace WinFormsApp.MainScene.fOption
 {
-    public partial class Inventory : Form
+    public partial class AddSupplier : Form
     {
-        public Inventory()
+        public AddSupplier()
         {
             InitializeComponent();
         }
 
-        private void Inventory_Load(object sender, EventArgs e)
+        private void AddSupplier_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
