@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
@@ -7,7 +8,7 @@ namespace WinFormsApp.DAO
 {
     internal class DataProvider
     {
-        private readonly string connectionSTR;
+        public readonly string connectionSTR;
         public static DataProvider Instance { get; private set; } = new DataProvider();
 
         public DataProvider()
@@ -32,9 +33,19 @@ namespace WinFormsApp.DAO
             }
         }
 
+        public SqlConnection getConnect()
+        {
+            if (connectionSTR == null)
+            {
+                throw new InvalidOperationException("Cannot connect to the database.");
+            }
+            return new SqlConnection(connectionSTR);
+        }
+
         public DataTable ExecuteQuery(string query)
         {
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            SqlConnection connection = this.getConnect();
+            using (connection)
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);

@@ -38,10 +38,22 @@ namespace WinFormsApp
 
         private void bnService_Click(object sender, EventArgs e)
         {
-            fService fService = new fService();
-            fService.ShowDialog();
-            this.Show();
+            try
+            {
+                fService fService = new fService();
+                if (fService == null)
+                {
+                    throw new InvalidOperationException("Failed to initialize fService.");
+                }
+                fService.ShowDialog();
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
 
         private void bnOption_Click(object sender, EventArgs e)
         {

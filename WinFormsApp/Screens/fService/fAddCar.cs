@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using WinFormsApp.DAO;
+using WinFormsApp.Model;
 
 namespace WinFormsApp.MainScene
 {
@@ -58,6 +51,47 @@ namespace WinFormsApp.MainScene
         private void btClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btConfirm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Car.Instance = new Car
+                {
+                    TenChuXe = txbNameCarOwner.Text,
+                    Hieuxe = cbbTypeOfCar.Text,
+                    Bienso = txbLicensePlate.Text,
+                    DiaChi = txbAddress.Text,
+                    DienThoai = txbPhoneNumber.Text,
+                    NgayTiepNhan = dtpDateReceived.Value < new DateTime(1753, 1, 1) ? DateTime.Now : dtpDateReceived.Value,
+                    TienNo = "0"
+                };
+
+                // Kiểm tra thông tin nhập liệu
+                if (string.IsNullOrWhiteSpace(txbNameCarOwner.Text) ||
+                    string.IsNullOrWhiteSpace(txbLicensePlate.Text) ||
+                    string.IsNullOrWhiteSpace(txbAddress.Text) ||
+                    string.IsNullOrWhiteSpace(txbPhoneNumber.Text))
+                {
+                    MessageBox.Show("Please fill out all the required fields.");
+                    return;
+                }
+
+                // Thêm vào cơ sở dữ liệu
+                ServiceDAO.Instance.AddCar(Car.Instance);
+                MessageBox.Show("Car added successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+        private void cbbTypeOfCar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

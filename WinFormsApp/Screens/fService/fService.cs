@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.MainScene;
+using WinFormsApp.Screens.fService;
 
 namespace WinFormsApp
 {
@@ -58,7 +59,7 @@ namespace WinFormsApp
                 }
             };
 
-            cbb.Leave += (sender, e) => 
+            cbb.Leave += (sender, e) =>
             {
                 if (string.IsNullOrWhiteSpace(cbb.Text))
                 {
@@ -105,10 +106,12 @@ namespace WinFormsApp
 
         }
 
-        private void bnThemXe_Click(object sender, EventArgs e)
+        private void btnAddCar_Click(object sender, EventArgs e)
         {
             fAddCar f = new fAddCar();
             f.ShowDialog();
+            this.LoadCarData();
+            this.Show();
         }
 
         private void dgvService_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -124,6 +127,19 @@ namespace WinFormsApp
         private void cbbLicensePlate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bnChiTiet_Click(object sender, EventArgs e)
+        {
+            fInforCar fInforCar = new fInforCar();
+            fInforCar.ShowDialog();
+        }
+
+        private void bnDelete_Click(object sender, EventArgs e)
+        {
+            string plateLicense = (string)dgvService.SelectedRows[0].Cells["BienSo"].Value;
+            ServiceDAO.Instance.DelCar(plateLicense);
+            this.LoadCarData();
         }
     }
 }

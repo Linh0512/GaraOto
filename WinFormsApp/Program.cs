@@ -1,3 +1,5 @@
+using WinFormsApp.MainScene;
+
 namespace WinFormsApp
 {
     internal static class Program

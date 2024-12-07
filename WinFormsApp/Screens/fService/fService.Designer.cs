@@ -188,7 +188,7 @@
             bnThemXe.TabIndex = 5;
             bnThemXe.Text = "Thêm xe";
             bnThemXe.UseVisualStyleBackColor = true;
-            bnThemXe.Click += bnThemXe_Click;
+            bnThemXe.Click += btnAddCar_Click;
             // 
             // bnChiTiet
             // 
@@ -199,6 +199,7 @@
             bnChiTiet.TabIndex = 4;
             bnChiTiet.Text = "Chi tiết";
             bnChiTiet.UseVisualStyleBackColor = true;
+            bnChiTiet.Click += bnChiTiet_Click;
             // 
             // bnXoa
             // 
@@ -209,6 +210,7 @@
             bnXoa.TabIndex = 3;
             bnXoa.Text = "Xóa";
             bnXoa.UseVisualStyleBackColor = true;
+            bnXoa.Click += bnDelete_Click;
             // 
             // bnXuat
             // 
