@@ -86,7 +86,7 @@
             dtpDateReceived.Margin = new Padding(3, 2, 3, 2);
             dtpDateReceived.Name = "dtpDateReceived";
             dtpDateReceived.Size = new Size(219, 23);
-            dtpDateReceived.TabIndex = 6;
+            dtpDateReceived.TabIndex = 5;
             // 
             // cbbTypeOfCar
             // 
@@ -95,7 +95,7 @@
             cbbTypeOfCar.Margin = new Padding(3, 2, 3, 2);
             cbbTypeOfCar.Name = "cbbTypeOfCar";
             cbbTypeOfCar.Size = new Size(219, 23);
-            cbbTypeOfCar.TabIndex = 5;
+            cbbTypeOfCar.TabIndex = 2;
             cbbTypeOfCar.Text = "Hiệu xe";
             cbbTypeOfCar.SelectedIndexChanged += cbbTypeOfCar_SelectedIndexChanged;
             // 
@@ -105,7 +105,7 @@
             txbPhoneNumber.Margin = new Padding(3, 2, 3, 2);
             txbPhoneNumber.Name = "txbPhoneNumber";
             txbPhoneNumber.Size = new Size(219, 23);
-            txbPhoneNumber.TabIndex = 4;
+            txbPhoneNumber.TabIndex = 3;
             txbPhoneNumber.Text = "Số điện thoại";
             txbPhoneNumber.TextChanged += textBox1_TextChanged;
             // 
@@ -115,7 +115,7 @@
             txbAddress.Margin = new Padding(3, 2, 3, 2);
             txbAddress.Name = "txbAddress";
             txbAddress.Size = new Size(219, 23);
-            txbAddress.TabIndex = 3;
+            txbAddress.TabIndex = 4;
             txbAddress.Text = "Địa Chỉ";
             // 
             // txbLicensePlate
@@ -172,8 +172,10 @@
             // 
             // fAddCar
             // 
+            AcceptButton = btConfirm;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btClose;
             ClientSize = new Size(486, 376);
             Controls.Add(panel3);
             Controls.Add(panel2);
