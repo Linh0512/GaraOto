@@ -42,7 +42,7 @@
             bnXoa = new Button();
             bnXuat = new Button();
             bnLamMoi = new Button();
-            bnThem = new Button();
+            bnFind = new Button();
             panel4 = new Panel();
             cbbTypeCar = new ComboBox();
             label2 = new Label();
@@ -172,7 +172,7 @@
             panel3.Controls.Add(bnXoa);
             panel3.Controls.Add(bnXuat);
             panel3.Controls.Add(bnLamMoi);
-            panel3.Controls.Add(bnThem);
+            panel3.Controls.Add(bnFind);
             panel3.Location = new Point(588, 76);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
@@ -188,7 +188,7 @@
             bnThemXe.TabIndex = 5;
             bnThemXe.Text = "Thêm xe";
             bnThemXe.UseVisualStyleBackColor = true;
-            bnThemXe.Click += bnThemXe_Click;
+            bnThemXe.Click += btnAddCar_Click;
             // 
             // bnChiTiet
             // 
@@ -199,6 +199,7 @@
             bnChiTiet.TabIndex = 4;
             bnChiTiet.Text = "Chi tiết";
             bnChiTiet.UseVisualStyleBackColor = true;
+            bnChiTiet.Click += bnChiTiet_Click;
             // 
             // bnXoa
             // 
@@ -209,6 +210,7 @@
             bnXoa.TabIndex = 3;
             bnXoa.Text = "Xóa";
             bnXoa.UseVisualStyleBackColor = true;
+            bnXoa.Click += bnDelete_Click;
             // 
             // bnXuat
             // 
@@ -230,15 +232,15 @@
             bnLamMoi.Text = "Làm mới";
             bnLamMoi.UseVisualStyleBackColor = true;
             // 
-            // bnThem
+            // bnFind
             // 
-            bnThem.Location = new Point(0, 1);
-            bnThem.Margin = new Padding(3, 2, 3, 2);
-            bnThem.Name = "bnThem";
-            bnThem.Size = new Size(82, 38);
-            bnThem.TabIndex = 0;
-            bnThem.Text = "Thêm";
-            bnThem.UseVisualStyleBackColor = true;
+            bnFind.Location = new Point(0, 1);
+            bnFind.Margin = new Padding(3, 2, 3, 2);
+            bnFind.Name = "bnFind";
+            bnFind.Size = new Size(82, 38);
+            bnFind.TabIndex = 0;
+            bnFind.Text = "Tìm xe";
+            bnFind.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -336,7 +338,7 @@
         private DateTimePicker dtpDateService;
         private Panel panel3;
         private Button bnLamMoi;
-        private Button bnThem;
+        private Button bnFind;
         private Button bnThemXe;
         private Button bnChiTiet;
         private Button bnXoa;

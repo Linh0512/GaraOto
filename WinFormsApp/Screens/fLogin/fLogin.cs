@@ -68,10 +68,18 @@ namespace WinFormsApp
         private void bnLogin_Click(object sender, EventArgs e)
         {
             MainScence f = new MainScence();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            if (f != null)
+            {
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Failed to initialize MainScene.");
+            }
         }
+
 
         private void bnExit_Click(object sender, EventArgs e)
         {
