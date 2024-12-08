@@ -33,10 +33,12 @@
             lblAddSupplier = new Label();
             btnClose = new Button();
             btnAdd = new Button();
-            txtValue = new TextBox();
+            txtPhoneNumber = new TextBox();
             txtSupplierName = new TextBox();
-            lblValue = new Label();
+            lblPhoneNumber = new Label();
             lblSupplierName = new Label();
+            txtEmail = new TextBox();
+            lblEmail = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,11 +56,11 @@
             lblAddSupplier.AutoSize = true;
             lblAddSupplier.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAddSupplier.ForeColor = Color.White;
-            lblAddSupplier.Location = new Point(297, 36);
+            lblAddSupplier.Location = new Point(368, 38);
             lblAddSupplier.Name = "lblAddSupplier";
-            lblAddSupplier.Size = new Size(627, 59);
+            lblAddSupplier.Size = new Size(486, 59);
             lblAddSupplier.TabIndex = 0;
-            lblAddSupplier.Text = "ADD ADDITIONAL SUPPLIERS";
+            lblAddSupplier.Text = "THÊM NHÀ CUNG CẤP";
             // 
             // btnClose
             // 
@@ -68,11 +70,11 @@
             btnClose.ForeColor = Color.White;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
             btnClose.ImageAlign = ContentAlignment.MiddleRight;
-            btnClose.Location = new Point(661, 477);
+            btnClose.Location = new Point(677, 545);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(162, 58);
             btnClose.TabIndex = 13;
-            btnClose.Text = "Close";
+            btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
@@ -85,51 +87,70 @@
             btnAdd.ForeColor = Color.White;
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleRight;
-            btnAdd.Location = new Point(364, 477);
+            btnAdd.Location = new Point(369, 545);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(162, 58);
             btnAdd.TabIndex = 12;
-            btnAdd.Text = "Add";
+            btnAdd.Text = "Thêm";
             btnAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdd.UseVisualStyleBackColor = false;
             // 
-            // txtValue
+            // txtPhoneNumber
             // 
-            txtValue.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtValue.Location = new Point(745, 307);
-            txtValue.Multiline = true;
-            txtValue.Name = "txtValue";
-            txtValue.Size = new Size(200, 53);
-            txtValue.TabIndex = 11;
+            txtPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPhoneNumber.Location = new Point(607, 300);
+            txtPhoneNumber.Multiline = true;
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new Size(361, 53);
+            txtPhoneNumber.TabIndex = 11;
             // 
             // txtSupplierName
             // 
             txtSupplierName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSupplierName.Location = new Point(215, 307);
+            txtSupplierName.Location = new Point(607, 198);
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
-            txtSupplierName.Size = new Size(455, 53);
+            txtSupplierName.Size = new Size(361, 53);
             txtSupplierName.TabIndex = 10;
             // 
-            // lblValue
+            // lblPhoneNumber
             // 
-            lblValue.AutoSize = true;
-            lblValue.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblValue.Location = new Point(745, 217);
-            lblValue.Name = "lblValue";
-            lblValue.Size = new Size(110, 50);
-            lblValue.TabIndex = 9;
-            lblValue.Text = "Value";
+            lblPhoneNumber.AutoSize = true;
+            lblPhoneNumber.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPhoneNumber.Location = new Point(241, 303);
+            lblPhoneNumber.Name = "lblPhoneNumber";
+            lblPhoneNumber.Size = new Size(239, 50);
+            lblPhoneNumber.TabIndex = 9;
+            lblPhoneNumber.Text = "Số điện thoại";
             // 
             // lblSupplierName
             // 
             lblSupplierName.AutoSize = true;
             lblSupplierName.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSupplierName.Location = new Point(215, 206);
+            lblSupplierName.Location = new Point(241, 201);
             lblSupplierName.Name = "lblSupplierName";
-            lblSupplierName.Size = new Size(258, 50);
+            lblSupplierName.Size = new Size(307, 50);
             lblSupplierName.TabIndex = 8;
-            lblSupplierName.Text = "Supplier name";
+            lblSupplierName.Text = "Tên nhà cung cấp";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtEmail.Location = new Point(607, 401);
+            txtEmail.Multiline = true;
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(361, 53);
+            txtEmail.TabIndex = 15;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmail.Location = new Point(241, 404);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(110, 50);
+            lblEmail.TabIndex = 14;
+            lblEmail.Text = "Email";
             // 
             // AddSupplier
             // 
@@ -137,15 +158,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1206, 662);
+            Controls.Add(txtEmail);
+            Controls.Add(lblEmail);
             Controls.Add(panel1);
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
-            Controls.Add(txtValue);
+            Controls.Add(txtPhoneNumber);
             Controls.Add(txtSupplierName);
-            Controls.Add(lblValue);
+            Controls.Add(lblPhoneNumber);
             Controls.Add(lblSupplierName);
             Name = "AddSupplier";
-            Text = "Add Supplier";
+            Text = "Thêm nhà cung cấp";
             Load += AddSupplier_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -159,9 +182,11 @@
         private Label lblAddSupplier;
         private Button btnClose;
         private Button btnAdd;
-        private TextBox txtValue;
+        private TextBox txtPhoneNumber;
         private TextBox txtSupplierName;
-        private Label lblValue;
+        private Label lblPhoneNumber;
         private Label lblSupplierName;
+        private TextBox txtEmail;
+        private Label lblEmail;
     }
 }

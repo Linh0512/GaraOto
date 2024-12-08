@@ -46,10 +46,9 @@
             // 
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(lblUpdatePassword);
-            panel1.Location = new Point(1, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Location = new Point(2, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(742, 82);
+            panel1.Size = new Size(1206, 131);
             panel1.TabIndex = 14;
             // 
             // lblUpdatePassword
@@ -57,12 +56,11 @@
             lblUpdatePassword.AutoSize = true;
             lblUpdatePassword.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUpdatePassword.ForeColor = Color.White;
-            lblUpdatePassword.Location = new Point(193, 21);
-            lblUpdatePassword.Margin = new Padding(2, 0, 2, 0);
+            lblUpdatePassword.Location = new Point(411, 37);
             lblUpdatePassword.Name = "lblUpdatePassword";
-            lblUpdatePassword.Size = new Size(357, 37);
+            lblUpdatePassword.Size = new Size(346, 59);
             lblUpdatePassword.TabIndex = 0;
-            lblUpdatePassword.Text = "UPDATE YOUR PASSWORD";
+            lblUpdatePassword.Text = "ĐỔI MẬT KHẨU";
             // 
             // btnClose
             // 
@@ -72,12 +70,11 @@
             btnClose.ForeColor = Color.White;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
             btnClose.ImageAlign = ContentAlignment.MiddleRight;
-            btnClose.Location = new Point(438, 345);
-            btnClose.Margin = new Padding(2, 2, 2, 2);
+            btnClose.Location = new Point(700, 561);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(100, 36);
+            btnClose.Size = new Size(162, 58);
             btnClose.TabIndex = 20;
-            btnClose.Text = "Close";
+            btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
@@ -90,83 +87,77 @@
             btnUpdate.ForeColor = Color.White;
             btnUpdate.Image = (Image)resources.GetObject("btnUpdate.Image");
             btnUpdate.ImageAlign = ContentAlignment.MiddleRight;
-            btnUpdate.Location = new Point(226, 345);
-            btnUpdate.Margin = new Padding(2, 2, 2, 2);
+            btnUpdate.Location = new Point(355, 561);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(100, 36);
+            btnUpdate.Size = new Size(194, 58);
             btnUpdate.TabIndex = 19;
-            btnUpdate.Text = "Update";
+            btnUpdate.Text = "Cập nhật";
             btnUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUpdate.UseVisualStyleBackColor = false;
             // 
             // txtNewPassword
             // 
             txtNewPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNewPassword.Location = new Point(349, 189);
-            txtNewPassword.Margin = new Padding(2, 2, 2, 2);
+            txtNewPassword.Location = new Point(546, 299);
             txtNewPassword.Multiline = true;
             txtNewPassword.Name = "txtNewPassword";
-            txtNewPassword.Size = new Size(282, 35);
+            txtNewPassword.Size = new Size(426, 54);
             txtNewPassword.TabIndex = 18;
             // 
             // txtCurrentPassword
             // 
             txtCurrentPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCurrentPassword.Location = new Point(349, 122);
-            txtCurrentPassword.Margin = new Padding(2, 2, 2, 2);
+            txtCurrentPassword.Location = new Point(546, 192);
             txtCurrentPassword.Multiline = true;
             txtCurrentPassword.Name = "txtCurrentPassword";
-            txtCurrentPassword.Size = new Size(282, 35);
+            txtCurrentPassword.Size = new Size(426, 54);
             txtCurrentPassword.TabIndex = 17;
             // 
             // lblNewPassword
             // 
             lblNewPassword.AutoSize = true;
             lblNewPassword.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNewPassword.Location = new Point(142, 189);
-            lblNewPassword.Margin = new Padding(2, 0, 2, 0);
+            lblNewPassword.Location = new Point(210, 299);
             lblNewPassword.Name = "lblNewPassword";
-            lblNewPassword.Size = new Size(168, 32);
+            lblNewPassword.Size = new Size(249, 50);
             lblNewPassword.TabIndex = 16;
-            lblNewPassword.Text = "New password";
+            lblNewPassword.Text = "Mật khẩu mới";
             // 
             // lblCurrentPassword
             // 
             lblCurrentPassword.AutoSize = true;
             lblCurrentPassword.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCurrentPassword.Location = new Point(111, 122);
-            lblCurrentPassword.Margin = new Padding(2, 0, 2, 0);
+            lblCurrentPassword.Location = new Point(210, 196);
             lblCurrentPassword.Name = "lblCurrentPassword";
-            lblCurrentPassword.Size = new Size(200, 32);
+            lblCurrentPassword.Size = new Size(224, 50);
             lblCurrentPassword.TabIndex = 15;
-            lblCurrentPassword.Text = "Current password";
+            lblCurrentPassword.Text = "Mật khẩu cũ";
             // 
             // lblConfirmNewPassword
             // 
             lblConfirmNewPassword.AutoSize = true;
             lblConfirmNewPassword.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblConfirmNewPassword.Location = new Point(58, 255);
-            lblConfirmNewPassword.Margin = new Padding(2, 0, 2, 0);
+            lblConfirmNewPassword.Location = new Point(210, 406);
             lblConfirmNewPassword.Name = "lblConfirmNewPassword";
-            lblConfirmNewPassword.Size = new Size(257, 32);
+            lblConfirmNewPassword.Size = new Size(172, 50);
             lblConfirmNewPassword.TabIndex = 21;
-            lblConfirmNewPassword.Text = "Confirm new password";
+            lblConfirmNewPassword.Text = "Xác nhận";
             // 
             // txtConfirmNewPassword
             // 
             txtConfirmNewPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtConfirmNewPassword.Location = new Point(349, 256);
-            txtConfirmNewPassword.Margin = new Padding(2, 2, 2, 2);
+            txtConfirmNewPassword.Location = new Point(546, 407);
             txtConfirmNewPassword.Multiline = true;
             txtConfirmNewPassword.Name = "txtConfirmNewPassword";
-            txtConfirmNewPassword.Size = new Size(282, 35);
+            txtConfirmNewPassword.Size = new Size(426, 54);
             txtConfirmNewPassword.TabIndex = 22;
             // 
             // UpdatePassword
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(743, 434);
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(1207, 694);
             Controls.Add(txtConfirmNewPassword);
             Controls.Add(lblConfirmNewPassword);
             Controls.Add(panel1);
@@ -176,9 +167,8 @@
             Controls.Add(txtCurrentPassword);
             Controls.Add(lblNewPassword);
             Controls.Add(lblCurrentPassword);
-            Margin = new Padding(2, 2, 2, 2);
             Name = "UpdatePassword";
-            Text = "Update Password";
+            Text = "Đổi mật khẩu";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
