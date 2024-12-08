@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WinFormsApp.DAO;
 using WinFormsApp.MainScene.fOption;
 
 namespace WinFormsApp
@@ -9,6 +10,9 @@ namespace WinFormsApp
         public fOption()
         {
             InitializeComponent();
+            this.LoadWageData();
+            this.LoadBrandData();
+            this.LoadSupplierData();
         }
 
         private void fOption_Load(object sender, EventArgs e)
@@ -25,6 +29,24 @@ namespace WinFormsApp
             pnlSupplierDetail.Visible = false;
 
             panelToShow.Visible = true;
+        }
+
+        private void LoadWageData()
+        {
+            string query = "SELECT * FROM dbo.TIENCONG";
+            DataProvider dataProvider = new DataProvider();
+            dgvWageDetail.DataSource = dataProvider.ExecuteQuery(query);
+        }
+
+        private void LoadBrandData()
+        {
+            string query = "SELECT * FROM dbo.HIEUXE";
+            DataProvider dataProvider = new DataProvider();
+            dgvBrandDetail.DataSource = dataProvider.ExecuteQuery(query);
+        }
+
+        private void LoadSupplierData()
+        {
         }
 
         private void btnAddWage_Click(object sender, EventArgs e)
