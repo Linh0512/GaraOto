@@ -33,9 +33,7 @@
             lblAddBrand = new Label();
             btnClose = new Button();
             btnAdd = new Button();
-            txtValue = new TextBox();
             txtBrandName = new TextBox();
-            lblValue = new Label();
             lblBrandName = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -54,11 +52,11 @@
             lblAddBrand.AutoSize = true;
             lblAddBrand.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAddBrand.ForeColor = Color.White;
-            lblAddBrand.Location = new Point(314, 34);
+            lblAddBrand.Location = new Point(421, 37);
             lblAddBrand.Name = "lblAddBrand";
-            lblAddBrand.Size = new Size(585, 59);
+            lblAddBrand.Size = new Size(350, 59);
             lblAddBrand.TabIndex = 0;
-            lblAddBrand.Text = "ADD ADDITIONAL BRANDS";
+            lblAddBrand.Text = "THÊM HÃNG XE";
             // 
             // btnClose
             // 
@@ -72,7 +70,7 @@
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(162, 58);
             btnClose.TabIndex = 13;
-            btnClose.Text = "Close";
+            btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
@@ -89,47 +87,28 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(162, 58);
             btnAdd.TabIndex = 12;
-            btnAdd.Text = "Add";
+            btnAdd.Text = "Thêm";
             btnAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // txtValue
-            // 
-            txtValue.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtValue.Location = new Point(747, 306);
-            txtValue.Multiline = true;
-            txtValue.Name = "txtValue";
-            txtValue.Size = new Size(200, 53);
-            txtValue.TabIndex = 11;
             // 
             // txtBrandName
             // 
             txtBrandName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBrandName.Location = new Point(217, 306);
+            txtBrandName.Location = new Point(370, 305);
             txtBrandName.Multiline = true;
             txtBrandName.Name = "txtBrandName";
             txtBrandName.Size = new Size(455, 53);
             txtBrandName.TabIndex = 10;
             // 
-            // lblValue
-            // 
-            lblValue.AutoSize = true;
-            lblValue.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblValue.Location = new Point(747, 216);
-            lblValue.Name = "lblValue";
-            lblValue.Size = new Size(110, 50);
-            lblValue.TabIndex = 9;
-            lblValue.Text = "Value";
-            // 
             // lblBrandName
             // 
             lblBrandName.AutoSize = true;
             lblBrandName.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBrandName.Location = new Point(217, 205);
+            lblBrandName.Location = new Point(370, 204);
             lblBrandName.Name = "lblBrandName";
-            lblBrandName.Size = new Size(219, 50);
+            lblBrandName.Size = new Size(216, 50);
             lblBrandName.TabIndex = 8;
-            lblBrandName.Text = "Brand name";
+            lblBrandName.Text = "Tên hãng xe";
             // 
             // AddBrand
             // 
@@ -140,12 +119,10 @@
             Controls.Add(panel1);
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
-            Controls.Add(txtValue);
             Controls.Add(txtBrandName);
-            Controls.Add(lblValue);
             Controls.Add(lblBrandName);
             Name = "AddBrand";
-            Text = "Add Brand";
+            Text = "Thêm hãng xe";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -158,9 +135,7 @@
         private Label lblAddBrand;
         private Button btnClose;
         private Button btnAdd;
-        private TextBox txtValue;
         private TextBox txtBrandName;
-        private Label lblValue;
         private Label lblBrandName;
     }
 }

@@ -54,11 +54,11 @@
             lblAddWage.AutoSize = true;
             lblAddWage.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAddWage.ForeColor = Color.White;
-            lblAddWage.Location = new Point(323, 34);
+            lblAddWage.Location = new Point(411, 35);
             lblAddWage.Name = "lblAddWage";
-            lblAddWage.Size = new Size(558, 59);
+            lblAddWage.Size = new Size(391, 59);
             lblAddWage.TabIndex = 0;
-            lblAddWage.Text = "ADD ADDITIONAL WAGES";
+            lblAddWage.Text = "THÊM TIỀN CÔNG";
             // 
             // lblWageType
             // 
@@ -66,9 +66,9 @@
             lblWageType.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblWageType.Location = new Point(217, 207);
             lblWageType.Name = "lblWageType";
-            lblWageType.Size = new Size(198, 50);
+            lblWageType.Size = new Size(253, 50);
             lblWageType.TabIndex = 1;
-            lblWageType.Text = "Wage type";
+            lblWageType.Text = "Loại tiền công";
             // 
             // lblValue
             // 
@@ -76,9 +76,9 @@
             lblValue.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblValue.Location = new Point(747, 218);
             lblValue.Name = "lblValue";
-            lblValue.Size = new Size(110, 50);
+            lblValue.Size = new Size(120, 50);
             lblValue.TabIndex = 2;
-            lblValue.Text = "Value";
+            lblValue.Text = "Giá trị";
             // 
             // txtWageType
             // 
@@ -110,7 +110,7 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(162, 58);
             btnAdd.TabIndex = 5;
-            btnAdd.Text = "Add";
+            btnAdd.Text = "Thêm";
             btnAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdd.UseVisualStyleBackColor = false;
             // 
@@ -126,7 +126,7 @@
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(162, 58);
             btnClose.TabIndex = 6;
-            btnClose.Text = "Close";
+            btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
@@ -145,7 +145,7 @@
             Controls.Add(lblWageType);
             Controls.Add(panel1);
             Name = "AddWage";
-            Text = "Add Wage";
+            Text = "Thêm tiền công";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
