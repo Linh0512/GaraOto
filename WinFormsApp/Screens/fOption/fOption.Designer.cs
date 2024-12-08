@@ -65,9 +65,6 @@ namespace WinFormsApp
             pnlWageDetail = new Panel();
             lblWageAmount = new Label();
             dgvWageDetail = new DataGridView();
-            colIDWageDetail = new DataGridViewTextBoxColumn();
-            colWageType = new DataGridViewTextBoxColumn();
-            colWageAmount = new DataGridViewTextBoxColumn();
             btnRemoveWage = new Button();
             btnEditWage = new Button();
             btnAddWage = new Button();
@@ -94,17 +91,11 @@ namespace WinFormsApp
             txtBrandName = new TextBox();
             lblBrandName = new Label();
             dgvBrandDetail = new DataGridView();
-            colIDBrandDetail = new DataGridViewTextBoxColumn();
-            colBrandName = new DataGridViewTextBoxColumn();
             pnlSupplierDetail = new Panel();
             txtSupplierPhoneNumber = new TextBox();
             lblSupplierEmail = new Label();
             lblSupplierPhoneNumber = new Label();
             dataGridView1 = new DataGridView();
-            colIDSupplier = new DataGridViewTextBoxColumn();
-            colSupplierName = new DataGridViewTextBoxColumn();
-            colSupplierPhoneNumber = new DataGridViewTextBoxColumn();
-            colSupplierEmail = new DataGridViewTextBoxColumn();
             btnRemoveSupplier = new Button();
             btnEditSupplier = new Button();
             btnAddSupplier = new Button();
@@ -489,7 +480,6 @@ namespace WinFormsApp
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvWageDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvWageDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvWageDetail.Columns.AddRange(new DataGridViewColumn[] { colIDWageDetail, colWageType, colWageAmount });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11F);
@@ -506,24 +496,6 @@ namespace WinFormsApp
             dgvWageDetail.RowHeadersWidth = 82;
             dgvWageDetail.Size = new Size(1707, 723);
             dgvWageDetail.TabIndex = 9;
-            // 
-            // colIDWageDetail
-            // 
-            colIDWageDetail.HeaderText = "ID";
-            colIDWageDetail.MinimumWidth = 10;
-            colIDWageDetail.Name = "colIDWageDetail";
-            // 
-            // colWageType
-            // 
-            colWageType.HeaderText = "Loại tiền công";
-            colWageType.MinimumWidth = 10;
-            colWageType.Name = "colWageType";
-            // 
-            // colWageAmount
-            // 
-            colWageAmount.HeaderText = "Số tiền";
-            colWageAmount.MinimumWidth = 10;
-            colWageAmount.Name = "colWageAmount";
             // 
             // btnRemoveWage
             // 
@@ -899,7 +871,6 @@ namespace WinFormsApp
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvBrandDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvBrandDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBrandDetail.Columns.AddRange(new DataGridViewColumn[] { colIDBrandDetail, colBrandName });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11F);
@@ -916,18 +887,6 @@ namespace WinFormsApp
             dgvBrandDetail.RowHeadersWidth = 82;
             dgvBrandDetail.Size = new Size(1707, 723);
             dgvBrandDetail.TabIndex = 9;
-            // 
-            // colIDBrandDetail
-            // 
-            colIDBrandDetail.HeaderText = "ID";
-            colIDBrandDetail.MinimumWidth = 10;
-            colIDBrandDetail.Name = "colIDBrandDetail";
-            // 
-            // colBrandName
-            // 
-            colBrandName.HeaderText = "Hãng xe";
-            colBrandName.MinimumWidth = 10;
-            colBrandName.Name = "colBrandName";
             // 
             // pnlSupplierDetail
             // 
@@ -996,7 +955,6 @@ namespace WinFormsApp
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colIDSupplier, colSupplierName, colSupplierPhoneNumber, colSupplierEmail });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = SystemColors.Window;
             dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 11F);
@@ -1013,30 +971,6 @@ namespace WinFormsApp
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.Size = new Size(1707, 723);
             dataGridView1.TabIndex = 9;
-            // 
-            // colIDSupplier
-            // 
-            colIDSupplier.HeaderText = "ID";
-            colIDSupplier.MinimumWidth = 10;
-            colIDSupplier.Name = "colIDSupplier";
-            // 
-            // colSupplierName
-            // 
-            colSupplierName.HeaderText = "Tên nhà cung cấp";
-            colSupplierName.MinimumWidth = 10;
-            colSupplierName.Name = "colSupplierName";
-            // 
-            // colSupplierPhoneNumber
-            // 
-            colSupplierPhoneNumber.HeaderText = "Số điện thoại";
-            colSupplierPhoneNumber.MinimumWidth = 10;
-            colSupplierPhoneNumber.Name = "colSupplierPhoneNumber";
-            // 
-            // colSupplierEmail
-            // 
-            colSupplierEmail.HeaderText = "Email";
-            colSupplierEmail.MinimumWidth = 10;
-            colSupplierEmail.Name = "colSupplierEmail";
             // 
             // btnRemoveSupplier
             // 
@@ -1179,11 +1113,11 @@ namespace WinFormsApp
             BackColor = SystemColors.Control;
             ClientSize = new Size(1809, 1148);
             Controls.Add(panel1);
+            Controls.Add(pnlSupplierDetail);
             Controls.Add(pnlYourProfile);
             Controls.Add(pnlGarageDetail);
             Controls.Add(pnlWageDetail);
             Controls.Add(pnlBrandDetail);
-            Controls.Add(pnlSupplierDetail);
             Margin = new Padding(6, 4, 6, 4);
             Name = "fOption";
             StartPosition = FormStartPosition.CenterParent;
@@ -1283,14 +1217,5 @@ namespace WinFormsApp
         private Label lblSupplierDetail;
         private Label lblBrandDetail;
         private Label lblWageDetail;
-        private DataGridViewTextBoxColumn colIDBrandDetail;
-        private DataGridViewTextBoxColumn colBrandName;
-        private DataGridViewTextBoxColumn colIDWageDetail;
-        private DataGridViewTextBoxColumn colWageType;
-        private DataGridViewTextBoxColumn colWageAmount;
-        private DataGridViewTextBoxColumn colIDSupplier;
-        private DataGridViewTextBoxColumn colSupplierName;
-        private DataGridViewTextBoxColumn colSupplierPhoneNumber;
-        private DataGridViewTextBoxColumn colSupplierEmail;
     }
 }

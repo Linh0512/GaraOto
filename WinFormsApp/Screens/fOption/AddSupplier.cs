@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.DAO;
+using WinFormsApp.Model;
 
 namespace WinFormsApp.MainScene.fOption
 {
@@ -25,6 +27,20 @@ namespace WinFormsApp.MainScene.fOption
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                
+                MessageBox.Show("Thêm nhà cung cấp thành công.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
     }
 }
