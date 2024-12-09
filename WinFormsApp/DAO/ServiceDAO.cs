@@ -57,7 +57,7 @@ namespace WinFormsApp.DAO
                     connection.Close();
                 }
                 catch (Exception ex)
-                {
+        {
                     throw new InvalidOperationException("Lỗi kết nối: " + ex.Message, ex);
                 }
             }

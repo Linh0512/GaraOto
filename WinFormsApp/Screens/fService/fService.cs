@@ -141,5 +141,14 @@ namespace WinFormsApp
             ServiceDAO.Instance.DelCar(plateLicense);
             this.LoadCarData();
         }
+
+        private void bnFind_Click(object sender, EventArgs e)
+        {
+            string s = cbbChuXe.Text;
+            if (!string.IsNullOrEmpty(s))
+            {
+                dgvService.DataSource = ServiceDAO.instance.FindBaseName(s);
+            }
+        }
     }
 }
