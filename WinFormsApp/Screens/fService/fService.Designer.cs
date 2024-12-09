@@ -199,7 +199,7 @@
             bnChiTiet.TabIndex = 4;
             bnChiTiet.Text = "Chi tiết";
             bnChiTiet.UseVisualStyleBackColor = true;
-            bnChiTiet.Click += bnChiTiet_Click;
+            bnChiTiet.Click += bnDetail_Click;
             // 
             // bnXoa
             // 

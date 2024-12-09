@@ -58,7 +58,7 @@ namespace WinFormsApp.DAO
                 }
                 catch (Exception ex)
                 {
-                    throw new InvalidOperationException("Lỗi kết nối: " + ex.Message, ex);
+                    MessageBox.Show("Xóa xe thất bại, xe được tham chiếu bởi bảng khác");
                 }
             }
             

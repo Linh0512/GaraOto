@@ -17,6 +17,13 @@ namespace WinFormsApp.Screens.fService
             InitializeComponent();
         }
 
+        private void fInforCar_Load(object sender, EventArgs e)
+        {
+            //dgvService
+
+            //lbCustomerName.Text = 
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 

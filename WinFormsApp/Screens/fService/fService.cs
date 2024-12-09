@@ -129,10 +129,35 @@ namespace WinFormsApp
 
         }
 
-        private void bnChiTiet_Click(object sender, EventArgs e)
+        private void bnDetail_Click(object sender, EventArgs e)
         {
             fInforCar fInforCar = new fInforCar();
-            fInforCar.ShowDialog();
+            if (dgvService.SelectedRows.Count > 0)
+            {
+                string customerName = dgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
+                string licensePlate = dgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
+                string carBrand = dgvService.SelectedRows[0].Cells["HieuXe"].Value.ToString();
+                string phone = dgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
+                string address = dgvService.SelectedRows[0].Cells["DiaChi"].Value.ToString();
+                string date = dgvService.SelectedRows[0].Cells["NgayTiepNhan"].Value.ToString();
+                string debt = dgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
+
+                // Tạo form và thiết lập property
+                fInforCar f = new fInforCar();
+                fInforCar.lbCustomerName.Text = customerName;
+                fInforCar.lbPlateLicense.Text = licensePlate;
+                fInforCar.lbCarBrand.Text = carBrand;
+                fInforCar.lbPhone.Text = phone;
+                fInforCar.lbAddress.Text = address;
+                fInforCar.dtpDateReceived.Text = date;
+                fInforCar.lbDebt.Text = debt;
+
+                fInforCar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row before viewing details.");
+            }
         }
 
         private void bnDelete_Click(object sender, EventArgs e)
