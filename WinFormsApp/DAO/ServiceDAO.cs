@@ -15,6 +15,14 @@ namespace WinFormsApp.DAO
     internal class ServiceDAO
     {
         public static ServiceDAO Instance = new ServiceDAO();
+
+        public void LoadCarData(string query, DataGridView dtgv)
+        {
+            //string query = "SELECT * FROM dbo.XE";
+            DataProvider dataProvider = new DataProvider();
+            dtgv.DataSource = dataProvider.ExecuteQuery(query);
+        }
+
         public void AddCar(Car car)
         {
             string query = "INSERT INTO dbo.XE (BienSo, TenChuXe, HieuXe, DienThoai, DiaChi, NgayTiepNhan, TienNo) " +
@@ -61,7 +69,13 @@ namespace WinFormsApp.DAO
                     MessageBox.Show("Xóa xe thất bại, xe được tham chiếu bởi bảng khác");
                 }
             }
-            
         }
+
+        public DataTable FindCar(string plateLicense)
+        {
+            string query = string.Format("SELECT * FROM dbo.XE WHERE BienSo = '{0}'", plateLicense.Replace("'", "''"));
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
     }
 }

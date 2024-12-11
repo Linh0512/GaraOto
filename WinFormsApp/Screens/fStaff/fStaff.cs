@@ -9,13 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
 using WinFormsApp.MainScene;
 using WinFormsApp.MainScene.fStaff;
-=======
-using WinFormsApp.MainScene;
-using WinFormsApp.MainScene.fStaff;
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
 using WinFormsApp.DAO;
 using ClosedXML.Excel;
 

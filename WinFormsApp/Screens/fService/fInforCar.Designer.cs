@@ -100,15 +100,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-<<<<<<< HEAD
-            panel1.Margin = new Padding(4, 3, 4, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(990, 53);
-=======
             panel1.Margin = new Padding(6, 6, 6, 6);
             panel1.Name = "panel1";
             panel1.Size = new Size(1829, 113);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel1.TabIndex = 0;
             // 
             // label1
@@ -116,13 +110,8 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            label1.Location = new Point(338, 9);
-            label1.Margin = new Padding(4, 0, 4, 0);
-=======
             label1.Location = new Point(628, 19);
             label1.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label1.Name = "label1";
             label1.Size = new Size(573, 71);
             label1.TabIndex = 0;
@@ -142,13 +131,8 @@
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
-<<<<<<< HEAD
-            panel2.Location = new Point(1, 66);
-            panel2.Margin = new Padding(4, 3, 4, 3);
-=======
             panel2.Location = new Point(0, 126);
             panel2.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel2.Name = "panel2";
             panel2.Size = new Size(479, 1109);
             panel2.TabIndex = 1;
@@ -158,13 +142,8 @@
             btnChangeInfo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnChangeInfo.BackColor = Color.AliceBlue;
             btnChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnChangeInfo.Location = new Point(46, 452);
-            btnChangeInfo.Margin = new Padding(4, 3, 4, 3);
-=======
             btnChangeInfo.Location = new Point(84, 975);
             btnChangeInfo.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             btnChangeInfo.Name = "btnChangeInfo";
             btnChangeInfo.Size = new Size(297, 94);
             btnChangeInfo.TabIndex = 9;
@@ -176,13 +155,8 @@
             label16.AutoSize = true;
             label16.BackColor = Color.Beige;
             label16.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            label16.Location = new Point(46, 3);
-            label16.Margin = new Padding(4, 0, 4, 0);
-=======
             label16.Location = new Point(84, 6);
             label16.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label16.Name = "label16";
             label16.Size = new Size(292, 50);
             label16.TabIndex = 8;
@@ -194,13 +168,8 @@
             panel11.BackColor = SystemColors.Control;
             panel11.Controls.Add(label15);
             panel11.Controls.Add(dtpDateFix);
-<<<<<<< HEAD
-            panel11.Location = new Point(7, 404);
-            panel11.Margin = new Padding(4, 3, 4, 3);
-=======
             panel11.Location = new Point(13, 860);
             panel11.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel11.Name = "panel11";
             panel11.Size = new Size(461, 102);
             panel11.TabIndex = 7;
@@ -209,13 +178,8 @@
             // 
             label15.AutoSize = true;
             label15.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label15.Location = new Point(5, 4);
-            label15.Margin = new Padding(4, 0, 4, 0);
-=======
             label15.Location = new Point(9, 9);
             label15.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label15.Name = "label15";
             label15.Size = new Size(171, 32);
             label15.TabIndex = 1;
@@ -223,13 +187,8 @@
             // 
             // dtpDateFix
             // 
-<<<<<<< HEAD
-            dtpDateFix.Location = new Point(4, 22);
-            dtpDateFix.Margin = new Padding(4, 3, 4, 3);
-=======
             dtpDateFix.Location = new Point(6, 47);
             dtpDateFix.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             dtpDateFix.Name = "dtpDateFix";
             dtpDateFix.Size = new Size(368, 39);
             dtpDateFix.TabIndex = 0;
@@ -240,13 +199,8 @@
             panel10.BackColor = SystemColors.Control;
             panel10.Controls.Add(label14);
             panel10.Controls.Add(dtpDateReceived);
-<<<<<<< HEAD
-            panel10.Location = new Point(7, 350);
-            panel10.Margin = new Padding(4, 3, 4, 3);
-=======
             panel10.Location = new Point(13, 745);
             panel10.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel10.Name = "panel10";
             panel10.Size = new Size(461, 102);
             panel10.TabIndex = 6;
@@ -255,13 +209,8 @@
             // 
             label14.AutoSize = true;
             label14.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label14.Location = new Point(5, 4);
-            label14.Margin = new Padding(4, 0, 4, 0);
-=======
             label14.Location = new Point(9, 9);
             label14.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label14.Name = "label14";
             label14.Size = new Size(179, 32);
             label14.TabIndex = 1;
@@ -269,13 +218,8 @@
             // 
             // dtpDateReceived
             // 
-<<<<<<< HEAD
-            dtpDateReceived.Location = new Point(4, 22);
-            dtpDateReceived.Margin = new Padding(4, 3, 4, 3);
-=======
             dtpDateReceived.Location = new Point(6, 47);
             dtpDateReceived.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             dtpDateReceived.Name = "dtpDateReceived";
             dtpDateReceived.Size = new Size(368, 39);
             dtpDateReceived.TabIndex = 0;
@@ -288,17 +232,10 @@
             panel9.Controls.Add(lbDebt);
             panel9.Controls.Add(label13);
             panel9.Controls.Add(pictureBox6);
-<<<<<<< HEAD
-            panel9.Location = new Point(7, 296);
-            panel9.Margin = new Padding(4, 3, 4, 3);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(248, 46);
-=======
             panel9.Location = new Point(13, 631);
             panel9.Margin = new Padding(6, 6, 6, 6);
             panel9.Name = "panel9";
             panel9.Size = new Size(461, 100);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel9.TabIndex = 5;
             // 
             // lbDebt
@@ -306,13 +243,8 @@
             lbDebt.AutoSize = true;
             lbDebt.BackColor = SystemColors.ButtonShadow;
             lbDebt.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lbDebt.Location = new Point(66, 18);
-            lbDebt.Margin = new Padding(4, 0, 4, 0);
-=======
             lbDebt.Location = new Point(124, 38);
             lbDebt.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             lbDebt.Name = "lbDebt";
             lbDebt.Size = new Size(184, 40);
             lbDebt.TabIndex = 2;
@@ -323,13 +255,8 @@
             label13.AutoSize = true;
             label13.BackColor = SystemColors.Control;
             label13.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label13.Location = new Point(66, 3);
-            label13.Margin = new Padding(4, 0, 4, 0);
-=======
             label13.Location = new Point(124, 6);
             label13.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label13.Name = "label13";
             label13.Size = new Size(152, 32);
             label13.TabIndex = 1;
@@ -338,13 +265,8 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.user_icon;
-<<<<<<< HEAD
-            pictureBox6.Location = new Point(4, 3);
-            pictureBox6.Margin = new Padding(4, 3, 4, 3);
-=======
             pictureBox6.Location = new Point(6, 6);
             pictureBox6.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(108, 85);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -358,17 +280,10 @@
             panel8.Controls.Add(lbAddress);
             panel8.Controls.Add(label11);
             panel8.Controls.Add(pictureBox5);
-<<<<<<< HEAD
-            panel8.Location = new Point(7, 243);
-            panel8.Margin = new Padding(4, 3, 4, 3);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(248, 46);
-=======
             panel8.Location = new Point(13, 518);
             panel8.Margin = new Padding(6, 6, 6, 6);
             panel8.Name = "panel8";
             panel8.Size = new Size(461, 100);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel8.TabIndex = 4;
             // 
             // lbAddress
@@ -376,13 +291,8 @@
             lbAddress.AutoSize = true;
             lbAddress.BackColor = SystemColors.ButtonShadow;
             lbAddress.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lbAddress.Location = new Point(66, 18);
-            lbAddress.Margin = new Padding(4, 0, 4, 0);
-=======
             lbAddress.Location = new Point(124, 38);
             lbAddress.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             lbAddress.Name = "lbAddress";
             lbAddress.Size = new Size(184, 40);
             lbAddress.TabIndex = 2;
@@ -393,13 +303,8 @@
             label11.AutoSize = true;
             label11.BackColor = SystemColors.Control;
             label11.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label11.Location = new Point(66, 3);
-            label11.Margin = new Padding(4, 0, 4, 0);
-=======
             label11.Location = new Point(124, 6);
             label11.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label11.Name = "label11";
             label11.Size = new Size(87, 32);
             label11.TabIndex = 1;
@@ -408,13 +313,8 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.address_icon;
-<<<<<<< HEAD
-            pictureBox5.Location = new Point(4, 3);
-            pictureBox5.Margin = new Padding(4, 3, 4, 3);
-=======
             pictureBox5.Location = new Point(6, 6);
             pictureBox5.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(108, 85);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -428,17 +328,10 @@
             panel7.Controls.Add(lbPhone);
             panel7.Controls.Add(label9);
             panel7.Controls.Add(pictureBox4);
-<<<<<<< HEAD
-            panel7.Location = new Point(7, 190);
-            panel7.Margin = new Padding(4, 3, 4, 3);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(248, 46);
-=======
             panel7.Location = new Point(13, 405);
             panel7.Margin = new Padding(6, 6, 6, 6);
             panel7.Name = "panel7";
             panel7.Size = new Size(461, 100);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel7.TabIndex = 3;
             // 
             // lbPhone
@@ -446,13 +339,8 @@
             lbPhone.AutoSize = true;
             lbPhone.BackColor = SystemColors.ButtonShadow;
             lbPhone.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lbPhone.Location = new Point(66, 18);
-            lbPhone.Margin = new Padding(4, 0, 4, 0);
-=======
             lbPhone.Location = new Point(124, 38);
             lbPhone.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             lbPhone.Name = "lbPhone";
             lbPhone.Size = new Size(184, 40);
             lbPhone.TabIndex = 2;
@@ -463,13 +351,8 @@
             label9.AutoSize = true;
             label9.BackColor = SystemColors.Control;
             label9.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label9.Location = new Point(66, 3);
-            label9.Margin = new Padding(4, 0, 4, 0);
-=======
             label9.Location = new Point(124, 6);
             label9.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label9.Name = "label9";
             label9.Size = new Size(156, 32);
             label9.TabIndex = 1;
@@ -478,13 +361,8 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.phonenumber_icon;
-<<<<<<< HEAD
-            pictureBox4.Location = new Point(4, 3);
-            pictureBox4.Margin = new Padding(4, 3, 4, 3);
-=======
             pictureBox4.Location = new Point(6, 6);
             pictureBox4.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(108, 85);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -498,17 +376,10 @@
             panel6.Controls.Add(lbCarBrand);
             panel6.Controls.Add(label7);
             panel6.Controls.Add(pictureBox3);
-<<<<<<< HEAD
-            panel6.Location = new Point(7, 136);
-            panel6.Margin = new Padding(4, 3, 4, 3);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(248, 46);
-=======
             panel6.Location = new Point(13, 292);
             panel6.Margin = new Padding(6, 6, 6, 6);
             panel6.Name = "panel6";
             panel6.Size = new Size(461, 100);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel6.TabIndex = 3;
             // 
             // lbCarBrand
@@ -516,13 +387,8 @@
             lbCarBrand.AutoSize = true;
             lbCarBrand.BackColor = SystemColors.ButtonShadow;
             lbCarBrand.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lbCarBrand.Location = new Point(66, 18);
-            lbCarBrand.Margin = new Padding(4, 0, 4, 0);
-=======
             lbCarBrand.Location = new Point(124, 38);
             lbCarBrand.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             lbCarBrand.Name = "lbCarBrand";
             lbCarBrand.Size = new Size(184, 40);
             lbCarBrand.TabIndex = 2;
@@ -533,13 +399,8 @@
             label7.AutoSize = true;
             label7.BackColor = SystemColors.Control;
             label7.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label7.Location = new Point(66, 3);
-            label7.Margin = new Padding(4, 0, 4, 0);
-=======
             label7.Location = new Point(124, 6);
             label7.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label7.Name = "label7";
             label7.Size = new Size(95, 32);
             label7.TabIndex = 1;
@@ -548,13 +409,8 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.user_icon;
-<<<<<<< HEAD
-            pictureBox3.Location = new Point(4, 3);
-            pictureBox3.Margin = new Padding(4, 3, 4, 3);
-=======
             pictureBox3.Location = new Point(6, 6);
             pictureBox3.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(108, 85);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -568,17 +424,10 @@
             panel5.Controls.Add(lbPlateLicense);
             panel5.Controls.Add(label5);
             panel5.Controls.Add(pictureBox2);
-<<<<<<< HEAD
-            panel5.Location = new Point(7, 84);
-            panel5.Margin = new Padding(4, 3, 4, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(248, 46);
-=======
             panel5.Location = new Point(13, 179);
             panel5.Margin = new Padding(6, 6, 6, 6);
             panel5.Name = "panel5";
             panel5.Size = new Size(461, 100);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel5.TabIndex = 1;
             // 
             // lbPlateLicense
@@ -586,13 +435,8 @@
             lbPlateLicense.AutoSize = true;
             lbPlateLicense.BackColor = SystemColors.ButtonShadow;
             lbPlateLicense.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lbPlateLicense.Location = new Point(66, 18);
-            lbPlateLicense.Margin = new Padding(4, 0, 4, 0);
-=======
             lbPlateLicense.Location = new Point(124, 38);
             lbPlateLicense.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             lbPlateLicense.Name = "lbPlateLicense";
             lbPlateLicense.Size = new Size(184, 40);
             lbPlateLicense.TabIndex = 2;
@@ -603,13 +447,8 @@
             label5.AutoSize = true;
             label5.BackColor = SystemColors.Control;
             label5.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label5.Location = new Point(66, 3);
-            label5.Margin = new Padding(4, 0, 4, 0);
-=======
             label5.Location = new Point(124, 6);
             label5.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label5.Name = "label5";
             label5.Size = new Size(123, 32);
             label5.TabIndex = 1;
@@ -618,13 +457,8 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.user_icon;
-<<<<<<< HEAD
-            pictureBox2.Location = new Point(4, 3);
-            pictureBox2.Margin = new Padding(4, 3, 4, 3);
-=======
             pictureBox2.Location = new Point(6, 6);
             pictureBox2.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(108, 85);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -638,17 +472,10 @@
             panel4.Controls.Add(lbCustomerName);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(pictureBox1);
-<<<<<<< HEAD
-            panel4.Location = new Point(7, 31);
-            panel4.Margin = new Padding(4, 3, 4, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(248, 46);
-=======
             panel4.Location = new Point(13, 66);
             panel4.Margin = new Padding(6, 6, 6, 6);
             panel4.Name = "panel4";
             panel4.Size = new Size(461, 100);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel4.TabIndex = 0;
             // 
             // lbCustomerName
@@ -656,13 +483,8 @@
             lbCustomerName.AutoSize = true;
             lbCustomerName.BackColor = SystemColors.ButtonShadow;
             lbCustomerName.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lbCustomerName.Location = new Point(66, 18);
-            lbCustomerName.Margin = new Padding(4, 0, 4, 0);
-=======
             lbCustomerName.Location = new Point(124, 38);
             lbCustomerName.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             lbCustomerName.Name = "lbCustomerName";
             lbCustomerName.Size = new Size(184, 40);
             lbCustomerName.TabIndex = 2;
@@ -673,13 +495,8 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.Control;
             label2.ForeColor = SystemColors.ControlDarkDark;
-<<<<<<< HEAD
-            label2.Location = new Point(66, 3);
-            label2.Margin = new Padding(4, 0, 4, 0);
-=======
             label2.Location = new Point(124, 6);
             label2.Margin = new Padding(6, 0, 6, 0);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             label2.Name = "label2";
             label2.Size = new Size(129, 32);
             label2.TabIndex = 1;
@@ -688,13 +505,8 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.user_icon;
-<<<<<<< HEAD
-            pictureBox1.Location = new Point(4, 3);
-            pictureBox1.Margin = new Padding(4, 3, 4, 3);
-=======
             pictureBox1.Location = new Point(6, 6);
             pictureBox1.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(108, 85);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -705,13 +517,8 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.Controls.Add(dtgvServiceCar);
-<<<<<<< HEAD
-            panel3.Location = new Point(259, 59);
-            panel3.Margin = new Padding(4, 3, 4, 3);
-=======
             panel3.Location = new Point(481, 126);
             panel3.Margin = new Padding(6, 6, 6, 6);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel3.Name = "panel3";
             panel3.Size = new Size(1367, 962);
             panel3.TabIndex = 2;
@@ -720,19 +527,11 @@
             // 
             dtgvServiceCar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dtgvServiceCar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
-            dtgvServiceCar.Location = new Point(6, 0);
-            dtgvServiceCar.Margin = new Padding(4, 3, 4, 3);
-            dtgvServiceCar.Name = "dtgvServiceCar";
-            dtgvServiceCar.RowHeadersWidth = 82;
-            dtgvServiceCar.Size = new Size(730, 451);
-=======
             dtgvServiceCar.Location = new Point(11, 0);
             dtgvServiceCar.Margin = new Padding(6, 6, 6, 6);
             dtgvServiceCar.Name = "dtgvServiceCar";
             dtgvServiceCar.RowHeadersWidth = 82;
             dtgvServiceCar.Size = new Size(1356, 962);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             dtgvServiceCar.TabIndex = 0;
             // 
             // btnAddService
@@ -740,17 +539,10 @@
             btnAddService.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnAddService.BackColor = Color.AliceBlue;
             btnAddService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnAddService.Location = new Point(4, 3);
-            btnAddService.Margin = new Padding(4, 3, 4, 3);
-            btnAddService.Name = "btnAddService";
-            btnAddService.Size = new Size(77, 40);
-=======
             btnAddService.Location = new Point(6, 6);
             btnAddService.Margin = new Padding(6, 6, 6, 6);
             btnAddService.Name = "btnAddService";
             btnAddService.Size = new Size(143, 87);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             btnAddService.TabIndex = 10;
             btnAddService.Text = "Thêm";
             btnAddService.UseVisualStyleBackColor = false;
@@ -762,17 +554,10 @@
             panel12.Controls.Add(btnChangeService);
             panel12.Controls.Add(btnDelService);
             panel12.Controls.Add(btnAddService);
-<<<<<<< HEAD
-            panel12.Location = new Point(262, 516);
-            panel12.Margin = new Padding(4, 3, 4, 3);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(318, 46);
-=======
             panel12.Location = new Point(487, 1101);
             panel12.Margin = new Padding(6, 6, 6, 6);
             panel12.Name = "panel12";
             panel12.Size = new Size(591, 47);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel12.TabIndex = 3;
             // 
             // btnChangeService
@@ -780,17 +565,10 @@
             btnChangeService.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnChangeService.BackColor = Color.AliceBlue;
             btnChangeService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnChangeService.Location = new Point(209, 3);
-            btnChangeService.Margin = new Padding(4, 3, 4, 3);
-            btnChangeService.Name = "btnChangeService";
-            btnChangeService.Size = new Size(77, 40);
-=======
             btnChangeService.Location = new Point(388, 6);
             btnChangeService.Margin = new Padding(6, 6, 6, 6);
             btnChangeService.Name = "btnChangeService";
             btnChangeService.Size = new Size(143, 87);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             btnChangeService.TabIndex = 12;
             btnChangeService.Text = "Sửa";
             btnChangeService.UseVisualStyleBackColor = false;
@@ -801,17 +579,10 @@
             btnDelService.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnDelService.BackColor = Color.AliceBlue;
             btnDelService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnDelService.Location = new Point(107, 2);
-            btnDelService.Margin = new Padding(4, 3, 4, 3);
-            btnDelService.Name = "btnDelService";
-            btnDelService.Size = new Size(77, 40);
-=======
             btnDelService.Location = new Point(199, 4);
             btnDelService.Margin = new Padding(6, 6, 6, 6);
             btnDelService.Name = "btnDelService";
             btnDelService.Size = new Size(143, 87);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             btnDelService.TabIndex = 11;
             btnDelService.Text = "Xóa";
             btnDelService.UseVisualStyleBackColor = false;
@@ -821,17 +592,10 @@
             panel13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel13.Controls.Add(btnCLose);
             panel13.Controls.Add(btnPay);
-<<<<<<< HEAD
-            panel13.Location = new Point(665, 516);
-            panel13.Margin = new Padding(4, 3, 4, 3);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(318, 46);
-=======
             panel13.Location = new Point(1235, 1101);
             panel13.Margin = new Padding(6, 6, 6, 6);
             panel13.Name = "panel13";
             panel13.Size = new Size(591, 47);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             panel13.TabIndex = 4;
             // 
             // btnCLose
@@ -839,17 +603,10 @@
             btnCLose.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnCLose.BackColor = Color.SandyBrown;
             btnCLose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnCLose.Location = new Point(225, 2);
-            btnCLose.Margin = new Padding(4, 3, 4, 3);
-            btnCLose.Name = "btnCLose";
-            btnCLose.Size = new Size(77, 40);
-=======
             btnCLose.Location = new Point(418, 4);
             btnCLose.Margin = new Padding(6, 6, 6, 6);
             btnCLose.Name = "btnCLose";
             btnCLose.Size = new Size(143, 87);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             btnCLose.TabIndex = 11;
             btnCLose.Text = "Đóng";
             btnCLose.UseVisualStyleBackColor = false;
@@ -860,17 +617,10 @@
             btnPay.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnPay.BackColor = SystemColors.ActiveCaption;
             btnPay.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnPay.Location = new Point(46, 3);
-            btnPay.Margin = new Padding(4, 3, 4, 3);
-            btnPay.Name = "btnPay";
-            btnPay.Size = new Size(106, 40);
-=======
             btnPay.Location = new Point(85, 6);
             btnPay.Margin = new Padding(6, 6, 6, 6);
             btnPay.Name = "btnPay";
             btnPay.Size = new Size(197, 87);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             btnPay.TabIndex = 10;
             btnPay.Text = "Thanh toán";
             btnPay.UseVisualStyleBackColor = false;
@@ -879,29 +629,18 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD
-            ClientSize = new Size(990, 571);
-=======
             ClientSize = new Size(1829, 1152);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             Controls.Add(panel13);
             Controls.Add(panel12);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-<<<<<<< HEAD
-            Margin = new Padding(4, 3, 4, 3);
-            MaximumSize = new Size(1006, 610);
-            MinimumSize = new Size(1006, 610);
-=======
             Margin = new Padding(6, 6, 6, 6);
             MaximumSize = new Size(1855, 1223);
             MinimumSize = new Size(1855, 1223);
->>>>>>> 28dec8202fa6123765a03f9f60166575f74d2159
             Name = "fInforCar";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Thông tin dịch vụ";
-            Load += fInforCar_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -967,7 +706,7 @@
         private Label label2;
         private PictureBox pictureBox1;
         private Panel panel3;
-        private DataGridView dtgvServiceCar;
+        public DataGridView dtgvServiceCar;
         private Label label14;
         private Label label16;
         private Panel panel11;

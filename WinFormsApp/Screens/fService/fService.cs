@@ -33,8 +33,7 @@ namespace WinFormsApp.Screens.Service
         private void LoadCarData()
         {
             string query = "SELECT * FROM dbo.XE";
-            DataProvider dataProvider = new DataProvider();
-            dgvService.DataSource = dataProvider.ExecuteQuery(query);
+            ServiceDAO.Instance.LoadCarData(query, dgvService);
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -169,8 +168,30 @@ namespace WinFormsApp.Screens.Service
 
         private void bnFind_Click(object sender, EventArgs e)
         {
-            string plateLicense = (string)dgvService.SelectedRows[0].Cells["BienSo"].Value;
-            
+            string plateLicense = cbbLicensePlate.Text;
+
+            // Gọi phương thức FindCar để tìm kiếm dữ liệu
+            DataTable result = ServiceDAO.Instance.FindCar(plateLicense);
+
+            if (result.Rows.Count > 0)
+            {
+                dgvService.DataSource = result;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy xe với biển số này.");
+                this.LoadCarData();
+            }
+        }
+
+        private void cbbChuXe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bnRefresh_Click(object sender, EventArgs e)
+        {
+            this.LoadCarData();
         }
     }
 }
