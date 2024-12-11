@@ -121,10 +121,8 @@ CREATE TABLE NHACUNGCAP
 (
     MaNCC     char(10),
     TenNCC    nvarchar(100),
-    DiaChi    nvarchar(200),
-    DienThoai varchar(20),
+    SDT varchar(20),
     Email     varchar(50),
-    TrangThai bit DEFAULT 1, -- 1: Đang hoạt động, 0: Ngừng hoạt động
     CONSTRAINT PK_NHACUNGCAP PRIMARY KEY (MaNCC)
 )
 
@@ -156,12 +154,6 @@ alter table CT_PSC
 alter table PHIEUTHUTIEN
     add constraint FK_PHIEUTHUTIEN foreign key (BienSo) references XE (BienSo)
 
-ALTER TABLE PHIEUNHAPKHOVTPT
-    ADD MaNCC char(10)
-
-ALTER TABLE PHIEUNHAPKHOVTPT
-    ADD CONSTRAINT FK_PHIEUNHAPKHO_NCC
-        FOREIGN KEY (MaNCC) REFERENCES NHACUNGCAP (MaNCC)
 USE QUANLIGARA
 GO
 CREATE TABLE NHANVIEN

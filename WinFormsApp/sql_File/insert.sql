@@ -255,17 +255,17 @@ VALUES (N'Quản lý'),
 insert into NHANVIEN
 VALUES ('Tuan', '123', N'Lâm Minh Tuấn', '098', '@gmail', 'TPHCM', N'Quản lý')
 
-INSERT INTO NHACUNGCAP(MaNCC, TenNCC, DiaChi, SDT, Email)
-VALUES ('NCC001', N'Công ty TNHH Phụ tùng ô tô Thành Phát', N'123 Nguyễn Văn Linh, Quận 7, TP.HCM', '028123456',
-        'thanhphat@gmail.com'),
-       ('NCC002', N'Công ty CP Phụ tùng xe Đông Á', N'456 Lê Trọng Tấn, Quận Tân Phú, TP.HCM', '028789012',
-        'donga@gmail.com'),
-       ('NCC003', N'Công ty TNHH Toyota Việt Nam', N'789 Điện Biên Phủ, Quận Bình Thạnh, TP.HCM', '028345678',
-        'toyota@gmail.com'),
-       ('NCC004', N'Công ty TNHH Honda Việt Nam', N'321 Nguyễn Thị Minh Khai, Quận 1, TP.HCM', '028901234',
-        'honda@gmail.com'),
-       ('NCC005', N'Công ty TNHH Phụ tùng ô tô Hoàng Long', N'147 Võ Văn Kiệt, Quận 5, TP.HCM', '028567890',
-        'hoanglong@gmail.com')
+INSERT INTO NHACUNGCAP(MaNCC, TenNCC, SDT, Email)
+VALUES ('NCC001', N'Công ty 1','028123456',
+        '1@gmail.com'),
+       ('NCC002', N'Công ty 2', '028789012',
+        '2@gmail.com'),
+       ('NCC003', N'Công ty 3', '028345678',
+        '3@gmail.com'),
+       ('NCC004', N'Công ty 4', '028901234',
+        '4@gmail.com'),
+       ('NCC005', N'Công ty 5', '028567890',
+        '5@gmail.com')
 
 INSERT INTO PHIEUSUACHUA(MaPSC, BienSo, NgaySuaChua, TongTien)
 VALUES ('PSC001', '72F-48539', '2022-05-06', 2500000),
@@ -302,3 +302,4 @@ VALUES ('NK001', 'PT201', N'Ắc quy', 10, 1800000),
        ('NK003', 'PT209', N'Đèn pha trước', 8, 1200000),
        ('NK004', 'PT218', N'Bầu lọc gió', 15, 1100000),
        ('NK005', 'PT221', N'Piston', 10, 1000000)
+
