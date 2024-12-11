@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.MainScene
+﻿namespace WinFormsApp.MainScenne
 {
     partial class fAddCar
     {

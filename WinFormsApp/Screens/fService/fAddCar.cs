@@ -1,7 +1,7 @@
 ﻿using WinFormsApp.DAO;
 using WinFormsApp.Model;
 
-namespace WinFormsApp.MainScene
+namespace WinFormsApp.MainScenne
 {
     public partial class fAddCar : Form
     {

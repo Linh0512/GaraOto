@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsApp.MainScene;
-using WinFormsApp.MainScene.fStaff;
+using WinFormsApp.MainScenne;
+using WinFormsApp.MainScenne.fStaff;
+using WinFormsApp.DAO;
+using ClosedXML.Excel;
 
 namespace WinFormsApp
 {

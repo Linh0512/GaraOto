@@ -1,4 +1,4 @@
-using WinFormsApp.MainScene;
+using WinFormsApp.MainScenne;
 
 namespace WinFormsApp
 {

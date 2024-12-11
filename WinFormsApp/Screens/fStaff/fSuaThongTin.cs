@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp.MainScene.fStaff
+namespace WinFormsApp.MainScenne.fStaff
 {
     public partial class fSuaThongTin : Form
     {

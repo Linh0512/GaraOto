@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
-using WinFormsApp.MainScene;
+using WinFormsApp.MainScenne;
 using WinFormsApp.Screens.fService;
 
 namespace WinFormsApp
@@ -165,6 +165,15 @@ namespace WinFormsApp
             string plateLicense = (string)dgvService.SelectedRows[0].Cells["BienSo"].Value;
             ServiceDAO.Instance.DelCar(plateLicense);
             this.LoadCarData();
+        }
+
+        private void bnFind_Click(object sender, EventArgs e)
+        {
+            string s = cbbChuXe.Text;
+            if (!string.IsNullOrEmpty(s))
+            {
+                //dgvService.DataSource = ServiceDAO.instance.FindBaseName(s);
+            }
         }
     }
 }

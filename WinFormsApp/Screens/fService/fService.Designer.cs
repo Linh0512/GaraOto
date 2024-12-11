@@ -62,9 +62,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Margin = new Padding(4, 2, 4, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1036, 58);
+            panel1.Size = new Size(1184, 78);
             panel1.TabIndex = 1;
             // 
             // label1
@@ -74,8 +74,9 @@
             label1.Dock = DockStyle.Top;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(191, 65);
+            label1.Size = new Size(238, 81);
             label1.TabIndex = 1;
             label1.Text = "Service";
             label1.Click += label1_Click_1;
@@ -87,18 +88,18 @@
             panel2.Controls.Add(cbbChuXe);
             panel2.Controls.Add(cbbHieuXe);
             panel2.Controls.Add(cbbLicensePlate);
-            panel2.Location = new Point(0, 76);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(0, 101);
+            panel2.Margin = new Padding(4, 2, 4, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(559, 22);
+            panel2.Size = new Size(639, 29);
             panel2.TabIndex = 2;
             // 
             // dtpDateService
             // 
-            dtpDateService.Location = new Point(326, 1);
-            dtpDateService.Margin = new Padding(3, 2, 3, 2);
+            dtpDateService.Location = new Point(372, 1);
+            dtpDateService.Margin = new Padding(4, 2, 4, 2);
             dtpDateService.Name = "dtpDateService";
-            dtpDateService.Size = new Size(229, 23);
+            dtpDateService.Size = new Size(261, 27);
             dtpDateService.TabIndex = 4;
             dtpDateService.Value = new DateTime(2024, 11, 13, 0, 59, 26, 0);
             // 
@@ -109,11 +110,11 @@
             cbbTienNo.DropDownStyle = ComboBoxStyle.Simple;
             cbbTienNo.FormattingEnabled = true;
             cbbTienNo.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
-            cbbTienNo.Location = new Point(247, 0);
-            cbbTienNo.Margin = new Padding(3, 2, 3, 2);
+            cbbTienNo.Location = new Point(282, 0);
+            cbbTienNo.Margin = new Padding(4, 2, 4, 2);
             cbbTienNo.Name = "cbbTienNo";
             cbbTienNo.RightToLeft = RightToLeft.No;
-            cbbTienNo.Size = new Size(74, 22);
+            cbbTienNo.Size = new Size(84, 28);
             cbbTienNo.TabIndex = 3;
             cbbTienNo.Text = "Tiền nợ";
             cbbTienNo.Click += cbbTienNo_Click;
@@ -124,11 +125,11 @@
             cbbChuXe.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbChuXe.FormattingEnabled = true;
             cbbChuXe.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
-            cbbChuXe.Location = new Point(168, 0);
-            cbbChuXe.Margin = new Padding(3, 2, 3, 2);
+            cbbChuXe.Location = new Point(192, 0);
+            cbbChuXe.Margin = new Padding(4, 2, 4, 2);
             cbbChuXe.Name = "cbbChuXe";
             cbbChuXe.RightToLeft = RightToLeft.No;
-            cbbChuXe.Size = new Size(74, 23);
+            cbbChuXe.Size = new Size(84, 28);
             cbbChuXe.TabIndex = 2;
             cbbChuXe.Text = "Chủ xe";
             cbbChuXe.Click += cbbChuXe_Click;
@@ -139,11 +140,11 @@
             cbbHieuXe.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbHieuXe.FormattingEnabled = true;
             cbbHieuXe.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
-            cbbHieuXe.Location = new Point(89, 0);
-            cbbHieuXe.Margin = new Padding(3, 2, 3, 2);
+            cbbHieuXe.Location = new Point(102, 0);
+            cbbHieuXe.Margin = new Padding(4, 2, 4, 2);
             cbbHieuXe.Name = "cbbHieuXe";
             cbbHieuXe.RightToLeft = RightToLeft.No;
-            cbbHieuXe.Size = new Size(74, 23);
+            cbbHieuXe.Size = new Size(84, 28);
             cbbHieuXe.TabIndex = 1;
             cbbHieuXe.Text = "Hiệu xe";
             cbbHieuXe.Click += cbbHieuXe_Click;
@@ -155,11 +156,11 @@
             cbbLicensePlate.DropDownStyle = ComboBoxStyle.Simple;
             cbbLicensePlate.FormattingEnabled = true;
             cbbLicensePlate.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
-            cbbLicensePlate.Location = new Point(10, 0);
-            cbbLicensePlate.Margin = new Padding(3, 2, 3, 2);
+            cbbLicensePlate.Location = new Point(12, 0);
+            cbbLicensePlate.Margin = new Padding(4, 2, 4, 2);
             cbbLicensePlate.Name = "cbbLicensePlate";
             cbbLicensePlate.RightToLeft = RightToLeft.No;
-            cbbLicensePlate.Size = new Size(74, 22);
+            cbbLicensePlate.Size = new Size(84, 28);
             cbbLicensePlate.TabIndex = 0;
             cbbLicensePlate.Text = "Biển Số";
             cbbLicensePlate.SelectedIndexChanged += cbbLicensePlate_SelectedIndexChanged;
@@ -173,18 +174,18 @@
             panel3.Controls.Add(bnXuat);
             panel3.Controls.Add(bnLamMoi);
             panel3.Controls.Add(bnFind);
-            panel3.Location = new Point(588, 76);
-            panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.Location = new Point(672, 101);
+            panel3.Margin = new Padding(4, 2, 4, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(371, 82);
+            panel3.Size = new Size(424, 109);
             panel3.TabIndex = 3;
             // 
             // bnThemXe
             // 
-            bnThemXe.Location = new Point(273, 20);
-            bnThemXe.Margin = new Padding(3, 2, 3, 2);
+            bnThemXe.Location = new Point(312, 27);
+            bnThemXe.Margin = new Padding(4, 2, 4, 2);
             bnThemXe.Name = "bnThemXe";
-            bnThemXe.Size = new Size(88, 45);
+            bnThemXe.Size = new Size(100, 60);
             bnThemXe.TabIndex = 5;
             bnThemXe.Text = "Thêm xe";
             bnThemXe.UseVisualStyleBackColor = true;
@@ -192,10 +193,10 @@
             // 
             // bnChiTiet
             // 
-            bnChiTiet.Location = new Point(90, 45);
-            bnChiTiet.Margin = new Padding(3, 2, 3, 2);
+            bnChiTiet.Location = new Point(103, 60);
+            bnChiTiet.Margin = new Padding(4, 2, 4, 2);
             bnChiTiet.Name = "bnChiTiet";
-            bnChiTiet.Size = new Size(82, 38);
+            bnChiTiet.Size = new Size(94, 51);
             bnChiTiet.TabIndex = 4;
             bnChiTiet.Text = "Chi tiết";
             bnChiTiet.UseVisualStyleBackColor = true;
@@ -203,10 +204,10 @@
             // 
             // bnXoa
             // 
-            bnXoa.Location = new Point(0, 45);
-            bnXoa.Margin = new Padding(3, 2, 3, 2);
+            bnXoa.Location = new Point(0, 60);
+            bnXoa.Margin = new Padding(4, 2, 4, 2);
             bnXoa.Name = "bnXoa";
-            bnXoa.Size = new Size(82, 38);
+            bnXoa.Size = new Size(94, 51);
             bnXoa.TabIndex = 3;
             bnXoa.Text = "Xóa";
             bnXoa.UseVisualStyleBackColor = true;
@@ -214,20 +215,20 @@
             // 
             // bnXuat
             // 
-            bnXuat.Location = new Point(178, 0);
-            bnXuat.Margin = new Padding(3, 2, 3, 2);
+            bnXuat.Location = new Point(204, 0);
+            bnXuat.Margin = new Padding(4, 2, 4, 2);
             bnXuat.Name = "bnXuat";
-            bnXuat.Size = new Size(82, 38);
+            bnXuat.Size = new Size(94, 51);
             bnXuat.TabIndex = 2;
             bnXuat.Text = "Xuất";
             bnXuat.UseVisualStyleBackColor = true;
             // 
             // bnLamMoi
             // 
-            bnLamMoi.Location = new Point(90, 0);
-            bnLamMoi.Margin = new Padding(3, 2, 3, 2);
+            bnLamMoi.Location = new Point(103, 0);
+            bnLamMoi.Margin = new Padding(4, 2, 4, 2);
             bnLamMoi.Name = "bnLamMoi";
-            bnLamMoi.Size = new Size(82, 38);
+            bnLamMoi.Size = new Size(94, 51);
             bnLamMoi.TabIndex = 1;
             bnLamMoi.Text = "Làm mới";
             bnLamMoi.UseVisualStyleBackColor = true;
@@ -235,9 +236,9 @@
             // bnFind
             // 
             bnFind.Location = new Point(0, 1);
-            bnFind.Margin = new Padding(3, 2, 3, 2);
+            bnFind.Margin = new Padding(4, 2, 4, 2);
             bnFind.Name = "bnFind";
-            bnFind.Size = new Size(82, 38);
+            bnFind.Size = new Size(94, 51);
             bnFind.TabIndex = 0;
             bnFind.Text = "Tìm xe";
             bnFind.UseVisualStyleBackColor = true;
@@ -246,19 +247,19 @@
             // 
             panel4.Controls.Add(cbbTypeCar);
             panel4.Controls.Add(label2);
-            panel4.Location = new Point(10, 105);
-            panel4.Margin = new Padding(3, 2, 3, 2);
+            panel4.Location = new Point(12, 140);
+            panel4.Margin = new Padding(4, 2, 4, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(219, 54);
+            panel4.Size = new Size(250, 72);
             panel4.TabIndex = 5;
             // 
             // cbbTypeCar
             // 
             cbbTypeCar.FormattingEnabled = true;
-            cbbTypeCar.Location = new Point(10, 22);
-            cbbTypeCar.Margin = new Padding(3, 2, 3, 2);
+            cbbTypeCar.Location = new Point(12, 29);
+            cbbTypeCar.Margin = new Padding(4, 2, 4, 2);
             cbbTypeCar.Name = "cbbTypeCar";
-            cbbTypeCar.Size = new Size(207, 23);
+            cbbTypeCar.Size = new Size(236, 28);
             cbbTypeCar.TabIndex = 1;
             cbbTypeCar.Text = "Tất cả";
             // 
@@ -266,18 +267,19 @@
             // 
             label2.AutoSize = true;
             label2.Location = new Point(0, 0);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(148, 15);
+            label2.Size = new Size(184, 20);
             label2.TabIndex = 0;
             label2.Text = "Hiển thị danh sách xe theo";
             // 
             // panel5
             // 
             panel5.Controls.Add(dgvService);
-            panel5.Location = new Point(10, 175);
-            panel5.Margin = new Padding(3, 2, 3, 2);
+            panel5.Location = new Point(12, 233);
+            panel5.Margin = new Padding(4, 2, 4, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1052, 414);
+            panel5.Size = new Size(1202, 552);
             panel5.TabIndex = 6;
             // 
             // dgvService
@@ -289,12 +291,12 @@
             dgvService.BackgroundColor = SystemColors.ButtonHighlight;
             dgvService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvService.GridColor = SystemColors.InactiveCaptionText;
-            dgvService.Location = new Point(10, 2);
-            dgvService.Margin = new Padding(3, 2, 3, 2);
+            dgvService.Location = new Point(12, 2);
+            dgvService.Margin = new Padding(4, 2, 4, 2);
             dgvService.Name = "dgvService";
             dgvService.RowHeadersWidth = 51;
             dgvService.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvService.Size = new Size(1040, 401);
+            dgvService.Size = new Size(1188, 534);
             dgvService.TabIndex = 4;
             dgvService.TabStop = false;
             dgvService.CellContentClick += dgvService_CellContentClick;
@@ -302,15 +304,15 @@
             // 
             // fService
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1036, 550);
+            ClientSize = new Size(1184, 733);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "fService";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Service";
