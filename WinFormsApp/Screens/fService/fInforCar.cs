@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp.Screens.fService
+namespace WinFormsApp.Screens.fService.InforCar
 {
     public partial class fInforCar : Form
     {
@@ -19,9 +20,12 @@ namespace WinFormsApp.Screens.fService
 
         private void fInforCar_Load(object sender, EventArgs e)
         {
-            //dgvService
 
-            //lbCustomerName.Text = 
+        }
+
+        private void Test()
+        {
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.MainScenne
+﻿namespace WinFormsApp.Screens.fService.AddCar
 {
     partial class fAddCar
     {

@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
-using WinFormsApp.MainScenne;
-using WinFormsApp.Screens.fService;
+using WinFormsApp.Screens.fService.InforCar;
+using WinFormsApp.Screens.fService.AddCar;
 
-namespace WinFormsApp
+namespace WinFormsApp.Screens.fService.Service
 {
     public partial class fService : Form
     {
@@ -131,28 +132,27 @@ namespace WinFormsApp
 
         private void bnDetail_Click(object sender, EventArgs e)
         {
-            fInforCar fInforCar = new fInforCar();
+            fInforCar f = new fInforCar();
+            Console.WriteLine(dgvService.SelectedRows.Count);
             if (dgvService.SelectedRows.Count > 0)
             {
                 string customerName = dgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
                 string licensePlate = dgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
                 string carBrand = dgvService.SelectedRows[0].Cells["HieuXe"].Value.ToString();
-                string phone = dgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
+                string phoneNumber = dgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
                 string address = dgvService.SelectedRows[0].Cells["DiaChi"].Value.ToString();
                 string date = dgvService.SelectedRows[0].Cells["NgayTiepNhan"].Value.ToString();
                 string debt = dgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
 
-                // Tạo form và thiết lập property
-                fInforCar f = new fInforCar();
-                fInforCar.lbCustomerName.Text = customerName;
-                fInforCar.lbPlateLicense.Text = licensePlate;
-                fInforCar.lbCarBrand.Text = carBrand;
-                fInforCar.lbPhone.Text = phone;
-                fInforCar.lbAddress.Text = address;
-                fInforCar.dtpDateReceived.Text = date;
-                fInforCar.lbDebt.Text = debt;
-
-                fInforCar.ShowDialog();
+                // Truyền thông tin sang fInforCar
+                f.lbCustomerName.Text = customerName;
+                f.lbPlateLicense.Text = licensePlate;
+                f.lbCarBrand.Text = carBrand;
+                f.lbPhone.Text = phoneNumber;
+                f.lbAddress.Text = address;
+                f.dtpDateReceived.Text = date;
+                f.lbDebt.Text = debt;
+                f.ShowDialog();
             }
             else
             {
@@ -169,11 +169,8 @@ namespace WinFormsApp
 
         private void bnFind_Click(object sender, EventArgs e)
         {
-            string s = cbbChuXe.Text;
-            if (!string.IsNullOrEmpty(s))
-            {
-                //dgvService.DataSource = ServiceDAO.instance.FindBaseName(s);
-            }
+            string plateLicense = (string)dgvService.SelectedRows[0].Cells["BienSo"].Value;
+            
         }
     }
 }
