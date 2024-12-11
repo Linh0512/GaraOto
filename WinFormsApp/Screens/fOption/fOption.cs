@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
-using WinFormsApp.MainScenne.fOption;
+using WinFormsApp.MainScene.fOption;
 
 namespace WinFormsApp
 {
@@ -10,6 +10,9 @@ namespace WinFormsApp
         public fOption()
         {
             InitializeComponent();
+            this.LoadWageData();
+            this.LoadBrandData();
+            this.LoadSupplierData();
         }
 
         private void fOption_Load(object sender, EventArgs e)
@@ -28,29 +31,22 @@ namespace WinFormsApp
             panelToShow.Visible = true;
         }
 
-        private void btnProfile_Click(object sender, EventArgs e)
+        private void LoadWageData()
         {
-            ShowPanel(pnlYourProfile);
+            string query = "SELECT * FROM dbo.TIENCONG";
+            DataProvider dataProvider = new DataProvider();
+            dgvWageDetail.DataSource = dataProvider.ExecuteQuery(query);
         }
 
-        private void btnGarageDetail_Click(object sender, EventArgs e)
+        private void LoadBrandData()
         {
-            ShowPanel(pnlGarageDetail);
+            string query = "SELECT * FROM dbo.HIEUXE";
+            DataProvider dataProvider = new DataProvider();
+            dgvBrandDetail.DataSource = dataProvider.ExecuteQuery(query);
         }
 
-        private void btnWageDetail_Click(object sender, EventArgs e)
+        private void LoadSupplierData()
         {
-            ShowPanel(pnlWageDetail);
-        }
-
-        private void btnBrandDetail_Click(object sender, EventArgs e)
-        {
-            ShowPanel(pnlBrandDetail);
-        }
-
-        private void btnSupplierDetail_Click(object sender, EventArgs e)
-        {
-            ShowPanel(pnlSupplierDetail);
         }
 
         private void btnAddWage_Click(object sender, EventArgs e)
@@ -81,9 +77,29 @@ namespace WinFormsApp
             this.Show();
         }
 
-        private void lblUsername_Click(object sender, EventArgs e)
+        private void lblAccount_Click(object sender, EventArgs e)
         {
+            ShowPanel(pnlYourProfile);
+        }
 
+        private void lblGarageDetail_Click(object sender, EventArgs e)
+        {
+            ShowPanel(pnlGarageDetail);
+        }
+
+        private void lblWageDetail_Click(object sender, EventArgs e)
+        {
+            ShowPanel(pnlWageDetail);
+        }
+
+        private void lblBrandDetail_Click(object sender, EventArgs e)
+        {
+            ShowPanel(pnlBrandDetail);
+        }
+
+        private void lblSupplierDetail_Click(object sender, EventArgs e)
+        {
+            ShowPanel(pnlSupplierDetail);
         }
     }
 }

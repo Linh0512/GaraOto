@@ -113,7 +113,7 @@
             label1.Location = new Point(338, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(290, 37);
+            label1.Size = new Size(573, 71);
             label1.TabIndex = 0;
             label1.Text = "Thông tin và dịch vụ xe";
             // 
@@ -134,7 +134,7 @@
             panel2.Location = new Point(1, 66);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(258, 520);
+            panel2.Size = new Size(479, 1109);
             panel2.TabIndex = 1;
             // 
             // btnChangeInfo
@@ -145,7 +145,7 @@
             btnChangeInfo.Location = new Point(46, 452);
             btnChangeInfo.Margin = new Padding(4, 3, 4, 3);
             btnChangeInfo.Name = "btnChangeInfo";
-            btnChangeInfo.Size = new Size(160, 44);
+            btnChangeInfo.Size = new Size(297, 94);
             btnChangeInfo.TabIndex = 9;
             btnChangeInfo.Text = "Thay đổi thông tin";
             btnChangeInfo.UseVisualStyleBackColor = false;
@@ -158,7 +158,7 @@
             label16.Location = new Point(46, 3);
             label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(151, 25);
+            label16.Size = new Size(292, 50);
             label16.TabIndex = 8;
             label16.Text = "Thông tin chung";
             // 
@@ -171,7 +171,7 @@
             panel11.Location = new Point(7, 404);
             panel11.Margin = new Padding(4, 3, 4, 3);
             panel11.Name = "panel11";
-            panel11.Size = new Size(248, 48);
+            panel11.Size = new Size(461, 102);
             panel11.TabIndex = 7;
             // 
             // label15
@@ -181,7 +181,7 @@
             label15.Location = new Point(5, 4);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new Size(85, 15);
+            label15.Size = new Size(171, 32);
             label15.TabIndex = 1;
             label15.Text = "Ngày sửa chữa";
             // 
@@ -190,7 +190,7 @@
             dtpDateFix.Location = new Point(4, 22);
             dtpDateFix.Margin = new Padding(4, 3, 4, 3);
             dtpDateFix.Name = "dtpDateFix";
-            dtpDateFix.Size = new Size(200, 23);
+            dtpDateFix.Size = new Size(368, 39);
             dtpDateFix.TabIndex = 0;
             // 
             // panel10
@@ -202,7 +202,7 @@
             panel10.Location = new Point(7, 350);
             panel10.Margin = new Padding(4, 3, 4, 3);
             panel10.Name = "panel10";
-            panel10.Size = new Size(248, 48);
+            panel10.Size = new Size(461, 102);
             panel10.TabIndex = 6;
             // 
             // label14
@@ -212,7 +212,7 @@
             label14.Location = new Point(5, 4);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new Size(88, 15);
+            label14.Size = new Size(179, 32);
             label14.TabIndex = 1;
             label14.Text = "Ngày tiếp nhận";
             // 
@@ -221,7 +221,7 @@
             dtpDateReceived.Location = new Point(4, 22);
             dtpDateReceived.Margin = new Padding(4, 3, 4, 3);
             dtpDateReceived.Name = "dtpDateReceived";
-            dtpDateReceived.Size = new Size(200, 23);
+            dtpDateReceived.Size = new Size(368, 39);
             dtpDateReceived.TabIndex = 0;
             dtpDateReceived.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -246,7 +246,7 @@
             lbDebt.Location = new Point(66, 18);
             lbDebt.Margin = new Padding(4, 0, 4, 0);
             lbDebt.Name = "lbDebt";
-            lbDebt.Size = new Size(95, 20);
+            lbDebt.Size = new Size(184, 40);
             lbDebt.TabIndex = 2;
             lbDebt.Text = "Trần Qui Linh";
             // 
@@ -258,7 +258,7 @@
             label13.Location = new Point(66, 3);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(74, 15);
+            label13.Size = new Size(152, 32);
             label13.TabIndex = 1;
             label13.Text = "Tổng tiền nợ";
             // 
@@ -268,7 +268,7 @@
             pictureBox6.Location = new Point(4, 3);
             pictureBox6.Margin = new Padding(4, 3, 4, 3);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(58, 40);
+            pictureBox6.Size = new Size(108, 85);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
@@ -294,7 +294,7 @@
             lbAddress.Location = new Point(66, 18);
             lbAddress.Margin = new Padding(4, 0, 4, 0);
             lbAddress.Name = "lbAddress";
-            lbAddress.Size = new Size(95, 20);
+            lbAddress.Size = new Size(184, 40);
             lbAddress.TabIndex = 2;
             lbAddress.Text = "Trần Qui Linh";
             // 
@@ -306,7 +306,7 @@
             label11.Location = new Point(66, 3);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(43, 15);
+            label11.Size = new Size(87, 32);
             label11.TabIndex = 1;
             label11.Text = "Địa chỉ";
             // 
@@ -316,7 +316,7 @@
             pictureBox5.Location = new Point(4, 3);
             pictureBox5.Margin = new Padding(4, 3, 4, 3);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(58, 40);
+            pictureBox5.Size = new Size(108, 85);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 0;
             pictureBox5.TabStop = false;
@@ -342,7 +342,7 @@
             lbPhone.Location = new Point(66, 18);
             lbPhone.Margin = new Padding(4, 0, 4, 0);
             lbPhone.Name = "lbPhone";
-            lbPhone.Size = new Size(95, 20);
+            lbPhone.Size = new Size(184, 40);
             lbPhone.TabIndex = 2;
             lbPhone.Text = "Trần Qui Linh";
             // 
@@ -354,7 +354,7 @@
             label9.Location = new Point(66, 3);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(76, 15);
+            label9.Size = new Size(156, 32);
             label9.TabIndex = 1;
             label9.Text = "Số điện thoại";
             // 
@@ -364,7 +364,7 @@
             pictureBox4.Location = new Point(4, 3);
             pictureBox4.Margin = new Padding(4, 3, 4, 3);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(58, 40);
+            pictureBox4.Size = new Size(108, 85);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
@@ -390,7 +390,7 @@
             lbCarBrand.Location = new Point(66, 18);
             lbCarBrand.Margin = new Padding(4, 0, 4, 0);
             lbCarBrand.Name = "lbCarBrand";
-            lbCarBrand.Size = new Size(95, 20);
+            lbCarBrand.Size = new Size(184, 40);
             lbCarBrand.TabIndex = 2;
             lbCarBrand.Text = "Trần Qui Linh";
             // 
@@ -402,7 +402,7 @@
             label7.Location = new Point(66, 3);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(47, 15);
+            label7.Size = new Size(95, 32);
             label7.TabIndex = 1;
             label7.Text = "Hiệu xe";
             // 
@@ -412,7 +412,7 @@
             pictureBox3.Location = new Point(4, 3);
             pictureBox3.Margin = new Padding(4, 3, 4, 3);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(58, 40);
+            pictureBox3.Size = new Size(108, 85);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -438,7 +438,7 @@
             lbPlateLicense.Location = new Point(66, 18);
             lbPlateLicense.Margin = new Padding(4, 0, 4, 0);
             lbPlateLicense.Name = "lbPlateLicense";
-            lbPlateLicense.Size = new Size(95, 20);
+            lbPlateLicense.Size = new Size(184, 40);
             lbPlateLicense.TabIndex = 2;
             lbPlateLicense.Text = "Trần Qui Linh";
             // 
@@ -450,7 +450,7 @@
             label5.Location = new Point(66, 3);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(60, 15);
+            label5.Size = new Size(123, 32);
             label5.TabIndex = 1;
             label5.Text = "Biển số xe";
             // 
@@ -460,7 +460,7 @@
             pictureBox2.Location = new Point(4, 3);
             pictureBox2.Margin = new Padding(4, 3, 4, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(58, 40);
+            pictureBox2.Size = new Size(108, 85);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -486,7 +486,7 @@
             lbCustomerName.Location = new Point(66, 18);
             lbCustomerName.Margin = new Padding(4, 0, 4, 0);
             lbCustomerName.Name = "lbCustomerName";
-            lbCustomerName.Size = new Size(95, 20);
+            lbCustomerName.Size = new Size(184, 40);
             lbCustomerName.TabIndex = 2;
             lbCustomerName.Text = "Trần Qui Linh";
             // 
@@ -498,7 +498,7 @@
             label2.Location = new Point(66, 3);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(63, 15);
+            label2.Size = new Size(129, 32);
             label2.TabIndex = 1;
             label2.Text = "Tên chủ xe";
             // 
@@ -508,7 +508,7 @@
             pictureBox1.Location = new Point(4, 3);
             pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(58, 40);
+            pictureBox1.Size = new Size(108, 85);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -520,7 +520,7 @@
             panel3.Location = new Point(259, 59);
             panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(736, 451);
+            panel3.Size = new Size(1367, 962);
             panel3.TabIndex = 2;
             // 
             // dtgvServiceCar
@@ -627,7 +627,7 @@
             // 
             // fInforCar
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(990, 571);
             Controls.Add(panel13);

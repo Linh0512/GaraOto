@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.Screens.fReport;
 using WinFormsApp.Screens.fService.Service;
 
 namespace WinFormsApp
@@ -20,7 +21,6 @@ namespace WinFormsApp
 
         private void panel1_Paint(object sender, EventArgs e)
         {
-
         }
 
         private void bnInventory_Click(object sender, EventArgs e)
@@ -72,8 +72,8 @@ namespace WinFormsApp
 
         private void bnHome_Click(object sender, EventArgs e)
         {
-
         }
+
         private void bnMainExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -81,7 +81,21 @@ namespace WinFormsApp
 
         private void MainScence_Load(object sender, EventArgs e)
         {
+        }
 
+
+        private void btnBCT_Click(object sender, EventArgs e)
+        {
+            fBaoCaoTon fBaoCaoTon = new fBaoCaoTon();
+            fBaoCaoTon.ShowDialog();
+            this.Show();
+        }
+
+        private void btnBCDS_Click(object sender, EventArgs e)
+        {
+            fBaoCaoDS fBaoCaoDS = new fBaoCaoDS();
+            fBaoCaoDS.ShowDialog();
+            this.Show();
         }
     }
 }
