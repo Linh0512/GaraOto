@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 
-namespace WinFormsApp.MainScenne.fStaff
+namespace WinFormsApp.MainScene.fStaff
 {
     public partial class fSuaThongTin : Form
     {

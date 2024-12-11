@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.Screens.fReport;
-using WinFormsApp.Screens.fService.Service;
+using WinFormsApp.Screens.Service;
 
-namespace WinFormsApp
+namespace WinFormsApp.Screens.MainScene
 {
     public partial class MainScence : Form
     {

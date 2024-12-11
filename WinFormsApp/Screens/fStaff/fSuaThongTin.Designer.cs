@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.MainScenne.fStaff
+﻿namespace WinFormsApp.MainScene.fStaff
 {
     partial class fSuaThongTin
     {

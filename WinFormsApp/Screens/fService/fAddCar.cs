@@ -1,7 +1,7 @@
 ﻿using WinFormsApp.DAO;
 using WinFormsApp.Model;
 
-namespace WinFormsApp.Screens.fService.AddCar
+namespace WinFormsApp.Screens.Service.AddCar
 {
     public partial class fAddCar : Form
     {

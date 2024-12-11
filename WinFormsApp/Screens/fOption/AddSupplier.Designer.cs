@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.MainScenne.fOption
+﻿namespace WinFormsApp.MainScene.fOption
 {
     partial class AddSupplier
     {

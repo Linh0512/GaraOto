@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp.MainScenne.fInventory
+namespace WinFormsApp.MainScene.fInventory
 {
     public partial class fPayment : Form
     {

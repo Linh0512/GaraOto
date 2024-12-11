@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
-using WinFormsApp.Screens.fService.InforCar;
-using WinFormsApp.Screens.fService.AddCar;
+using WinFormsApp.Screens.Service.InforCar;
+using WinFormsApp.Screens.Service.AddCar;
 
-namespace WinFormsApp.Screens.fService.Service
+namespace WinFormsApp.Screens.Service
 {
     public partial class fService : Form
     {

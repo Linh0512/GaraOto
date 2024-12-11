@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp.Screens.fService.InforCar
+namespace WinFormsApp.Screens.Service.InforCar
 {
     public partial class fInforCar : Form
     {

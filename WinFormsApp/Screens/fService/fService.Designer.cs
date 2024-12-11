@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.Screens.fService.Service
+﻿namespace WinFormsApp.Screens.Service
 {
     partial class fService
     {
