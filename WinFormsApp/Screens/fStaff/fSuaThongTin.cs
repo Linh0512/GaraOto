@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
+using WinFormsApp.Models;
 
 namespace WinFormsApp.MainScene.fStaff
 {
@@ -59,17 +60,17 @@ namespace WinFormsApp.MainScene.fStaff
         {
 
         }
-
+        NhanVien nv = new NhanVien();  
         private void btnXacNhanSua_Click(object sender, EventArgs e)
         {
-            string tdn = txtTenDangNhap.Text;
-            string matKhau = txtMatKhau.Text;
-            string hoVaTen = txtHoVaTen.Text;
-            string sdt = txtSDT.Text;
-            string email = txtEmail.Text;
-            string diaChi = txtDiaChi.Text;
-            string chucVu = cbbChucVu.Text;
-            if (NHANVIENDAO.Instane.Sua(tdn, matKhau, hoVaTen, sdt, email, diaChi, chucVu))
+            nv.TenDangNhap = txtTenDangNhap.Text;
+            nv.MatKhau = txtMatKhau.Text;
+            nv.TenNV = txtHoVaTen.Text;
+            nv.DienThoai = txtSDT.Text;
+            nv.Email = txtEmail.Text;
+            nv.DiaChi = txtDiaChi.Text;
+            nv.ChucVu = cbbChucVu.Text;
+            if (NHANVIENDAO.Instane.Sua(nv))
             {
                 MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo");
                 this.Close();

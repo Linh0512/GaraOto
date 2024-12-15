@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using WinFormsApp.Models;
 
 namespace WinFormsApp.DAO
 {
@@ -27,18 +28,27 @@ namespace WinFormsApp.DAO
 
         public DataTable HienThi()
         {
-            string query = "SELECT * FROM NHANVIEN";            
+            string query = @"
+        SELECT 
+            TenDangNhap AS [Tên Đăng Nhập], 
+            MatKhau AS [Mật Khẩu], 
+            TenNV AS [Tên Nhân Viên], 
+            DienThoai AS [Điện Thoại], 
+            Email AS [Email], 
+            DiaChi AS [Địa Chỉ], 
+            ChucVu AS [Chức Vụ] 
+        FROM NHANVIEN";
             return DataProviderLocal.Instance.ExecuteQuery(query);
 
         }
 
-        public bool Them (string tdn , string mk , string ten , string diachi , string dth , string email , string cv)
+        public bool Them (NhanVien nhanVien)
         {
             string sql = "INSERT INTO NHANVIEN (TenDangNhap, MatKhau, TenNV, DienThoai, Email, DiaChi, ChucVu) " +
                 "VALUES( @tdn , @mk , @ten , @dth , @email , @dc , @cv )";
             try
             {
-                DataProviderLocal.Instance.ExecuteQuery(sql, new object[] {tdn , mk,ten, diachi , dth , email , cv });
+                DataProviderLocal.Instance.ExecuteQuery(sql, new object[] {nhanVien.TenDangNhap , nhanVien.MatKhau,nhanVien.TenNV, nhanVien.DiaChi , nhanVien.DienThoai , nhanVien.Email , nhanVien.ChucVu });
             }
             catch (Exception ex)
             {
@@ -74,14 +84,14 @@ namespace WinFormsApp.DAO
             return DataProviderLocal.Instance.ExecuteQuery(query);
         }
 
-        public bool Sua (string tdn, string mk, string ten, string diachi, string dth, string email, string cv)
+        public bool Sua (NhanVien nhanVien)
         {
             
             string query = "UPDATE NHANVIEN SET MatKhau = @mk , TenNV = @ten , DienThoai = @dth , Email = @email , DiaChi = @diaChi , ChucVu = @cv " +
                 " WHERE TenDangNhap = @tdn ";
             try
             {
-                DataProviderLocal.Instance.ExecuteQuery(query, new object[] { mk, ten, diachi, dth, email, cv, tdn });
+                DataProviderLocal.Instance.ExecuteQuery(query , new object[] {nhanVien.MatKhau, nhanVien.TenNV, nhanVien.DiaChi, nhanVien.DienThoai, nhanVien.Email, nhanVien.ChucVu, nhanVien.TenDangNhap });
             }
             catch (Exception ex) { return false; }
             return true;
