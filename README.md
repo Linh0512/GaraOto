@@ -19,7 +19,7 @@
 * **Đề tài**: Quản lý gara Oto
 * **Năm học**: 2024-2025
 
-### NHÓM 14
+### NHÓM 13
 ## Các thành viên của nhóm:
 Họ tên | MSSV | Email |
 --- | --- | -- |
