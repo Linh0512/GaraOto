@@ -26,8 +26,8 @@ namespace WinFormsApp.Screens.Service
         {
             this.SetPlaceHolder(cbbLicensePlate, "Biển số");
             this.SetPlaceHolder(cbbHieuXe, "Hiệu xe");
-            this.SetPlaceHolder(cbbChuXe, "Chủ xe");
-            this.SetPlaceHolder(cbbTienNo, "Tiền nợ");
+            this.SetPlaceHolder(cbbTenChuXe, "Chủ xe");
+            this.SetPlaceHolder(cbbPhoneNumber, "Số điện thoại");
         }
 
         private void LoadCarData()
@@ -87,17 +87,17 @@ namespace WinFormsApp.Screens.Service
 
         private void cbbTienNo_Click(object sender, EventArgs e)
         {
-            if (cbbTienNo.Text == "Tiền nợ")
+            if (cbbPhoneNumber.Text == "Tiền nợ")
             {
-                cbbTienNo.Text = "";
+                cbbPhoneNumber.Text = "";
             }
         }
 
         private void cbbChuXe_Click(object sender, EventArgs e)
         {
-            if (cbbChuXe.Text == "Chủ xe")
+            if (cbbTenChuXe.Text == "Chủ xe")
             {
-                cbbChuXe.Text = "";
+                cbbTenChuXe.Text = "";
             }
         }
 
@@ -169,18 +169,42 @@ namespace WinFormsApp.Screens.Service
         private void bnFind_Click(object sender, EventArgs e)
         {
             string plateLicense = cbbLicensePlate.Text;
+            string carBrand = cbbHieuXe.Text;
+            string customerName = cbbTenChuXe.Text;
+            string PhoneNumber = cbbPhoneNumber.Text;
 
-            // Gọi phương thức FindCar để tìm kiếm dữ liệu
-            DataTable result = ServiceDAO.Instance.FindCar(plateLicense);
+            DataTable result = null;
 
-            if (result.Rows.Count > 0)
+            if (!string.IsNullOrEmpty(plateLicense) && plateLicense != "Biển số")
+            {
+                result = ServiceDAO.Instance.FindCar("BienSo", plateLicense);
+            }
+            else if (!string.IsNullOrEmpty(carBrand) && carBrand != "Hiệu xe")
+            {
+                result = ServiceDAO.Instance.FindCar("HieuXe", carBrand);
+            }
+            else if (!string.IsNullOrEmpty(customerName) && customerName != "Chủ xe")
+            {
+                result = ServiceDAO.Instance.FindCar("TenChuXe", customerName);
+            }
+            else if (!string.IsNullOrEmpty(PhoneNumber) && PhoneNumber != "Số điện thoại")
+            {
+                result = ServiceDAO.Instance.FindCar("DienThoai", PhoneNumber);
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy xe với thông tin này.");
+                this.LoadCarData();
+                return;
+            }
+
+            if (result != null && result.Rows.Count > 0)
             {
                 dgvService.DataSource = result;
             }
             else
             {
-                MessageBox.Show("Không tìm thấy xe với biển số này.");
-                this.LoadCarData();
+                MessageBox.Show("Không tìm thấy xe với thông tin này.");
             }
         }
 

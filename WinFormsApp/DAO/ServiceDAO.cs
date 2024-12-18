@@ -71,11 +71,15 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public DataTable FindCar(string plateLicense)
+        public DataTable FindCar(string columnName, string value)
         {
-            string query = string.Format("SELECT * FROM dbo.XE WHERE BienSo = '{0}'", plateLicense.Replace("'", "''"));
+            // Escape ký tự đặc biệt trong giá trị để tránh lỗi SQL Injection
+            value = value.Replace("'", "''");
+
+            // Tạo câu truy vấn SQL động
+            string query = $"SELECT * FROM dbo.XE WHERE {columnName} LIKE N'%{value}%'";
+
             return DataProvider.Instance.ExecuteQuery(query);
         }
-
     }
 }
