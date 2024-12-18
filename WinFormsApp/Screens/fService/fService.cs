@@ -129,7 +129,7 @@ namespace WinFormsApp.Screens.Service
 
         }
 
-        private void bnDetail_Click(object sender, EventArgs e)
+        private void btnAddService_Click(object sender, EventArgs e)
         {
             fInforCar f = new fInforCar();
             Console.WriteLine(dgvService.SelectedRows.Count);

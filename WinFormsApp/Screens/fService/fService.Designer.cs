@@ -41,7 +41,7 @@
             xeBindingSource = new BindingSource(components);
             panel3 = new Panel();
             bnThemXe = new Button();
-            bnChiTiet = new Button();
+            btnAddService = new Button();
             bnXoa = new Button();
             bnXuat = new Button();
             bnLamMoi = new Button();
@@ -96,15 +96,16 @@
             panel2.Location = new Point(6, 91);
             panel2.Margin = new Padding(2, 1, 2, 1);
             panel2.Name = "panel2";
-            panel2.Size = new Size(639, 36);
+            panel2.Size = new Size(646, 36);
             panel2.TabIndex = 2;
             // 
             // dtpDateService
             // 
-            dtpDateService.Location = new Point(379, 0);
+            dtpDateService.Format = DateTimePickerFormat.Short;
+            dtpDateService.Location = new Point(491, 0);
             dtpDateService.Margin = new Padding(2, 1, 2, 1);
             dtpDateService.Name = "dtpDateService";
-            dtpDateService.Size = new Size(260, 27);
+            dtpDateService.Size = new Size(153, 27);
             dtpDateService.TabIndex = 4;
             dtpDateService.Value = new DateTime(2024, 11, 13, 0, 59, 26, 0);
             // 
@@ -115,11 +116,11 @@
             cbbPhoneNumber.DropDownStyle = ComboBoxStyle.Simple;
             cbbPhoneNumber.FormattingEnabled = true;
             cbbPhoneNumber.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
-            cbbPhoneNumber.Location = new Point(273, 0);
+            cbbPhoneNumber.Location = new Point(362, 0);
             cbbPhoneNumber.Margin = new Padding(2, 1, 2, 1);
             cbbPhoneNumber.Name = "cbbPhoneNumber";
             cbbPhoneNumber.RightToLeft = RightToLeft.No;
-            cbbPhoneNumber.Size = new Size(102, 28);
+            cbbPhoneNumber.Size = new Size(125, 28);
             cbbPhoneNumber.TabIndex = 3;
             cbbPhoneNumber.Text = "Số điện thoại";
             cbbPhoneNumber.Click += cbbTienNo_Click;
@@ -130,11 +131,11 @@
             cbbTenChuXe.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbTenChuXe.FormattingEnabled = true;
             cbbTenChuXe.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
-            cbbTenChuXe.Location = new Point(184, 0);
+            cbbTenChuXe.Location = new Point(214, 0);
             cbbTenChuXe.Margin = new Padding(2, 1, 2, 1);
             cbbTenChuXe.Name = "cbbTenChuXe";
             cbbTenChuXe.RightToLeft = RightToLeft.No;
-            cbbTenChuXe.Size = new Size(84, 28);
+            cbbTenChuXe.Size = new Size(144, 28);
             cbbTenChuXe.TabIndex = 2;
             cbbTenChuXe.Text = "Chủ xe";
             cbbTenChuXe.SelectedIndexChanged += cbbChuXe_SelectedIndexChanged;
@@ -146,11 +147,11 @@
             cbbHieuXe.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbHieuXe.DataSource = hieuXeBindingSource;
             cbbHieuXe.FormattingEnabled = true;
-            cbbHieuXe.Location = new Point(95, 1);
+            cbbHieuXe.Location = new Point(115, -1);
             cbbHieuXe.Margin = new Padding(2, 1, 2, 1);
             cbbHieuXe.Name = "cbbHieuXe";
             cbbHieuXe.RightToLeft = RightToLeft.No;
-            cbbHieuXe.Size = new Size(84, 28);
+            cbbHieuXe.Size = new Size(95, 28);
             cbbHieuXe.TabIndex = 1;
             cbbHieuXe.Click += cbbHieuXe_Click;
             // 
@@ -169,7 +170,7 @@
             cbbLicensePlate.Margin = new Padding(2, 1, 2, 1);
             cbbLicensePlate.Name = "cbbLicensePlate";
             cbbLicensePlate.RightToLeft = RightToLeft.No;
-            cbbLicensePlate.Size = new Size(84, 28);
+            cbbLicensePlate.Size = new Size(105, 28);
             cbbLicensePlate.TabIndex = 0;
             cbbLicensePlate.SelectedIndexChanged += cbbLicensePlate_SelectedIndexChanged;
             cbbLicensePlate.Click += cbbLicensePlate_Click;
@@ -181,20 +182,20 @@
             // panel3
             // 
             panel3.Controls.Add(bnThemXe);
-            panel3.Controls.Add(bnChiTiet);
+            panel3.Controls.Add(btnAddService);
             panel3.Controls.Add(bnXoa);
             panel3.Controls.Add(bnXuat);
             panel3.Controls.Add(bnLamMoi);
             panel3.Controls.Add(bnFind);
-            panel3.Location = new Point(667, 81);
+            panel3.Location = new Point(656, 81);
             panel3.Margin = new Padding(2, 1, 2, 1);
             panel3.Name = "panel3";
-            panel3.Size = new Size(475, 109);
+            panel3.Size = new Size(486, 109);
             panel3.TabIndex = 3;
             // 
             // bnThemXe
             // 
-            bnThemXe.Location = new Point(341, 19);
+            bnThemXe.Location = new Point(356, 20);
             bnThemXe.Margin = new Padding(2, 1, 2, 1);
             bnThemXe.Name = "bnThemXe";
             bnThemXe.Size = new Size(114, 77);
@@ -203,20 +204,20 @@
             bnThemXe.UseVisualStyleBackColor = true;
             bnThemXe.Click += btnAddCar_Click;
             // 
-            // bnChiTiet
+            // btnAddService
             // 
-            bnChiTiet.Location = new Point(112, 57);
-            bnChiTiet.Margin = new Padding(2, 1, 2, 1);
-            bnChiTiet.Name = "bnChiTiet";
-            bnChiTiet.Size = new Size(94, 51);
-            bnChiTiet.TabIndex = 4;
-            bnChiTiet.Text = "Chi tiết";
-            bnChiTiet.UseVisualStyleBackColor = true;
-            bnChiTiet.Click += bnDetail_Click;
+            btnAddService.Location = new Point(47, 53);
+            btnAddService.Margin = new Padding(2, 1, 2, 1);
+            btnAddService.Name = "btnAddService";
+            btnAddService.Size = new Size(119, 51);
+            btnAddService.TabIndex = 4;
+            btnAddService.Text = "Thêm dịch vụ";
+            btnAddService.UseVisualStyleBackColor = true;
+            btnAddService.Click += btnAddService_Click;
             // 
             // bnXoa
             // 
-            bnXoa.Location = new Point(2, 57);
+            bnXoa.Location = new Point(202, 53);
             bnXoa.Margin = new Padding(2, 1, 2, 1);
             bnXoa.Name = "bnXoa";
             bnXoa.Size = new Size(94, 51);
@@ -227,7 +228,7 @@
             // 
             // bnXuat
             // 
-            bnXuat.Location = new Point(226, 0);
+            bnXuat.Location = new Point(258, 0);
             bnXuat.Margin = new Padding(2, 1, 2, 1);
             bnXuat.Name = "bnXuat";
             bnXuat.Size = new Size(94, 51);
@@ -237,7 +238,7 @@
             // 
             // bnLamMoi
             // 
-            bnLamMoi.Location = new Point(112, 0);
+            bnLamMoi.Location = new Point(130, 0);
             bnLamMoi.Margin = new Padding(2, 1, 2, 1);
             bnLamMoi.Name = "bnLamMoi";
             bnLamMoi.Size = new Size(94, 51);
@@ -361,7 +362,7 @@
         private Button bnLamMoi;
         private Button bnFind;
         private Button bnThemXe;
-        private Button bnChiTiet;
+        private Button btnAddService;
         private Button bnXoa;
         private Button bnXuat;
         private Panel panel4;

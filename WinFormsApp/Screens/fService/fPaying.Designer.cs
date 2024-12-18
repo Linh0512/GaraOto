@@ -426,6 +426,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "fPaying";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "fPaying";
             Load += fPaying_Load;
             panel1.ResumeLayout(false);

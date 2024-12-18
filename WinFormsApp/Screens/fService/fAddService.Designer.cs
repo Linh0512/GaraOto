@@ -102,6 +102,7 @@
             txtWagePrice.Name = "txtWagePrice";
             txtWagePrice.Size = new Size(156, 20);
             txtWagePrice.TabIndex = 4;
+            txtWagePrice.TabStop = false;
             txtWagePrice.TextChanged += txtWagePrice_TextChanged;
             // 
             // panel2
@@ -154,6 +155,7 @@
             txtTotalMoney.Name = "txtTotalMoney";
             txtTotalMoney.Size = new Size(170, 27);
             txtTotalMoney.TabIndex = 2;
+            txtTotalMoney.TabStop = false;
             txtTotalMoney.TextChanged += textBox5_TextChanged;
             // 
             // panel5
@@ -183,6 +185,7 @@
             txtPricePerUnit.Name = "txtPricePerUnit";
             txtPricePerUnit.Size = new Size(156, 20);
             txtPricePerUnit.TabIndex = 6;
+            txtPricePerUnit.TabStop = false;
             // 
             // panel6
             // 
@@ -301,6 +304,7 @@
             MaximumSize = new Size(730, 381);
             MinimumSize = new Size(720, 381);
             Name = "fAddService";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "fAddService";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
