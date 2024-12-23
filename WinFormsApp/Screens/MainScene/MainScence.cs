@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.Screens.fReport;
+using WinFormsApp.Screens.Service;
 
-namespace WinFormsApp
+namespace WinFormsApp.Screens.MainScene
 {
     public partial class MainScence : Form
     {
@@ -40,12 +41,12 @@ namespace WinFormsApp
         {
             try
             {
-                fService fService = new fService();
-                if (fService == null)
+                fService f = new fService();
+                if (f == null)
                 {
                     throw new InvalidOperationException("Failed to initialize fService.");
                 }
-                fService.ShowDialog();
+                f.ShowDialog();
                 this.Show();
             }
             catch (Exception ex)
