@@ -12,7 +12,7 @@ namespace WinFormsApp.DAO
     {
         public static ItemDAO instance = new ItemDAO();
         SqlDataAdapter da;
-        public bool Xoa(string mavtpt)
+        public bool Del(string mavtpt)
         {
             SqlConnection con = DataProvider.instance.getConnect();
             try
@@ -44,7 +44,7 @@ namespace WinFormsApp.DAO
                 l = dr["SO"].ToString();
             return "PT" + l;
         }
-        public bool Them(string ma, string ten)
+        public bool AddItem(string ma, string ten)
         {
             string sql = "INSERT INTO PhuTung (MaVTPT, TenVTPT, SoLuongTon, DonGia)" +
                 "VALUES (@ma, @ten, 0, 0)";
@@ -75,7 +75,7 @@ namespace WinFormsApp.DAO
             SqlDataReader dt = cmd.ExecuteReader();
             return dt;
         }
-        public SqlDataReader LoadVTPTTheoTen(string ten)
+        public SqlDataReader LoadVTPTByName(string ten)
         {
 
             SqlConnection con = DataProvider.instance.getConnect();
@@ -87,7 +87,7 @@ namespace WinFormsApp.DAO
             return dt;
 
         }
-        public bool SuaSL(string ma, int sl)
+        public bool UpdateQuantity(string ma, int sl)
         {
             string sql = "UPDATE PHUTUNG SET SoLuongTon = @sl WHERE MaVTPT = @ma";
             SqlConnection con = DataProvider.instance.getConnect();
@@ -160,8 +160,6 @@ namespace WinFormsApp.DAO
             da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             return dt;
-
-
         }
     }
 }

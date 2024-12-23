@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fListPayment));
-            txtSearch = new TextBox();
+            txbSearch = new TextBox();
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
@@ -45,15 +45,15 @@
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // txtSearch
+            // txbSearch
             // 
-            txtSearch.BackColor = SystemColors.HighlightText;
-            txtSearch.Location = new Point(272, 87);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(527, 27);
-            txtSearch.TabIndex = 6;
-            txtSearch.Text = "Nhập biển số xe";
-            txtSearch.TextAlign = HorizontalAlignment.Center;
+            txbSearch.BackColor = SystemColors.HighlightText;
+            txbSearch.Location = new Point(272, 87);
+            txbSearch.Name = "txbSearch";
+            txbSearch.Size = new Size(527, 27);
+            txbSearch.TabIndex = 6;
+            txbSearch.Text = "Nhập biển số xe";
+            txbSearch.TextAlign = HorizontalAlignment.Center;
             // 
             // panel2
             // 
@@ -112,14 +112,16 @@
             btnRefresh.TabIndex = 3;
             btnRefresh.Text = "Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // dtpSearchByDate
             // 
             dtpSearchByDate.Format = DateTimePickerFormat.Short;
-            dtpSearchByDate.Location = new Point(393, 43);
+            dtpSearchByDate.Location = new Point(400, 50);
             dtpSearchByDate.Name = "dtpSearchByDate";
             dtpSearchByDate.Size = new Size(250, 27);
             dtpSearchByDate.TabIndex = 2;
+            dtpSearchByDate.Leave += dtpSearchByDate_Leave;
             // 
             // btnSearch
             // 
@@ -130,6 +132,7 @@
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 1;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // label2
             // 
@@ -146,12 +149,13 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1072, 617);
-            Controls.Add(txtSearch);
+            Controls.Add(txbSearch);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
             Name = "fListPayment";
             Text = "fListPayment";
+            Load += fListPayment_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -164,7 +168,7 @@
 
         #endregion
 
-        private TextBox txtSearch;
+        private TextBox txbSearch;
         private Panel panel2;
         private Label label1;
         private Panel panel1;

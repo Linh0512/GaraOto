@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
+using Microsoft.Data.SqlClient;
 using WinFormsApp.Models;
 using WinFormsApp.Screens.Service.AddService;
 using WinFormsApp.Screens.Service.Payment;
@@ -109,36 +110,71 @@ namespace WinFormsApp.Screens.Service.InforCar
             {
                 try
                 {
-                    RepairDAO.instance.AddRepair(new PhieuSuaChua()
-                    {
-                        MaPSC = this.lbIdRepair.Text,
-                        BienSo = lbPlateLicense.Text,
-                        //NgaySuaChua = this.dtpDateFix.Value,
-                        TongTien = Convert.ToDouble(lbTotalAmout.Text)
-                    });
+                    AddRepair();
+                    AddRepair_Detail();
 
-                    foreach (DataGridViewRow dataRow in dtgvServiceCar.Rows)
-                    {
-                        RepairDAO.instance.AddRepair_Detail(new CT_PSC()
-                        {
-                            MaPSC = this.lbIdRepair.Text,
-                            NoiDung = dataRow.Cells["CellWage"].Value.ToString(),
-                            MaVTPT = dataRow.Cells["cellIdItem"].Value.ToString(),
-                            TenVTPT = dataRow.Cells["cellItem"].Value.ToString(),
-                            SoLuong = Convert.ToInt32(dataRow.Cells["cellQuantity"].Value),
-                            DonGia = Convert.ToDecimal(dataRow.Cells["cellPricePerUnit"].Value),
-                            MaTienCong = this.lbIdWage.Text,
-                            TienCong = Convert.ToDecimal(dataRow.Cells["cellWagePrice"].Value.ToString()),
-                            ThanhTien = Convert.ToDecimal(dataRow.Cells["cellTotalMoney"].Value.ToString())
-                        });
-                        MessageBox.Show("Thêm phiếu sửa chữa thành công!");
-                        this.Close();
-                    }
+                    MessageBox.Show("Thêm phiếu sửa chữa thành công!");
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
                 }
+            }
+        }
+
+        private void AddRepair()
+        {
+            RepairDAO.instance.AddRepair(new PhieuSuaChua()
+            {
+                MaPSC = this.lbIdRepair.Text,
+                BienSo = lbPlateLicense.Text,
+                //NgaySuaChua = this.dtpDateFix.Value,
+                TongTien = Convert.ToDouble(lbTotalAmout.Text)
+            });
+
+            SqlDataReader dr1 = ServiceDAO.instance.LoadDataByLicensePlate(lbPlateLicense.Text);
+            if (dr1.Read())
+            {
+                double tiennocu = Convert.ToDouble(dr1["TienNo"]);
+                double tongTien = Convert.ToDouble(lbTotalAmout.Text);
+                double tiennomoi = tiennocu + tongTien;
+                ServiceDAO.instance.UpdateDebt(lbPlateLicense.Text, tiennomoi);
+            }
+        }
+
+
+        private void AddRepair_Detail()
+        {
+            foreach (DataGridViewRow dataRow in dtgvServiceCar.Rows)
+            {
+                string maVTPT = dataRow.Cells["cellIdItem"].Value.ToString();
+                string tenVTPT = dataRow.Cells["cellItem"].Value.ToString();
+                int soLuong = Convert.ToInt32(dataRow.Cells["cellQuantity"].Value);
+
+                RepairDAO.instance.AddRepair_Detail(new CT_PSC()
+                {
+                    MaPSC = this.lbIdRepair.Text,
+                    NoiDung = dataRow.Cells["CellWage"].Value.ToString(),
+                    MaVTPT = maVTPT,
+                    TenVTPT = tenVTPT,
+                    SoLuong = soLuong,
+                    DonGia = Convert.ToDecimal(dataRow.Cells["cellPricePerUnit"].Value),
+                    MaTienCong = this.lbIdWage.Text,
+                    TienCong = Convert.ToDecimal(dataRow.Cells["cellWagePrice"].Value.ToString()),
+                    ThanhTien = Convert.ToDecimal(dataRow.Cells["cellTotalMoney"].Value.ToString())
+                });
+
+                SqlDataReader dr2 = ItemDAO.instance.LoadVTPTByName(tenVTPT);
+                int slcu = 0;
+
+                if (dr2.Read())
+                {
+                    slcu = Convert.ToInt32(dr2["SoLuongTon"]);
+                }
+
+                int slmoi = slcu - soLuong;
+                ItemDAO.instance.UpdateQuantity(maVTPT, slmoi);
             }
         }
     }
