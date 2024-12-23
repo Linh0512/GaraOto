@@ -17,6 +17,7 @@ namespace WinFormsApp.Model
         public string DienThoai { get; set; }
         public DateTime NgayTiepNhan { get; set; }
         public string TienNo { get; set; }
+        public string Email { get; set; }
     }
 
 }

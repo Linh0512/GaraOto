@@ -9,7 +9,7 @@ namespace WinFormsApp.DAO
     internal class DataProvider
     {
         public readonly string connectionSTR;
-        public static DataProvider Instance { get; private set; } = new DataProvider();
+        public static DataProvider instance { get; private set; } = new DataProvider();
 
         public DataProvider()
         {

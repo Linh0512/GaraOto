@@ -8,8 +8,9 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.Screens.MainScene;
 
-namespace WinFormsApp
+namespace WinFormsApp.Screens.Login
 {
     public partial class fLogin : Form
     {

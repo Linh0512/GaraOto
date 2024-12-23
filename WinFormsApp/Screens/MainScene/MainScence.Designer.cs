@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp
+﻿namespace WinFormsApp.Screens.MainScene
 {
     partial class MainScence
     {

@@ -19,7 +19,7 @@ namespace WinFormsApp.DAO
         {
             string query = "INSERT INTO dbo.TIENCONG (MaTienCong, NoiDung, TienCong) " +
                            "VALUES (@MaTienCong, @NoiDung, @TienCong)";
-            using (SqlConnection connection = DataProvider.Instance.getConnect())
+            using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
                 {
@@ -42,7 +42,7 @@ namespace WinFormsApp.DAO
         {
             string query = "INSERT INTO dbo.HIEUXE (HieuXe) " +
                            "VALUES (@HieuXe)";
-            using (SqlConnection connection = DataProvider.Instance.getConnect())
+            using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
                 {
