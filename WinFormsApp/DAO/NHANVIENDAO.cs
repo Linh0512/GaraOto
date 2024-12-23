@@ -30,13 +30,13 @@ namespace WinFormsApp.DAO
         {
             string query = @"
         SELECT 
-            TenDangNhap AS [Tên Đăng Nhập], 
-            MatKhau AS [Mật Khẩu], 
-            TenNV AS [Tên Nhân Viên], 
-            DienThoai AS [Điện Thoại], 
-            Email AS [Email], 
-            DiaChi AS [Địa Chỉ], 
-            ChucVu AS [Chức Vụ] 
+            TenDangNhap , 
+            MatKhau , 
+            TenNV , 
+            DienThoai , 
+            Email , 
+            DiaChi , 
+            ChucVu 
         FROM NHANVIEN";
             return DataProviderLocal.Instance.ExecuteQuery(query);
 
@@ -48,7 +48,7 @@ namespace WinFormsApp.DAO
                 "VALUES( @tdn , @mk , @ten , @dth , @email , @dc , @cv )";
             try
             {
-                DataProviderLocal.Instance.ExecuteQuery(sql, new object[] {nhanVien.TenDangNhap , nhanVien.MatKhau,nhanVien.TenNV, nhanVien.DiaChi , nhanVien.DienThoai , nhanVien.Email , nhanVien.ChucVu });
+                DataProviderLocal.Instance.ExecuteQuery(sql, new object[] {nhanVien.TenDangNhap , nhanVien.MatKhau,nhanVien.TenNV, nhanVien.DienThoai ,  nhanVien.Email , nhanVien.DiaChi   , nhanVien.ChucVu });
             }
             catch (Exception ex)
             {
@@ -75,11 +75,8 @@ namespace WinFormsApp.DAO
         }
         public DataTable TiemKiem(string TuKhoa)
         {
-            string query = $"select * from NhanVien Where TenDangNhap Like N'%{TuKhoa}%' " +
-                $"OR TenNV Like N'%{TuKhoa}%' " +
-                $"OR DienThoai Like N'%{TuKhoa}%' " +
-                $"OR Email Like N'%{TuKhoa}%'" +
-                $"OR DiaChi Like N'%{TuKhoa}%'" +
+            string query = $"select * from NhanVien Where  " +
+                $" TenNV Like N'%{TuKhoa}%' " +
                 $"OR ChucVu Like N'%{TuKhoa}%'";
             return DataProviderLocal.Instance.ExecuteQuery(query);
         }
@@ -87,14 +84,39 @@ namespace WinFormsApp.DAO
         public bool Sua (NhanVien nhanVien)
         {
             
-            string query = "UPDATE NHANVIEN SET MatKhau = @mk , TenNV = @ten , DienThoai = @dth , Email = @email , DiaChi = @diaChi , ChucVu = @cv " +
+            string query = "UPDATE NHANVIEN SET  TenNV = @ten , DienThoai = @dth , Email = @email , DiaChi = @diaChi , ChucVu = @cv " +
                 " WHERE TenDangNhap = @tdn ";
             try
             {
-                DataProviderLocal.Instance.ExecuteQuery(query , new object[] {nhanVien.MatKhau, nhanVien.TenNV, nhanVien.DiaChi, nhanVien.DienThoai, nhanVien.Email, nhanVien.ChucVu, nhanVien.TenDangNhap });
+                DataProviderLocal.Instance.ExecuteQuery(query , new object[] { nhanVien.TenNV, nhanVien.DienThoai, nhanVien.Email, nhanVien.DiaChi, nhanVien.ChucVu, nhanVien.TenDangNhap });
             }
             catch (Exception ex) { return false; }
             return true;
+        }
+        public bool DatLaiMatKhau (NhanVien nv)
+        {
+            string query = "UPDATE NHANVIEN SET  MatKhau = @mk " +
+                " WHERE TenDangNhap = @tdn ";
+            try
+            {
+                DataProviderLocal.Instance.ExecuteQuery(query, new object[] { "" , nv.TenDangNhap });
+            }
+            catch (Exception ex) { return false; }
+            return true;
+
+        }
+        public bool KiemTraTenDangNhapTrung(string tenDangNhap)
+        {
+            string query = "SELECT COUNT(*) FROM NhanVien WHERE TenDangNhap = @TenDangNhap";
+            DataTable result = DataProviderLocal.Instance.ExecuteQuery(query, new object[] { tenDangNhap });
+
+            if (result.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(result.Rows[0][0]);
+                return count > 0; // Nếu có ít nhất 1 bản ghi, tên đăng nhập đã tồn tại
+            }
+
+            return false;
         }
 
 

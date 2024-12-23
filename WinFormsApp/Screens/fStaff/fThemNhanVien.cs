@@ -21,7 +21,46 @@ namespace WinFormsApp
             NHANVIENDAO.Instane.LoadComboBoxData(cbbChucVu);
         }
 
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        NhanVien nv = new NhanVien();
+        private void btnThemNV_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtTenDangNhap.Text) || String.IsNullOrEmpty(txtHoVaTen.Text)
+                || String.IsNullOrEmpty(txtDiaChi.Text) || String.IsNullOrEmpty(txtSDT.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(cbbChucVu.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+            }
+            else
+            {
+                // Kiểm tra tên đăng nhập có bị trùng không
+                if (NHANVIENDAO.Instane.KiemTraTenDangNhapTrung(txtTenDangNhap.Text))
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.");
+                    return; // Dừng lại nếu tên đăng nhập bị trùng
+                }
 
+                nv.TenDangNhap = txtTenDangNhap.Text;
+                nv.MatKhau = "1";
+                nv.TenNV = txtHoVaTen.Text;
+                nv.DiaChi = txtDiaChi.Text;
+                nv.DienThoai = txtSDT.Text;
+                nv.Email = txtEmail.Text;
+                nv.ChucVu = cbbChucVu.Text;
+
+                if (NHANVIENDAO.Instane.Them(nv))
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm nhân viên thất bại!");
+                    this.Close();
+                }
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -35,40 +74,6 @@ namespace WinFormsApp
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        NhanVien nv = new NhanVien();
-        private void btnThemNV_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtTenDangNhap.Text) || String.IsNullOrEmpty(txtMatKhau.Text) || String.IsNullOrEmpty(txtHoVaTen.Text)
-                || String.IsNullOrEmpty(txtDiaChi.Text) || String.IsNullOrEmpty(txtSDT.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(cbbChucVu.Text) )
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-            
-            else
-            {
-                nv.TenDangNhap = txtTenDangNhap.Text;
-                nv.MatKhau = txtMatKhau.Text;
-                nv.TenNV = txtHoVaTen.Text;
-                nv.DiaChi = txtDiaChi.Text;
-                nv.DienThoai = txtSDT.Text;
-                nv.Email = txtEmail.Text;
-                nv.ChucVu = cbbChucVu.Text;
-                if (NHANVIENDAO.Instane.Them(nv))
-                {
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm nhân viên thất bại!");
-                    this.Close();
-                }
-            }
         }
 
         private void fThemNhanVien_Load(object sender, EventArgs e)
@@ -102,6 +107,26 @@ namespace WinFormsApp
         }
 
         private void lblMatKhau_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtHoVaTen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiaChi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHovaten_Click(object sender, EventArgs e)
         {
 
         }
