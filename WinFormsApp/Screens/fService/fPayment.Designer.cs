@@ -1,6 +1,6 @@
-﻿namespace WinFormsApp.Screens.Service.Paying
+﻿namespace WinFormsApp.Screens.Service.Payment
 {
-    partial class fPaying
+    partial class fPayment
     {
         /// <summary>
         /// Required designer variable.
@@ -45,11 +45,13 @@
             btnPrintBill = new Button();
             btnPayment = new Button();
             panel11 = new Panel();
+            lbTheRestAmout = new Label();
+            label5 = new Label();
             lbTotalAmout = new Label();
             label12 = new Label();
             panel6 = new Panel();
             panel10 = new Panel();
-            txtEmail = new TextBox();
+            txtIdRepair = new TextBox();
             label11 = new Label();
             panel9 = new Panel();
             dtpDatePay = new DateTimePicker();
@@ -58,8 +60,8 @@
             txtAmoutPaying = new TextBox();
             label6 = new Label();
             panel5 = new Panel();
-            label5 = new Label();
-            label4 = new Label();
+            lbPhoneNumber = new Label();
+            lbPlateLicense = new Label();
             lbNameCustomer = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -110,6 +112,7 @@
             // 
             // dtgvPayment
             // 
+            dtgvPayment.AllowUserToAddRows = false;
             dtgvPayment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvPayment.Dock = DockStyle.Fill;
             dtgvPayment.Location = new Point(0, 0);
@@ -223,6 +226,7 @@
             btnClose.TabIndex = 2;
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnPrintBill
             // 
@@ -245,9 +249,12 @@
             btnPayment.TabIndex = 0;
             btnPayment.Text = "Thanh toán";
             btnPayment.UseVisualStyleBackColor = false;
+            btnPayment.Click += btnPaying_Click;
             // 
             // panel11
             // 
+            panel11.Controls.Add(lbTheRestAmout);
+            panel11.Controls.Add(label5);
             panel11.Controls.Add(lbTotalAmout);
             panel11.Controls.Add(label12);
             panel11.Location = new Point(5, 339);
@@ -255,12 +262,34 @@
             panel11.Size = new Size(314, 68);
             panel11.TabIndex = 10;
             // 
+            // lbTheRestAmout
+            // 
+            lbTheRestAmout.AutoSize = true;
+            lbTheRestAmout.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbTheRestAmout.ForeColor = Color.SteelBlue;
+            lbTheRestAmout.Location = new Point(144, 40);
+            lbTheRestAmout.Name = "lbTheRestAmout";
+            lbTheRestAmout.Size = new Size(100, 28);
+            lbTheRestAmout.TabIndex = 3;
+            lbTheRestAmout.Text = "00000000";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.SteelBlue;
+            label5.Location = new Point(6, 40);
+            label5.Name = "label5";
+            label5.Size = new Size(72, 28);
+            label5.TabIndex = 2;
+            label5.Text = "Còn lại";
+            // 
             // lbTotalAmout
             // 
             lbTotalAmout.AutoSize = true;
             lbTotalAmout.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbTotalAmout.ForeColor = Color.SteelBlue;
-            lbTotalAmout.Location = new Point(103, 40);
+            lbTotalAmout.Location = new Point(141, 0);
             lbTotalAmout.Name = "lbTotalAmout";
             lbTotalAmout.Size = new Size(100, 28);
             lbTotalAmout.TabIndex = 1;
@@ -271,7 +300,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.SteelBlue;
-            label12.Location = new Point(103, 0);
+            label12.Location = new Point(3, 0);
             label12.Name = "label12";
             label12.Size = new Size(95, 28);
             label12.TabIndex = 0;
@@ -289,21 +318,21 @@
             // 
             // panel10
             // 
-            panel10.Controls.Add(txtEmail);
+            panel10.Controls.Add(txtIdRepair);
             panel10.Controls.Add(label11);
-            panel10.Location = new Point(4, 130);
+            panel10.Location = new Point(4, 16);
             panel10.Name = "panel10";
             panel10.Size = new Size(305, 45);
             panel10.TabIndex = 4;
             // 
-            // txtEmail
+            // txtIdRepair
             // 
-            txtEmail.Location = new Point(138, 3);
-            txtEmail.MinimumSize = new Size(125, 30);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(164, 30);
-            txtEmail.TabIndex = 0;
-            txtEmail.Text = "A@gmail.com";
+            txtIdRepair.Enabled = false;
+            txtIdRepair.Location = new Point(138, 3);
+            txtIdRepair.MinimumSize = new Size(125, 30);
+            txtIdRepair.Name = "txtIdRepair";
+            txtIdRepair.Size = new Size(164, 30);
+            txtIdRepair.TabIndex = 0;
             // 
             // label11
             // 
@@ -312,15 +341,15 @@
             label11.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.Location = new Point(3, 10);
             label11.Name = "label11";
-            label11.Size = new Size(55, 23);
+            label11.Size = new Size(86, 23);
             label11.TabIndex = 1;
-            label11.Text = "Email:";
+            label11.Text = "Mã Phiếu:";
             // 
             // panel9
             // 
             panel9.Controls.Add(dtpDatePay);
             panel9.Controls.Add(label10);
-            panel9.Location = new Point(4, 67);
+            panel9.Location = new Point(4, 82);
             panel9.Name = "panel9";
             panel9.Size = new Size(305, 45);
             panel9.TabIndex = 3;
@@ -348,7 +377,7 @@
             // 
             panel7.Controls.Add(txtAmoutPaying);
             panel7.Controls.Add(label6);
-            panel7.Location = new Point(4, 6);
+            panel7.Location = new Point(4, 147);
             panel7.Name = "panel7";
             panel7.Size = new Size(305, 45);
             panel7.TabIndex = 2;
@@ -374,36 +403,36 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(label5);
-            panel5.Controls.Add(label4);
+            panel5.Controls.Add(lbPhoneNumber);
+            panel5.Controls.Add(lbPlateLicense);
             panel5.Controls.Add(lbNameCustomer);
             panel5.Location = new Point(139, 6);
             panel5.Name = "panel5";
             panel5.Size = new Size(180, 119);
             panel5.TabIndex = 8;
             // 
-            // label5
+            // lbPhoneNumber
             // 
-            label5.AutoSize = true;
-            label5.Enabled = false;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(7, 82);
-            label5.Name = "label5";
-            label5.Size = new Size(122, 28);
-            label5.TabIndex = 2;
-            label5.Text = "0909309272";
+            lbPhoneNumber.AutoSize = true;
+            lbPhoneNumber.Enabled = false;
+            lbPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbPhoneNumber.Location = new Point(7, 82);
+            lbPhoneNumber.Name = "lbPhoneNumber";
+            lbPhoneNumber.Size = new Size(122, 28);
+            lbPhoneNumber.TabIndex = 2;
+            lbPhoneNumber.Text = "0909309272";
             // 
-            // label4
+            // lbPlateLicense
             // 
-            label4.AutoSize = true;
-            label4.Enabled = false;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ControlText;
-            label4.Location = new Point(7, 40);
-            label4.Name = "label4";
-            label4.Size = new Size(110, 28);
-            label4.TabIndex = 1;
-            label4.Text = "94A-06633";
+            lbPlateLicense.AutoSize = true;
+            lbPlateLicense.Enabled = false;
+            lbPlateLicense.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbPlateLicense.ForeColor = SystemColors.ControlText;
+            lbPlateLicense.Location = new Point(7, 40);
+            lbPlateLicense.Name = "lbPlateLicense";
+            lbPlateLicense.Size = new Size(110, 28);
+            lbPlateLicense.TabIndex = 1;
+            lbPlateLicense.Text = "94A-06633";
             // 
             // lbNameCustomer
             // 
@@ -416,7 +445,7 @@
             lbNameCustomer.TabIndex = 0;
             lbNameCustomer.Text = "Nguyễn Văn A";
             // 
-            // fPaying
+            // fPayment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -425,7 +454,7 @@
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "fPaying";
+            Name = "fPayment";
             StartPosition = FormStartPosition.CenterParent;
             Text = "fPaying";
             Load += fPaying_Load;
@@ -472,8 +501,8 @@
         private Panel panel6;
         private TextBox txtAmoutPaying;
         private Label label6;
-        private Label label5;
-        private Label label4;
+        private Label lbPhoneNumber;
+        private Label lbPlateLicense;
         private Panel panel9;
         private DateTimePicker dtpDatePay;
         private Label label10;
@@ -484,9 +513,11 @@
         private Label lbTotalAmout;
         private Label label12;
         private Panel panel10;
-        private TextBox txtEmail;
+        private TextBox txtIdRepair;
         private Label label11;
         private Button btnClose;
         private Button btnPrintBill;
+        private Label lbTheRestAmout;
+        private Label label5;
     }
 }

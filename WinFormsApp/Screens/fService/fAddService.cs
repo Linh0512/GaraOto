@@ -21,7 +21,7 @@ namespace WinFormsApp.Screens.Service.AddService
         public fAddService()
         {
             InitializeComponent();
-            LoadAutoCompleteData();
+            GetAutoCompleteData();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,108 +34,58 @@ namespace WinFormsApp.Screens.Service.AddService
 
         }
 
-        private void LoadAutoCompleteData()
+        private void GetAutoCompleteData()
         {
-            // Tạo AutoCompleteCustomSource cho Tên vật tư
-            AutoCompleteStringCollection itemSource = new AutoCompleteStringCollection();
-            AutoCompleteStringCollection wageSource = new AutoCompleteStringCollection();
+            this.AutoCompleteItems();
+            this.AutoCompleteWage();
+        }
 
-            using (SqlConnection conn = DataProvider.Instance.getConnect())
-            {
-                conn.Open();
-
-                // Lấy danh sách tên vật tư
-                string queryItems = "SELECT TenVTPT FROM PHUTUNG";
-                SqlCommand cmdItems = new SqlCommand(queryItems, conn);
-                SqlDataReader readerItems = cmdItems.ExecuteReader();
-                while (readerItems.Read())
-                {
-                    itemSource.Add(readerItems["TenVTPT"].ToString());
-                }
-                readerItems.Close();
-
-                // Lấy danh sách nội dung sửa chữa
-                string queryWages = "SELECT NoiDung FROM TIENCONG";
-                SqlCommand cmdWages = new SqlCommand(queryWages, conn);
-                SqlDataReader readerWages = cmdWages.ExecuteReader();
-                while (readerWages.Read())
-                {
-                    wageSource.Add(readerWages["NoiDung"].ToString());
-                }
-                readerWages.Close();
-
-                conn.Close();
-            }
-
-            // Gán AutoCompleteSource cho các ComboBox
-            cbbItem.AutoCompleteCustomSource = itemSource;
+        private void AutoCompleteItems()
+        {
+            string queryItems = "SELECT TenVTPT FROM PHUTUNG";
+            string columnItems = "TenVTPT";
+            cbbItem.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryItems, columnItems);
             cbbItem.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbItem.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
 
-            cbbWage.AutoCompleteCustomSource = wageSource;
+        private void AutoCompleteWage()
+        {
+            string queryWages = "SELECT NoiDung FROM TIENCONG";
+            string columnWage = "NoiDung";
+            cbbWage.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryWages, columnWage);
             cbbWage.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbWage.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
-
-
         private void cbbWage_Leave(object sender, EventArgs e)
         {
             string selectedWage = cbbWage.Text;
-            try
-            {
-                if (!string.IsNullOrEmpty(selectedWage))
-                {
-                    using (SqlConnection conn = DataProvider.Instance.getConnect())
-                    {
-                        conn.Open();
-                        string query = "SELECT TienCong FROM TIENCONG WHERE NoiDung = @NoiDung";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@NoiDung", selectedWage);
+            string query1 = "SELECT TienCong FROM TIENCONG WHERE NoiDung = @NoiDung";
+            string query2 = "SELECT MaTienCong FROM TIENCONG WHERE NoiDung = @NoiDung";
 
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
-                        {
-                            txtWagePrice.Text = result.ToString(); // Điền Tiền công vào TextBox
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
+            object result = ServiceDAO.instance.LoadDataByName(query1, "@NoiDung", selectedWage);
+            object result2 = ServiceDAO.instance.LoadDataByName(query2, "@NoiDung", selectedWage);
+            if (result != null)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtWagePrice.Text = result.ToString(); // Điền Tiền công vào TextBox
+                txbIdWage.Text = result2.ToString();
             }
-
         }
 
         private void cbbItem_Leave(object sender, EventArgs e)
         {
             string selectedItem = cbbItem.Text;
-            try
-            {
-                if (!string.IsNullOrEmpty(selectedItem))
-                {
-                    using (SqlConnection conn = DataProvider.Instance.getConnect())
-                    {
-                        conn.Open();
-                        string query = "SELECT DonGia FROM PHUTUNG WHERE TenVTPT = @TenVTPT";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@TenVTPT", selectedItem);
+            string query1 = "SELECT DonGia FROM PHUTUNG WHERE TenVTPT = @TenVTPT";
+            string query2 = "SELECT MaVTPT FROM PHUTUNG WHERE TenVTPT = @TenVTPT";
 
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
-                        {
-                            txtPricePerUnit.Text = result.ToString(); // Điền Đơn giá vào TextBox
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
+            object result = ServiceDAO.instance.LoadDataByName(query1, "@TenVTPT", selectedItem);
+            object result2 = ServiceDAO.instance.LoadDataByName(query2, "@TenVTPT", selectedItem);
+            if (result != null)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPricePerUnit.Text = result.ToString(); // Điền Đơn giá vào TextBox
+                txbIdItem.Text = result2.ToString();
             }
-
         }
-
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -151,6 +101,8 @@ namespace WinFormsApp.Screens.Service.AddService
             // Lấy dữ liệu từ các TextBox và ComboBox
             ServiceDetails = new Dictionary<string, object>
             {
+                {"MaVTPT", txbIdItem.Text},
+                {"MaTienCong", txbIdWage.Text},
                 {"NoiDung", cbbWage.Text},
                 {"TenVTPT", cbbItem.Text},
                 {"SoLuong", int.Parse(txtQuantity.Text)},

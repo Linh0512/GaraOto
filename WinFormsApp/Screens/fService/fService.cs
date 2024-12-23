@@ -11,6 +11,11 @@ using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Screens.Service.InforCar;
 using WinFormsApp.Screens.Service.AddCar;
+using WinFormsApp.Screens.Service.ListPayment;
+using WinFormsApp.Screens.Service.UpdateInforCar;
+using WinFormsApp.Screens.Service.ListRepair;
+using WinFormsApp.Screens.Service.Payment;
+
 
 namespace WinFormsApp.Screens.Service
 {
@@ -20,21 +25,68 @@ namespace WinFormsApp.Screens.Service
         {
             InitializeComponent();
             this.LoadCarData();
+            this.LoadAutoCompleteData();
         }
 
         private void Service_Load(object sender, EventArgs e)
         {
-            this.SetPlaceHolder(cbbLicensePlate, "Biển số");
-            this.SetPlaceHolder(cbbHieuXe, "Hiệu xe");
-            this.SetPlaceHolder(cbbTenChuXe, "Chủ xe");
-            this.SetPlaceHolder(cbbPhoneNumber, "Số điện thoại");
+            General.Instance.CbbMakeTextDisappear(cbbLicensePlate, "Biển số");
+            General.Instance.CbbMakeTextDisappear(cbbCarBrand, "Hiệu xe");
+            General.Instance.CbbMakeTextDisappear(cbbTenChuXe, "Chủ xe");
+            General.Instance.CbbMakeTextDisappear(cbbPhoneNumber, "Số điện thoại");
         }
+
 
         private void LoadCarData()
         {
             string query = "SELECT * FROM dbo.XE";
-            ServiceDAO.Instance.LoadCarData(query, dgvService);
+            ServiceDAO.instance.LoadData(query, dtgvService);
         }
+        //load auto complete data
+        private void LoadAutoCompleteData()
+        {
+            this.GetLicensePlateAutoComplete();
+            this.GetPhoneNumberAutoComplete();
+            this.GetCustomerNameAutoComplete();
+            this.GetCarBrandAutoComplete();
+        }
+
+        private void GetLicensePlateAutoComplete()
+        {
+            string queryLicensePlate = "SELECT DISTINCT BienSo FROM dbo.XE";
+            string columnLicensePlate = "BienSo";
+            cbbLicensePlate.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryLicensePlate, columnLicensePlate);
+            cbbLicensePlate.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbLicensePlate.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void GetPhoneNumberAutoComplete()
+        {
+            string queryPhoneNumber = "SELECT DISTINCT DienThoai FROM dbo.XE";
+            string columnPhoneNumber = "DienThoai";
+            cbbPhoneNumber.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryPhoneNumber, columnPhoneNumber);
+            cbbPhoneNumber.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbPhoneNumber.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void GetCustomerNameAutoComplete()
+        {
+            string queryCustomerName = "SELECT DISTINCT TenChuXe FROM dbo.XE";
+            string columnCustomerName = "TenChuXe";
+            cbbTenChuXe.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCustomerName, columnCustomerName);
+            cbbTenChuXe.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbTenChuXe.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void GetCarBrandAutoComplete()
+        {
+            string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.XE";
+            string columnCarBrand = "HieuXe";
+            cbbCarBrand.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
+            cbbCarBrand.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbCarBrand.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -43,30 +95,6 @@ namespace WinFormsApp.Screens.Service
         private void label1_Click_1(object sender, EventArgs e)
         {
 
-        }
-
-        private void SetPlaceHolder(ComboBox cbb, string sph)
-        {
-            cbb.Text = sph;
-            cbb.ForeColor = Color.Gray;
-
-            cbb.Enter += (sender, e) =>
-            {
-                if (cbb.Text == sph)
-                {
-                    cbb.Text = "";
-                    cbb.ForeColor = Color.Black;
-                }
-            };
-
-            cbb.Leave += (sender, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(cbb.Text))
-                {
-                    cbb.Text = sph;
-                    cbb.ForeColor = Color.Gray;
-                }
-            };
         }
 
         private void cbbLicensePlate_Click(object sender, EventArgs e)
@@ -79,9 +107,9 @@ namespace WinFormsApp.Screens.Service
 
         private void cbbHieuXe_Click(object sender, EventArgs e)
         {
-            if (cbbHieuXe.Text == "Hiệu xe")
+            if (cbbCarBrand.Text == "Hiệu xe")
             {
-                cbbHieuXe.Text = "";
+                cbbCarBrand.Text = "";
             }
         }
 
@@ -132,16 +160,15 @@ namespace WinFormsApp.Screens.Service
         private void btnAddService_Click(object sender, EventArgs e)
         {
             fInforCar f = new fInforCar();
-            Console.WriteLine(dgvService.SelectedRows.Count);
-            if (dgvService.SelectedRows.Count > 0)
+            if (dtgvService.SelectedRows.Count > 0)
             {
-                string customerName = dgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
-                string licensePlate = dgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
-                string carBrand = dgvService.SelectedRows[0].Cells["HieuXe"].Value.ToString();
-                string phoneNumber = dgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
-                string address = dgvService.SelectedRows[0].Cells["DiaChi"].Value.ToString();
-                string date = dgvService.SelectedRows[0].Cells["NgayTiepNhan"].Value.ToString();
-                string debt = dgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
+                string customerName = dtgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
+                string licensePlate = dtgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
+                string carBrand = dtgvService.SelectedRows[0].Cells["HieuXe"].Value.ToString();
+                string phoneNumber = dtgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
+                string address = dtgvService.SelectedRows[0].Cells["DiaChi"].Value.ToString();
+                string date = dtgvService.SelectedRows[0].Cells["NgayTiepNhan"].Value.ToString();
+                string debt = dtgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
 
                 // Truyền thông tin sang fInforCar
                 f.lbCustomerName.Text = customerName;
@@ -161,52 +188,58 @@ namespace WinFormsApp.Screens.Service
 
         private void bnDelete_Click(object sender, EventArgs e)
         {
-            string plateLicense = (string)dgvService.SelectedRows[0].Cells["BienSo"].Value;
-            ServiceDAO.Instance.DelCar(plateLicense);
+            string plateLicense = (string)dtgvService.SelectedRows[0].Cells["BienSo"].Value;
+            ServiceDAO.instance.DelCar(plateLicense);
             this.LoadCarData();
         }
 
         private void bnFind_Click(object sender, EventArgs e)
         {
-            string plateLicense = cbbLicensePlate.Text;
-            string carBrand = cbbHieuXe.Text;
-            string customerName = cbbTenChuXe.Text;
-            string PhoneNumber = cbbPhoneNumber.Text;
+            string plateLicense = cbbLicensePlate.Text.Trim();
+            string carBrand = cbbCarBrand.Text.Trim();
+            string customerName = cbbTenChuXe.Text.Trim();
+            string phoneNumber = cbbPhoneNumber.Text.Trim();
+            string date = dtpDateService.Value.ToString("yyyy-MM-dd");
 
-            DataTable result = null;
+            // Tạo dictionary chứa các điều kiện tìm kiếm
+            Dictionary<string, string> conditions = new Dictionary<string, string>();
 
             if (!string.IsNullOrEmpty(plateLicense) && plateLicense != "Biển số")
             {
-                result = ServiceDAO.Instance.FindCar("BienSo", plateLicense);
+                conditions.Add("BienSo", plateLicense);
             }
-            else if (!string.IsNullOrEmpty(carBrand) && carBrand != "Hiệu xe")
+            if (!string.IsNullOrEmpty(carBrand) && carBrand != "Hiệu xe")
             {
-                result = ServiceDAO.Instance.FindCar("HieuXe", carBrand);
+                conditions.Add("HieuXe", carBrand);
             }
-            else if (!string.IsNullOrEmpty(customerName) && customerName != "Chủ xe")
+            if (!string.IsNullOrEmpty(customerName) && customerName != "Chủ xe")
             {
-                result = ServiceDAO.Instance.FindCar("TenChuXe", customerName);
+                conditions.Add("TenChuXe", customerName);
             }
-            else if (!string.IsNullOrEmpty(PhoneNumber) && PhoneNumber != "Số điện thoại")
+            if (!string.IsNullOrEmpty(phoneNumber) && phoneNumber != "Số điện thoại")
             {
-                result = ServiceDAO.Instance.FindCar("DienThoai", PhoneNumber);
+                conditions.Add("DienThoai", phoneNumber);
+            }
+            if (!string.IsNullOrEmpty(date))
+            {
+                conditions.Add("NgayTiepNhan", date);
+            }
+
+            // Gọi hàm FindCar từ ServiceDAO
+            DataTable result = ServiceDAO.instance.FindCar(conditions);
+
+            // Kiểm tra kết quả và hiển thị
+            if (result != null && result.Rows.Count > 0)
+            {
+                dtgvService.DataSource = result;
             }
             else
             {
                 MessageBox.Show("Không tìm thấy xe với thông tin này.");
                 this.LoadCarData();
-                return;
-            }
-
-            if (result != null && result.Rows.Count > 0)
-            {
-                dgvService.DataSource = result;
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy xe với thông tin này.");
             }
         }
+
 
         private void cbbChuXe_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -216,6 +249,52 @@ namespace WinFormsApp.Screens.Service
         private void bnRefresh_Click(object sender, EventArgs e)
         {
             this.LoadCarData();
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            //fPaying fPaying = new fPaying(table);
+            //fPaying.ShowDialog();
+        }
+
+        private void ChangeInfor_Click(object sender, EventArgs e)
+        {
+            if (dtgvService.SelectedRows.Count == 0) return;
+            fUpdateInforCar f = new fUpdateInforCar();
+            if (dtgvService.SelectedRows.Count > 0)
+            {
+                string customerName = dtgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
+                string licensePlate = dtgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
+                string carBrand = dtgvService.SelectedRows[0].Cells["HieuXe"].Value.ToString();
+                string phoneNumber = dtgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
+                string address = dtgvService.SelectedRows[0].Cells["DiaChi"].Value.ToString();
+                string date = dtgvService.SelectedRows[0].Cells["NgayTiepNhan"].Value.ToString();
+                string debt = dtgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
+                string email = dtgvService.SelectedRows[0].Cells["Email"].Value.ToString();
+
+                // Truyền thông tin sang fInforCar
+                f.txbCustomerName.Text = customerName;
+                f.txbLicensePlate.Text = licensePlate;
+                f.cbbCarBrand.Text = carBrand;
+                f.txbPhoneNumber.Text = phoneNumber;
+                f.txbAddress.Text = address;
+                f.dtpDateReceived.Text = date;
+                f.txbDebt.Text = debt;
+                f.txbEmail.Text = email;
+                f.ShowDialog();
+            }
+        }
+
+        private void ListRepair_Click(object sender, EventArgs e)
+        {
+            fListRepair f = new fListRepair();
+            f.ShowDialog();
+        }
+
+        private void ListPayment_Click(object sender, EventArgs e)
+        {
+            fListPayment f = new fListPayment();
+            f.ShowDialog();
         }
     }
 }

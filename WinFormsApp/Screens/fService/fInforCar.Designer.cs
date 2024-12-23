@@ -31,11 +31,7 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            btnChangeInfo = new Button();
             label16 = new Label();
-            panel11 = new Panel();
-            label15 = new Label();
-            dtpDateFix = new DateTimePicker();
             panel10 = new Panel();
             label14 = new Label();
             dtpDateReceived = new DateTimePicker();
@@ -63,24 +59,33 @@
             lbCustomerName = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
+            panel13 = new Panel();
+            lbIdRepair = new Label();
+            label4 = new Label();
+            panel11 = new Panel();
+            label15 = new Label();
+            dtpDateFix = new DateTimePicker();
             panel3 = new Panel();
             dtgvServiceCar = new DataGridView();
             CellWage = new DataGridViewTextBoxColumn();
+            cellIdItem = new DataGridViewTextBoxColumn();
             cellItem = new DataGridViewTextBoxColumn();
             cellQuantity = new DataGridViewTextBoxColumn();
             cellPricePerUnit = new DataGridViewTextBoxColumn();
             cellWagePrice = new DataGridViewTextBoxColumn();
             cellTotalMoney = new DataGridViewTextBoxColumn();
+            panel14 = new Panel();
+            panel15 = new Panel();
+            lbTotalAmout = new Label();
+            lb = new Label();
             btnAddService = new Button();
             panel12 = new Panel();
-            btnChangeService = new Button();
-            btnDelService = new Button();
-            panel13 = new Panel();
+            btnAddRepair = new Button();
             btnCLose = new Button();
-            btnPay = new Button();
+            btnDelService = new Button();
+            lbIdWage = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel11.SuspendLayout();
             panel10.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -94,21 +99,25 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel13.SuspendLayout();
+            panel11.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvServiceCar).BeginInit();
+            panel14.SuspendLayout();
+            panel15.SuspendLayout();
             panel12.SuspendLayout();
-            panel13.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.CadetBlue;
+            panel1.Controls.Add(lbIdWage);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1130, 71);
+            panel1.Size = new Size(1262, 71);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -127,9 +136,7 @@
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.ControlDark;
-            panel2.Controls.Add(btnChangeInfo);
             panel2.Controls.Add(label16);
-            panel2.Controls.Add(panel11);
             panel2.Controls.Add(panel10);
             panel2.Controls.Add(panel9);
             panel2.Controls.Add(panel8);
@@ -140,75 +147,31 @@
             panel2.Location = new Point(0, 79);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(295, 693);
+            panel2.Size = new Size(282, 671);
             panel2.TabIndex = 1;
-            // 
-            // btnChangeInfo
-            // 
-            btnChangeInfo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnChangeInfo.BackColor = Color.AliceBlue;
-            btnChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnChangeInfo.Location = new Point(52, 609);
-            btnChangeInfo.Margin = new Padding(4);
-            btnChangeInfo.Name = "btnChangeInfo";
-            btnChangeInfo.Size = new Size(183, 59);
-            btnChangeInfo.TabIndex = 9;
-            btnChangeInfo.Text = "Thay đổi thông tin";
-            btnChangeInfo.UseVisualStyleBackColor = false;
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.BackColor = Color.Beige;
-            label16.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.Location = new Point(52, 4);
+            label16.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.Location = new Point(55, 11);
             label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(182, 31);
+            label16.Size = new Size(172, 38);
             label16.TabIndex = 8;
-            label16.Text = "Thông tin chung";
-            // 
-            // panel11
-            // 
-            panel11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel11.BackColor = SystemColors.Control;
-            panel11.Controls.Add(label15);
-            panel11.Controls.Add(dtpDateFix);
-            panel11.Location = new Point(8, 538);
-            panel11.Margin = new Padding(4);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(284, 64);
-            panel11.TabIndex = 7;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.ForeColor = SystemColors.ControlDarkDark;
-            label15.Location = new Point(6, 6);
-            label15.Margin = new Padding(4, 0, 4, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(107, 20);
-            label15.TabIndex = 1;
-            label15.Text = "Ngày sửa chữa";
-            // 
-            // dtpDateFix
-            // 
-            dtpDateFix.Location = new Point(4, 29);
-            dtpDateFix.Margin = new Padding(4);
-            dtpDateFix.Name = "dtpDateFix";
-            dtpDateFix.Size = new Size(228, 27);
-            dtpDateFix.TabIndex = 0;
+            label16.Text = "Thông tin xe";
             // 
             // panel10
             // 
-            panel10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel10.BackColor = SystemColors.Control;
             panel10.Controls.Add(label14);
             panel10.Controls.Add(dtpDateReceived);
-            panel10.Location = new Point(8, 466);
+            panel10.Location = new Point(4, 577);
             panel10.Margin = new Padding(4);
             panel10.Name = "panel10";
-            panel10.Size = new Size(284, 64);
+            panel10.Size = new Size(271, 69);
             panel10.TabIndex = 6;
             // 
             // label14
@@ -224,7 +187,8 @@
             // 
             // dtpDateReceived
             // 
-            dtpDateReceived.Location = new Point(4, 29);
+            dtpDateReceived.Format = DateTimePickerFormat.Short;
+            dtpDateReceived.Location = new Point(28, 30);
             dtpDateReceived.Margin = new Padding(4);
             dtpDateReceived.Name = "dtpDateReceived";
             dtpDateReceived.Size = new Size(228, 27);
@@ -233,15 +197,15 @@
             // 
             // panel9
             // 
-            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel9.BackColor = SystemColors.Control;
             panel9.Controls.Add(lbDebt);
             panel9.Controls.Add(label13);
             panel9.Controls.Add(pictureBox6);
-            panel9.Location = new Point(8, 394);
+            panel9.Location = new Point(4, 488);
             panel9.Margin = new Padding(4);
             panel9.Name = "panel9";
-            panel9.Size = new Size(284, 62);
+            panel9.Size = new Size(271, 67);
             panel9.TabIndex = 5;
             // 
             // lbDebt
@@ -281,15 +245,15 @@
             // 
             // panel8
             // 
-            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel8.BackColor = SystemColors.Control;
             panel8.Controls.Add(lbAddress);
             panel8.Controls.Add(label11);
             panel8.Controls.Add(pictureBox5);
-            panel8.Location = new Point(8, 324);
+            panel8.Location = new Point(4, 401);
             panel8.Margin = new Padding(4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(284, 62);
+            panel8.Size = new Size(271, 67);
             panel8.TabIndex = 4;
             // 
             // lbAddress
@@ -329,15 +293,15 @@
             // 
             // panel7
             // 
-            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel7.BackColor = SystemColors.Control;
             panel7.Controls.Add(lbPhone);
             panel7.Controls.Add(label9);
             panel7.Controls.Add(pictureBox4);
-            panel7.Location = new Point(8, 253);
+            panel7.Location = new Point(4, 316);
             panel7.Margin = new Padding(4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(284, 62);
+            panel7.Size = new Size(271, 67);
             panel7.TabIndex = 3;
             // 
             // lbPhone
@@ -377,15 +341,15 @@
             // 
             // panel6
             // 
-            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel6.BackColor = SystemColors.Control;
             panel6.Controls.Add(lbCarBrand);
             panel6.Controls.Add(label7);
             panel6.Controls.Add(pictureBox3);
-            panel6.Location = new Point(8, 182);
+            panel6.Location = new Point(4, 231);
             panel6.Margin = new Padding(4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(284, 62);
+            panel6.Size = new Size(271, 67);
             panel6.TabIndex = 3;
             // 
             // lbCarBrand
@@ -425,15 +389,15 @@
             // 
             // panel5
             // 
-            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel5.BackColor = SystemColors.Control;
             panel5.Controls.Add(lbPlateLicense);
             panel5.Controls.Add(label5);
             panel5.Controls.Add(pictureBox2);
-            panel5.Location = new Point(8, 112);
+            panel5.Location = new Point(4, 147);
             panel5.Margin = new Padding(4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(284, 62);
+            panel5.Size = new Size(271, 67);
             panel5.TabIndex = 1;
             // 
             // lbPlateLicense
@@ -473,15 +437,15 @@
             // 
             // panel4
             // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = SystemColors.Control;
             panel4.Controls.Add(lbCustomerName);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(pictureBox1);
-            panel4.Location = new Point(8, 41);
+            panel4.Location = new Point(4, 62);
             panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(284, 62);
+            panel4.Size = new Size(271, 67);
             panel4.TabIndex = 0;
             // 
             // lbCustomerName
@@ -519,14 +483,86 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // panel13
+            // 
+            panel13.Anchor = AnchorStyles.None;
+            panel13.BackColor = SystemColors.Control;
+            panel13.Controls.Add(lbIdRepair);
+            panel13.Controls.Add(label4);
+            panel13.Location = new Point(9, 6);
+            panel13.Margin = new Padding(4);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(284, 60);
+            panel13.TabIndex = 9;
+            // 
+            // lbIdRepair
+            // 
+            lbIdRepair.AutoSize = true;
+            lbIdRepair.BackColor = SystemColors.ButtonShadow;
+            lbIdRepair.Enabled = false;
+            lbIdRepair.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbIdRepair.Location = new Point(109, 25);
+            lbIdRepair.Margin = new Padding(4, 0, 4, 0);
+            lbIdRepair.Name = "lbIdRepair";
+            lbIdRepair.Size = new Size(53, 25);
+            lbIdRepair.TabIndex = 2;
+            lbIdRepair.Text = "SC01";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.Control;
+            label4.Enabled = false;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlDarkDark;
+            label4.Location = new Point(4, 0);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(74, 20);
+            label4.TabIndex = 1;
+            label4.Text = "Mã phiếu:";
+            // 
+            // panel11
+            // 
+            panel11.Anchor = AnchorStyles.None;
+            panel11.BackColor = SystemColors.Control;
+            panel11.Controls.Add(label15);
+            panel11.Controls.Add(dtpDateFix);
+            panel11.Location = new Point(657, 0);
+            panel11.Margin = new Padding(4);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(284, 69);
+            panel11.TabIndex = 7;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.ForeColor = SystemColors.ControlDarkDark;
+            label15.Location = new Point(6, 6);
+            label15.Margin = new Padding(4, 0, 4, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(107, 20);
+            label15.TabIndex = 1;
+            label15.Text = "Ngày sửa chữa";
+            // 
+            // dtpDateFix
+            // 
+            dtpDateFix.Format = DateTimePickerFormat.Short;
+            dtpDateFix.Location = new Point(28, 30);
+            dtpDateFix.Margin = new Padding(4);
+            dtpDateFix.Name = "dtpDateFix";
+            dtpDateFix.Size = new Size(228, 27);
+            dtpDateFix.TabIndex = 0;
+            // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.Controls.Add(dtgvServiceCar);
-            panel3.Location = new Point(296, 79);
+            panel3.Controls.Add(panel14);
+            panel3.Location = new Point(290, 79);
             panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(841, 601);
+            panel3.Size = new Size(973, 601);
             panel3.TabIndex = 2;
             // 
             // dtgvServiceCar
@@ -535,13 +571,13 @@
             dtgvServiceCar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dtgvServiceCar.BackgroundColor = SystemColors.Control;
             dtgvServiceCar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvServiceCar.Columns.AddRange(new DataGridViewColumn[] { CellWage, cellItem, cellQuantity, cellPricePerUnit, cellWagePrice, cellTotalMoney });
+            dtgvServiceCar.Columns.AddRange(new DataGridViewColumn[] { CellWage, cellIdItem, cellItem, cellQuantity, cellPricePerUnit, cellWagePrice, cellTotalMoney });
             dtgvServiceCar.GridColor = SystemColors.ActiveBorder;
-            dtgvServiceCar.Location = new Point(7, 0);
+            dtgvServiceCar.Location = new Point(8, 0);
             dtgvServiceCar.Margin = new Padding(4);
             dtgvServiceCar.Name = "dtgvServiceCar";
             dtgvServiceCar.RowHeadersWidth = 82;
-            dtgvServiceCar.Size = new Size(827, 601);
+            dtgvServiceCar.Size = new Size(958, 525);
             dtgvServiceCar.TabIndex = 0;
             dtgvServiceCar.CellContentClick += dtgvServiceCar_CellContentClick;
             // 
@@ -551,6 +587,13 @@
             CellWage.MinimumWidth = 6;
             CellWage.Name = "CellWage";
             CellWage.Width = 125;
+            // 
+            // cellIdItem
+            // 
+            cellIdItem.HeaderText = "Mã vật tư";
+            cellIdItem.MinimumWidth = 6;
+            cellIdItem.Name = "cellIdItem";
+            cellIdItem.Width = 125;
             // 
             // cellItem
             // 
@@ -587,112 +630,145 @@
             cellTotalMoney.Name = "cellTotalMoney";
             cellTotalMoney.Width = 125;
             // 
+            // panel14
+            // 
+            panel14.Controls.Add(panel15);
+            panel14.Controls.Add(panel11);
+            panel14.Controls.Add(panel13);
+            panel14.Location = new Point(7, 532);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(959, 67);
+            panel14.TabIndex = 10;
+            // 
+            // panel15
+            // 
+            panel15.Anchor = AnchorStyles.None;
+            panel15.BackColor = SystemColors.Control;
+            panel15.Controls.Add(lbTotalAmout);
+            panel15.Controls.Add(lb);
+            panel15.Location = new Point(332, 6);
+            panel15.Margin = new Padding(4);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(284, 60);
+            panel15.TabIndex = 10;
+            // 
+            // lbTotalAmout
+            // 
+            lbTotalAmout.AutoSize = true;
+            lbTotalAmout.BackColor = SystemColors.ButtonShadow;
+            lbTotalAmout.Enabled = false;
+            lbTotalAmout.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbTotalAmout.Location = new Point(105, 24);
+            lbTotalAmout.Margin = new Padding(4, 0, 4, 0);
+            lbTotalAmout.Name = "lbTotalAmout";
+            lbTotalAmout.Size = new Size(82, 25);
+            lbTotalAmout.TabIndex = 2;
+            lbTotalAmout.Text = "0000000";
+            // 
+            // lb
+            // 
+            lb.AutoSize = true;
+            lb.BackColor = SystemColors.Control;
+            lb.Enabled = false;
+            lb.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb.ForeColor = SystemColors.ControlDarkDark;
+            lb.Location = new Point(4, 0);
+            lb.Margin = new Padding(4, 0, 4, 0);
+            lb.Name = "lb";
+            lb.Size = new Size(72, 20);
+            lb.TabIndex = 1;
+            lb.Text = "Tổng tiền";
+            // 
             // btnAddService
             // 
-            btnAddService.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnAddService.Anchor = AnchorStyles.None;
             btnAddService.BackColor = Color.AliceBlue;
             btnAddService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAddService.Location = new Point(4, 4);
+            btnAddService.Location = new Point(75, 4);
             btnAddService.Margin = new Padding(4);
             btnAddService.Name = "btnAddService";
-            btnAddService.Size = new Size(88, 54);
+            btnAddService.Size = new Size(168, 54);
             btnAddService.TabIndex = 10;
-            btnAddService.Text = "Thêm";
+            btnAddService.Text = "Thêm dịch vụ";
             btnAddService.UseVisualStyleBackColor = false;
             btnAddService.Click += AddService_Click;
             // 
             // panel12
             // 
             panel12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel12.Controls.Add(btnChangeService);
+            panel12.Controls.Add(btnAddRepair);
+            panel12.Controls.Add(btnCLose);
             panel12.Controls.Add(btnDelService);
             panel12.Controls.Add(btnAddService);
-            panel12.Location = new Point(300, 688);
+            panel12.Location = new Point(290, 688);
             panel12.Margin = new Padding(4);
             panel12.Name = "panel12";
-            panel12.Size = new Size(364, 62);
+            panel12.Size = new Size(966, 62);
             panel12.TabIndex = 3;
             // 
-            // btnChangeService
+            // btnAddRepair
             // 
-            btnChangeService.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnChangeService.BackColor = Color.AliceBlue;
-            btnChangeService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnChangeService.Location = new Point(239, 4);
-            btnChangeService.Margin = new Padding(4);
-            btnChangeService.Name = "btnChangeService";
-            btnChangeService.Size = new Size(88, 54);
-            btnChangeService.TabIndex = 12;
-            btnChangeService.Text = "Sửa";
-            btnChangeService.UseVisualStyleBackColor = false;
-            btnChangeService.Click += button4_Click;
-            // 
-            // btnDelService
-            // 
-            btnDelService.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnDelService.BackColor = Color.AliceBlue;
-            btnDelService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDelService.Location = new Point(122, 2);
-            btnDelService.Margin = new Padding(4);
-            btnDelService.Name = "btnDelService";
-            btnDelService.Size = new Size(88, 54);
-            btnDelService.TabIndex = 11;
-            btnDelService.Text = "Xóa";
-            btnDelService.UseVisualStyleBackColor = false;
-            btnDelService.Click += btnDelService_Click;
-            // 
-            // panel13
-            // 
-            panel13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel13.Controls.Add(btnCLose);
-            panel13.Controls.Add(btnPay);
-            panel13.Location = new Point(760, 688);
-            panel13.Margin = new Padding(4);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(364, 62);
-            panel13.TabIndex = 4;
+            btnAddRepair.Anchor = AnchorStyles.None;
+            btnAddRepair.BackColor = SystemColors.ActiveCaption;
+            btnAddRepair.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAddRepair.Location = new Point(632, 4);
+            btnAddRepair.Margin = new Padding(4);
+            btnAddRepair.Name = "btnAddRepair";
+            btnAddRepair.Size = new Size(141, 54);
+            btnAddRepair.TabIndex = 13;
+            btnAddRepair.Text = "Lập Phiếu";
+            btnAddRepair.UseVisualStyleBackColor = false;
+            btnAddRepair.Click += btnAddRepair_Click;
             // 
             // btnCLose
             // 
-            btnCLose.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnCLose.Anchor = AnchorStyles.None;
             btnCLose.BackColor = Color.SandyBrown;
             btnCLose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCLose.Location = new Point(257, 2);
+            btnCLose.Location = new Point(825, 4);
             btnCLose.Margin = new Padding(4);
             btnCLose.Name = "btnCLose";
-            btnCLose.Size = new Size(88, 54);
+            btnCLose.Size = new Size(120, 54);
             btnCLose.TabIndex = 11;
             btnCLose.Text = "Đóng";
             btnCLose.UseVisualStyleBackColor = false;
             btnCLose.Click += btnClose_Click;
             // 
-            // btnPay
+            // btnDelService
             // 
-            btnPay.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnPay.BackColor = SystemColors.ActiveCaption;
-            btnPay.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPay.Location = new Point(52, 4);
-            btnPay.Margin = new Padding(4);
-            btnPay.Name = "btnPay";
-            btnPay.Size = new Size(121, 54);
-            btnPay.TabIndex = 10;
-            btnPay.Text = "Thanh toán";
-            btnPay.UseVisualStyleBackColor = false;
-            btnPay.Click += btnPay_Click;
+            btnDelService.Anchor = AnchorStyles.None;
+            btnDelService.BackColor = SystemColors.ActiveBorder;
+            btnDelService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDelService.Location = new Point(343, 4);
+            btnDelService.Margin = new Padding(4);
+            btnDelService.Name = "btnDelService";
+            btnDelService.Size = new Size(130, 54);
+            btnDelService.TabIndex = 11;
+            btnDelService.Text = "Xóa dịch vụ";
+            btnDelService.UseVisualStyleBackColor = false;
+            btnDelService.Click += btnDelService_Click;
+            // 
+            // lbIdWage
+            // 
+            lbIdWage.AutoSize = true;
+            lbIdWage.Location = new Point(18, 18);
+            lbIdWage.Name = "lbIdWage";
+            lbIdWage.Size = new Size(0, 20);
+            lbIdWage.TabIndex = 1;
+            lbIdWage.Visible = false;
             // 
             // fInforCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1130, 753);
-            Controls.Add(panel13);
+            ClientSize = new Size(1262, 753);
             Controls.Add(panel12);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(4);
-            MaximumSize = new Size(1148, 800);
-            MinimumSize = new Size(1148, 800);
+            MaximumSize = new Size(1280, 800);
+            MinimumSize = new Size(1280, 800);
             Name = "fInforCar";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Thông tin dịch vụ";
@@ -701,8 +777,6 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             panel9.ResumeLayout(false);
@@ -723,10 +797,16 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvServiceCar).EndInit();
+            panel14.ResumeLayout(false);
+            panel15.ResumeLayout(false);
+            panel15.PerformLayout();
             panel12.ResumeLayout(false);
-            panel13.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -768,19 +848,25 @@
         private Panel panel11;
         private Label label15;
         public DateTimePicker dtpDateFix;
-        private Button btnChangeInfo;
         private Panel panel12;
-        private Button btnChangeService;
         private Button btnDelService;
-        private Panel panel13;
         private Button btnCLose;
-        private Button btnPay;
         private Button btnAddService;
+        private Panel panel13;
+        public Label lbIdRepair;
+        private Label label4;
+        private Button btnAddRepair;
         private DataGridViewTextBoxColumn CellWage;
+        private DataGridViewTextBoxColumn cellIdItem;
         private DataGridViewTextBoxColumn cellItem;
         private DataGridViewTextBoxColumn cellQuantity;
         private DataGridViewTextBoxColumn cellPricePerUnit;
         private DataGridViewTextBoxColumn cellWagePrice;
         private DataGridViewTextBoxColumn cellTotalMoney;
+        private Panel panel14;
+        private Panel panel15;
+        public Label lbTotalAmout;
+        private Label lb;
+        private Label lbIdWage;
     }
 }

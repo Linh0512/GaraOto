@@ -40,7 +40,7 @@ namespace WinFormsApp.DAO
                 WHERE MONTH(psc.NgaySuaChua) = {thang} AND YEAR(psc.NgaySuaChua) = {nam}
                 GROUP BY x.HieuXe";
 
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            DataTable data = DataProvider.instance.ExecuteQuery(query);
             List<BaoCaoDoanhSo> result = new List<BaoCaoDoanhSo>();
 
             foreach (DataRow row in data.Rows)
@@ -66,7 +66,7 @@ namespace WinFormsApp.DAO
                 JOIN CT_PSC ct ON psc.MaPSC = ct.MaPSC
                 WHERE MONTH(psc.NgaySuaChua) = {thang} AND YEAR(psc.NgaySuaChua) = {nam}";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+            DataTable result = DataProvider.instance.ExecuteQuery(query);
 
             if (result.Rows.Count > 0)
             {
@@ -148,7 +148,7 @@ namespace WinFormsApp.DAO
 
             try
             {
-                DataTable data = DataProvider.Instance.ExecuteQuery(query);
+                DataTable data = DataProvider.instance.ExecuteQuery(query);
                 List<BaoCaoTon> result = new List<BaoCaoTon>();
 
                 foreach (DataRow row in data.Rows)
@@ -195,7 +195,7 @@ namespace WinFormsApp.DAO
                     0
                 ) AS TonDau";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+            DataTable result = DataProvider.instance.ExecuteQuery(query);
             if (result.Rows.Count > 0)
             {
                 return Convert.ToInt32(result.Rows[0]["TonDau"]);
