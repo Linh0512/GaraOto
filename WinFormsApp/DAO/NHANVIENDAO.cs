@@ -38,7 +38,7 @@ namespace WinFormsApp.DAO
             DiaChi , 
             ChucVu 
         FROM NHANVIEN";
-            return DataProviderLocal.Instance.ExecuteQuery(query);
+            return DataProviderLocal.instance.ExecuteQuery(query);
 
         }
 
@@ -48,7 +48,7 @@ namespace WinFormsApp.DAO
                 "VALUES( @tdn , @mk , @ten , @dth , @email , @dc , @cv )";
             try
             {
-                DataProviderLocal.Instance.ExecuteQuery(sql, new object[] {nhanVien.TenDangNhap , nhanVien.MatKhau,nhanVien.TenNV, nhanVien.DienThoai ,  nhanVien.Email , nhanVien.DiaChi   , nhanVien.ChucVu });
+                DataProviderLocal.instance.ExecuteQuery(sql, new object[] {nhanVien.TenDangNhap , nhanVien.MatKhau,nhanVien.TenNV, nhanVien.DienThoai ,  nhanVien.Email , nhanVien.DiaChi   , nhanVien.ChucVu });
             }
             catch (Exception ex)
             {
@@ -62,7 +62,7 @@ namespace WinFormsApp.DAO
         public void LoadComboBoxData(ComboBox comboBox)
         {
             string sql = "SELECT ChucVu FROM CHUCVU";
-            DataTable dt = DataProviderLocal.Instance.ExecuteQuery(sql);
+            DataTable dt = DataProviderLocal.instance.ExecuteQuery(sql);
             comboBox.DataSource = dt;             // Gán DataTable làm nguồn dữ liệu
             comboBox.DisplayMember = "ChucVu";    // Cột hiển thị trong ComboBox
             comboBox.ValueMember = "ChucVu";      // Cột lưu giá trị của mục
@@ -71,14 +71,14 @@ namespace WinFormsApp.DAO
         public void Xoa(string tdn)
         {
             string query = $"DELETE FROM NHANVIEN WHERE TenDangNhap = @TenDangNhap";
-            DataProviderLocal.Instance.ExecuteQuery(query, new object[] { tdn });
+            DataProviderLocal.instance.ExecuteQuery(query, new object[] { tdn });
         }
         public DataTable TiemKiem(string TuKhoa)
         {
             string query = $"select * from NhanVien Where  " +
                 $" TenNV Like N'%{TuKhoa}%' " +
                 $"OR ChucVu Like N'%{TuKhoa}%'";
-            return DataProviderLocal.Instance.ExecuteQuery(query);
+            return DataProviderLocal.instance.ExecuteQuery(query);
         }
 
         public bool Sua (NhanVien nhanVien)
@@ -88,7 +88,7 @@ namespace WinFormsApp.DAO
                 " WHERE TenDangNhap = @tdn ";
             try
             {
-                DataProviderLocal.Instance.ExecuteQuery(query , new object[] { nhanVien.TenNV, nhanVien.DienThoai, nhanVien.Email, nhanVien.DiaChi, nhanVien.ChucVu, nhanVien.TenDangNhap });
+                DataProviderLocal.instance.ExecuteQuery(query , new object[] { nhanVien.TenNV, nhanVien.DienThoai, nhanVien.Email, nhanVien.DiaChi, nhanVien.ChucVu, nhanVien.TenDangNhap });
             }
             catch (Exception ex) { return false; }
             return true;
@@ -99,7 +99,7 @@ namespace WinFormsApp.DAO
                 " WHERE TenDangNhap = @tdn ";
             try
             {
-                DataProviderLocal.Instance.ExecuteQuery(query, new object[] { "" , nv.TenDangNhap });
+                DataProviderLocal.instance.ExecuteQuery(query, new object[] { "" , nv.TenDangNhap });
             }
             catch (Exception ex) { return false; }
             return true;
@@ -108,7 +108,7 @@ namespace WinFormsApp.DAO
         public bool KiemTraTenDangNhapTrung(string tenDangNhap)
         {
             string query = "SELECT COUNT(*) FROM NhanVien WHERE TenDangNhap = @TenDangNhap";
-            DataTable result = DataProviderLocal.Instance.ExecuteQuery(query, new object[] { tenDangNhap });
+            DataTable result = DataProviderLocal.instance.ExecuteQuery(query, new object[] { tenDangNhap });
 
             if (result.Rows.Count > 0)
             {

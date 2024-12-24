@@ -13,20 +13,12 @@ namespace WinFormsApp.DAO
     {
 
 
-        private static DataProviderLocal instance;
-        public static DataProviderLocal Instance
-        {
-            get { if (instance == null) instance = new DataProviderLocal(); return DataProviderLocal.instance; }
-            private set { DataProviderLocal.instance = value; }
-        }
-        private DataProviderLocal(){ }
+        public static DataProviderLocal instance = new DataProviderLocal();
         
-        string connectionSTR = @"Data Source=.\sqlexpress;Initial Catalog=QUANLIGARA;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
-
         public DataTable ExecuteQuery (string query , object[] parameter = null)
         {
             DataTable dataTable = new DataTable();
-            using (SqlConnection connection = new SqlConnection(connectionSTR)) 
+            using (SqlConnection connection = DataProvider.instance.getConnect()) 
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
@@ -47,13 +39,7 @@ namespace WinFormsApp.DAO
                 adapter.Fill(dataTable);
                 connection.Close();
             }
-
-           
             return dataTable;
-        }
-        public SqlConnection getConnect()
-        {
-            return new SqlConnection(connectionSTR);
         }
     }
 }
