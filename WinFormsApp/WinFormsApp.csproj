@@ -33,9 +33,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Screens\fReport\fBaoCaoDS.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="Screens\fReport\fBaoCaoDS.cs" />
     <Compile Update="Screens\fReport\fBaoCaoTon.cs">
       <SubType>Form</SubType>
     </Compile>
