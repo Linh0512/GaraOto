@@ -48,6 +48,7 @@
 
   <ItemGroup>
     <Folder Include="Component\" />
+    <Folder Include="Screens\fInventory\" />
   </ItemGroup>
 
 </Project>
