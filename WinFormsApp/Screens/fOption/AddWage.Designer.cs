@@ -169,7 +169,8 @@
             Controls.Add(lblWageType);
             Controls.Add(panel1);
             Name = "AddWage";
-            Text = "Thêm tiền công";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "THÊM TIỀN CÔNG";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

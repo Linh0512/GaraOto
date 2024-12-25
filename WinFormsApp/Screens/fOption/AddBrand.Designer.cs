@@ -123,7 +123,8 @@
             Controls.Add(txtBrandName);
             Controls.Add(lblBrandName);
             Name = "AddBrand";
-            Text = "Thêm hãng xe";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "THÊM HÃNG XE";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -168,7 +168,8 @@
             Controls.Add(lblNewPassword);
             Controls.Add(lblCurrentPassword);
             Name = "UpdatePassword";
-            Text = "Đổi mật khẩu";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "ĐỔI MẬT KHẨU";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

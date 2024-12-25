@@ -169,7 +169,8 @@
             Controls.Add(lblPhoneNumber);
             Controls.Add(lblSupplierName);
             Name = "AddSupplier";
-            Text = "Thêm nhà cung cấp";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "THÊM NHÀ CUNG CẤP";
             Load += AddSupplier_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
