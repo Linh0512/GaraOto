@@ -31,40 +31,42 @@ partial class fBaoCaoTon
     /// </summary>
     private void InitializeComponent()
     {
-        label1 = new System.Windows.Forms.Label();
-        groupBox1 = new System.Windows.Forms.GroupBox();
-        numericYear = new System.Windows.Forms.NumericUpDown();
-        numericMonth = new System.Windows.Forms.NumericUpDown();
-        label3 = new System.Windows.Forms.Label();
-        label2 = new System.Windows.Forms.Label();
-        btnShowBCTK = new System.Windows.Forms.Button();
-        groupBox2 = new System.Windows.Forms.GroupBox();
-        tableBCTK = new System.Windows.Forms.DataGridView();
-        MaVTPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        TenVTPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        TonDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        SoLuongNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        SoLuongSuDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        btnExit = new System.Windows.Forms.Button();
-        TonCuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(fBaoCaoTon));
+        label1 = new Label();
+        groupBox1 = new GroupBox();
+        numericYear = new NumericUpDown();
+        numericMonth = new NumericUpDown();
+        label3 = new Label();
+        label2 = new Label();
+        btnShowBCTK = new Button();
+        groupBox2 = new GroupBox();
+        tableBCTK = new DataGridView();
+        MaVTPT = new DataGridViewTextBoxColumn();
+        TenVTPT = new DataGridViewTextBoxColumn();
+        TonDau = new DataGridViewTextBoxColumn();
+        SoLuongNhap = new DataGridViewTextBoxColumn();
+        SoLuongSuDung = new DataGridViewTextBoxColumn();
+        TonCuoi = new DataGridViewTextBoxColumn();
+        btnExit = new Button();
         groupBox1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)numericYear).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericMonth).BeginInit();
+        ((ISupportInitialize)numericYear).BeginInit();
+        ((ISupportInitialize)numericMonth).BeginInit();
         groupBox2.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)tableBCTK).BeginInit();
+        ((ISupportInitialize)tableBCTK).BeginInit();
         SuspendLayout();
         // 
         // label1
         // 
-        label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-        label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-        label1.ForeColor = System.Drawing.SystemColors.Window;
-        label1.Location = new System.Drawing.Point(-2, -3);
+        label1.BackColor = SystemColors.MenuHighlight;
+        label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+        label1.ForeColor = SystemColors.Window;
+        label1.Location = new Point(-2, -2);
+        label1.Margin = new Padding(2, 0, 2, 0);
         label1.Name = "label1";
-        label1.Size = new System.Drawing.Size(1409, 96);
+        label1.Size = new Size(1127, 77);
         label1.TabIndex = 0;
         label1.Text = "BÁO CÁO TỒN KHO";
-        label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        label1.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // groupBox1
         // 
@@ -73,10 +75,12 @@ partial class fBaoCaoTon
         groupBox1.Controls.Add(label3);
         groupBox1.Controls.Add(label2);
         groupBox1.Controls.Add(btnShowBCTK);
-        groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-        groupBox1.Location = new System.Drawing.Point(12, 96);
+        groupBox1.Font = new Font("Segoe UI", 12F);
+        groupBox1.Location = new Point(10, 77);
+        groupBox1.Margin = new Padding(2, 2, 2, 2);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new System.Drawing.Size(1384, 149);
+        groupBox1.Padding = new Padding(2, 2, 2, 2);
+        groupBox1.Size = new Size(1107, 119);
         groupBox1.TabIndex = 1;
         groupBox1.TabStop = false;
         groupBox1.Text = "Báo cáo tồn kho";
@@ -84,46 +88,51 @@ partial class fBaoCaoTon
         // 
         // numericYear
         // 
-        numericYear.Location = new System.Drawing.Point(532, 61);
+        numericYear.Location = new Point(426, 49);
+        numericYear.Margin = new Padding(2, 2, 2, 2);
         numericYear.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
         numericYear.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
         numericYear.Name = "numericYear";
-        numericYear.Size = new System.Drawing.Size(178, 39);
+        numericYear.Size = new Size(142, 34);
         numericYear.TabIndex = 4;
         numericYear.Value = new decimal(new int[] { 2024, 0, 0, 0 });
         // 
         // numericMonth
         // 
-        numericMonth.Location = new System.Drawing.Point(175, 61);
+        numericMonth.Location = new Point(140, 49);
+        numericMonth.Margin = new Padding(2, 2, 2, 2);
         numericMonth.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
         numericMonth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numericMonth.Name = "numericMonth";
-        numericMonth.Size = new System.Drawing.Size(156, 39);
+        numericMonth.Size = new Size(125, 34);
         numericMonth.TabIndex = 3;
         numericMonth.Value = new decimal(new int[] { 1, 0, 0, 0 });
         // 
         // label3
         // 
-        label3.Location = new System.Drawing.Point(426, 63);
+        label3.Location = new Point(341, 50);
+        label3.Margin = new Padding(2, 0, 2, 0);
         label3.Name = "label3";
-        label3.Size = new System.Drawing.Size(100, 36);
+        label3.Size = new Size(80, 29);
         label3.TabIndex = 2;
         label3.Text = "Năm:";
         label3.Click += label3_Click;
         // 
         // label2
         // 
-        label2.Location = new System.Drawing.Point(69, 61);
+        label2.Location = new Point(55, 49);
+        label2.Margin = new Padding(2, 0, 2, 0);
         label2.Name = "label2";
-        label2.Size = new System.Drawing.Size(100, 36);
+        label2.Size = new Size(80, 29);
         label2.TabIndex = 1;
         label2.Text = "Tháng:";
         // 
         // btnShowBCTK
         // 
-        btnShowBCTK.Location = new System.Drawing.Point(896, 31);
+        btnShowBCTK.Location = new Point(717, 25);
+        btnShowBCTK.Margin = new Padding(2, 2, 2, 2);
         btnShowBCTK.Name = "btnShowBCTK";
-        btnShowBCTK.Size = new System.Drawing.Size(278, 92);
+        btnShowBCTK.Size = new Size(222, 74);
         btnShowBCTK.TabIndex = 0;
         btnShowBCTK.Text = "Hiện báo cáo";
         btnShowBCTK.UseVisualStyleBackColor = true;
@@ -132,10 +141,12 @@ partial class fBaoCaoTon
         // groupBox2
         // 
         groupBox2.Controls.Add(tableBCTK);
-        groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-        groupBox2.Location = new System.Drawing.Point(12, 251);
+        groupBox2.Font = new Font("Segoe UI", 12F);
+        groupBox2.Location = new Point(10, 201);
+        groupBox2.Margin = new Padding(2, 2, 2, 2);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new System.Drawing.Size(1384, 498);
+        groupBox2.Padding = new Padding(2, 2, 2, 2);
+        groupBox2.Size = new Size(1107, 398);
         groupBox2.TabIndex = 2;
         groupBox2.TabStop = false;
         groupBox2.Text = "Chi tiết báo cáo";
@@ -144,12 +155,13 @@ partial class fBaoCaoTon
         // 
         tableBCTK.AllowUserToAddRows = false;
         tableBCTK.AllowUserToDeleteRows = false;
-        tableBCTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableBCTK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { MaVTPT, TenVTPT, TonDau, SoLuongNhap, SoLuongSuDung, TonCuoi });
-        tableBCTK.Location = new System.Drawing.Point(6, 38);
+        tableBCTK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        tableBCTK.Columns.AddRange(new DataGridViewColumn[] { MaVTPT, TenVTPT, TonDau, SoLuongNhap, SoLuongSuDung, TonCuoi });
+        tableBCTK.Location = new Point(5, 30);
+        tableBCTK.Margin = new Padding(2, 2, 2, 2);
         tableBCTK.Name = "tableBCTK";
         tableBCTK.RowHeadersWidth = 62;
-        tableBCTK.Size = new System.Drawing.Size(1372, 454);
+        tableBCTK.Size = new Size(1098, 363);
         tableBCTK.TabIndex = 1;
         // 
         // MaVTPT
@@ -187,15 +199,6 @@ partial class fBaoCaoTon
         SoLuongSuDung.Name = "SoLuongSuDung";
         SoLuongSuDung.Width = 217;
         // 
-        // btnExit
-        // 
-        btnExit.Location = new System.Drawing.Point(1243, 770);
-        btnExit.Name = "btnExit";
-        btnExit.Size = new System.Drawing.Size(91, 39);
-        btnExit.TabIndex = 3;
-        btnExit.Text = "Thoát";
-        btnExit.UseVisualStyleBackColor = true;
-        // 
         // TonCuoi
         // 
         TonCuoi.HeaderText = "Tồn Cuối";
@@ -203,21 +206,36 @@ partial class fBaoCaoTon
         TonCuoi.Name = "TonCuoi";
         TonCuoi.Width = 217;
         // 
+        // btnExit
+        // 
+        btnExit.Location = new Point(994, 616);
+        btnExit.Margin = new Padding(2, 2, 2, 2);
+        btnExit.Name = "btnExit";
+        btnExit.Size = new Size(73, 31);
+        btnExit.TabIndex = 3;
+        btnExit.Text = "Thoát";
+        btnExit.UseVisualStyleBackColor = true;
+        // 
         // fBaoCaoTon
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(1408, 821);
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(1126, 657);
         Controls.Add(btnExit);
         Controls.Add(groupBox2);
         Controls.Add(groupBox1);
         Controls.Add(label1);
-        Text = "fBaoCaoTon";
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        Margin = new Padding(2, 2, 2, 2);
+        MaximumSize = new Size(1144, 704);
+        MinimumSize = new Size(1144, 704);
+        Name = "fBaoCaoTon";
+        Text = "BÁO CÁO TỒN KHO";
         groupBox1.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)numericYear).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericMonth).EndInit();
+        ((ISupportInitialize)numericYear).EndInit();
+        ((ISupportInitialize)numericMonth).EndInit();
         groupBox2.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)tableBCTK).EndInit();
+        ((ISupportInitialize)tableBCTK).EndInit();
         ResumeLayout(false);
     }
 

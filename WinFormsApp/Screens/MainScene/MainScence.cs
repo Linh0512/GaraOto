@@ -22,6 +22,9 @@ namespace WinFormsApp.Screens.MainScene
         private void panel1_Paint(object sender, EventArgs e)
         {
         }
+        private void MainScence_Load(object sender, EventArgs e)
+        {
+        }
 
         private void bnInventory_Click(object sender, EventArgs e)
         {
@@ -56,17 +59,10 @@ namespace WinFormsApp.Screens.MainScene
         }
 
 
-        private void bnOption_Click(object sender, EventArgs e)
+        private void btnOption_Click(object sender, EventArgs e)
         {
             fOption fOption = new fOption();
             fOption.ShowDialog();
-            this.Show();
-        }
-
-        private void bnStatistic_Click(object sender, EventArgs e)
-        {
-            fStatistic fStatistic = new fStatistic();
-            fStatistic.ShowDialog();
             this.Show();
         }
 
@@ -79,22 +75,17 @@ namespace WinFormsApp.Screens.MainScene
             this.Close();
         }
 
-        private void MainScence_Load(object sender, EventArgs e)
-        {
-        }
-
-
-        private void btnBCT_Click(object sender, EventArgs e)
-        {
-            fBaoCaoTon fBaoCaoTon = new fBaoCaoTon();
-            fBaoCaoTon.ShowDialog();
-            this.Show();
-        }
-
-        private void btnBCDS_Click(object sender, EventArgs e)
+        private void bÁOCÁODOANHSỐToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fBaoCaoDS fBaoCaoDS = new fBaoCaoDS();
             fBaoCaoDS.ShowDialog();
+            this.Show();
+        }
+
+        private void bÁOCÁOTỒNKHOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fBaoCaoTon fBaoCaoTon = new fBaoCaoTon();
+            fBaoCaoTon.ShowDialog();
             this.Show();
         }
     }

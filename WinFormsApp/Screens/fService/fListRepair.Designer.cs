@@ -75,10 +75,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(270, 9);
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(256, 9);
             label1.Name = "label1";
-            label1.Size = new Size(527, 50);
+            label1.Size = new Size(561, 50);
             label1.TabIndex = 0;
             label1.Text = "DANH SÁCH PHIẾU SỬA CHỮA";
             // 
@@ -153,9 +153,10 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fListRepair";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "fListRepair";
+            Text = "DANH SÁCH PHIẾU SỬA CHỮA";
             Load += fListRepair_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvRepairList).EndInit();

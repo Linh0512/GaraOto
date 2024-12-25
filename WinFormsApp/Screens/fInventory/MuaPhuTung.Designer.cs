@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MuaPhuTung));
             panel1 = new Panel();
             panel3 = new Panel();
             label1 = new Label();
@@ -41,8 +42,11 @@
             label2 = new Label();
             btnAdd = new Button();
             button3 = new Button();
+            label6 = new Label();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -60,21 +64,22 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(button3);
-            panel1.Location = new Point(0, -70);
+            panel1.Controls.Add(panel2);
+            panel1.Location = new Point(0, -132);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(533, 743);
+            panel1.Size = new Size(533, 722);
             panel1.TabIndex = 5;
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = SystemColors.GrayText;
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(3, 72);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(528, 65);
+            panel3.Size = new Size(529, 65);
             panel3.TabIndex = 19;
             // 
             // label1
@@ -92,7 +97,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(63, 474);
+            label5.Location = new Point(61, 513);
             label5.Name = "label5";
             label5.Size = new Size(59, 25);
             label5.TabIndex = 18;
@@ -102,7 +107,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(46, 386);
+            label4.Location = new Point(44, 425);
             label4.Name = "label4";
             label4.Size = new Size(94, 25);
             label4.TabIndex = 17;
@@ -112,7 +117,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(46, 296);
+            label3.Location = new Point(44, 335);
             label3.Name = "label3";
             label3.Size = new Size(91, 25);
             label3.TabIndex = 16;
@@ -121,7 +126,7 @@
             // txt_total
             // 
             txt_total.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_total.Location = new Point(187, 472);
+            txt_total.Location = new Point(185, 511);
             txt_total.Margin = new Padding(3, 4, 3, 4);
             txt_total.Name = "txt_total";
             txt_total.Size = new Size(292, 34);
@@ -130,7 +135,7 @@
             // txt_quantity
             // 
             txt_quantity.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_quantity.Location = new Point(187, 384);
+            txt_quantity.Location = new Point(185, 423);
             txt_quantity.Margin = new Padding(3, 4, 3, 4);
             txt_quantity.Name = "txt_quantity";
             txt_quantity.Size = new Size(292, 34);
@@ -140,7 +145,7 @@
             // txt_price
             // 
             txt_price.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_price.Location = new Point(187, 297);
+            txt_price.Location = new Point(185, 336);
             txt_price.Margin = new Padding(3, 4, 3, 4);
             txt_price.Name = "txt_price";
             txt_price.Size = new Size(292, 34);
@@ -154,7 +159,7 @@
             cbb_inventory.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbb_inventory.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbb_inventory.FormattingEnabled = true;
-            cbb_inventory.Location = new Point(187, 213);
+            cbb_inventory.Location = new Point(185, 252);
             cbb_inventory.Margin = new Padding(3, 4, 3, 4);
             cbb_inventory.Name = "cbb_inventory";
             cbb_inventory.Size = new Size(292, 36);
@@ -165,7 +170,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(22, 212);
+            label2.Location = new Point(20, 251);
             label2.Name = "label2";
             label2.Size = new Size(131, 25);
             label2.TabIndex = 11;
@@ -177,7 +182,7 @@
             btnAdd.BackColor = SystemColors.Highlight;
             btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(63, 606);
+            btnAdd.Location = new Point(61, 605);
             btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(123, 59);
@@ -192,7 +197,7 @@
             button3.BackColor = Color.Red;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(308, 606);
+            button3.Location = new Point(314, 605);
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
             button3.Size = new Size(123, 59);
@@ -201,20 +206,45 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = SystemColors.ButtonShadow;
+            label6.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(34, 18);
+            label6.Name = "label6";
+            label6.Size = new Size(445, 50);
+            label6.TabIndex = 20;
+            label6.Text = "NHẬP THÊM PHỤ TÙNG";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ButtonShadow;
+            panel2.Controls.Add(label6);
+            panel2.Location = new Point(-2, 130);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(531, 91);
+            panel2.TabIndex = 21;
+            // 
             // MuaPhuTung
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(532, 674);
+            ClientSize = new Size(532, 550);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(550, 597);
+            MinimumSize = new Size(550, 597);
             Name = "MuaPhuTung";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MuaPhuTung";
+            Text = "NHẬP THÊM PHỤ TÙNG";
             Load += MuaPhuTung_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -233,5 +263,7 @@
         private Button button3;
         private Panel panel3;
         private Label label1;
+        private Panel panel2;
+        private Label label6;
     }
 }

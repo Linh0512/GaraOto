@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(add));
             panel2 = new Panel();
             a = new Label();
             label3 = new Label();
@@ -44,10 +45,10 @@
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.GrayText;
             panel2.Controls.Add(a);
-            panel2.Location = new Point(1, 16);
+            panel2.Location = new Point(-131, -9);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(911, 132);
+            panel2.Size = new Size(914, 132);
             panel2.TabIndex = 6;
             // 
             // a
@@ -55,18 +56,18 @@
             a.AutoSize = true;
             a.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             a.ForeColor = SystemColors.ButtonHighlight;
-            a.Location = new Point(313, 31);
+            a.Location = new Point(282, 37);
             a.Name = "a";
-            a.Size = new Size(313, 54);
+            a.Size = new Size(355, 54);
             a.TabIndex = 1;
-            a.Text = "Thêm phụ tùng";
+            a.Text = "THÊM PHỤ TÙNG";
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(208, 310);
+            label3.Location = new Point(76, 242);
             label3.Name = "label3";
             label3.Size = new Size(80, 25);
             label3.TabIndex = 20;
@@ -76,7 +77,7 @@
             // 
             txt_price.Anchor = AnchorStyles.None;
             txt_price.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_price.Location = new Point(367, 304);
+            txt_price.Location = new Point(235, 236);
             txt_price.Margin = new Padding(3, 4, 3, 4);
             txt_price.Name = "txt_price";
             txt_price.Size = new Size(292, 34);
@@ -87,7 +88,7 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(208, 239);
+            label2.Location = new Point(76, 171);
             label2.Name = "label2";
             label2.Size = new Size(131, 25);
             label2.TabIndex = 17;
@@ -100,7 +101,7 @@
             btnThem.BackColor = SystemColors.Highlight;
             btnThem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(263, 457);
+            btnThem.Location = new Point(151, 350);
             btnThem.Margin = new Padding(3, 4, 3, 4);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(123, 59);
@@ -116,7 +117,7 @@
             button3.BackColor = SystemColors.GrayText;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(458, 457);
+            button3.Location = new Point(383, 350);
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
             button3.Size = new Size(123, 59);
@@ -127,17 +128,18 @@
             // 
             // txtTenPT
             // 
+            txtTenPT.Anchor = AnchorStyles.None;
             txtTenPT.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtTenPT.Location = new Point(367, 240);
+            txtTenPT.Location = new Point(235, 162);
             txtTenPT.Name = "txtTenPT";
-            txtTenPT.Size = new Size(300, 34);
+            txtTenPT.Size = new Size(292, 34);
             txtTenPT.TabIndex = 23;
             // 
             // add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(650, 464);
             Controls.Add(txtTenPT);
             Controls.Add(btnThem);
             Controls.Add(button3);
@@ -145,10 +147,13 @@
             Controls.Add(txt_price);
             Controls.Add(label2);
             Controls.Add(panel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(668, 511);
+            MinimumSize = new Size(668, 511);
             Name = "add";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "add";
+            Text = "THÊM PHỤ TÙNG";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fThemNhanVien));
             panel2 = new Panel();
             lblThêmNhânViên = new Label();
             panel3 = new Panel();
@@ -57,21 +58,23 @@
             panel2.Controls.Add(lblThêmNhânViên);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(940, 92);
+            panel2.Size = new Size(752, 74);
             panel2.TabIndex = 3;
             panel2.Paint += panel2_Paint;
             // 
             // lblThêmNhânViên
             // 
             lblThêmNhânViên.BackColor = SystemColors.ControlDarkDark;
-            lblThêmNhânViên.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblThêmNhânViên.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThêmNhânViên.ForeColor = SystemColors.Window;
-            lblThêmNhânViên.Location = new Point(311, -3);
+            lblThêmNhânViên.Location = new Point(196, -2);
+            lblThêmNhânViên.Margin = new Padding(2, 0, 2, 0);
             lblThêmNhânViên.Name = "lblThêmNhânViên";
-            lblThêmNhânViên.Size = new Size(301, 92);
+            lblThêmNhânViên.Size = new Size(364, 74);
             lblThêmNhânViên.TabIndex = 0;
-            lblThêmNhânViên.Text = "Thêm Nhân Viên";
+            lblThêmNhânViên.Text = "THÊM NHÂN VIÊN";
             lblThêmNhânViên.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel3
@@ -91,9 +94,10 @@
             panel3.Controls.Add(lblHovaten);
             panel3.Controls.Add(lblTenDangNhap);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 92);
+            panel3.Location = new Point(0, 74);
+            panel3.Margin = new Padding(2, 2, 2, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(940, 803);
+            panel3.Size = new Size(752, 642);
             panel3.TabIndex = 6;
             // 
             // txtTenDangNhap
@@ -101,9 +105,10 @@
             txtTenDangNhap.BorderStyle = BorderStyle.FixedSingle;
             txtTenDangNhap.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTenDangNhap.ForeColor = SystemColors.WindowText;
-            txtTenDangNhap.Location = new Point(289, 42);
+            txtTenDangNhap.Location = new Point(231, 34);
+            txtTenDangNhap.Margin = new Padding(2, 2, 2, 2);
             txtTenDangNhap.Name = "txtTenDangNhap";
-            txtTenDangNhap.Size = new Size(604, 37);
+            txtTenDangNhap.Size = new Size(484, 32);
             txtTenDangNhap.TabIndex = 1;
             txtTenDangNhap.TextChanged += txtTenDangNhap_TextChanged;
             // 
@@ -112,18 +117,20 @@
             panel4.Controls.Add(btnThemNV);
             panel4.Controls.Add(btnThoat);
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 685);
+            panel4.Location = new Point(0, 548);
+            panel4.Margin = new Padding(2, 2, 2, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(940, 118);
+            panel4.Size = new Size(752, 94);
             panel4.TabIndex = 14;
             // 
             // btnThemNV
             // 
             btnThemNV.BackColor = SystemColors.Highlight;
             btnThemNV.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemNV.Location = new Point(218, 21);
+            btnThemNV.Location = new Point(174, 17);
+            btnThemNV.Margin = new Padding(2, 2, 2, 2);
             btnThemNV.Name = "btnThemNV";
-            btnThemNV.Size = new Size(226, 77);
+            btnThemNV.Size = new Size(181, 62);
             btnThemNV.TabIndex = 0;
             btnThemNV.Text = "Thêm nhân viên";
             btnThemNV.UseVisualStyleBackColor = false;
@@ -133,9 +140,10 @@
             // 
             btnThoat.BackColor = Color.Red;
             btnThoat.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThoat.Location = new Point(479, 21);
+            btnThoat.Location = new Point(383, 17);
+            btnThoat.Margin = new Padding(2, 2, 2, 2);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(221, 77);
+            btnThoat.Size = new Size(177, 62);
             btnThoat.TabIndex = 1;
             btnThoat.Text = "thoát";
             btnThoat.UseVisualStyleBackColor = false;
@@ -145,18 +153,20 @@
             // 
             cbbChucVu.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbbChucVu.FormattingEnabled = true;
-            cbbChucVu.Location = new Point(289, 544);
+            cbbChucVu.Location = new Point(231, 435);
+            cbbChucVu.Margin = new Padding(2, 2, 2, 2);
             cbbChucVu.Name = "cbbChucVu";
-            cbbChucVu.Size = new Size(604, 38);
+            cbbChucVu.Size = new Size(484, 33);
             cbbChucVu.TabIndex = 13;
             cbbChucVu.SelectedIndexChanged += cbbChucVu_SelectedIndexChanged;
             // 
             // lblChucVu
             // 
             lblChucVu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblChucVu.Location = new Point(47, 525);
+            lblChucVu.Location = new Point(38, 420);
+            lblChucVu.Margin = new Padding(2, 0, 2, 0);
             lblChucVu.Name = "lblChucVu";
-            lblChucVu.Size = new Size(219, 65);
+            lblChucVu.Size = new Size(175, 52);
             lblChucVu.TabIndex = 12;
             lblChucVu.Text = "Chức vụ : ";
             lblChucVu.TextAlign = ContentAlignment.MiddleRight;
@@ -166,18 +176,20 @@
             txtDiaChi.BorderStyle = BorderStyle.FixedSingle;
             txtDiaChi.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDiaChi.ForeColor = SystemColors.WindowText;
-            txtDiaChi.Location = new Point(289, 442);
+            txtDiaChi.Location = new Point(231, 354);
+            txtDiaChi.Margin = new Padding(2, 2, 2, 2);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(604, 37);
+            txtDiaChi.Size = new Size(484, 32);
             txtDiaChi.TabIndex = 11;
             txtDiaChi.TextChanged += txtDiaChi_TextChanged;
             // 
             // lblDiaChi
             // 
             lblDiaChi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDiaChi.Location = new Point(47, 425);
+            lblDiaChi.Location = new Point(38, 340);
+            lblDiaChi.Margin = new Padding(2, 0, 2, 0);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new Size(219, 65);
+            lblDiaChi.Size = new Size(175, 52);
             lblDiaChi.TabIndex = 10;
             lblDiaChi.Text = "Địa chỉ : ";
             lblDiaChi.TextAlign = ContentAlignment.MiddleRight;
@@ -187,18 +199,19 @@
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEmail.ForeColor = SystemColors.WindowText;
-            txtEmail.Location = new Point(289, 342);
+            txtEmail.Location = new Point(231, 274);
+            txtEmail.Margin = new Padding(2, 2, 2, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(604, 37);
+            txtEmail.Size = new Size(484, 32);
             txtEmail.TabIndex = 9;
-           
             // 
             // lblEmail
             // 
             lblEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmail.Location = new Point(47, 325);
+            lblEmail.Location = new Point(38, 260);
+            lblEmail.Margin = new Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(219, 65);
+            lblEmail.Size = new Size(175, 52);
             lblEmail.TabIndex = 8;
             lblEmail.Text = "Email : ";
             lblEmail.TextAlign = ContentAlignment.MiddleRight;
@@ -208,18 +221,19 @@
             txtSDT.BorderStyle = BorderStyle.FixedSingle;
             txtSDT.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSDT.ForeColor = SystemColors.WindowText;
-            txtSDT.Location = new Point(289, 242);
+            txtSDT.Location = new Point(231, 194);
+            txtSDT.Margin = new Padding(2, 2, 2, 2);
             txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(604, 37);
+            txtSDT.Size = new Size(484, 32);
             txtSDT.TabIndex = 7;
-         
             // 
             // lblSDT
             // 
             lblSDT.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSDT.Location = new Point(47, 225);
+            lblSDT.Location = new Point(38, 180);
+            lblSDT.Margin = new Padding(2, 0, 2, 0);
             lblSDT.Name = "lblSDT";
-            lblSDT.Size = new Size(219, 65);
+            lblSDT.Size = new Size(175, 52);
             lblSDT.TabIndex = 6;
             lblSDT.Text = "SĐT : ";
             lblSDT.TextAlign = ContentAlignment.MiddleRight;
@@ -228,18 +242,20 @@
             // 
             txtHoVaTen.BorderStyle = BorderStyle.FixedSingle;
             txtHoVaTen.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtHoVaTen.Location = new Point(289, 141);
+            txtHoVaTen.Location = new Point(231, 113);
+            txtHoVaTen.Margin = new Padding(2, 2, 2, 2);
             txtHoVaTen.Name = "txtHoVaTen";
-            txtHoVaTen.Size = new Size(604, 37);
+            txtHoVaTen.Size = new Size(484, 32);
             txtHoVaTen.TabIndex = 5;
             txtHoVaTen.TextChanged += txtHoVaTen_TextChanged;
             // 
             // lblHovaten
             // 
             lblHovaten.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHovaten.Location = new Point(47, 125);
+            lblHovaten.Location = new Point(38, 100);
+            lblHovaten.Margin = new Padding(2, 0, 2, 0);
             lblHovaten.Name = "lblHovaten";
-            lblHovaten.Size = new Size(219, 65);
+            lblHovaten.Size = new Size(175, 52);
             lblHovaten.TabIndex = 4;
             lblHovaten.Text = "Họ và tên : ";
             lblHovaten.TextAlign = ContentAlignment.MiddleRight;
@@ -248,22 +264,28 @@
             // lblTenDangNhap
             // 
             lblTenDangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTenDangNhap.Location = new Point(47, 25);
+            lblTenDangNhap.Location = new Point(38, 20);
+            lblTenDangNhap.Margin = new Padding(2, 0, 2, 0);
             lblTenDangNhap.Name = "lblTenDangNhap";
-            lblTenDangNhap.Size = new Size(219, 65);
+            lblTenDangNhap.Size = new Size(175, 52);
             lblTenDangNhap.TabIndex = 0;
             lblTenDangNhap.Text = "Tên đăng nhập : ";
             lblTenDangNhap.TextAlign = ContentAlignment.MiddleRight;
             // 
             // fThemNhanVien
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(940, 895);
+            ClientSize = new Size(752, 716);
             Controls.Add(panel3);
             Controls.Add(panel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(770, 763);
+            MinimumSize = new Size(770, 763);
             Name = "fThemNhanVien";
-            Text = "fThemNhanVien";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "THÊM NHÂN VIÊN";
             Load += fThemNhanVien_Load;
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPayment));
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
@@ -93,13 +94,13 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.BackColor = Color.Gray;
-            label1.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(384, 9);
+            label1.Location = new Point(344, 9);
             label1.Name = "label1";
-            label1.Size = new Size(417, 60);
+            label1.Size = new Size(541, 60);
             label1.TabIndex = 0;
-            label1.Text = "Hóa đơn thanh toán";
+            label1.Text = "HÓA ĐƠN THANH TOÁN";
             // 
             // panel2
             // 
@@ -454,9 +455,12 @@
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(1234, 762);
+            MinimumSize = new Size(1234, 762);
             Name = "fPayment";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "fPaying";
+            Text = "HÓA ĐƠN THANH TOÁN";
             Load += fPaying_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

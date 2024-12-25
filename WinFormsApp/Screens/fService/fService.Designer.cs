@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fService));
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
@@ -87,9 +88,9 @@
             label1.Location = new Point(0, 0);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(238, 81);
+            label1.Size = new Size(281, 81);
             label1.TabIndex = 1;
-            label1.Text = "Service";
+            label1.Text = "DỊCH VỤ";
             label1.Click += label1_Click_1;
             // 
             // panel2
@@ -382,13 +383,14 @@
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Margin = new Padding(2, 1, 2, 1);
             MaximumSize = new Size(1165, 750);
             MinimumSize = new Size(1165, 750);
             Name = "fService";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Service";
+            Text = "DỊCH VỤ";
             Load += Service_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -29,6 +29,7 @@ namespace WinFormsApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fStaff));
             panel1 = new Panel();
             lblNhanVien = new Label();
             panel2 = new Panel();
@@ -75,21 +76,23 @@ namespace WinFormsApp
             panel1.Controls.Add(lblNhanVien);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1565, 76);
+            panel1.Size = new Size(1252, 61);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
             // lblNhanVien
             // 
-            lblNhanVien.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNhanVien.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNhanVien.ForeColor = SystemColors.Window;
             lblNhanVien.ImageAlign = ContentAlignment.BottomCenter;
-            lblNhanVien.Location = new Point(11, 9);
+            lblNhanVien.Location = new Point(10, 9);
+            lblNhanVien.Margin = new Padding(2, 0, 2, 0);
             lblNhanVien.Name = "lblNhanVien";
-            lblNhanVien.Size = new Size(223, 57);
+            lblNhanVien.Size = new Size(235, 46);
             lblNhanVien.TabIndex = 0;
-            lblNhanVien.Text = "Nhân viên";
+            lblNhanVien.Text = "NHÂN VIÊN";
             lblNhanVien.Click += label1_Click;
             // 
             // panel2
@@ -122,9 +125,10 @@ namespace WinFormsApp
             panel2.Controls.Add(button1);
             panel2.Controls.Add(btnInDanhSach);
             panel2.Controls.Add(btnSuaThongTin);
-            panel2.Location = new Point(634, 149);
+            panel2.Location = new Point(507, 119);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(921, 708);
+            panel2.Size = new Size(737, 567);
             panel2.TabIndex = 2;
             panel2.Paint += panel2_Paint;
             // 
@@ -132,9 +136,10 @@ namespace WinFormsApp
             // 
             btnDatMatKhau.BackColor = SystemColors.HotTrack;
             btnDatMatKhau.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnDatMatKhau.Location = new Point(158, 609);
+            btnDatMatKhau.Location = new Point(126, 487);
+            btnDatMatKhau.Margin = new Padding(2, 2, 2, 2);
             btnDatMatKhau.Name = "btnDatMatKhau";
-            btnDatMatKhau.Size = new Size(271, 72);
+            btnDatMatKhau.Size = new Size(217, 58);
             btnDatMatKhau.TabIndex = 21;
             btnDatMatKhau.Text = "Đặt Lại Mật Khẩu";
             btnDatMatKhau.UseVisualStyleBackColor = false;
@@ -144,9 +149,10 @@ namespace WinFormsApp
             // 
             btnHuy.BackColor = Color.Red;
             btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnHuy.Location = new Point(435, 631);
+            btnHuy.Location = new Point(348, 505);
+            btnHuy.Margin = new Padding(2, 2, 2, 2);
             btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(208, 72);
+            btnHuy.Size = new Size(166, 58);
             btnHuy.TabIndex = 20;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
@@ -156,9 +162,10 @@ namespace WinFormsApp
             // 
             btnXacNhan.BackColor = SystemColors.HotTrack;
             btnXacNhan.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnXacNhan.Location = new Point(210, 631);
+            btnXacNhan.Location = new Point(168, 505);
+            btnXacNhan.Margin = new Padding(2, 2, 2, 2);
             btnXacNhan.Name = "btnXacNhan";
-            btnXacNhan.Size = new Size(208, 72);
+            btnXacNhan.Size = new Size(166, 58);
             btnXacNhan.TabIndex = 19;
             btnXacNhan.Text = "Xác nhận";
             btnXacNhan.UseVisualStyleBackColor = false;
@@ -167,9 +174,10 @@ namespace WinFormsApp
             // lblChucVu
             // 
             lblChucVu.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblChucVu.Location = new Point(83, 537);
+            lblChucVu.Location = new Point(66, 430);
+            lblChucVu.Margin = new Padding(2, 0, 2, 0);
             lblChucVu.Name = "lblChucVu";
-            lblChucVu.Size = new Size(164, 38);
+            lblChucVu.Size = new Size(131, 30);
             lblChucVu.TabIndex = 18;
             lblChucVu.Text = "Chức vụ :";
             lblChucVu.TextAlign = ContentAlignment.MiddleRight;
@@ -177,9 +185,10 @@ namespace WinFormsApp
             // lblEmail
             // 
             lblEmail.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmail.Location = new Point(83, 452);
+            lblEmail.Location = new Point(66, 362);
+            lblEmail.Margin = new Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(164, 38);
+            lblEmail.Size = new Size(131, 30);
             lblEmail.TabIndex = 17;
             lblEmail.Text = "Email :";
             lblEmail.TextAlign = ContentAlignment.MiddleRight;
@@ -187,9 +196,10 @@ namespace WinFormsApp
             // lblDiaChi
             // 
             lblDiaChi.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDiaChi.Location = new Point(83, 367);
+            lblDiaChi.Location = new Point(66, 294);
+            lblDiaChi.Margin = new Padding(2, 0, 2, 0);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new Size(164, 38);
+            lblDiaChi.Size = new Size(131, 30);
             lblDiaChi.TabIndex = 16;
             lblDiaChi.Text = "Địa chỉ :";
             lblDiaChi.TextAlign = ContentAlignment.MiddleRight;
@@ -197,9 +207,10 @@ namespace WinFormsApp
             // lblSoDienThoai
             // 
             lblSoDienThoai.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSoDienThoai.Location = new Point(83, 282);
+            lblSoDienThoai.Location = new Point(66, 226);
+            lblSoDienThoai.Margin = new Padding(2, 0, 2, 0);
             lblSoDienThoai.Name = "lblSoDienThoai";
-            lblSoDienThoai.Size = new Size(164, 38);
+            lblSoDienThoai.Size = new Size(131, 30);
             lblSoDienThoai.TabIndex = 15;
             lblSoDienThoai.Text = "Số điện thoại :";
             lblSoDienThoai.TextAlign = ContentAlignment.MiddleRight;
@@ -207,9 +218,10 @@ namespace WinFormsApp
             // lblHoVaTen
             // 
             lblHoVaTen.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHoVaTen.Location = new Point(83, 197);
+            lblHoVaTen.Location = new Point(66, 158);
+            lblHoVaTen.Margin = new Padding(2, 0, 2, 0);
             lblHoVaTen.Name = "lblHoVaTen";
-            lblHoVaTen.Size = new Size(164, 38);
+            lblHoVaTen.Size = new Size(131, 30);
             lblHoVaTen.TabIndex = 14;
             lblHoVaTen.Text = "Họ và tên :";
             lblHoVaTen.TextAlign = ContentAlignment.MiddleRight;
@@ -217,9 +229,10 @@ namespace WinFormsApp
             // lblTenDangNhap
             // 
             lblTenDangNhap.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTenDangNhap.Location = new Point(83, 112);
+            lblTenDangNhap.Location = new Point(66, 90);
+            lblTenDangNhap.Margin = new Padding(2, 0, 2, 0);
             lblTenDangNhap.Name = "lblTenDangNhap";
-            lblTenDangNhap.Size = new Size(164, 38);
+            lblTenDangNhap.Size = new Size(131, 30);
             lblTenDangNhap.TabIndex = 13;
             lblTenDangNhap.Text = "Tên đăng nhập :";
             lblTenDangNhap.TextAlign = ContentAlignment.MiddleRight;
@@ -230,9 +243,10 @@ namespace WinFormsApp
             cbbChucVu.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbChucVu.BackColor = SystemColors.Window;
             cbbChucVu.FormattingEnabled = true;
-            cbbChucVu.Location = new Point(268, 541);
+            cbbChucVu.Location = new Point(214, 433);
+            cbbChucVu.Margin = new Padding(2, 2, 2, 2);
             cbbChucVu.Name = "cbbChucVu";
-            cbbChucVu.Size = new Size(600, 33);
+            cbbChucVu.Size = new Size(481, 28);
             cbbChucVu.TabIndex = 12;
             cbbChucVu.Text = "Chức vụ";
             cbbChucVu.SelectedIndexChanged += cbbChucVu_SelectedIndexChanged;
@@ -241,9 +255,10 @@ namespace WinFormsApp
             // 
             panel8.Anchor = AnchorStyles.None;
             panel8.BackColor = SystemColors.WindowText;
-            panel8.Location = new Point(268, 580);
+            panel8.Location = new Point(214, 464);
+            panel8.Margin = new Padding(2, 2, 2, 2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(600, 2);
+            panel8.Size = new Size(480, 2);
             panel8.TabIndex = 8;
             panel8.Paint += panel8_Paint;
             // 
@@ -251,36 +266,40 @@ namespace WinFormsApp
             // 
             panel7.Anchor = AnchorStyles.None;
             panel7.BackColor = SystemColors.WindowText;
-            panel7.Location = new Point(268, 482);
+            panel7.Location = new Point(214, 386);
+            panel7.Margin = new Padding(2, 2, 2, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(600, 2);
+            panel7.Size = new Size(480, 2);
             panel7.TabIndex = 8;
             // 
             // panel6
             // 
             panel6.Anchor = AnchorStyles.None;
             panel6.BackColor = SystemColors.WindowText;
-            panel6.Location = new Point(268, 403);
+            panel6.Location = new Point(214, 322);
+            panel6.Margin = new Padding(2, 2, 2, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(600, 2);
+            panel6.Size = new Size(480, 2);
             panel6.TabIndex = 8;
             // 
             // panel5
             // 
             panel5.Anchor = AnchorStyles.None;
             panel5.BackColor = SystemColors.WindowText;
-            panel5.Location = new Point(268, 326);
+            panel5.Location = new Point(214, 261);
+            panel5.Margin = new Padding(2, 2, 2, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(600, 2);
+            panel5.Size = new Size(480, 2);
             panel5.TabIndex = 8;
             // 
             // panel4
             // 
             panel4.Anchor = AnchorStyles.None;
             panel4.BackColor = SystemColors.WindowText;
-            panel4.Location = new Point(268, 230);
+            panel4.Location = new Point(214, 184);
+            panel4.Margin = new Padding(2, 2, 2, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(600, 2);
+            panel4.Size = new Size(480, 2);
             panel4.TabIndex = 8;
             // 
             // txtEmail
@@ -288,9 +307,10 @@ namespace WinFormsApp
             txtEmail.Anchor = AnchorStyles.None;
             txtEmail.AutoCompleteMode = AutoCompleteMode.Append;
             txtEmail.BorderStyle = BorderStyle.None;
-            txtEmail.Location = new Point(268, 452);
+            txtEmail.Location = new Point(214, 362);
+            txtEmail.Margin = new Padding(2, 2, 2, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(676, 24);
+            txtEmail.Size = new Size(541, 20);
             txtEmail.TabIndex = 11;
             txtEmail.Text = "Email";
             txtEmail.TextChanged += textBox4_TextChanged;
@@ -300,9 +320,10 @@ namespace WinFormsApp
             txtDiaChi.Anchor = AnchorStyles.None;
             txtDiaChi.AutoCompleteMode = AutoCompleteMode.Append;
             txtDiaChi.BorderStyle = BorderStyle.None;
-            txtDiaChi.Location = new Point(268, 375);
+            txtDiaChi.Location = new Point(214, 300);
+            txtDiaChi.Margin = new Padding(2, 2, 2, 2);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(676, 24);
+            txtDiaChi.Size = new Size(541, 20);
             txtDiaChi.TabIndex = 10;
             txtDiaChi.Text = "Địa chỉ";
             txtDiaChi.TextChanged += textBox3_TextChanged;
@@ -312,9 +333,10 @@ namespace WinFormsApp
             txtSDT.Anchor = AnchorStyles.None;
             txtSDT.AutoCompleteMode = AutoCompleteMode.Append;
             txtSDT.BorderStyle = BorderStyle.None;
-            txtSDT.Location = new Point(268, 296);
+            txtSDT.Location = new Point(214, 237);
+            txtSDT.Margin = new Padding(2, 2, 2, 2);
             txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(676, 24);
+            txtSDT.Size = new Size(541, 20);
             txtSDT.TabIndex = 9;
             txtSDT.Text = "Số điện thoại";
             txtSDT.TextChanged += textBox2_TextChanged;
@@ -324,9 +346,10 @@ namespace WinFormsApp
             txtHovaTen.Anchor = AnchorStyles.None;
             txtHovaTen.AutoCompleteMode = AutoCompleteMode.Append;
             txtHovaTen.BorderStyle = BorderStyle.None;
-            txtHovaTen.Location = new Point(268, 200);
+            txtHovaTen.Location = new Point(214, 160);
+            txtHovaTen.Margin = new Padding(2, 2, 2, 2);
             txtHovaTen.Name = "txtHovaTen";
-            txtHovaTen.Size = new Size(676, 24);
+            txtHovaTen.Size = new Size(541, 20);
             txtHovaTen.TabIndex = 8;
             txtHovaTen.Text = "Họ và tên";
             txtHovaTen.TextChanged += textBox1_TextChanged_3;
@@ -335,9 +358,10 @@ namespace WinFormsApp
             // 
             panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = SystemColors.WindowText;
-            panel3.Location = new Point(268, 150);
+            panel3.Location = new Point(214, 120);
+            panel3.Margin = new Padding(2, 2, 2, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(600, 2);
+            panel3.Size = new Size(480, 2);
             panel3.TabIndex = 7;
             // 
             // txtTenDangNhap
@@ -345,9 +369,10 @@ namespace WinFormsApp
             txtTenDangNhap.Anchor = AnchorStyles.None;
             txtTenDangNhap.AutoCompleteMode = AutoCompleteMode.Append;
             txtTenDangNhap.BorderStyle = BorderStyle.None;
-            txtTenDangNhap.Location = new Point(268, 120);
+            txtTenDangNhap.Location = new Point(214, 96);
+            txtTenDangNhap.Margin = new Padding(2, 2, 2, 2);
             txtTenDangNhap.Name = "txtTenDangNhap";
-            txtTenDangNhap.Size = new Size(676, 24);
+            txtTenDangNhap.Size = new Size(541, 20);
             txtTenDangNhap.TabIndex = 7;
             txtTenDangNhap.Text = "Tên đăng nhập";
             txtTenDangNhap.TextChanged += txtTenDangNhap_TextChanged;
@@ -358,8 +383,9 @@ namespace WinFormsApp
             lblThongTinChiTiet.Dock = DockStyle.Top;
             lblThongTinChiTiet.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinChiTiet.Location = new Point(0, 0);
+            lblThongTinChiTiet.Margin = new Padding(2, 0, 2, 0);
             lblThongTinChiTiet.Name = "lblThongTinChiTiet";
-            lblThongTinChiTiet.Size = new Size(919, 54);
+            lblThongTinChiTiet.Size = new Size(735, 43);
             lblThongTinChiTiet.TabIndex = 6;
             lblThongTinChiTiet.Text = "Thông tin chi tiết";
             lblThongTinChiTiet.TextAlign = ContentAlignment.MiddleCenter;
@@ -368,10 +394,10 @@ namespace WinFormsApp
             // 
             btnXoa.BackColor = Color.Red;
             btnXoa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoa.Location = new Point(676, 610);
-            btnXoa.Margin = new Padding(4, 5, 4, 5);
+            btnXoa.Location = new Point(541, 488);
+            btnXoa.Margin = new Padding(3, 4, 3, 4);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(211, 71);
+            btnXoa.Size = new Size(169, 57);
             btnXoa.TabIndex = 5;
             btnXoa.Text = "Xóa Nhân Viên";
             btnXoa.UseVisualStyleBackColor = false;
@@ -379,10 +405,10 @@ namespace WinFormsApp
             // 
             // button1
             // 
-            button1.Location = new Point(343, 23);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(274, 18);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(11, 13);
+            button1.Size = new Size(9, 10);
             button1.TabIndex = 4;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
@@ -390,9 +416,10 @@ namespace WinFormsApp
             // btnInDanhSach
             // 
             btnInDanhSach.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnInDanhSach.Location = new Point(1160, 3);
+            btnInDanhSach.Location = new Point(928, 2);
+            btnInDanhSach.Margin = new Padding(2, 2, 2, 2);
             btnInDanhSach.Name = "btnInDanhSach";
-            btnInDanhSach.Size = new Size(211, 77);
+            btnInDanhSach.Size = new Size(169, 62);
             btnInDanhSach.TabIndex = 3;
             btnInDanhSach.Text = "In Danh Sách";
             btnInDanhSach.UseVisualStyleBackColor = true;
@@ -401,9 +428,10 @@ namespace WinFormsApp
             // 
             btnSuaThongTin.BackColor = SystemColors.ScrollBar;
             btnSuaThongTin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnSuaThongTin.Location = new Point(452, 610);
+            btnSuaThongTin.Location = new Point(362, 488);
+            btnSuaThongTin.Margin = new Padding(2, 2, 2, 2);
             btnSuaThongTin.Name = "btnSuaThongTin";
-            btnSuaThongTin.Size = new Size(208, 72);
+            btnSuaThongTin.Size = new Size(166, 58);
             btnSuaThongTin.TabIndex = 2;
             btnSuaThongTin.Text = "Sữa thông tin";
             btnSuaThongTin.UseVisualStyleBackColor = false;
@@ -413,9 +441,10 @@ namespace WinFormsApp
             // 
             btnThem.BackColor = SystemColors.Highlight;
             btnThem.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnThem.Location = new Point(1235, 82);
+            btnThem.Location = new Point(988, 66);
+            btnThem.Margin = new Padding(2, 2, 2, 2);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(287, 61);
+            btnThem.Size = new Size(230, 49);
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm Nhân Viên";
             btnThem.UseVisualStyleBackColor = false;
@@ -426,10 +455,11 @@ namespace WinFormsApp
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhanVien.BackgroundColor = SystemColors.ButtonHighlight;
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhanVien.Location = new Point(12, 203);
+            dgvNhanVien.Location = new Point(10, 162);
+            dgvNhanVien.Margin = new Padding(2, 2, 2, 2);
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersWidth = 62;
-            dgvNhanVien.Size = new Size(617, 650);
+            dgvNhanVien.Size = new Size(494, 520);
             dgvNhanVien.TabIndex = 3;
             dgvNhanVien.CellContentClick += dgvNhanVien_CellContentClick;
             dgvNhanVien.SelectionChanged += dgvNhanVien_SelectionChanged;
@@ -437,9 +467,10 @@ namespace WinFormsApp
             // btnThoat
             // 
             btnThoat.BackColor = Color.Red;
-            btnThoat.Location = new Point(1432, 863);
+            btnThoat.Location = new Point(1146, 690);
+            btnThoat.Margin = new Padding(2, 2, 2, 2);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(111, 33);
+            btnThoat.Size = new Size(89, 26);
             btnThoat.TabIndex = 4;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = false;
@@ -449,18 +480,20 @@ namespace WinFormsApp
             // 
             txtTiemKiem.BorderStyle = BorderStyle.FixedSingle;
             txtTiemKiem.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTiemKiem.Location = new Point(11, 90);
+            txtTiemKiem.Location = new Point(9, 72);
+            txtTiemKiem.Margin = new Padding(2, 2, 2, 2);
             txtTiemKiem.Name = "txtTiemKiem";
-            txtTiemKiem.Size = new Size(661, 45);
+            txtTiemKiem.Size = new Size(529, 39);
             txtTiemKiem.TabIndex = 5;
             txtTiemKiem.TextAlign = HorizontalAlignment.Center;
             txtTiemKiem.TextChanged += textBox1_TextChanged;
             // 
             // btnTiemKIem
             // 
-            btnTiemKIem.Location = new Point(678, 90);
+            btnTiemKIem.Location = new Point(542, 72);
+            btnTiemKIem.Margin = new Padding(2, 2, 2, 2);
             btnTiemKIem.Name = "btnTiemKIem";
-            btnTiemKIem.Size = new Size(139, 47);
+            btnTiemKIem.Size = new Size(111, 38);
             btnTiemKIem.TabIndex = 6;
             btnTiemKIem.Text = "Tìm kiếm";
             btnTiemKIem.UseVisualStyleBackColor = true;
@@ -470,18 +503,19 @@ namespace WinFormsApp
             // 
             lblDanhSachNhanVien.BackColor = SystemColors.ActiveCaption;
             lblDanhSachNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDanhSachNhanVien.Location = new Point(11, 149);
+            lblDanhSachNhanVien.Location = new Point(9, 119);
+            lblDanhSachNhanVien.Margin = new Padding(2, 0, 2, 0);
             lblDanhSachNhanVien.Name = "lblDanhSachNhanVien";
-            lblDanhSachNhanVien.Size = new Size(618, 55);
+            lblDanhSachNhanVien.Size = new Size(494, 44);
             lblDanhSachNhanVien.TabIndex = 7;
             lblDanhSachNhanVien.Text = "Danh sách nhân viên";
             lblDanhSachNhanVien.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // fStaff
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1565, 898);
+            ClientSize = new Size(1252, 718);
             Controls.Add(lblDanhSachNhanVien);
             Controls.Add(dgvNhanVien);
             Controls.Add(btnTiemKIem);
@@ -490,10 +524,13 @@ namespace WinFormsApp
             Controls.Add(btnThoat);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(4, 3, 4, 3);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
+            MaximumSize = new Size(1270, 765);
+            MinimumSize = new Size(1270, 765);
             Name = "fStaff";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Staff";
+            Text = "NHÂN VIÊN";
             Load += fStaff_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

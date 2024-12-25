@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddService));
             panel1 = new Panel();
             label1 = new Label();
             txtQuantity = new TextBox();
@@ -83,12 +84,12 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(139, 8);
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(137, 8);
             label1.Name = "label1";
-            label1.Size = new Size(428, 62);
+            label1.Size = new Size(430, 50);
             label1.TabIndex = 0;
-            label1.Text = "Thông tin sửa chữa";
+            label1.Text = "THÔNG TIN SỬA CHỮA";
             label1.Click += label1_Click;
             // 
             // txtQuantity
@@ -369,10 +370,12 @@
             Controls.Add(panel4);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(720, 428);
             MinimumSize = new Size(720, 381);
             Name = "fAddService";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "fAddService";
+            Text = "THÊM DỊCH VỤ SỬA CHỮA";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

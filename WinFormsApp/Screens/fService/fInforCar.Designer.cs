@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInforCar));
             panel1 = new Panel();
+            lbIdWage = new Label();
             label1 = new Label();
             panel2 = new Panel();
             label16 = new Label();
@@ -83,7 +85,6 @@
             btnAddRepair = new Button();
             btnCLose = new Button();
             btnDelService = new Button();
-            lbIdWage = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel10.SuspendLayout();
@@ -120,17 +121,26 @@
             panel1.Size = new Size(1262, 71);
             panel1.TabIndex = 0;
             // 
+            // lbIdWage
+            // 
+            lbIdWage.AutoSize = true;
+            lbIdWage.Location = new Point(18, 18);
+            lbIdWage.Name = "lbIdWage";
+            lbIdWage.Size = new Size(0, 20);
+            lbIdWage.TabIndex = 1;
+            lbIdWage.Visible = false;
+            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(386, 12);
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(450, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(365, 46);
+            label1.Size = new Size(390, 50);
             label1.TabIndex = 0;
-            label1.Text = "Thông tin và dịch vụ xe";
+            label1.Text = "THÔNG TIN DỊCH VỤ";
             // 
             // panel2
             // 
@@ -748,15 +758,6 @@
             btnDelService.UseVisualStyleBackColor = false;
             btnDelService.Click += btnDelService_Click;
             // 
-            // lbIdWage
-            // 
-            lbIdWage.AutoSize = true;
-            lbIdWage.Location = new Point(18, 18);
-            lbIdWage.Name = "lbIdWage";
-            lbIdWage.Size = new Size(0, 20);
-            lbIdWage.TabIndex = 1;
-            lbIdWage.Visible = false;
-            // 
             // fInforCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -766,12 +767,13 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximumSize = new Size(1280, 800);
             MinimumSize = new Size(1280, 800);
             Name = "fInforCar";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Thông tin dịch vụ";
+            Text = "THÔNG TIN DỊCH VỤ";
             Load += fInforCar_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
