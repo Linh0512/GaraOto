@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using WinFormsApp.Models;
+using System.Text.RegularExpressions;
 
 namespace WinFormsApp.DAO
 {
@@ -33,7 +34,7 @@ namespace WinFormsApp.DAO
             TenDangNhap , 
             MatKhau , 
             TenNV , 
-            DienThoai , 
+            SDT , 
             Email , 
             DiaChi , 
             ChucVu 
@@ -44,7 +45,7 @@ namespace WinFormsApp.DAO
 
         public bool Them (NhanVien nhanVien)
         {
-            string sql = "INSERT INTO NHANVIEN (TenDangNhap, MatKhau, TenNV, DienThoai, Email, DiaChi, ChucVu) " +
+            string sql = "INSERT INTO NHANVIEN (TenDangNhap, MatKhau, TenNV, SDT , Email, DiaChi, ChucVu) " +
                 "VALUES( @tdn , @mk , @ten , @dth , @email , @dc , @cv )";
             try
             {
@@ -84,7 +85,7 @@ namespace WinFormsApp.DAO
         public bool Sua (NhanVien nhanVien)
         {
             
-            string query = "UPDATE NHANVIEN SET  TenNV = @ten , DienThoai = @dth , Email = @email , DiaChi = @diaChi , ChucVu = @cv " +
+            string query = "UPDATE NHANVIEN SET  TenNV = @ten , SDT = @dth , Email = @email , DiaChi = @diaChi , ChucVu = @cv " +
                 " WHERE TenDangNhap = @tdn ";
             try
             {
@@ -99,7 +100,7 @@ namespace WinFormsApp.DAO
                 " WHERE TenDangNhap = @tdn ";
             try
             {
-                DataProviderLocal.instance.ExecuteQuery(query, new object[] { "" , nv.TenDangNhap });
+                DataProviderLocal.instance.ExecuteQuery(query, new object[] { "1" , nv.TenDangNhap });
             }
             catch (Exception ex) { return false; }
             return true;
@@ -119,7 +120,12 @@ namespace WinFormsApp.DAO
             return false;
         }
 
-
+        public bool KiemTraKiTuDacBiet(string username)
+        {
+            // Biểu thức chính quy: Chỉ cho phép chữ cái, chữ số, dấu gạch dưới và dấu chấm
+            string pattern = @"^[a-zA-Z0-9_.]+$";
+            return Regex.IsMatch(username, pattern);
+        }
 
 
 

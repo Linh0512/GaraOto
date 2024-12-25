@@ -8,9 +8,11 @@ using System.Runtime.Loader;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using WinFormsApp.DAO;
 using WinFormsApp.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace WinFormsApp
 {
     public partial class fThemNhanVien : Form
@@ -40,6 +42,13 @@ namespace WinFormsApp
                 {
                     MessageBox.Show("Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.");
                     return; // Dừng lại nếu tên đăng nhập bị trùng
+                }
+
+                //Kiểm tra kí tự đặc biệt 
+                if (!NHANVIENDAO.Instane.KiemTraKiTuDacBiet(txtTenDangNhap.Text))
+                {
+                    MessageBox.Show("Tên đăng nhập không được chứa ký tự đặc biệt!\nChỉ cho phép chữ cái, chữ số, dấu gạch dưới và dấu chấm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 nv.TenDangNhap = txtTenDangNhap.Text;
