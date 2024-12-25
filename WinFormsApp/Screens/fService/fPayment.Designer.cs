@@ -77,7 +77,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(458, 82);
+            panel1.Size = new Size(463, 82);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -87,9 +87,9 @@
             label1.BackColor = Color.Gray;
             label1.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(57, 9);
+            label1.Location = new Point(44, 22);
             label1.Name = "label1";
-            label1.Size = new Size(343, 60);
+            label1.Size = new Size(369, 60);
             label1.TabIndex = 0;
             label1.Text = "PHIẾU THU TIỀN";
             // 
@@ -144,7 +144,7 @@
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel8);
-            panel3.Location = new Point(12, 98);
+            panel3.Location = new Point(12, 90);
             panel3.Name = "panel3";
             panel3.Size = new Size(434, 451);
             panel3.TabIndex = 4;
@@ -349,7 +349,7 @@
             // 
             panel12.Controls.Add(btnClose);
             panel12.Controls.Add(btnPayment);
-            panel12.Location = new Point(67, 553);
+            panel12.Location = new Point(74, 555);
             panel12.Name = "panel12";
             panel12.Size = new Size(314, 59);
             panel12.TabIndex = 11;
@@ -381,13 +381,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(458, 624);
+            ClientSize = new Size(463, 626);
             Controls.Add(panel12);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(1234, 762);
-            MinimumSize = new Size(1234, 762);
             Name = "fPayment";
             StartPosition = FormStartPosition.CenterParent;
             Text = "HÓA ĐƠN THANH TOÁN";

@@ -157,7 +157,8 @@
             MaximumSize = new Size(1090, 664);
             MinimumSize = new Size(1090, 664);
             Name = "fListPayment";
-            Text = "fListPayment";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "DANH SÁCH PHIẾU THU TIỀN";
             Load += fListPayment_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

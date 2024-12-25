@@ -36,7 +36,7 @@ namespace WinFormsApp
         private void btn_payment_Click(object sender, EventArgs e)
         {
             fPayment fPayment = new fPayment();
-            fPayment.Show();
+            fPayment.ShowDialog();
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -47,25 +47,25 @@ namespace WinFormsApp
         private void button1_Click(object sender, EventArgs e)
         {
             add add = new add(this);
-            add.Show();
+            add.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             invoice invoice = new invoice();
-            invoice.Show();
+            invoice.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             history history = new history();
-            history.Show();
+            history.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             fPayment payment = new fPayment();
-            payment.Show();
+            payment.ShowDialog();
         }
 
         private void timKiem()
