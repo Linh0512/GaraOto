@@ -180,6 +180,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             Name = "UpdatePassword";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ĐỔI MẬT KHẨU";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

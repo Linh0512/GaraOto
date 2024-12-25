@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.DAO;
 
 namespace WinFormsApp.Screens.Service.ListPayment
 {
@@ -15,6 +16,59 @@ namespace WinFormsApp.Screens.Service.ListPayment
         public fListPayment()
         {
             InitializeComponent();
+            this.AutoCompleteItems();
+        }
+
+        private void fListPayment_Load(object sender, EventArgs e)
+        {
+            General.Instance.TxtMakeTextDisappear(txbSearch, "Nhập biển số xe");
+            this.LoadDataPayment();
+        }
+
+        private void AutoCompleteItems()
+        {
+            string queryItems = "SELECT BienSo FROM PHIEUTHUTIEN";
+            string columnItems = "BienSo";
+            txbSearch.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryItems, columnItems);
+            txbSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txbSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void LoadDataPayment()
+        {
+            string query = "SELECT * FROM PHIEUTHUTIEN";
+            ServiceDAO.instance.LoadData(query, dtgvPaymentList);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string plateLicense = txbSearch.Text;
+            ReceiptDAO.instance.SearchByLicensePlate(plateLicense);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM PHIEUTHUTIEN";
+            ServiceDAO.instance.LoadData(query, dtgvPaymentList);
+        }
+
+        private void dtpSearchByDate_Leave(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM PHIEUTHUTIEN WHERE @ngaythutien";
+            string date = dtpSearchByDate.Value.ToString("yyyy-MM-dd");
+
+            DataTable result = RepairDAO.instance.SearchRepairByDate(query, "@ngaythutien", date);
+
+            if (result != null && result.Rows.Count > 0)
+            {
+                dtgvPaymentList.DataSource = result;
+                dtgvPaymentList.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu cho ngày này!");
+                dtgvPaymentList.DataSource = null;
+            }
         }
     }
 }

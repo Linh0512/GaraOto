@@ -33,7 +33,7 @@
             dtgvRepairList = new DataGridView();
             panel2 = new Panel();
             label1 = new Label();
-            txtSearch = new TextBox();
+            txbSearch = new TextBox();
             panel3 = new Panel();
             btnRefresh = new Button();
             dtpSearchByDate = new DateTimePicker();
@@ -84,13 +84,13 @@
             // 
             // txtSearch
             // 
-            txtSearch.BackColor = SystemColors.HighlightText;
-            txtSearch.Location = new Point(268, 80);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(527, 27);
-            txtSearch.TabIndex = 2;
-            txtSearch.Text = "Nhập biển số xe";
-            txtSearch.TextAlign = HorizontalAlignment.Center;
+            txbSearch.BackColor = SystemColors.HighlightText;
+            txbSearch.Location = new Point(268, 80);
+            txbSearch.Name = "txtSearch";
+            txbSearch.Size = new Size(527, 27);
+            txbSearch.TabIndex = 2;
+            txbSearch.Text = "Nhập biển số xe";
+            txbSearch.TextAlign = HorizontalAlignment.Center;
             // 
             // panel3
             // 
@@ -149,7 +149,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 622);
-            Controls.Add(txtSearch);
+            Controls.Add(txbSearch);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
@@ -174,7 +174,7 @@
         private DataGridView dtgvRepairList;
         private Panel panel2;
         private Label label1;
-        private TextBox txtSearch;
+        private TextBox txbSearch;
         private Panel panel3;
         private Button btnSearch;
         private Label label2;

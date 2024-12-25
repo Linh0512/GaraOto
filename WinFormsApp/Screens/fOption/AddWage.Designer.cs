@@ -183,6 +183,7 @@
             MaximumSize = new Size(761, 478);
             MinimumSize = new Size(761, 478);
             Name = "AddWage";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "THÊM TIỀN CÔNG";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

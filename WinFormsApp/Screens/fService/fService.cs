@@ -184,6 +184,7 @@ namespace WinFormsApp.Screens.Service
             {
                 MessageBox.Show("Please select a row before viewing details.");
             }
+            this.dtgvService.Refresh();
         }
 
         private void bnDelete_Click(object sender, EventArgs e)
@@ -253,8 +254,31 @@ namespace WinFormsApp.Screens.Service
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            //fPaying fPaying = new fPaying(table);
-            //fPaying.ShowDialog();
+            if (Convert.ToDouble(dtgvService.SelectedRows[0].Cells["TienNo"].Value) == 0)
+            {
+                MessageBox.Show("Không có nợ cần thanh toán");
+                return;
+            }
+            fPayment f = new fPayment();
+            if (dtgvService.SelectedRows.Count > 0)
+            {
+                string customerName = dtgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
+                string licensePlate = dtgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
+                string phoneNumber = dtgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
+                string debt = dtgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
+
+                // Truyền thông tin sang fInforCar
+                f.lbNameCustomer.Text = customerName;
+                f.lbPlateLicense.Text = licensePlate;
+                f.lbPhoneNumber.Text = phoneNumber;
+                f.txbDebt.Text = debt;
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row before viewing details.");
+            }
+            this.dtgvService.Refresh();
         }
 
         private void ChangeInfor_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace WinFormsApp.Screens.Service.ListRepair
 {
@@ -16,12 +17,22 @@ namespace WinFormsApp.Screens.Service.ListRepair
         public fListRepair()
         {
             InitializeComponent();
+            this.AutoCompleteItems();
         }
 
         private void fListRepair_Load(object sender, EventArgs e)
         {
-            General.Instance.TxtMakeTextDisappear(txtSearch, "Nhập biển số xe");
+            General.Instance.TxtMakeTextDisappear(txbSearch, "Nhập biển số xe");
             this.LoadDataRepair();
+        }
+
+        private void AutoCompleteItems()
+        {
+            string queryItems = "SELECT BienSo FROM PHIEUSUACHUA";
+            string columnItems = "BienSo";
+            txbSearch.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryItems, columnItems);
+            txbSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txbSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void LoadDataRepair()
@@ -32,7 +43,7 @@ namespace WinFormsApp.Screens.Service.ListRepair
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string plateLicense = txtSearch.Text;
+            string plateLicense = txbSearch.Text;
             RepairDAO.instance.SearchRepairByLicensePlate(plateLicense);
         }
 

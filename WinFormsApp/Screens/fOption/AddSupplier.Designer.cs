@@ -183,6 +183,7 @@
             MaximumSize = new Size(760, 461);
             MinimumSize = new Size(760, 461);
             Name = "AddSupplier";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "THÊM NHÀ CUNG CẤP";
             Load += AddSupplier_Load;
             panel1.ResumeLayout(false);

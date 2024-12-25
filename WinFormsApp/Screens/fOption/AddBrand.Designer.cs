@@ -133,6 +133,7 @@
             MaximumSize = new Size(758, 459);
             MinimumSize = new Size(758, 459);
             Name = "AddBrand";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "THÊM HÃNG XE";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
