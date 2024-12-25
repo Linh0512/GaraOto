@@ -192,7 +192,6 @@ namespace WinFormsApp
         // Tiem Kiem
         private void btnTiemKIem_Click(object sender, EventArgs e)
         {
-
             string TuKhoa = txtTiemKiem.Text;
             dgvNhanVien.DataSource = NHANVIENDAO.Instane.TiemKiem(TuKhoa);
             dgvNhanVien.Columns["Email"].Visible = false;
