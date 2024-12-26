@@ -34,10 +34,10 @@ namespace WinFormsApp.DAO
                             {
                                 Supplier supplier = new Supplier
                                 {
-                                    maNCC = reader["MaNCC"].ToString(),
-                                    tenNCC = reader["TenNCC"].ToString(),
-                                    soDT = reader["SDT"].ToString(),
-                                    email = reader["Email"].ToString()
+                                    MaNCC = reader["MaNCC"].ToString(),
+                                    TenNCC = reader["TenNCC"].ToString(),
+                                    SDT = reader["SDT"].ToString(),
+                                    Email = reader["Email"].ToString()
                                 };
 
                                 nhaCungCapList.Add(supplier);

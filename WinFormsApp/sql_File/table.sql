@@ -175,6 +175,11 @@ CREATE TABLE CHUCVU
 )
 GO
 
+--Cập nhật cho phép trả vượt tiền nợ:
+ALTER TABLE QUYDINH
+ADD ChoPhepTraVuotTienNo BIT NOT NULL DEFAULT 0;
+
+
 
 
 ALTER TABLE CT_PNKVTPT
