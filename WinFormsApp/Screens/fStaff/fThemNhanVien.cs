@@ -61,6 +61,7 @@ namespace WinFormsApp
 
                 if (NHANVIENDAO.Instane.Them(nv))
                 {
+                    MessageBox.Show("Thêm nhân viên thành công!");
                     this.Close();
                 }
                 else

@@ -272,6 +272,8 @@
             ClientSize = new Size(935, 884);
             Controls.Add(panel3);
             Controls.Add(panel2);
+            MaximumSize = new Size(957, 940);
+            MinimumSize = new Size(957, 940);
             Name = "fSuaNV";
             Text = "fSuaNV";
             Load += fSuaNV_Load;
