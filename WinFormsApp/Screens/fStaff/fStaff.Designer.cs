@@ -34,8 +34,6 @@ namespace WinFormsApp
             lblNhanVien = new Label();
             panel2 = new Panel();
             btnDatMatKhau = new Button();
-            btnHuy = new Button();
-            btnXacNhan = new Button();
             lblChucVu = new Label();
             lblEmail = new Label();
             lblDiaChi = new Label();
@@ -101,8 +99,6 @@ namespace WinFormsApp
             panel2.BackColor = SystemColors.Window;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(btnDatMatKhau);
-            panel2.Controls.Add(btnHuy);
-            panel2.Controls.Add(btnXacNhan);
             panel2.Controls.Add(lblChucVu);
             panel2.Controls.Add(lblEmail);
             panel2.Controls.Add(lblDiaChi);
@@ -145,32 +141,6 @@ namespace WinFormsApp
             btnDatMatKhau.Text = "Đặt Lại Mật Khẩu";
             btnDatMatKhau.UseVisualStyleBackColor = false;
             btnDatMatKhau.Click += btnDatMatKhau_Click;
-            // 
-            // btnHuy
-            // 
-            btnHuy.BackColor = Color.Red;
-            btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnHuy.Location = new Point(435, 631);
-            btnHuy.Margin = new Padding(2);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(208, 72);
-            btnHuy.TabIndex = 20;
-            btnHuy.Text = "Hủy";
-            btnHuy.UseVisualStyleBackColor = false;
-            btnHuy.Click += btnHuy_Click;
-            // 
-            // btnXacNhan
-            // 
-            btnXacNhan.BackColor = SystemColors.HotTrack;
-            btnXacNhan.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnXacNhan.Location = new Point(210, 631);
-            btnXacNhan.Margin = new Padding(2);
-            btnXacNhan.Name = "btnXacNhan";
-            btnXacNhan.Size = new Size(208, 72);
-            btnXacNhan.TabIndex = 19;
-            btnXacNhan.Text = "Xác nhận";
-            btnXacNhan.UseVisualStyleBackColor = false;
-            btnXacNhan.Click += btnXacNhan_Click;
             // 
             // lblChucVu
             // 
@@ -595,8 +565,6 @@ namespace WinFormsApp
         private Label lblDiaChi;
         private Label lblSoDienThoai;
         private Label lblHoVaTen;
-        private Button btnXacNhan;
-        private Button btnHuy;
         private Button btnDatMatKhau;
         private Label lblDanhSachNhanVien;
         private Button btnTaiLai;

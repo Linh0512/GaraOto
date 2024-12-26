@@ -49,9 +49,7 @@ namespace WinFormsApp
             txtHovaTen.Enabled = false;
             txtSDT.Enabled = false;
             txtTenDangNhap.Enabled = false;
-            cbbChucVu.Enabled = false;
-            btnXacNhan.Hide();
-            btnHuy.Hide();
+            cbbChucVu.Enabled = false;           
             btnSuaThongTin.Show();
             btnDatMatKhau.Show();
             btnXoa.Show();
@@ -158,27 +156,22 @@ namespace WinFormsApp
 
             if (dgvNhanVien.SelectedRows.Count > 0)
             {
+
                 NhanVien nv = new NhanVien();
                 DataGridViewRow row = dgvNhanVien.SelectedRows[0];
                 nv.TenDangNhap = row.Cells["TenDangNhap"].Value.ToString();
-                txtDiaChi.Enabled = true;
-                txtEmail.Enabled = true;
-                txtHovaTen.Enabled = true;
-                txtSDT.Enabled = true;
-                cbbChucVu.Enabled = true;
+                //NhanVien nv = new NhanVien();
+                nv.TenDangNhap = txtTenDangNhap.Text;
+                nv.TenNV = txtHovaTen.Text;
+                nv.DienThoai = txtSDT.Text;
+                nv.Email = txtEmail.Text;
+                nv.DiaChi = txtDiaChi.Text;
+                nv.ChucVu = cbbChucVu.Text;
+                fSuaNV fSuaNV = new fSuaNV(nv);
+                fSuaNV.ShowDialog();
+                LoadStaff(nv.TenDangNhap);
 
-                btnSuaThongTin.Hide();
-                btnXoa.Hide();
-                btnDatMatKhau.Hide();
-                btnXacNhan.Show();
-                btnHuy.Show();
-                btnThem.Hide();
-                btnTiemKIem.Enabled = false;
-                btnTaiLai.Enabled = false;  
-                txtTiemKiem.Enabled = false;
-                lblThongTinChiTiet.Text = "Sữa thông tin ";
-                lblThongTinChiTiet.BackColor = System.Drawing.Color.Red;
-                dgvNhanVien.Enabled = false;
+                
 
             }
             else
@@ -188,46 +181,7 @@ namespace WinFormsApp
         }
 
 
-        private void btnXacNhan_Click(object sender, EventArgs e)
-        {
-            NhanVien nv = new NhanVien();
-            nv.TenDangNhap = txtTenDangNhap.Text;
-            nv.TenNV = txtHovaTen.Text;
-            nv.DienThoai = txtSDT.Text;
-            nv.Email = txtEmail.Text;
-            nv.DiaChi = txtDiaChi.Text;
-            nv.ChucVu = cbbChucVu.Text;
-            if (String.IsNullOrEmpty(txtTenDangNhap.Text) || String.IsNullOrEmpty(txtHovaTen.Text)
-                || String.IsNullOrEmpty(txtDiaChi.Text) || String.IsNullOrEmpty(txtSDT.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(cbbChucVu.Text))
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-            else
-            {
-                if (NHANVIENDAO.Instane.Sua(nv))
-                {
-                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo");
-
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật thất bại!", "Thông báo");
-
-                }
-                LoadStaff(nv.TenDangNhap);             
-                
-            }
-        }
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            NhanVien nv = new NhanVien();
-            nv.TenDangNhap = txtTenDangNhap.Text;
-            btnXoa.Show();
-            btnSuaThongTin.Show();
-            btnDatMatKhau.Show();           
-            dgvNhanVien.Enabled = true;
-            LoadStaff(nv.TenDangNhap);
-            
-
-        }
+        
         // Tiem Kiem
         private void btnTiemKIem_Click(object sender, EventArgs e)
         {
