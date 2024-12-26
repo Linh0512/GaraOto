@@ -23,7 +23,7 @@
 ## Các thành viên của nhóm:
 Họ tên | MSSV | Email |
 --- | --- | -- |
-Trần Qui Linh (Trưởng nhóm) | 22520779 | 20520779@gm.uit.edu.vn |
+Trần Qui Linh (Trưởng nhóm) | 22520779 | 22520779@gm.uit.edu.vn |
 Mai Dương	| 22520302 | 22520302@gm.uit.edu.vn |
 Võ Chính Hiệu |	22520449 | 22520449@gm.uit.edu.vn |
 Phan Trung Kiên	| 22520710 | 22520710@gm.uit.edu.vn |
