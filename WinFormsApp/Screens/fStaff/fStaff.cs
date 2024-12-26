@@ -11,39 +11,118 @@ namespace WinFormsApp
         {
             InitializeComponent();
             LoadStaff();
-            btnXacNhan.Hide();
-            btnHuy.Hide();
+            
         }
-        void LoadStaff()
+        void LoadStaff(string tenDangNhap = null)
         {
             dgvNhanVien.DataSource = NHANVIENDAO.Instane.HienThi();
+            if ( btnTaiLai.Visible == true && !String.IsNullOrEmpty(txtTiemKiem.Text) )
+            {
+                dgvNhanVien.DataSource = NHANVIENDAO.Instane.TiemKiem(txtTiemKiem.Text);
+                btnTaiLai.Enabled = true;
+                txtTiemKiem.Enabled = false;
+
+            }
+            else
+            {
+                btnTaiLai.Hide();
+                txtTiemKiem.Enabled = true;
+                btnTiemKIem.Enabled = true;
+            }
+
+            // Cấu hình hiển thị cột
             dgvNhanVien.Columns["Email"].Visible = false;
             dgvNhanVien.Columns["MatKhau"].Visible = false;
             dgvNhanVien.Columns["TenDangNhap"].Visible = false;
-            dgvNhanVien.Columns["DienThoai"].Visible = false;
+            dgvNhanVien.Columns["SDT"].Visible = false;
             dgvNhanVien.Columns["DiaChi"].Visible = false;
             dgvNhanVien.Columns["TenNV"].HeaderText = "Tên nhân viên";
             dgvNhanVien.Columns["ChucVu"].HeaderText = "Chức Vụ";
             dgvNhanVien.Columns["TenNV"].ReadOnly = true;
             dgvNhanVien.Columns["ChucVu"].ReadOnly = true;
-            txtDiaChi.ReadOnly = true;
-            txtEmail.ReadOnly = true;
-            txtHovaTen.ReadOnly = true;
-            txtSDT.ReadOnly = true;
-            txtTenDangNhap.ReadOnly = true;
-            txtDiaChi.BackColor = SystemColors.Window;
-            txtEmail.BackColor = SystemColors.Window;
-            txtHovaTen.BackColor = SystemColors.Window;
-            txtSDT.BackColor = SystemColors.Window;
-            txtTenDangNhap.BackColor = SystemColors.Window;
+
+            NHANVIENDAO.Instane.LoadComboBoxData(cbbChucVu);
+
+            // Cấu hình các TextBox và nút
+            txtDiaChi.Enabled = false;
+            txtEmail.Enabled = false;
+            txtHovaTen.Enabled = false;
+            txtSDT.Enabled = false;
+            txtTenDangNhap.Enabled = false;
             cbbChucVu.Enabled = false;
-            txtDiaChi.Clear();
+            btnXacNhan.Hide();
+            btnHuy.Hide();
+            btnSuaThongTin.Show();
+            btnDatMatKhau.Show();
+            btnXoa.Show();
+            btnDatMatKhau.Show();
+            btnThem.Show();
+            lblThongTinChiTiet.Text = "Thông tin chi tiết";
+            lblThongTinChiTiet.BackColor = SystemColors.ActiveCaption;
+            dgvNhanVien.Enabled = true;
+
+            /*txtDiaChi.Clear();
             txtHovaTen.Clear();
             txtEmail.Clear();
             txtTenDangNhap.Clear();
             txtSDT.Clear();
-            txtTiemKiem.Clear();
+            txtTiemKiem.Clear();*/
+
+            // Ẩn cột bên trái cùng
+            dgvNhanVien.RowHeadersVisible = false;
+            dgvNhanVien.AllowUserToAddRows = false;           
+            dgvNhanVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            // **Chọn dòng cụ thể dựa trên tên đăng nhập**
+            if (!string.IsNullOrEmpty(tenDangNhap))
+            {
+                SelectRowByTenDangNhap(tenDangNhap);
+            }
+
         }
+
+        // **Hàm tìm và chọn dòng dựa trên tên đăng nhập**
+        void SelectRowByTenDangNhap(string tenDangNhap)
+        {
+            foreach (DataGridViewRow row in dgvNhanVien.Rows)
+            {
+                if (row.Cells["TenDangNhap"].Value?.ToString() == tenDangNhap)
+                {
+                    // Xác định cột đầu tiên hiển thị
+                    DataGridViewColumn firstVisibleColumn = dgvNhanVien.Columns
+                        .Cast<DataGridViewColumn>()
+                        .FirstOrDefault(col => col.Visible);
+
+                    if (firstVisibleColumn != null)
+                    {
+                        // Đặt CurrentCell vào ô đầu tiên hiển thị trong dòng
+                        dgvNhanVien.CurrentCell = row.Cells[firstVisibleColumn.Index];
+                        row.Selected = true;
+
+                        // Cập nhật thông tin chi tiết
+                        UpdateDetailFields(row.Index);
+                        return; 
+                    }
+                }
+            }
+
+
+        }
+
+        void UpdateDetailFields(int rowIndex)
+        {
+            if (dgvNhanVien.Rows.Count > rowIndex)
+            {
+                txtHovaTen.Text = dgvNhanVien.Rows[rowIndex].Cells["TenNV"].Value?.ToString();
+                txtDiaChi.Text = dgvNhanVien.Rows[rowIndex].Cells["DiaChi"].Value?.ToString();
+                txtEmail.Text = dgvNhanVien.Rows[rowIndex].Cells["Email"].Value?.ToString();
+                txtSDT.Text = dgvNhanVien.Rows[rowIndex].Cells["SDT"].Value?.ToString();
+                txtTenDangNhap.Text = dgvNhanVien.Rows[rowIndex].Cells["TenDangNhap"].Value?.ToString();
+                cbbChucVu.Text = dgvNhanVien.Rows[rowIndex].Cells["ChucVu"].Value?.ToString();
+            }
+        }
+
+
         private void fStaff_Load(object sender, EventArgs e)
         {
 
@@ -55,35 +134,7 @@ namespace WinFormsApp
             LoadStaff();
         }
 
-        /*private void btnInDanhSach_Click(object sender, EventArgs e)
-        {
-            if (dgvNhanVien.Rows.Count == 0)
-                MessageBox.Show("Không có thông tin để xuất!");
-            else
-            {
-                using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
-                {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        try
-                        {
-                            using (XLWorkbook workbook = new XLWorkbook())
-                            {
-                                workbook.Worksheets.Add(dgvNhanVien.DataSource as DataTable, "NhanVien");
-
-                                workbook.SaveAs(saveFileDialog.FileName);
-
-
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Xuất file không thành công!");
-                        }
-                    }
-                }
-            }
-        }*/
+       
 
         private void dgvNhanVien_SelectionChanged(object sender, EventArgs e)
         {
@@ -94,7 +145,7 @@ namespace WinFormsApp
                 // Hiển thị thông tin đầy đủ vào các TextBox
                 txtTenDangNhap.Text = selectedRow.Cells["TenDangNhap"].Value?.ToString();
                 txtHovaTen.Text = selectedRow.Cells["TenNV"].Value?.ToString();
-                txtSDT.Text = selectedRow.Cells["DienThoai"].Value?.ToString();
+                txtSDT.Text = selectedRow.Cells["SDT"].Value?.ToString();
                 txtDiaChi.Text = selectedRow.Cells["DiaChi"].Value?.ToString();
                 txtEmail.Text = selectedRow.Cells["Email"].Value?.ToString();
                 cbbChucVu.Text = selectedRow.Cells["ChucVu"].Value?.ToString();
@@ -110,17 +161,21 @@ namespace WinFormsApp
                 NhanVien nv = new NhanVien();
                 DataGridViewRow row = dgvNhanVien.SelectedRows[0];
                 nv.TenDangNhap = row.Cells["TenDangNhap"].Value.ToString();
-                txtDiaChi.ReadOnly = false;
-                txtEmail.ReadOnly = false;
-                txtHovaTen.ReadOnly = false;
-                txtSDT.ReadOnly = false;
+                txtDiaChi.Enabled = true;
+                txtEmail.Enabled = true;
+                txtHovaTen.Enabled = true;
+                txtSDT.Enabled = true;
                 cbbChucVu.Enabled = true;
-                NHANVIENDAO.Instane.LoadComboBoxData(cbbChucVu);
+
                 btnSuaThongTin.Hide();
                 btnXoa.Hide();
                 btnDatMatKhau.Hide();
                 btnXacNhan.Show();
                 btnHuy.Show();
+                btnThem.Hide();
+                btnTiemKIem.Enabled = false;
+                btnTaiLai.Enabled = false;  
+                txtTiemKiem.Enabled = false;
                 lblThongTinChiTiet.Text = "Sữa thông tin ";
                 lblThongTinChiTiet.BackColor = System.Drawing.Color.Red;
                 dgvNhanVien.Enabled = false;
@@ -132,7 +187,7 @@ namespace WinFormsApp
             }
         }
 
-        
+
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             NhanVien nv = new NhanVien();
@@ -157,47 +212,39 @@ namespace WinFormsApp
                     MessageBox.Show("Cập nhật thất bại!", "Thông báo");
 
                 }
-                LoadStaff();
-                btnXacNhan.Hide();
-                btnHuy.Hide();
-                btnSuaThongTin.Show();
-                btnDatMatKhau.Show();
-                btnXoa.Show();
-                btnDatMatKhau.Show();
-                lblThongTinChiTiet.Text = "Thông tin chi tiết";
-                lblThongTinChiTiet.BackColor = SystemColors.ActiveCaption;
-                dgvNhanVien.Enabled = true;
+                LoadStaff(nv.TenDangNhap);             
+                
             }
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
+            NhanVien nv = new NhanVien();
+            nv.TenDangNhap = txtTenDangNhap.Text;
             btnXoa.Show();
             btnSuaThongTin.Show();
-            btnHuy.Hide();
-            btnXacNhan.Hide();
-            DataGridViewRow selectedRow = dgvNhanVien.SelectedRows[0];
-
-            // Hiển thị thông tin đầy đủ vào các TextBox
-            txtTenDangNhap.Text = selectedRow.Cells["TenDangNhap"].Value?.ToString();
-            txtHovaTen.Text = selectedRow.Cells["TenNV"].Value?.ToString();
-            txtSDT.Text = selectedRow.Cells["DienThoai"].Value?.ToString();
-            txtDiaChi.Text = selectedRow.Cells["DiaChi"].Value?.ToString();
-            txtEmail.Text = selectedRow.Cells["Email"].Value?.ToString();
-            cbbChucVu.Text = selectedRow.Cells["ChucVu"].Value?.ToString();
-            lblThongTinChiTiet.Text = "Thông tin chi tiết";
-            lblThongTinChiTiet.BackColor = SystemColors.ActiveCaption;
-            dgvNhanVien.Enabled = true ;
+            btnDatMatKhau.Show();           
+            dgvNhanVien.Enabled = true;
+            LoadStaff(nv.TenDangNhap);
+            
 
         }
         // Tiem Kiem
         private void btnTiemKIem_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtTiemKiem.Text))
+            {
+                // Hiển thị thông báo nếu trống
+                MessageBox.Show("Bạn phải nhập thông tin tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Thoát mà không thực hiện tìm kiếm
+            }
+            txtTiemKiem.Enabled = false; 
+            btnTaiLai.Show();
             string TuKhoa = txtTiemKiem.Text;
             dgvNhanVien.DataSource = NHANVIENDAO.Instane.TiemKiem(TuKhoa);
             dgvNhanVien.Columns["Email"].Visible = false;
             dgvNhanVien.Columns["MatKhau"].Visible = false;
             dgvNhanVien.Columns["TenDangNhap"].Visible = false;
-            dgvNhanVien.Columns["DienThoai"].Visible = false;
+            dgvNhanVien.Columns["SDT"].Visible = false;
             dgvNhanVien.Columns["DiaChi"].Visible = false;
             dgvNhanVien.Columns["TenNV"].HeaderText = "Tên nhân viên";
             dgvNhanVien.Columns["ChucVu"].HeaderText = "Chức Vụ";
@@ -237,7 +284,7 @@ namespace WinFormsApp
             }
 
         }
-        
+
         // Đặt lại mật khẩu
         private void btnDatMatKhau_Click(object sender, EventArgs e)
         {
@@ -259,7 +306,7 @@ namespace WinFormsApp
                     try
                     {
                         NHANVIENDAO.Instane.DatLaiMatKhau(nhanVien);
-                        LoadStaff();
+                        LoadStaff(nhanVien.TenDangNhap);
                         MessageBox.Show("đặt lại mật khẩu thành 1 thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -274,7 +321,12 @@ namespace WinFormsApp
             }
         }
 
-
+        private void btnTaiLai_Click(object sender, EventArgs e)
+        {
+            txtTiemKiem.Clear();    
+            txtTiemKiem.Enabled = true ;
+            LoadStaff();
+        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -383,5 +435,7 @@ namespace WinFormsApp
         {
 
         }
+
+        
     }
 }
