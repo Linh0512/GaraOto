@@ -440,7 +440,7 @@ namespace WinFormsApp
             btnSuaThongTin.Name = "btnSuaThongTin";
             btnSuaThongTin.Size = new Size(208, 72);
             btnSuaThongTin.TabIndex = 2;
-            btnSuaThongTin.Text = "Sữa thông tin";
+            btnSuaThongTin.Text = "Sửa thông tin";
             btnSuaThongTin.UseVisualStyleBackColor = false;
             btnSuaThongTin.Click += btnSuaNV_Click;
             // 
