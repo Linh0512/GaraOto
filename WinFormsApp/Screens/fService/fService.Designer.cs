@@ -35,7 +35,7 @@
             panel2 = new Panel();
             dtpDateService = new DateTimePicker();
             cbbPhoneNumber = new ComboBox();
-            cbbTenChuXe = new ComboBox();
+            cbbCustomerName = new ComboBox();
             cbbCarBrand = new ComboBox();
             hieuXeBindingSource = new BindingSource(components);
             cbbLicensePlate = new ComboBox();
@@ -46,13 +46,12 @@
             StripMenuManager = new ToolStripMenuItem();
             ListRepair = new ToolStripMenuItem();
             ListPayment = new ToolStripMenuItem();
-            bnThemXe = new Button();
+            bnAddCar = new Button();
             btnAddService = new Button();
             bnXoa = new Button();
-            bnLamMoi = new Button();
+            bnRefresh = new Button();
             bnFind = new Button();
             panel4 = new Panel();
-            cbbTypeCar = new ComboBox();
             label2 = new Label();
             panel5 = new Panel();
             dtgvService = new DataGridView();
@@ -97,7 +96,7 @@
             // 
             panel2.Controls.Add(dtpDateService);
             panel2.Controls.Add(cbbPhoneNumber);
-            panel2.Controls.Add(cbbTenChuXe);
+            panel2.Controls.Add(cbbCustomerName);
             panel2.Controls.Add(cbbCarBrand);
             panel2.Controls.Add(cbbLicensePlate);
             panel2.Location = new Point(6, 91);
@@ -132,21 +131,21 @@
             cbbPhoneNumber.Text = "Số điện thoại";
             cbbPhoneNumber.Click += cbbTienNo_Click;
             // 
-            // cbbTenChuXe
+            // cbbCustomerName
             // 
-            cbbTenChuXe.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbbTenChuXe.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbbTenChuXe.FormattingEnabled = true;
-            cbbTenChuXe.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
-            cbbTenChuXe.Location = new Point(214, 0);
-            cbbTenChuXe.Margin = new Padding(2, 1, 2, 1);
-            cbbTenChuXe.Name = "cbbTenChuXe";
-            cbbTenChuXe.RightToLeft = RightToLeft.No;
-            cbbTenChuXe.Size = new Size(144, 28);
-            cbbTenChuXe.TabIndex = 2;
-            cbbTenChuXe.Text = "Chủ xe";
-            cbbTenChuXe.SelectedIndexChanged += cbbChuXe_SelectedIndexChanged;
-            cbbTenChuXe.Click += cbbChuXe_Click;
+            cbbCustomerName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbCustomerName.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbbCustomerName.FormattingEnabled = true;
+            cbbCustomerName.Items.AddRange(new object[] { "", "Bs1882", "Bs2759", "Bs3872", "Bs4072" });
+            cbbCustomerName.Location = new Point(214, 0);
+            cbbCustomerName.Margin = new Padding(2, 1, 2, 1);
+            cbbCustomerName.Name = "cbbCustomerName";
+            cbbCustomerName.RightToLeft = RightToLeft.No;
+            cbbCustomerName.Size = new Size(144, 28);
+            cbbCustomerName.TabIndex = 2;
+            cbbCustomerName.Text = "Chủ xe";
+            cbbCustomerName.SelectedIndexChanged += cbbChuXe_SelectedIndexChanged;
+            cbbCustomerName.Click += cbbChuXe_Click;
             // 
             // cbbCarBrand
             // 
@@ -190,10 +189,10 @@
             // 
             panel3.Controls.Add(btnPayment);
             panel3.Controls.Add(menuStrip1);
-            panel3.Controls.Add(bnThemXe);
+            panel3.Controls.Add(bnAddCar);
             panel3.Controls.Add(btnAddService);
             panel3.Controls.Add(bnXoa);
-            panel3.Controls.Add(bnLamMoi);
+            panel3.Controls.Add(bnRefresh);
             panel3.Controls.Add(bnFind);
             panel3.Location = new Point(656, 81);
             panel3.Margin = new Padding(2, 1, 2, 1);
@@ -246,16 +245,16 @@
             ListPayment.Text = "Danh sách phiếu thu tiền";
             ListPayment.Click += ListPayment_Click;
             // 
-            // bnThemXe
+            // bnAddCar
             // 
-            bnThemXe.Location = new Point(366, 20);
-            bnThemXe.Margin = new Padding(2, 1, 2, 1);
-            bnThemXe.Name = "bnThemXe";
-            bnThemXe.Size = new Size(114, 77);
-            bnThemXe.TabIndex = 5;
-            bnThemXe.Text = "Thêm xe";
-            bnThemXe.UseVisualStyleBackColor = true;
-            bnThemXe.Click += btnAddCar_Click;
+            bnAddCar.Location = new Point(366, 20);
+            bnAddCar.Margin = new Padding(2, 1, 2, 1);
+            bnAddCar.Name = "bnAddCar";
+            bnAddCar.Size = new Size(114, 77);
+            bnAddCar.TabIndex = 5;
+            bnAddCar.Text = "Tiếp nhận xe";
+            bnAddCar.UseVisualStyleBackColor = true;
+            bnAddCar.Click += btnAddCar_Click;
             // 
             // btnAddService
             // 
@@ -279,16 +278,16 @@
             bnXoa.UseVisualStyleBackColor = true;
             bnXoa.Click += bnDelete_Click;
             // 
-            // bnLamMoi
+            // bnRefresh
             // 
-            bnLamMoi.Location = new Point(130, 0);
-            bnLamMoi.Margin = new Padding(2, 1, 2, 1);
-            bnLamMoi.Name = "bnLamMoi";
-            bnLamMoi.Size = new Size(106, 51);
-            bnLamMoi.TabIndex = 1;
-            bnLamMoi.Text = "Làm mới";
-            bnLamMoi.UseVisualStyleBackColor = true;
-            bnLamMoi.Click += bnRefresh_Click;
+            bnRefresh.Location = new Point(130, 0);
+            bnRefresh.Margin = new Padding(2, 1, 2, 1);
+            bnRefresh.Name = "bnRefresh";
+            bnRefresh.Size = new Size(106, 51);
+            bnRefresh.TabIndex = 1;
+            bnRefresh.Text = "Làm mới";
+            bnRefresh.UseVisualStyleBackColor = true;
+            bnRefresh.Click += bnRefresh_Click;
             // 
             // bnFind
             // 
@@ -303,33 +302,24 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(cbbTypeCar);
+            panel4.BackColor = SystemColors.ControlLight;
             panel4.Controls.Add(label2);
-            panel4.Location = new Point(6, 129);
+            panel4.Location = new Point(6, 145);
             panel4.Margin = new Padding(2, 1, 2, 1);
             panel4.Name = "panel4";
-            panel4.Size = new Size(250, 60);
+            panel4.Size = new Size(156, 45);
             panel4.TabIndex = 5;
-            // 
-            // cbbTypeCar
-            // 
-            cbbTypeCar.FormattingEnabled = true;
-            cbbTypeCar.Location = new Point(7, 24);
-            cbbTypeCar.Margin = new Padding(2, 1, 2, 1);
-            cbbTypeCar.Name = "cbbTypeCar";
-            cbbTypeCar.Size = new Size(236, 28);
-            cbbTypeCar.TabIndex = 1;
-            cbbTypeCar.Text = "Tất cả";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(0, 0);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(2, 5);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(184, 20);
+            label2.Size = new Size(150, 28);
             label2.TabIndex = 0;
-            label2.Text = "Hiển thị danh sách xe theo";
+            label2.Text = "DANH SÁCH XE";
             // 
             // panel5
             // 
@@ -415,19 +405,18 @@
         private Panel panel2;
         private ComboBox cbbLicensePlate;
         private ComboBox cbbPhoneNumber;
-        private ComboBox cbbTenChuXe;
+        private ComboBox cbbCustomerName;
         private ComboBox cbbCarBrand;
         private DateTimePicker dtpDateService;
         private Panel panel3;
-        private Button bnLamMoi;
+        private Button bnRefresh;
         private Button bnFind;
-        private Button bnThemXe;
+        private Button bnAddCar;
         private Button btnAddService;
         private Button bnXoa;
         private Button btnManage;
         private Panel panel4;
         private Label label2;
-        private ComboBox cbbTypeCar;
         private Panel panel5;
         private DataGridView dtgvService;
         private BindingSource xeBindingSource;

@@ -479,12 +479,12 @@
             btnChangeInfo.Anchor = AnchorStyles.None;
             btnChangeInfo.BackColor = Color.AliceBlue;
             btnChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnChangeInfo.Location = new Point(40, 4);
+            btnChangeInfo.Location = new Point(63, 4);
             btnChangeInfo.Margin = new Padding(4);
             btnChangeInfo.Name = "btnChangeInfo";
-            btnChangeInfo.Size = new Size(183, 59);
+            btnChangeInfo.Size = new Size(130, 59);
             btnChangeInfo.TabIndex = 10;
-            btnChangeInfo.Text = "Thay đổi thông tin";
+            btnChangeInfo.Text = "Xác nhận";
             btnChangeInfo.UseVisualStyleBackColor = false;
             btnChangeInfo.Click += btnUpdateInfo_Click;
             // 

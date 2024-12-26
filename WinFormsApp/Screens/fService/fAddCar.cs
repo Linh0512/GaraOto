@@ -25,9 +25,9 @@ namespace WinFormsApp.Screens.Service.AddCar
         {
             string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.XE";
             string columnCarBrand = "HieuXe";
-            cbbTypeOfCar.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
-            cbbTypeOfCar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbbTypeOfCar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cbbCarBrandName.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
+            cbbCarBrandName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbCarBrandName.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace WinFormsApp.Screens.Service.AddCar
                 Car.Instance = new Car
                 {
                     TenChuXe = txbNameCarOwner.Text,
-                    Hieuxe = cbbTypeOfCar.Text,
+                    Hieuxe = cbbCarBrandName.Text,
                     Bienso = txbLicensePlate.Text,
                     DiaChi = txbAddress.Text,
                     DienThoai = txbPhoneNumber.Text,

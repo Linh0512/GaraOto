@@ -84,9 +84,9 @@ partial class fBaoCaoDS
         groupBox1.Controls.Add(label2);
         groupBox1.Font = new Font("Segoe UI", 12F);
         groupBox1.Location = new Point(10, 75);
-        groupBox1.Margin = new Padding(2, 2, 2, 2);
+        groupBox1.Margin = new Padding(2);
         groupBox1.Name = "groupBox1";
-        groupBox1.Padding = new Padding(2, 2, 2, 2);
+        groupBox1.Padding = new Padding(2);
         groupBox1.Size = new Size(1115, 106);
         groupBox1.TabIndex = 5;
         groupBox1.TabStop = false;
@@ -96,7 +96,7 @@ partial class fBaoCaoDS
         // numericMonth
         // 
         numericMonth.Location = new Point(122, 45);
-        numericMonth.Margin = new Padding(2, 2, 2, 2);
+        numericMonth.Margin = new Padding(2);
         numericMonth.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
         numericMonth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numericMonth.Name = "numericMonth";
@@ -108,7 +108,7 @@ partial class fBaoCaoDS
         // btnShowBCDS
         // 
         btnShowBCDS.Location = new Point(740, 16);
-        btnShowBCDS.Margin = new Padding(2, 2, 2, 2);
+        btnShowBCDS.Margin = new Padding(2);
         btnShowBCDS.Name = "btnShowBCDS";
         btnShowBCDS.Size = new Size(226, 81);
         btnShowBCDS.TabIndex = 4;
@@ -119,7 +119,7 @@ partial class fBaoCaoDS
         // numericYear
         // 
         numericYear.Location = new Point(355, 45);
-        numericYear.Margin = new Padding(2, 2, 2, 2);
+        numericYear.Margin = new Padding(2);
         numericYear.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
         numericYear.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
         numericYear.Name = "numericYear";
@@ -164,7 +164,7 @@ partial class fBaoCaoDS
         // tb_TongDTHU
         // 
         tb_TongDTHU.Location = new Point(507, 656);
-        tb_TongDTHU.Margin = new Padding(2, 2, 2, 2);
+        tb_TongDTHU.Margin = new Padding(2);
         tb_TongDTHU.Name = "tb_TongDTHU";
         tb_TongDTHU.Size = new Size(329, 27);
         tb_TongDTHU.TabIndex = 7;
@@ -177,7 +177,7 @@ partial class fBaoCaoDS
         tableBCDS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         tableBCDS.Columns.AddRange(new DataGridViewColumn[] { HieuXe, SoLuotSua, ThanhTien, TiLe });
         tableBCDS.Location = new Point(5, 30);
-        tableBCDS.Margin = new Padding(2, 2, 2, 2);
+        tableBCDS.Margin = new Padding(2);
         tableBCDS.Name = "tableBCDS";
         tableBCDS.ReadOnly = true;
         tableBCDS.RowHeadersWidth = 62;
@@ -219,7 +219,7 @@ partial class fBaoCaoDS
         // btnExit
         // 
         btnExit.Location = new Point(966, 656);
-        btnExit.Margin = new Padding(2, 2, 2, 2);
+        btnExit.Margin = new Padding(2);
         btnExit.Name = "btnExit";
         btnExit.Size = new Size(81, 24);
         btnExit.TabIndex = 9;
@@ -232,9 +232,9 @@ partial class fBaoCaoDS
         groupBox2.Controls.Add(tableBCDS);
         groupBox2.Font = new Font("Segoe UI", 12F);
         groupBox2.Location = new Point(10, 186);
-        groupBox2.Margin = new Padding(2, 2, 2, 2);
+        groupBox2.Margin = new Padding(2);
         groupBox2.Name = "groupBox2";
-        groupBox2.Padding = new Padding(2, 2, 2, 2);
+        groupBox2.Padding = new Padding(2);
         groupBox2.Size = new Size(1115, 462);
         groupBox2.TabIndex = 10;
         groupBox2.TabStop = false;
@@ -301,10 +301,11 @@ partial class fBaoCaoDS
         Controls.Add(groupBox1);
         Controls.Add(label1);
         Icon = (Icon)resources.GetObject("$this.Icon");
-        Margin = new Padding(2, 2, 2, 2);
+        Margin = new Padding(2);
         MaximumSize = new Size(1152, 745);
         MinimumSize = new Size(1152, 745);
         Name = "fBaoCaoDS";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "BÁO CÁO DOANH SỐ";
         Load += fBaoCaoDS_Load;
         groupBox1.ResumeLayout(false);

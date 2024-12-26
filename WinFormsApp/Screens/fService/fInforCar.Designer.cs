@@ -135,12 +135,12 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(450, 9);
+            label1.Location = new Point(321, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(390, 50);
+            label1.Size = new Size(592, 50);
             label1.TabIndex = 0;
-            label1.Text = "THÔNG TIN DỊCH VỤ";
+            label1.Text = "THÔNG TIN DỊCH VỤ SỬA CHỮA";
             // 
             // panel2
             // 
@@ -773,7 +773,7 @@
             MinimumSize = new Size(1280, 800);
             Name = "fInforCar";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "THÔNG TIN DỊCH VỤ";
+            Text = "THÊM THÔNG TIN DỊCH VỤ";
             Load += fInforCar_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

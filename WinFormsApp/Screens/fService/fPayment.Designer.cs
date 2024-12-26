@@ -57,7 +57,7 @@
             lbNameCustomer = new Label();
             panel12 = new Panel();
             btnClose = new Button();
-            btnPayment = new Button();
+            btnPay = new Button();
             panel1.SuspendLayout();
             panel8.SuspendLayout();
             panel3.SuspendLayout();
@@ -348,7 +348,7 @@
             // panel12
             // 
             panel12.Controls.Add(btnClose);
-            panel12.Controls.Add(btnPayment);
+            panel12.Controls.Add(btnPay);
             panel12.Location = new Point(74, 555);
             panel12.Name = "panel12";
             panel12.Size = new Size(314, 59);
@@ -365,17 +365,17 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
-            // btnPayment
+            // btnPay
             // 
-            btnPayment.BackColor = SystemColors.ActiveCaption;
-            btnPayment.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPayment.Location = new Point(6, 3);
-            btnPayment.Name = "btnPayment";
-            btnPayment.Size = new Size(165, 47);
-            btnPayment.TabIndex = 0;
-            btnPayment.Text = "Thanh toán";
-            btnPayment.UseVisualStyleBackColor = false;
-            btnPayment.Click += btnPaying_Click;
+            btnPay.BackColor = SystemColors.ActiveCaption;
+            btnPay.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPay.Location = new Point(6, 3);
+            btnPay.Name = "btnPay";
+            btnPay.Size = new Size(165, 47);
+            btnPay.TabIndex = 0;
+            btnPay.Text = "Thanh toán";
+            btnPay.UseVisualStyleBackColor = false;
+            btnPay.Click += btnPaying_Click;
             // 
             // fPayment
             // 
@@ -431,7 +431,7 @@
         private Label label10;
         private Panel panel7;
         private Panel panel12;
-        private Button btnPayment;
+        private Button btnPay;
         private Panel panel11;
         private Label label12;
         private Button btnClose;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,7 +44,7 @@ namespace WinFormsApp.Screens.Service.ListPayment
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string plateLicense = txbSearch.Text;
-            ReceiptDAO.instance.SearchByLicensePlate(plateLicense);
+            dtgvPaymentList.DataSource = ReceiptDAO.instance.SearchByLicensePlate(plateLicense);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace WinFormsApp.Screens.Service.ListPayment
             string query = "SELECT * FROM PHIEUTHUTIEN WHERE @ngaythutien";
             string date = dtpSearchByDate.Value.ToString("yyyy-MM-dd");
 
-            DataTable result = RepairDAO.instance.SearchRepairByDate(query, "@ngaythutien", date);
+            DataTable result = ReceiptDAO.instance.SearchPaymentByDate(query, "@ngaythutien", date);
 
             if (result != null && result.Rows.Count > 0)
             {
@@ -68,6 +69,34 @@ namespace WinFormsApp.Screens.Service.ListPayment
             {
                 MessageBox.Show("Không tìm thấy dữ liệu cho ngày này!");
                 dtgvPaymentList.DataSource = null;
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (this.dtgvPaymentList.Rows.Count == 0)
+                MessageBox.Show("Không có thông tin để xuất!");
+            else
+            {
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+                {
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            using (XLWorkbook workbook = new XLWorkbook())
+                            {
+                                workbook.Worksheets.Add(this.dtgvPaymentList.DataSource as DataTable, "PHIEUTHUTIEN");
+
+                                workbook.SaveAs(saveFileDialog.FileName);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Xuất file không thành công!");
+                        }
+                    }
+                }
             }
         }
     }

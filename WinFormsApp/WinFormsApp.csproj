@@ -38,6 +38,9 @@
     <Compile Update="Screens\fReport\fBaoCaoTon.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Screens\fService\fListRepair_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

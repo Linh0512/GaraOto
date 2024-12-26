@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using WinFormsApp.Screens.Service.ListRepair_Detail;
 
 namespace WinFormsApp.Screens.Service.ListRepair
 {
@@ -44,7 +46,7 @@ namespace WinFormsApp.Screens.Service.ListRepair
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string plateLicense = txbSearch.Text;
-            RepairDAO.instance.SearchRepairByLicensePlate(plateLicense);
+            this.dtgvRepairList.DataSource = RepairDAO.instance.SearchByLicensePlate(plateLicense);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -72,5 +74,52 @@ namespace WinFormsApp.Screens.Service.ListRepair
             }
         }
 
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dtgvRepairList.SelectedRows.Count != 1) return;
+
+                string idRepair = this.dtgvRepairList.SelectedRows[0].Cells["MaPSC"].Value.ToString();
+                string licensePlate = this.dtgvRepairList.SelectedRows[0].Cells["BienSo"].Value.ToString();
+                string date = this.dtgvRepairList.SelectedRows[0].Cells["NgaySuaChua"].Value.ToString();
+                string totalAmout = this.dtgvRepairList.SelectedRows[0].Cells["TongTien"].Value.ToString();
+                fListRepair_Detail f = new fListRepair_Detail(idRepair, licensePlate, date, totalAmout);
+                f.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng chọn dòng cần xem chi tiết!");
+            }
+
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (this.dtgvRepairList.Rows.Count == 0)
+                MessageBox.Show("Không có thông tin để xuất!");
+            else
+            {
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+                {
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            using (XLWorkbook workbook = new XLWorkbook())
+                            {
+                                workbook.Worksheets.Add(this.dtgvRepairList.DataSource as DataTable, "PHIEUSUACHUA");
+
+                                workbook.SaveAs(saveFileDialog.FileName);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Xuất file không thành công!");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

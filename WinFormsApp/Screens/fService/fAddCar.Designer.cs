@@ -34,7 +34,7 @@
             panel2 = new Panel();
             txbEmail = new TextBox();
             dtpDateReceived = new DateTimePicker();
-            cbbTypeOfCar = new ComboBox();
+            cbbCarBrandName = new ComboBox();
             txbPhoneNumber = new TextBox();
             txbAddress = new TextBox();
             txbLicensePlate = new TextBox();
@@ -72,7 +72,7 @@
             // 
             panel2.Controls.Add(txbEmail);
             panel2.Controls.Add(dtpDateReceived);
-            panel2.Controls.Add(cbbTypeOfCar);
+            panel2.Controls.Add(cbbCarBrandName);
             panel2.Controls.Add(txbPhoneNumber);
             panel2.Controls.Add(txbAddress);
             panel2.Controls.Add(txbLicensePlate);
@@ -99,15 +99,15 @@
             dtpDateReceived.TabIndex = 6;
             dtpDateReceived.Value = new DateTime(2024, 12, 19, 21, 17, 43, 0);
             // 
-            // cbbTypeOfCar
+            // cbbCarBrandName
             // 
-            cbbTypeOfCar.FormattingEnabled = true;
-            cbbTypeOfCar.Location = new Point(97, 93);
-            cbbTypeOfCar.Name = "cbbTypeOfCar";
-            cbbTypeOfCar.Size = new Size(250, 28);
-            cbbTypeOfCar.TabIndex = 2;
-            cbbTypeOfCar.Text = "Hiệu xe";
-            cbbTypeOfCar.SelectedIndexChanged += cbbTypeOfCar_SelectedIndexChanged;
+            cbbCarBrandName.FormattingEnabled = true;
+            cbbCarBrandName.Location = new Point(97, 93);
+            cbbCarBrandName.Name = "cbbCarBrandName";
+            cbbCarBrandName.Size = new Size(250, 28);
+            cbbCarBrandName.TabIndex = 2;
+            cbbCarBrandName.Text = "Hiệu xe";
+            cbbCarBrandName.SelectedIndexChanged += cbbTypeOfCar_SelectedIndexChanged;
             // 
             // txbPhoneNumber
             // 
@@ -188,7 +188,7 @@
             MinimumSize = new Size(500, 548);
             Name = "fAddCar";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "THÊM XE";
+            Text = "TIẾP NHẬN XE";
             Load += fAddCar_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -207,7 +207,7 @@
         private TextBox txbAddress;
         private TextBox txbLicensePlate;
         private TextBox txbPhoneNumber;
-        private ComboBox cbbTypeOfCar;
+        private ComboBox cbbCarBrandName;
         private DateTimePicker dtpDateReceived;
         private Panel panel3;
         private Button btClose;

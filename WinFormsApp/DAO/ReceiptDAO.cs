@@ -17,31 +17,28 @@ namespace WinFormsApp.DAO
         public DataTable SearchByLicensePlate(string s)
         {
             SqlConnection con = DataProvider.instance.getConnect();
-            con.Open();
-            string sql = "SELECT * FROM PHIEUTHUTIEN WHERE BienSo = @bienso";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("@bienso", s);
-            DataTable dt = new DataTable();
-            da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                using (con)
+                {
+                    con.Open();
+                    string sql = "SELECT * FROM PHIEUTHUTIEN WHERE BienSo = @bienso";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@bienso", s);
+                    DataTable dt = new DataTable();
+                    da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
+            }
         }
-        //public DataTable SearchByDate(int ngay, int thang, int nam)
-        //{
-        //    SqlConnection con = DataProvider.instance.getConnect();
-        //    con.Open();
-        //    string sql = "SELECT * FROM PHIEUTHUTIEN WHERE DAY(NgayThuTien) = @ngay AND MONTH(NgayThuTien) = @thang AND YEAR(NgayThuTien) = @nam";
-        //    SqlCommand cmd = new SqlCommand(sql, con);
-        //    cmd.Parameters.AddWithValue("@ngay", ngay);
-        //    cmd.Parameters.AddWithValue("@thang", thang);
-        //    cmd.Parameters.AddWithValue("@nam", nam);
-        //    DataTable dt = new DataTable();
-        //    da = new SqlDataAdapter(cmd);
-        //    da.Fill(dt);
-        //    return dt;
-        //}
 
-        public DataTable SearchByDate(string query, string parameterName, string parameterValue)
+        public DataTable SearchPaymentByDate(string query, string parameterName, string parameterValue)
         {
             try
             {

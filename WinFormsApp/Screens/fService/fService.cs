@@ -32,7 +32,7 @@ namespace WinFormsApp.Screens.Service
         {
             General.Instance.CbbMakeTextDisappear(cbbLicensePlate, "Biển số");
             General.Instance.CbbMakeTextDisappear(cbbCarBrand, "Hiệu xe");
-            General.Instance.CbbMakeTextDisappear(cbbTenChuXe, "Chủ xe");
+            General.Instance.CbbMakeTextDisappear(cbbCustomerName, "Chủ xe");
             General.Instance.CbbMakeTextDisappear(cbbPhoneNumber, "Số điện thoại");
         }
 
@@ -73,9 +73,9 @@ namespace WinFormsApp.Screens.Service
         {
             string queryCustomerName = "SELECT DISTINCT TenChuXe FROM dbo.XE";
             string columnCustomerName = "TenChuXe";
-            cbbTenChuXe.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCustomerName, columnCustomerName);
-            cbbTenChuXe.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbbTenChuXe.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cbbCustomerName.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCustomerName, columnCustomerName);
+            cbbCustomerName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbCustomerName.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void GetCarBrandAutoComplete()
@@ -123,9 +123,9 @@ namespace WinFormsApp.Screens.Service
 
         private void cbbChuXe_Click(object sender, EventArgs e)
         {
-            if (cbbTenChuXe.Text == "Chủ xe")
+            if (cbbCustomerName.Text == "Chủ xe")
             {
-                cbbTenChuXe.Text = "";
+                cbbCustomerName.Text = "";
             }
         }
 
@@ -198,7 +198,7 @@ namespace WinFormsApp.Screens.Service
         {
             string plateLicense = cbbLicensePlate.Text.Trim();
             string carBrand = cbbCarBrand.Text.Trim();
-            string customerName = cbbTenChuXe.Text.Trim();
+            string customerName = cbbCustomerName.Text.Trim();
             string phoneNumber = cbbPhoneNumber.Text.Trim();
             string date = dtpDateService.Value.ToString("yyyy-MM-dd");
 

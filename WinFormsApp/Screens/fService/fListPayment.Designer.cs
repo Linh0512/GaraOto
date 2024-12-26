@@ -39,10 +39,14 @@
             dtpSearchByDate = new DateTimePicker();
             btnSearch = new Button();
             label2 = new Label();
+            panel4 = new Panel();
+            btnClose = new Button();
+            btnExport = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvPaymentList).BeginInit();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // txbSearch
@@ -79,17 +83,18 @@
             panel1.Controls.Add(dtgvPaymentList);
             panel1.Location = new Point(14, 157);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1046, 453);
+            panel1.Size = new Size(1046, 373);
             panel1.TabIndex = 4;
             // 
             // dtgvPaymentList
             // 
+            dtgvPaymentList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvPaymentList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvPaymentList.Dock = DockStyle.Fill;
             dtgvPaymentList.Location = new Point(0, 0);
             dtgvPaymentList.Name = "dtgvPaymentList";
             dtgvPaymentList.RowHeadersWidth = 51;
-            dtgvPaymentList.Size = new Size(1046, 453);
+            dtgvPaymentList.Size = new Size(1046, 373);
             dtgvPaymentList.TabIndex = 0;
             // 
             // panel3
@@ -127,7 +132,7 @@
             // 
             btnSearch.BackColor = SystemColors.Info;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(789, 9);
+            btnSearch.Location = new Point(791, 12);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 1;
@@ -144,11 +149,45 @@
             label2.TabIndex = 0;
             label2.Text = "Tìm kiếm:";
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(btnClose);
+            panel4.Controls.Add(btnExport);
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Location = new Point(0, 536);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1072, 81);
+            panel4.TabIndex = 8;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.FromArgb(192, 64, 0);
+            btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.Location = new Point(716, 15);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(119, 54);
+            btnClose.TabIndex = 4;
+            btnClose.Text = "Thoát";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
+            // btnExport
+            // 
+            btnExport.BackColor = SystemColors.ControlDark;
+            btnExport.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExport.Location = new Point(244, 14);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(187, 55);
+            btnExport.TabIndex = 1;
+            btnExport.Text = "Xuất file danh sách";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
+            // 
             // fListPayment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1072, 617);
+            Controls.Add(panel4);
             Controls.Add(txbSearch);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -166,6 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)dtgvPaymentList).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,5 +222,8 @@
         private DateTimePicker dtpSearchByDate;
         private Button btnSearch;
         private Label label2;
+        private Panel panel4;
+        private Button btnClose;
+        private Button btnExport;
     }
 }
