@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp.Model
 {
-    public class Supplier
+    internal class Supplier
     {
         public static Supplier Instance = new Supplier();
-        public string maNCC { get; set; }
-        public string tenNCC { get; set; }
-        public string soDT { get; set; }
-        public string email { get; set; }
+        public string MaNCC { get; set; }
+        public string TenNCC { get; set; }
+        public string SDT { get; set; }
+        public string Email { get; set; }
     }
 }
