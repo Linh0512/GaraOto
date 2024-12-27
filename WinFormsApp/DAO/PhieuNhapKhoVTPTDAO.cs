@@ -30,7 +30,7 @@ namespace WinFormsApp.DAO
 
                         cmd.Parameters.AddWithValue("@MaNKVTPT", maNKVTPT);
                         cmd.Parameters.AddWithValue("@NgayNhap", phieuNhapKhoVTPT.ngayNhap);
-                        cmd.Parameters.AddWithValue("@MaNCC", phieuNhapKhoVTPT.supplier.maNCC); 
+                        cmd.Parameters.AddWithValue("@MaNCC", phieuNhapKhoVTPT.supplier.MaNCC); 
 
                         cmd.ExecuteNonQuery();
                         return maNKVTPT;

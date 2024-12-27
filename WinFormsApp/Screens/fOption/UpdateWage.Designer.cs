@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.Screens.fOption
+﻿namespace WinFormsApp.Screens.Option
 {
     partial class UpdateWage
     {

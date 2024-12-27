@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Model;
 
-namespace WinFormsApp.Screens.fOption
+namespace WinFormsApp.Screens.Option
 {
     public partial class UpdateWage : Form
     {

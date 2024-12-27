@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp.Model
 {
-    internal class Supplier
+    public class Supplier
     {
         public static Supplier Instance = new Supplier();
         public string MaNCC { get; set; }

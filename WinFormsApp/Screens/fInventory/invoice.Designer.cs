@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.MainScene.fInventory
+﻿namespace WinFormsApp.Screens.fInventory
 {
     partial class invoice
     {

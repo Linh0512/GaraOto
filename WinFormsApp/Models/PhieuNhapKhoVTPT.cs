@@ -11,11 +11,10 @@ namespace WinFormsApp.Models
 
         public PhieuNhapKhoVTPT() { }
 
-        public PhieuNhapKhoVTPT(DateTime ngayNhap, Supplier supplier)
-        {
-            ngayNhap = ngayNhap;
-            supplier = supplier;
-        }
-
+        //public PhieuNhapKhoVTPT(DateTime ngayNhap, Supplier supplier)
+        //{
+        //    ngayNhap = ngayNhap;
+        //    supplier = supplier;
+        //}
     }
 }

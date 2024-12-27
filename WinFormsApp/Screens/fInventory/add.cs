@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Models;
 
-namespace WinFormsApp.MainScene.fInventory
+namespace WinFormsApp.Screens.fInventory
 {
     public partial class add : Form
     {

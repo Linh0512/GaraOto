@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.Screens.fReport;
 using WinFormsApp.Screens.Service;
+using WinFormsApp.Screens.Option;
 
 namespace WinFormsApp.Screens.MainScene
 {

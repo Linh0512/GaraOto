@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Screens.fInventory;
 
-namespace WinFormsApp.MainScene.fInventory
+namespace WinFormsApp.Screens.fInventory
 {
     public partial class history : Form
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace WinFormsApp
+namespace WinFormsApp.Screens.Option
 {
     partial class fOption
     {

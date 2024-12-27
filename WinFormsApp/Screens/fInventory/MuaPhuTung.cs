@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
-using WinFormsApp.MainScene.fInventory;
+using WinFormsApp.Screens.fInventory;
 using WinFormsApp.Models;
 
 namespace WinFormsApp.Screens.fInventory

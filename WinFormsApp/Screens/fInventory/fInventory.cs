@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
-using WinFormsApp.MainScene.fInventory;
+using WinFormsApp.Screens.fInventory;
 
 namespace WinFormsApp
 {

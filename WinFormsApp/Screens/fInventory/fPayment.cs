@@ -8,7 +8,7 @@ using WinFormsApp.Models;
 using WinFormsApp.Screens.fInventory;
 using WinFormsApp.Screens.Service.Payment;
 
-namespace WinFormsApp.MainScene.fInventory
+namespace WinFormsApp.Screens.fInventory
 {
     public partial class fPayment : Form
     {
@@ -106,8 +106,8 @@ namespace WinFormsApp.MainScene.fInventory
 
             if (selectedSupplier != null)
             {
-                txtDT.Text = selectedSupplier.soDT;
-                txtEmail.Text = selectedSupplier.email;
+                txtDT.Text = selectedSupplier.SDT;
+                txtEmail.Text = selectedSupplier.Email;
             }
             else
             {
@@ -125,7 +125,7 @@ namespace WinFormsApp.MainScene.fInventory
                     ngayNhap = DateTime.Now, 
                     supplier = new Supplier
                     {
-                        maNCC = cmbNCC.SelectedValue.ToString() 
+                        MaNCC = cmbNCC.SelectedValue.ToString() 
                     }
                 };
 

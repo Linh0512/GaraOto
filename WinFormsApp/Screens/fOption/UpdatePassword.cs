@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp.MainScene.fOption
+namespace WinFormsApp.Screens.Option
 {
     public partial class UpdatePassword : Form
     {

@@ -2,12 +2,10 @@
 using System.Data;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
-using WinFormsApp.MainScene.fOption;
-using WinFormsApp.Screens.fOption;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace WinFormsApp
+namespace WinFormsApp.Screens.Option
 {
     public partial class fOption : Form
     {

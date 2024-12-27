@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.MainScene.fOption
+﻿namespace WinFormsApp.Screens.Option
 {
     partial class UpdatePassword: Form
     {
