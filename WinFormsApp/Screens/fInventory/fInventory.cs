@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.MainScene.fInventory;
 
-
 namespace WinFormsApp
 {
     public partial class Inventory : Form
