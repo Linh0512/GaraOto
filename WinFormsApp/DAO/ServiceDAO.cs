@@ -23,6 +23,56 @@ namespace WinFormsApp.DAO
             dtgv.DataSource = dataProvider.ExecuteQuery(query);
         }
 
+        public SqlDataReader LoadDataByLicensePlate(string bienso)
+        {
+            SqlConnection con = DataProvider.instance.getConnect();
+            con.Open();
+            string sql = "SELECT * FROM XE WHERE BienSo = @bienso";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@bienso", bienso);
+            SqlDataReader dt = cmd.ExecuteReader();
+            return dt;
+        }
+
+        public string LoadIdReceipt()
+        {
+            SqlConnection con = DataProvider.instance.getConnect();
+            using (con)
+            {
+                con.Open();
+                string sql = "SELECT COUNT(*) + 1 AS SO FROM PHIEUTHUTIEN";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                string l = "";
+                if (dr.Read())
+                    l = dr["SO"].ToString();
+                con.Close();
+                return "SC" + l;
+            }
+        }
+
+        public bool UpdateDebt(string bienso, double tn)
+        {
+            string sql = "UPDATE XE SET TienNo = @tn WHERE BienSo = @bienso";
+            SqlConnection con = DataProvider.instance.getConnect();
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@bienso", bienso);
+
+                cmd.Parameters.AddWithValue("@tn", tn);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public void AddCar(Car car)
         {
             string query = "INSERT INTO dbo.XE (BienSo, TenChuXe, HieuXe, DienThoai, DiaChi, NgayTiepNhan, TienNo, Email) " +

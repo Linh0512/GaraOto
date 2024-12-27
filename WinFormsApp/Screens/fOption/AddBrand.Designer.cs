@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.MainScene.fOption
+﻿namespace WinFormsApp.Screens.Option
 {
     partial class AddBrand
     {
@@ -42,19 +42,21 @@
             // 
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(lblAddBrand);
-            panel1.Location = new Point(-2, -4);
+            panel1.Location = new Point(-1, -2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1205, 132);
+            panel1.Size = new Size(742, 82);
             panel1.TabIndex = 7;
             // 
             // lblAddBrand
             // 
             lblAddBrand.AutoSize = true;
-            lblAddBrand.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAddBrand.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAddBrand.ForeColor = Color.White;
-            lblAddBrand.Location = new Point(421, 37);
+            lblAddBrand.Location = new Point(226, 11);
+            lblAddBrand.Margin = new Padding(2, 0, 2, 0);
             lblAddBrand.Name = "lblAddBrand";
-            lblAddBrand.Size = new Size(350, 59);
+            lblAddBrand.Size = new Size(300, 50);
             lblAddBrand.TabIndex = 0;
             lblAddBrand.Text = "THÊM HÃNG XE";
             // 
@@ -66,9 +68,10 @@
             btnClose.ForeColor = Color.White;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
             btnClose.ImageAlign = ContentAlignment.MiddleRight;
-            btnClose.Location = new Point(663, 476);
+            btnClose.Location = new Point(403, 298);
+            btnClose.Margin = new Padding(2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(162, 58);
+            btnClose.Size = new Size(105, 46);
             btnClose.TabIndex = 13;
             btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -83,9 +86,10 @@
             btnAdd.ForeColor = Color.White;
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleRight;
-            btnAdd.Location = new Point(366, 476);
+            btnAdd.Location = new Point(225, 298);
+            btnAdd.Margin = new Padding(2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(162, 58);
+            btnAdd.Size = new Size(108, 46);
             btnAdd.TabIndex = 12;
             btnAdd.Text = "Thêm";
             btnAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -95,35 +99,42 @@
             // txtBrandName
             // 
             txtBrandName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBrandName.Location = new Point(370, 305);
+            txtBrandName.Location = new Point(228, 191);
+            txtBrandName.Margin = new Padding(2);
             txtBrandName.Multiline = true;
             txtBrandName.Name = "txtBrandName";
-            txtBrandName.Size = new Size(455, 53);
+            txtBrandName.Size = new Size(282, 35);
             txtBrandName.TabIndex = 10;
             // 
             // lblBrandName
             // 
             lblBrandName.AutoSize = true;
             lblBrandName.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBrandName.Location = new Point(370, 204);
+            lblBrandName.Location = new Point(228, 128);
+            lblBrandName.Margin = new Padding(2, 0, 2, 0);
             lblBrandName.Name = "lblBrandName";
-            lblBrandName.Size = new Size(216, 50);
+            lblBrandName.Size = new Size(144, 32);
             lblBrandName.TabIndex = 8;
             lblBrandName.Text = "Tên hãng xe";
             // 
             // AddBrand
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1203, 660);
+            ClientSize = new Size(740, 412);
             Controls.Add(panel1);
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
             Controls.Add(txtBrandName);
             Controls.Add(lblBrandName);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
+            MaximumSize = new Size(758, 459);
+            MinimumSize = new Size(758, 459);
             Name = "AddBrand";
-            Text = "Thêm hãng xe";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "THÊM HÃNG XE";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

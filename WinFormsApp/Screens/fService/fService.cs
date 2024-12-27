@@ -32,7 +32,7 @@ namespace WinFormsApp.Screens.Service
         {
             General.Instance.CbbMakeTextDisappear(cbbLicensePlate, "Biển số");
             General.Instance.CbbMakeTextDisappear(cbbCarBrand, "Hiệu xe");
-            General.Instance.CbbMakeTextDisappear(cbbTenChuXe, "Chủ xe");
+            General.Instance.CbbMakeTextDisappear(cbbCustomerName, "Chủ xe");
             General.Instance.CbbMakeTextDisappear(cbbPhoneNumber, "Số điện thoại");
         }
 
@@ -73,9 +73,9 @@ namespace WinFormsApp.Screens.Service
         {
             string queryCustomerName = "SELECT DISTINCT TenChuXe FROM dbo.XE";
             string columnCustomerName = "TenChuXe";
-            cbbTenChuXe.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCustomerName, columnCustomerName);
-            cbbTenChuXe.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbbTenChuXe.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cbbCustomerName.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCustomerName, columnCustomerName);
+            cbbCustomerName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbCustomerName.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void GetCarBrandAutoComplete()
@@ -123,9 +123,9 @@ namespace WinFormsApp.Screens.Service
 
         private void cbbChuXe_Click(object sender, EventArgs e)
         {
-            if (cbbTenChuXe.Text == "Chủ xe")
+            if (cbbCustomerName.Text == "Chủ xe")
             {
-                cbbTenChuXe.Text = "";
+                cbbCustomerName.Text = "";
             }
         }
 
@@ -184,6 +184,7 @@ namespace WinFormsApp.Screens.Service
             {
                 MessageBox.Show("Please select a row before viewing details.");
             }
+            this.dtgvService.Refresh();
         }
 
         private void bnDelete_Click(object sender, EventArgs e)
@@ -197,7 +198,7 @@ namespace WinFormsApp.Screens.Service
         {
             string plateLicense = cbbLicensePlate.Text.Trim();
             string carBrand = cbbCarBrand.Text.Trim();
-            string customerName = cbbTenChuXe.Text.Trim();
+            string customerName = cbbCustomerName.Text.Trim();
             string phoneNumber = cbbPhoneNumber.Text.Trim();
             string date = dtpDateService.Value.ToString("yyyy-MM-dd");
 
@@ -253,8 +254,31 @@ namespace WinFormsApp.Screens.Service
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            //fPaying fPaying = new fPaying(table);
-            //fPaying.ShowDialog();
+            if (Convert.ToDouble(dtgvService.SelectedRows[0].Cells["TienNo"].Value) == 0)
+            {
+                MessageBox.Show("Không có nợ cần thanh toán");
+                return;
+            }
+            fPayment f = new fPayment();
+            if (dtgvService.SelectedRows.Count > 0)
+            {
+                string customerName = dtgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
+                string licensePlate = dtgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
+                string phoneNumber = dtgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
+                string debt = dtgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
+
+                // Truyền thông tin sang fInforCar
+                f.lbNameCustomer.Text = customerName;
+                f.lbPlateLicense.Text = licensePlate;
+                f.lbPhoneNumber.Text = phoneNumber;
+                f.txbDebt.Text = debt;
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row before viewing details.");
+            }
+            this.dtgvService.Refresh();
         }
 
         private void ChangeInfor_Click(object sender, EventArgs e)

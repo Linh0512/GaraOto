@@ -4,6 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Packaging;
 using Microsoft.Data.SqlClient;
 using WinFormsApp.Models;
 
@@ -12,25 +14,29 @@ namespace WinFormsApp.DAO
     internal class RepairDAO
     {
         public static RepairDAO instance = new RepairDAO();
+        SqlDataAdapter da;
 
-        public void SearchRepairByLicensePlate(string licensePlate)
+        public DataTable SearchByLicensePlate(string s)
         {
-            string query = "SELECT * FROM PHIEUSUACHUA WHERE BienSo = @bienso ";
             SqlConnection con = DataProvider.instance.getConnect();
-            using (con)
+            try
             {
-                try
+                using (con)
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@bienso", licensePlate);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    string sql = "SELECT * FROM PHIEUSUACHUA WHERE BienSo = @bienso";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@bienso", s);
+                    DataTable dt = new DataTable();
+                    da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    return dt;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
             }
         }
 
@@ -103,10 +109,11 @@ namespace WinFormsApp.DAO
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+        /////////////////////////////// Repair_Detail ///////////////////////////////
 
         public void AddRepair_Detail(CT_PSC repair_Detail)
         {
-            string sql = "INSERT INTO CT_PHIEUSUACHUA (MaPSC, NoiDung, MaVTPT, TenVTPT, SoLuong, DonGia, MaTienCong, TienCong, ThanhTien) " +
+            string sql = "INSERT INTO CT_PSC (MaPSC, NoiDung, MaVTPT, TenVTPT, SoLuong, DonGia, MaTienCong, TienCong, ThanhTien) " +
                 "VALUES (@masc, @noidung, @mavtpt, @tenvtpt, @soluong, @dongia, @matiencong, @tiencong, @thanhtien)";
             SqlConnection con = DataProvider.instance.getConnect();
             try
@@ -133,6 +140,31 @@ namespace WinFormsApp.DAO
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        public DataTable LoadListRepair_Detail(string s)
+        {
+            SqlConnection con = DataProvider.instance.getConnect();
+            try
+            {
+                using (con)
+                {
+                    con.Open();
+                    string sql = "SELECT NoiDung, MaVTPT, TenVTPT, SoLuong, DonGia, TienCong, ThanhTien FROM CT_PSC WHERE MaPSC = @ma";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@ma", s);
+                    da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    con.Close();
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
             }
         }
     }

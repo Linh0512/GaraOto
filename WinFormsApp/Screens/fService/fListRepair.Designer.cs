@@ -33,16 +33,21 @@
             dtgvRepairList = new DataGridView();
             panel2 = new Panel();
             label1 = new Label();
-            txtSearch = new TextBox();
+            txbSearch = new TextBox();
             panel3 = new Panel();
             btnRefresh = new Button();
             dtpSearchByDate = new DateTimePicker();
             btnSearch = new Button();
             label2 = new Label();
+            panel4 = new Panel();
+            btnClose = new Button();
+            btnExport = new Button();
+            btnDetail = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvRepairList).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -50,17 +55,19 @@
             panel1.Controls.Add(dtgvRepairList);
             panel1.Location = new Point(12, 157);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1046, 453);
+            panel1.Size = new Size(1046, 378);
             panel1.TabIndex = 0;
             // 
             // dtgvRepairList
             // 
+            dtgvRepairList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvRepairList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvRepairList.Dock = DockStyle.Fill;
             dtgvRepairList.Location = new Point(0, 0);
             dtgvRepairList.Name = "dtgvRepairList";
             dtgvRepairList.RowHeadersWidth = 51;
-            dtgvRepairList.Size = new Size(1046, 453);
+            dtgvRepairList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvRepairList.Size = new Size(1046, 378);
             dtgvRepairList.TabIndex = 0;
             // 
             // panel2
@@ -75,22 +82,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(270, 9);
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(256, 9);
             label1.Name = "label1";
-            label1.Size = new Size(527, 50);
+            label1.Size = new Size(561, 50);
             label1.TabIndex = 0;
             label1.Text = "DANH SÁCH PHIẾU SỬA CHỮA";
             // 
-            // txtSearch
+            // txbSearch
             // 
-            txtSearch.BackColor = SystemColors.HighlightText;
-            txtSearch.Location = new Point(268, 80);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(527, 27);
-            txtSearch.TabIndex = 2;
-            txtSearch.Text = "Nhập biển số xe";
-            txtSearch.TextAlign = HorizontalAlignment.Center;
+            txbSearch.BackColor = SystemColors.HighlightText;
+            txbSearch.Location = new Point(268, 80);
+            txbSearch.Name = "txbSearch";
+            txbSearch.Size = new Size(527, 27);
+            txbSearch.TabIndex = 2;
+            txbSearch.Text = "Nhập biển số xe";
+            txbSearch.TextAlign = HorizontalAlignment.Center;
             // 
             // panel3
             // 
@@ -106,9 +113,10 @@
             // btnRefresh
             // 
             btnRefresh.BackColor = SystemColors.GradientActiveCaption;
+            btnRefresh.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRefresh.Location = new Point(910, 24);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(89, 54);
+            btnRefresh.Size = new Size(95, 54);
             btnRefresh.TabIndex = 3;
             btnRefresh.Text = "Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
@@ -144,18 +152,66 @@
             label2.TabIndex = 0;
             label2.Text = "Tìm kiếm:";
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(btnClose);
+            panel4.Controls.Add(btnExport);
+            panel4.Controls.Add(btnDetail);
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Location = new Point(0, 541);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1070, 81);
+            panel4.TabIndex = 4;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.FromArgb(192, 64, 0);
+            btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.Location = new Point(922, 14);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(95, 54);
+            btnClose.TabIndex = 4;
+            btnClose.Text = "Thoát";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
+            // btnExport
+            // 
+            btnExport.BackColor = SystemColors.ControlDark;
+            btnExport.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExport.Location = new Point(495, 14);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(187, 55);
+            btnExport.TabIndex = 1;
+            btnExport.Text = "Xuất file danh sách";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
+            // 
+            // btnDetail
+            // 
+            btnDetail.BackColor = Color.CadetBlue;
+            btnDetail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDetail.Location = new Point(157, 14);
+            btnDetail.Name = "btnDetail";
+            btnDetail.Size = new Size(160, 55);
+            btnDetail.TabIndex = 0;
+            btnDetail.Text = "Xem chi tiết";
+            btnDetail.UseVisualStyleBackColor = false;
+            btnDetail.Click += btnDetail_Click;
+            // 
             // fListRepair
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 622);
-            Controls.Add(txtSearch);
+            Controls.Add(panel4);
+            Controls.Add(txbSearch);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fListRepair";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "fListRepair";
+            Text = "DANH SÁCH PHIẾU SỬA CHỮA";
             Load += fListRepair_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvRepairList).EndInit();
@@ -163,6 +219,7 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,11 +230,15 @@
         private DataGridView dtgvRepairList;
         private Panel panel2;
         private Label label1;
-        private TextBox txtSearch;
+        private TextBox txbSearch;
         private Panel panel3;
         private Button btnSearch;
         private Label label2;
         private Button btnRefresh;
         private DateTimePicker dtpSearchByDate;
+        private Panel panel4;
+        private Button btnDetail;
+        private Button btnClose;
+        private Button btnExport;
     }
 }

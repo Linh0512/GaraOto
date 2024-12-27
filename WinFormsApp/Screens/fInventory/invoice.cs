@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApp.MainScene.fInventory
+namespace WinFormsApp.Screens.fInventory
 {
     public partial class invoice : Form
     {

@@ -9,82 +9,36 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.Screens.Service;
 using WinFormsApp.Screens.Service.InforCar;
+using Microsoft.Data.SqlClient;
 using WinFormsApp.DAO;
+using WinFormsApp.Models;
+using DocumentFormat.OpenXml.Packaging;
 
 namespace WinFormsApp.Screens.Service.Payment
 {
     public partial class fPayment : Form
     {
-        public fPayment(DataGridView table)
+        public fPayment()
         {
             InitializeComponent();
-            CopyDataFromDataGridView(table);
         }
 
         private void fPaying_Load(object sender, EventArgs e)
         {
-            //Sum total amount
-            this.lbTotalAmout.Text = CalculateTotalAmount().ToString();
-            this.SetInforCustomer();
-
-            General.Instance.TxtMakeTextDisappear(txtIdRepair, "A225@gmail.com");
-            this.txtIdRepair.Text = RepairDAO.instance.LoadIdRepair();
+            this.txbIdReceipt.Text = ServiceDAO.instance.LoadIdReceipt();
         }
 
-        private void SetInforCustomer()
+        private void txtAmoutPaying_TextChanged(object sender, EventArgs e)
         {
-            fInforCar f = new fInforCar();
-            this.lbNameCustomer.Text = f.lbCustomerName.Text;
-            this.lbPhoneNumber.Text = f.lbPhone.Text;
-            this.lbPlateLicense.Text = f.lbPlateLicense.Text;
+            this.CalulateTheRest();
         }
 
-        private double CalculateTotalAmount()
+        private void CalulateTheRest()
         {
-            double totalAmount = 0;
-            try
-            {
-                foreach (DataGridViewRow row in dtgvPayment.Rows)
-                {
-                    totalAmount += Convert.ToDouble(row.Cells["cellTotalMoney"].Value);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-
-            return totalAmount;
-        }
-
-        private void CopyDataFromDataGridView(DataGridView source)
-        {
-            // Xóa dữ liệu cũ (nếu có) trong dtgvPayment
-            dtgvPayment.Rows.Clear();
-            dtgvPayment.Columns.Clear();
-
-            // Sao chép cột
-            foreach (DataGridViewColumn col in source.Columns)
-            {
-                DataGridViewColumn newCol = (DataGridViewColumn)col.Clone();
-                newCol.Name = col.Name; // Giữ nguyên Name của cột
-                dtgvPayment.Columns.Add(newCol);
-            }
-
-
-            // Sao chép dòng
-            foreach (DataGridViewRow row in source.Rows)
-            {
-                if (!row.IsNewRow) // Bỏ qua dòng trống cuối cùng
-                {
-                    DataGridViewRow newRow = (DataGridViewRow)row.Clone();
-                    for (int i = 0; i < row.Cells.Count; i++)
-                    {
-                        newRow.Cells[i].Value = row.Cells[i].Value;
-                    }
-                    dtgvPayment.Rows.Add(newRow);
-                }
-            }
+            double debt = Convert.ToDouble(txbDebt.Text);
+            double paying = Convert.ToDouble(txtAmoutPaying.Text);
+            double theRest = debt - paying;
+            txbTheRest.Text = theRest.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -94,35 +48,50 @@ namespace WinFormsApp.Screens.Service.Payment
 
         private void btnPaying_Click(object sender, EventArgs e)
         {
-            //// Lấy mã phiếu sửa chữa (giả sử mã được sinh tự động hoặc nhập từ giao diện)
-            //string maPSC = txtMaPSC.Text;
+            double debt = Convert.ToDouble(txbDebt.Text);
+            if (string.IsNullOrWhiteSpace(this.txtAmoutPaying.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số tiền thanh toán");
+                return;
+            }
 
-            //// Lấy tiền thu và tiền nợ còn lại
-            //decimal Received = string.IsNullOrEmpty(txtAmoutPaying.Text) ? 0 : Convert.ToDecimal(txtAmoutPaying.Text);
-            //decimal TheRest = string.IsNullOrEmpty(lbTheRestAmout.Text) ? 0 : Convert.ToDecimal(lbTheRestAmout.Text);
+            if (!double.TryParse(txtAmoutPaying.Text, out double amountPaying))
+            {
+                MessageBox.Show("Số tiền thanh toán không hợp lệ");
+                return;
+            }
 
-            //// Kiểm tra ràng buộc
-            //if (Received > TheRest)
-            //{
-            //    MessageBox.Show("Tiền thu không được lớn hơn tiền nợ còn lại.");
-            //    return;
-            //}
+            if (amountPaying > debt)
+            {
+                MessageBox.Show("Số tiền thanh toán không được lớn hơn số tiền nợ");
+                return;
+            }
 
-            //// Lấy dữ liệu từ DataGridView
-            //DataTable paymentDetails = (DataTable)dtgvPayment.DataSource;
+            try
+            {
+                SqlDataReader dr1 = ServiceDAO.instance.LoadDataByLicensePlate(lbPlateLicense.Text);
+                if (dr1.Read())
+                {
+                    double newDebt = debt - amountPaying;
+                    ServiceDAO.instance.UpdateDebt(lbPlateLicense.Text, newDebt);
+                }
 
-            //// Gọi hàm trong ServiceDAO
-            //bool isInserted = ServiceDAO.Instance.InsertPaymentDetails(paymentDetails, maPSC);
+                ReceiptDAO.instance.Add(new PhieuThuTien()
+                {
+                    MaPTT = txbIdReceipt.Text,
+                    BienSo = lbPlateLicense.Text,
+                    //NgayThuTien = this.dtpDatePay.Value,
+                    SoTienThu = Convert.ToDecimal(amountPaying)
+                });
 
-            //if (isInserted)
-            //{
-            //    MessageBox.Show("Thanh toán thành công!");
-            //    // Thực hiện các bước khác nếu cần, như làm mới giao diện
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Thanh toán thất bại!");
-            //}
+                MessageBox.Show("Thanh toán thành công!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Thanh toán thất bại: {ex.Message}");
+                return;
+            }
         }
     }
 }

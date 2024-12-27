@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Model;
 
-namespace WinFormsApp.MainScene.fOption
+namespace WinFormsApp.Screens.Option
 {
     public partial class AddWage : Form
     {

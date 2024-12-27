@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fUpdateInforCar));
             label16 = new Label();
             panel10 = new Panel();
             label14 = new Label();
@@ -64,6 +65,7 @@
             panel2 = new Panel();
             btnClose = new Button();
             btnChangeInfo = new Button();
+            panel11 = new Panel();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -81,20 +83,21 @@
             panel9.SuspendLayout();
             panel8.SuspendLayout();
             panel2.SuspendLayout();
+            panel11.SuspendLayout();
             SuspendLayout();
             // 
             // label16
             // 
             label16.Anchor = AnchorStyles.None;
             label16.AutoSize = true;
-            label16.BackColor = Color.Beige;
-            label16.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.Location = new Point(107, 9);
+            label16.BackColor = SystemColors.ButtonShadow;
+            label16.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Location = new Point(52, 6);
             label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(237, 41);
+            label16.Size = new Size(371, 50);
             label16.TabIndex = 16;
-            label16.Text = "Thông tin chung";
+            label16.Text = "THÔNG TIN CHUNG";
             // 
             // panel10
             // 
@@ -358,9 +361,9 @@
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel8);
-            panel1.Location = new Point(-1, 53);
+            panel1.Location = new Point(0, 56);
             panel1.Name = "panel1";
-            panel1.Size = new Size(463, 389);
+            panel1.Size = new Size(463, 386);
             panel1.TabIndex = 17;
             // 
             // panel3
@@ -476,14 +479,24 @@
             btnChangeInfo.Anchor = AnchorStyles.None;
             btnChangeInfo.BackColor = Color.AliceBlue;
             btnChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnChangeInfo.Location = new Point(40, 4);
+            btnChangeInfo.Location = new Point(63, 4);
             btnChangeInfo.Margin = new Padding(4);
             btnChangeInfo.Name = "btnChangeInfo";
-            btnChangeInfo.Size = new Size(183, 59);
+            btnChangeInfo.Size = new Size(130, 59);
             btnChangeInfo.TabIndex = 10;
-            btnChangeInfo.Text = "Thay đổi thông tin";
+            btnChangeInfo.Text = "Xác nhận";
             btnChangeInfo.UseVisualStyleBackColor = false;
             btnChangeInfo.Click += btnUpdateInfo_Click;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = SystemColors.ButtonShadow;
+            panel11.Controls.Add(label16);
+            panel11.Dock = DockStyle.Top;
+            panel11.Location = new Point(0, 0);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(464, 56);
+            panel11.TabIndex = 19;
             // 
             // fUpdateInforCar
             // 
@@ -491,11 +504,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(464, 541);
             Controls.Add(panel2);
-            Controls.Add(label16);
             Controls.Add(panel1);
+            Controls.Add(panel11);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(482, 588);
+            MinimumSize = new Size(482, 588);
             Name = "fUpdateInforCar";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "fChangeInforCar";
+            Text = "THAY ĐỔI THÔNG TIN";
             Load += fChangeInforCar_Load;
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
@@ -522,8 +538,9 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             panel2.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -564,5 +581,6 @@
         private Label label1;
         private PictureBox pictureBox7;
         public ComboBox cbbCarBrand;
+        private Panel panel11;
     }
 }

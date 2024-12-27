@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fListPayment));
-            txtSearch = new TextBox();
+            txbSearch = new TextBox();
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
@@ -39,21 +39,25 @@
             dtpSearchByDate = new DateTimePicker();
             btnSearch = new Button();
             label2 = new Label();
+            panel4 = new Panel();
+            btnClose = new Button();
+            btnExport = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvPaymentList).BeginInit();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
-            // txtSearch
+            // txbSearch
             // 
-            txtSearch.BackColor = SystemColors.HighlightText;
-            txtSearch.Location = new Point(272, 87);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(527, 27);
-            txtSearch.TabIndex = 6;
-            txtSearch.Text = "Nhập biển số xe";
-            txtSearch.TextAlign = HorizontalAlignment.Center;
+            txbSearch.BackColor = SystemColors.HighlightText;
+            txbSearch.Location = new Point(272, 87);
+            txbSearch.Name = "txbSearch";
+            txbSearch.Size = new Size(527, 27);
+            txbSearch.TabIndex = 6;
+            txbSearch.Text = "Nhập biển số xe";
+            txbSearch.TextAlign = HorizontalAlignment.Center;
             // 
             // panel2
             // 
@@ -67,10 +71,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(283, 9);
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(272, 9);
             label1.Name = "label1";
-            label1.Size = new Size(504, 50);
+            label1.Size = new Size(539, 50);
             label1.TabIndex = 0;
             label1.Text = "DANH SÁCH PHIẾU THU TIỀN";
             // 
@@ -79,17 +83,18 @@
             panel1.Controls.Add(dtgvPaymentList);
             panel1.Location = new Point(14, 157);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1046, 453);
+            panel1.Size = new Size(1046, 373);
             panel1.TabIndex = 4;
             // 
             // dtgvPaymentList
             // 
+            dtgvPaymentList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvPaymentList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvPaymentList.Dock = DockStyle.Fill;
             dtgvPaymentList.Location = new Point(0, 0);
             dtgvPaymentList.Name = "dtgvPaymentList";
             dtgvPaymentList.RowHeadersWidth = 51;
-            dtgvPaymentList.Size = new Size(1046, 453);
+            dtgvPaymentList.Size = new Size(1046, 373);
             dtgvPaymentList.TabIndex = 0;
             // 
             // panel3
@@ -112,24 +117,27 @@
             btnRefresh.TabIndex = 3;
             btnRefresh.Text = "Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // dtpSearchByDate
             // 
             dtpSearchByDate.Format = DateTimePickerFormat.Short;
-            dtpSearchByDate.Location = new Point(393, 43);
+            dtpSearchByDate.Location = new Point(400, 50);
             dtpSearchByDate.Name = "dtpSearchByDate";
             dtpSearchByDate.Size = new Size(250, 27);
             dtpSearchByDate.TabIndex = 2;
+            dtpSearchByDate.Leave += dtpSearchByDate_Leave;
             // 
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.Info;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(789, 9);
+            btnSearch.Location = new Point(791, 12);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 1;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // label2
             // 
@@ -141,30 +149,70 @@
             label2.TabIndex = 0;
             label2.Text = "Tìm kiếm:";
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(btnClose);
+            panel4.Controls.Add(btnExport);
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Location = new Point(0, 536);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1072, 81);
+            panel4.TabIndex = 8;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.FromArgb(192, 64, 0);
+            btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.Location = new Point(716, 15);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(119, 54);
+            btnClose.TabIndex = 4;
+            btnClose.Text = "Thoát";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
+            // btnExport
+            // 
+            btnExport.BackColor = SystemColors.ControlDark;
+            btnExport.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExport.Location = new Point(244, 14);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(187, 55);
+            btnExport.TabIndex = 1;
+            btnExport.Text = "Xuất file danh sách";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
+            // 
             // fListPayment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1072, 617);
-            Controls.Add(txtSearch);
+            Controls.Add(panel4);
+            Controls.Add(txbSearch);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(1090, 664);
+            MinimumSize = new Size(1090, 664);
             Name = "fListPayment";
-            Text = "fListPayment";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "DANH SÁCH PHIẾU THU TIỀN";
+            Load += fListPayment_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvPaymentList).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox txtSearch;
+        private TextBox txbSearch;
         private Panel panel2;
         private Label label1;
         private Panel panel1;
@@ -174,5 +222,8 @@
         private DateTimePicker dtpSearchByDate;
         private Button btnSearch;
         private Label label2;
+        private Panel panel4;
+        private Button btnClose;
+        private Button btnExport;
     }
 }

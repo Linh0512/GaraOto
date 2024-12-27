@@ -44,20 +44,18 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.Controls.Add(txbUserName);
-            panel1.Location = new Point(99, 127);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(113, 169);
             panel1.Name = "panel1";
-            panel1.Size = new Size(187, 37);
+            panel1.Size = new Size(214, 49);
             panel1.TabIndex = 0;
             // 
             // txbUserName
             // 
             txbUserName.AcceptsTab = true;
             txbUserName.Anchor = AnchorStyles.None;
-            txbUserName.Location = new Point(10, 8);
-            txbUserName.Margin = new Padding(3, 2, 3, 2);
+            txbUserName.Location = new Point(11, 11);
             txbUserName.Name = "txbUserName";
-            txbUserName.Size = new Size(169, 23);
+            txbUserName.Size = new Size(193, 27);
             txbUserName.TabIndex = 0;
             txbUserName.Text = "UserName";
             txbUserName.TextChanged += txbUserName_TextChanged;
@@ -66,20 +64,18 @@
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.Controls.Add(txbPassword);
-            panel2.Location = new Point(99, 190);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(113, 253);
             panel2.Name = "panel2";
-            panel2.Size = new Size(187, 37);
+            panel2.Size = new Size(214, 49);
             panel2.TabIndex = 1;
             // 
             // txbPassword
             // 
             txbPassword.AcceptsTab = true;
             txbPassword.Anchor = AnchorStyles.None;
-            txbPassword.Location = new Point(10, 8);
-            txbPassword.Margin = new Padding(3, 2, 3, 2);
+            txbPassword.Location = new Point(11, 11);
             txbPassword.Name = "txbPassword";
-            txbPassword.Size = new Size(169, 23);
+            txbPassword.Size = new Size(193, 27);
             txbPassword.TabIndex = 1;
             txbPassword.Text = "Password";
             txbPassword.TextChanged += textBox1_TextChanged;
@@ -89,9 +85,9 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Stencil", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(66, 48);
+            label1.Location = new Point(75, 64);
             label1.Name = "label1";
-            label1.Size = new Size(250, 57);
+            label1.Size = new Size(310, 71);
             label1.TabIndex = 2;
             label1.Text = "GARA OTO";
             label1.Click += label1_Click;
@@ -103,10 +99,9 @@
             bnLogIn.BackColor = SystemColors.HotTrack;
             bnLogIn.Font = new Font("Stencil", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bnLogIn.ForeColor = SystemColors.ButtonFace;
-            bnLogIn.Location = new Point(142, 250);
-            bnLogIn.Margin = new Padding(3, 2, 3, 2);
+            bnLogIn.Location = new Point(162, 333);
             bnLogIn.Name = "bnLogIn";
-            bnLogIn.Size = new Size(111, 38);
+            bnLogIn.Size = new Size(127, 51);
             bnLogIn.TabIndex = 3;
             bnLogIn.Text = "Log In";
             bnLogIn.UseVisualStyleBackColor = false;
@@ -119,10 +114,9 @@
             bnExit.BackColor = Color.LightCoral;
             bnExit.Font = new Font("Stencil", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bnExit.ForeColor = SystemColors.ButtonFace;
-            bnExit.Location = new Point(142, 300);
-            bnExit.Margin = new Padding(3, 2, 3, 2);
+            bnExit.Location = new Point(162, 400);
             bnExit.Name = "bnExit";
-            bnExit.Size = new Size(111, 38);
+            bnExit.Size = new Size(127, 51);
             bnExit.TabIndex = 4;
             bnExit.Text = "Exit";
             bnExit.UseVisualStyleBackColor = false;
@@ -131,22 +125,21 @@
             // fLogin
             // 
             AcceptButton = bnLogIn;
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = bnExit;
-            ClientSize = new Size(368, 390);
+            ClientSize = new Size(418, 509);
             Controls.Add(bnExit);
             Controls.Add(bnLogIn);
             Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
-            MaximumSize = new Size(384, 429);
-            MinimumSize = new Size(384, 429);
+            MaximumSize = new Size(436, 556);
+            MinimumSize = new Size(436, 556);
             Name = "fLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
+            Text = "ĐĂNG NHẬP";
             FormClosing += fLogin_FormClosing;
             Load += fLogin_Load;
             panel1.ResumeLayout(false);
