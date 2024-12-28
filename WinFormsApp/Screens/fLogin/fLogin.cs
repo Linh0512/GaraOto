@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.Screens.MainScene;
+using WinFormsApp.DAO;
 
 namespace WinFormsApp.Screens.Login
 {
@@ -68,22 +69,33 @@ namespace WinFormsApp.Screens.Login
 
         private void bnLogin_Click(object sender, EventArgs e)
         {
-            MainScence f = new MainScence();
-            if (f != null)
+            try
             {
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
-            }
-            else
+                String username = txbUserName.Text;
+                String password = txbPassword.Text;
+                
+                if(LoginDAO.Instance.Login(username, password))
+                {
+                    MainScence f = new MainScence();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                }
+            }   
+            catch (Exception exception)
             {
-                MessageBox.Show("Failed to initialize MainScene.");
+                MessageBox.Show("Lỗi đăng nhập: " + exception.Message);
             }
         }
 
 
         private void bnExit_Click(object sender, EventArgs e)
         {
+            LoginDAO.Instance.Logout();
             Application.Exit();
         }
 

@@ -15,6 +15,7 @@ using WinFormsApp.Screens.Service.ListPayment;
 using WinFormsApp.Screens.Service.UpdateInforCar;
 using WinFormsApp.Screens.Service.ListRepair;
 using WinFormsApp.Screens.Service.Payment;
+using WinFormsApp.Utils;
 
 
 namespace WinFormsApp.Screens.Service
@@ -26,6 +27,19 @@ namespace WinFormsApp.Screens.Service
             InitializeComponent();
             this.LoadCarData();
             this.LoadAutoCompleteData();
+            CheckPermissions();
+        }
+        
+        private void CheckPermissions()
+        {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                btnChangeInfor.Enabled = false;
+                bnXoa.Enabled = false;
+                StripMenuManager.Enabled = false;
+                btnAddService.Enabled = false;
+                
+            }
         }
 
         private void Service_Load(object sender, EventArgs e)
@@ -140,6 +154,7 @@ namespace WinFormsApp.Screens.Service
             f.ShowDialog();
             this.LoadCarData();
             this.Show();
+            DataUpdateEvent.NotifyCarListChanged();
         }
 
         private void dgvService_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -319,6 +334,11 @@ namespace WinFormsApp.Screens.Service
         {
             fListPayment f = new fListPayment();
             f.ShowDialog();
+        }
+
+        private void StripMenuManager_Click(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
         }
     }
 }

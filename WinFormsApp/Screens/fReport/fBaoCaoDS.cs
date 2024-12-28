@@ -140,5 +140,15 @@ namespace WinFormsApp.Screens.fReport
         {
             LoadBaoCaoData();
         }
+
+        private void tableBCDS_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
