@@ -14,7 +14,6 @@ namespace WinFormsApp.Screens.Option
             InitializeComponent();
             this.LoadWageData();
             this.LoadBrandData();
-            this.LoadSupplierData();
             this.LoadCarLimitData();
         }
 
@@ -29,7 +28,6 @@ namespace WinFormsApp.Screens.Option
             pnlGarageDetail.Visible = false;
             pnlWageDetail.Visible = false;
             pnlBrandDetail.Visible = false;
-            pnlSupplierDetail.Visible = false;
 
             panelToShow.Visible = true;
         }
@@ -46,13 +44,6 @@ namespace WinFormsApp.Screens.Option
             string query = "SELECT * FROM dbo.HIEUXE";
             DataProvider dataProvider = new DataProvider();
             dgvBrandDetail.DataSource = dataProvider.ExecuteQuery(query);
-        }
-
-        private void LoadSupplierData()
-        {
-            string query = "SELECT * FROM dbo.NHACUNGCAP";
-            DataProvider dataProvider = new DataProvider();
-            dgvSupplierDetail.DataSource = dataProvider.ExecuteQuery(query);
         }
 
         private void LoadCarLimitData()
@@ -84,13 +75,6 @@ namespace WinFormsApp.Screens.Option
             this.Show();
         }
 
-        private void btnAddSupplier_Click(object sender, EventArgs e)
-        {
-            AddSupplier addSupplier = new AddSupplier();
-            addSupplier.ShowDialog();
-            this.Show();
-        }
-
         private void btnUpdatePassword_Click(object sender, EventArgs e)
         {
             UpdatePassword updatePassword = new UpdatePassword();
@@ -116,16 +100,6 @@ namespace WinFormsApp.Screens.Option
         private void lblBrandDetail_Click(object sender, EventArgs e)
         {
             ShowPanel(pnlBrandDetail);
-        }
-
-        private void lblSupplierDetail_Click(object sender, EventArgs e)
-        {
-            ShowPanel(pnlSupplierDetail);
-        }
-
-        private void btnRefreshSupplier_Click(object sender, EventArgs e)
-        {
-            this.LoadSupplierData();
         }
 
         private void btnRefreshWage_Click(object sender, EventArgs e)
@@ -203,54 +177,6 @@ namespace WinFormsApp.Screens.Option
             }
         }
 
-        private void btnSearchSupplier_Click(object sender, EventArgs e)
-        {
-            string supplierID = txtSupplierID.Text.Trim();
-            string supplierName = txtSupplierName.Text.Trim();
-            string phoneNumber = txtPhoneNumber.Text.Trim();
-            string email = txtEmail.Text.Trim();
-
-            // Tạo dictionary chứa các điều kiện tìm kiếm
-            Dictionary<string, string> conditions = new Dictionary<string, string>();
-
-            if (!string.IsNullOrEmpty(supplierID) && supplierID != "Mã")
-            {
-                conditions.Add("MaNCC", supplierID);
-            }
-            if (!string.IsNullOrEmpty(supplierName) && supplierName != "Tên nhà cung cấp")
-            {
-                conditions.Add("TenNCC", supplierName);
-            }
-            if (!string.IsNullOrEmpty(phoneNumber) && phoneNumber != "Số điện thoại")
-            {
-                conditions.Add("SDT", phoneNumber);
-            }
-            if (!string.IsNullOrEmpty(email) && email != "Email")
-            {
-                conditions.Add("Email", email);
-            }
-
-            // Gọi hàm FindSupplier từ OptionDAO
-            DataTable result = OptionDAO.Instance.FindSupplier(conditions);
-
-            // Kiểm tra kết quả và hiển thị
-            if (result != null && result.Rows.Count > 0)
-            {
-                dgvSupplierDetail.DataSource = result;
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy xe với thông tin này.");
-                this.LoadSupplierData();
-            }
-        }
-
-        private void btnEditSupplier_Click(object sender, EventArgs e)
-        {
-            if (dgvSupplierDetail.SelectedRows.Count == 0) return;
-            UpdateSupplier updateSupplier = new UpdateSupplier();
-        }
-
         private void btnEditWage_Click(object sender, EventArgs e)
         {
             if (dgvWageDetail.SelectedRows.Count == 0) return;
@@ -258,15 +184,8 @@ namespace WinFormsApp.Screens.Option
         }
         private void btnEditBrand_Click(object sender, EventArgs e)
         {
-            if (dgvSupplierDetail.SelectedRows.Count == 0) return;
+            if (dgvBrandDetail.SelectedRows.Count == 0) return;
             UpdateBrand updateBrand = new UpdateBrand();
-        }
-
-        private void btnRemoveSupplier_Click(object sender, EventArgs e)
-        {
-            string supplierID = (string)dgvSupplierDetail.SelectedRows[0].Cells["MaNCC"].Value;
-            OptionDAO.Instance.DelSupplier(supplierID);
-            this.LoadSupplierData();
         }
 
         private void btnRemoveWage_Click(object sender, EventArgs e)
@@ -379,17 +298,6 @@ namespace WinFormsApp.Screens.Option
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     ExportToExcel(dgvBrandDetail, sfd.FileName);
-                }
-            }
-        }
-
-        private void btnExportSupplier_Click(object sender, EventArgs e)
-        {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "SupplierData.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(dgvSupplierDetail, sfd.FileName);
                 }
             }
         }

@@ -65,63 +65,9 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public void AddSupplier(Supplier supplier)
-        {
-            string query = "INSERT INTO dbo.NHACUNGCAP (MaNCC, TenNCC, SDT, Email) " +
-                           "VALUES (@MaNCC, @TenNCC, @SDT, @Email)";
-            using (SqlConnection connection = DataProvider.instance.getConnect())
-            {
-                try
-                {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    connection.Open();
-                    command.Parameters.AddWithValue("@MaNCC", supplier.MaNCC);
-                    command.Parameters.AddWithValue("@TenNCC", supplier.TenNCC);
-                    command.Parameters.AddWithValue("@SDT", supplier.SDT);
-                    command.Parameters.AddWithValue("@Email", supplier.Email);
-                    command.ExecuteNonQuery();
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    throw new InvalidOperationException("Lỗi kết nối: " + ex.Message, ex);
-                }
-            }
-        }
-
         public DataTable FindBrand(Dictionary<string, string> conditions)
         {
             string query = "SELECT * FROM dbo.HIEUXE";
-
-            if (conditions.Count > 0)
-            {
-                query += " WHERE ";
-                List<string> filters = new List<string>();
-                foreach (var condition in conditions)
-                {
-                    filters.Add($"{condition.Key} LIKE @{condition.Key}");
-                }
-                query += string.Join(" AND ", filters);
-            }
-
-            using (SqlConnection connection = DataProvider.instance.getConnect())
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                foreach (var condition in conditions)
-                {
-                    command.Parameters.AddWithValue($"@{condition.Key}", $"%{condition.Value}%");
-                }
-
-                DataTable data = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(data);
-                return data;
-            }
-        }
-
-        public DataTable FindSupplier(Dictionary<string, string> conditions)
-        {
-            string query = "SELECT * FROM dbo.NHACUNGCAP";
 
             if (conditions.Count > 0)
             {
@@ -179,30 +125,6 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public void UpdateSupplier(Supplier supplier)
-        {
-            string query = "UPDATE NHACUNGCAP SET TenNCC = @tenncc, SDT = @sdt, Email = @email WHERE MaNCC = @mancc";
-
-            using (SqlConnection connection = DataProvider.instance.getConnect())
-            {
-                try
-                {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    connection.Open();
-                    command.Parameters.AddWithValue("@mancc", supplier.MaNCC);
-                    command.Parameters.AddWithValue("@tenncc", supplier.TenNCC);
-                    command.Parameters.AddWithValue("@sdt", supplier.SDT);
-                    command.Parameters.AddWithValue("@email", supplier.Email);
-                    command.ExecuteNonQuery();
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message);
-                }
-            }
-        }
-
         public void UpdateWage(Wage wage)
         {
             string query = "UPDATE TIENCONG SET NoiDung = @noidung, TienCong = @tiencong WHERE MaTienCong = @matiencong";
@@ -243,27 +165,6 @@ namespace WinFormsApp.DAO
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
-                }
-            }
-        }
-
-        public void DelSupplier(string supplierID)
-        {
-            string query = "DELETE FROM dbo.NHACUNGCAP WHERE MaNCC = @mancc";
-
-            using (SqlConnection connection = DataProvider.instance.getConnect())
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    connection.Open();
-                    cmd.Parameters.AddWithValue("@mancc", supplierID);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Xóa nhà cung cấp thất bại, có thể được tham chiếu bởi bảng khác");
                 }
             }
         }

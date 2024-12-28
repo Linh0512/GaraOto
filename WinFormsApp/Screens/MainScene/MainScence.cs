@@ -80,7 +80,7 @@ namespace WinFormsApp.Screens.MainScene
 
         private void LoadMainSceneData()
         {
-            try 
+            try
             {
                 dataGridView1.DataSource = MainSceneDAO.Instance.GetTodayReceivedCars();
             }
@@ -102,7 +102,7 @@ namespace WinFormsApp.Screens.MainScene
                 // Disable button nhân viên và thống kê
                 // bnStaff.Enabled = false;
                 // // báoCáoToolStripMenuItem.Visible = false;
-                
+
                 // báoCáoToolStripMenuItem.Enabled = false;
                 // báoCáoToolStripMenuItem.Visible = false;
             }
@@ -124,12 +124,13 @@ namespace WinFormsApp.Screens.MainScene
 
         private void bnStaff_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
+            if (!SessionManager.Instance.IsAdmin())
             {
+                this.bnService.Cursor = Cursors.No;
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
             }
-            
+
             fStaff fStaff = new fStaff();
             fStaff.ShowDialog();
             this.Show();
@@ -172,7 +173,7 @@ namespace WinFormsApp.Screens.MainScene
 
         private void bÁOCÁODOANHSỐToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
+            if (!SessionManager.Instance.IsAdmin())
             {
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
@@ -184,7 +185,7 @@ namespace WinFormsApp.Screens.MainScene
 
         private void bÁOCÁOTỒNKHOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
+            if (!SessionManager.Instance.IsAdmin())
             {
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
@@ -203,7 +204,7 @@ namespace WinFormsApp.Screens.MainScene
         private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // throw new System.NotImplementedException();
-           
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -219,7 +220,7 @@ namespace WinFormsApp.Screens.MainScene
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             // throw new System.NotImplementedException();
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -296,10 +297,16 @@ namespace WinFormsApp.Screens.MainScene
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
 
         private void editCarBtn_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                this.editCarBtn.Cursor = Cursors.No;
+                MessageBox.Show("Bạn không có quyền sử dụng chức năng này!");
+                return;
+            }
             if (dataGridView1.SelectedRows.Count == 0) return;
             fUpdateInforCar f = new fUpdateInforCar();
             if (dataGridView1.SelectedRows.Count > 0)

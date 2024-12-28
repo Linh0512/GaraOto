@@ -29,7 +29,7 @@ namespace WinFormsApp.Screens.Service
             this.LoadAutoCompleteData();
             CheckPermissions();
         }
-        
+
         private void CheckPermissions()
         {
             if (!SessionManager.Instance.IsAdmin())
@@ -38,7 +38,7 @@ namespace WinFormsApp.Screens.Service
                 bnXoa.Enabled = false;
                 StripMenuManager.Enabled = false;
                 btnAddService.Enabled = false;
-                
+
             }
         }
 
@@ -339,6 +339,11 @@ namespace WinFormsApp.Screens.Service
         private void StripMenuManager_Click(object sender, EventArgs e)
         {
             // throw new System.NotImplementedException();
+        }
+
+        private void cbbCarBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,7 +21,7 @@ namespace WinFormsApp.Screens.fInventory
 
         private void History_Load(object sender, EventArgs e)
         {
-            string query = "SELECT  c.MaNKVTPT AS 'ID', NgayNhap AS 'Ngay nhập hàng',   SUM(SoLuong * GiaNhap) AS 'Tổng tiền thanh toán', TenNCC as 'Đơn vị cung cap' FROM   PHIEUNHAPKHOVTPT AS p  INNER JOIN CT_PNKVTPT AS c ON  p.MaNKVTPT = c.MaNKVTPT INNER JOIN NHACUNGCAP as n ON p.MaNCC = n.MaNCC GROUP BY c.MaNKVTPT, NgayNhap, TenNCC";
+            string query = "SELECT * FROM CT_PNKVTPT";
             DataProvider dataProvider = new DataProvider();
             dgvHistory.DataSource = dataProvider.ExecuteQuery(query);
         }

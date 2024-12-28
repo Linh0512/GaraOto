@@ -45,9 +45,8 @@ namespace WinFormsApp
         public void LoadPhuTung()
         {
 
-            string query = "SELECT p.TenVTPT as 'Phụ Tùng', c.GiaNhap as 'Gía Nhập', p.SoLuongTon as 'Số lượng', p.DonGia as 'Đơn giá'  FROM PHUTUNG as p LEFT JOIN CT_PNKVTPT as c ON p.MaVTPT = c.MaVTPT";
-            DataProvider dataProvider = new DataProvider();
-            dgvPhuTung.DataSource = dataProvider.ExecuteQuery(query);
+            string query = "SELECT * FROM PHUTUNG";
+            dgvPhuTung.DataSource = DataProvider.instance.ExecuteQuery(query);
         }
 
         private void btn_payment_Click(object sender, EventArgs e)
@@ -61,7 +60,7 @@ namespace WinFormsApp
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddSupply_Click(object sender, EventArgs e)
         {
             if(!SessionManager.Instance.IsAdmin())
             {

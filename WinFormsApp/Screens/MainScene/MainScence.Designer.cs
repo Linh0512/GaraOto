@@ -29,36 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScence));
-            panel1 = new System.Windows.Forms.Panel();
-            btnOption = new System.Windows.Forms.Button();
-            bnStaff = new System.Windows.Forms.Button();
-            bnInventory = new System.Windows.Forms.Button();
-            bnService = new System.Windows.Forms.Button();
-            bnHome = new System.Windows.Forms.Button();
-            bnMainExit = new System.Windows.Forms.Button();
-            mnStripStatistic = new System.Windows.Forms.MenuStrip();
-            báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            bÁOCÁODOANHSỐToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            bÁOCÁOTỒNKHOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            panel2 = new System.Windows.Forms.Panel();
-            byHieuXeRadioBtn = new System.Windows.Forms.RadioButton();
-            byNameRadioBtn = new System.Windows.Forms.RadioButton();
-            byBienXeRadioBtn = new System.Windows.Forms.RadioButton();
-            label2 = new System.Windows.Forms.Label();
-            searchBar = new System.Windows.Forms.TextBox();
-            currentUser = new System.Windows.Forms.TextBox();
-            label1 = new System.Windows.Forms.Label();
-            dataGridView1 = new System.Windows.Forms.DataGridView();
-            BienSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            TenChuXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            HieuXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            DienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            TienNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            editCarBtn = new System.Windows.Forms.Button();
+            panel1 = new Panel();
+            btnOption = new Button();
+            bnStaff = new Button();
+            bnInventory = new Button();
+            bnService = new Button();
+            bnMainExit = new Button();
+            mnStripStatistic = new MenuStrip();
+            báoCáoToolStripMenuItem = new ToolStripMenuItem();
+            bÁOCÁODOANHSỐToolStripMenuItem = new ToolStripMenuItem();
+            bÁOCÁOTỒNKHOToolStripMenuItem = new ToolStripMenuItem();
+            dateTimePicker1 = new DateTimePicker();
+            panel2 = new Panel();
+            byHieuXeRadioBtn = new RadioButton();
+            byNameRadioBtn = new RadioButton();
+            byBienXeRadioBtn = new RadioButton();
+            label2 = new Label();
+            searchBar = new TextBox();
+            currentUser = new TextBox();
+            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            BienSo = new DataGridViewTextBoxColumn();
+            TenChuXe = new DataGridViewTextBoxColumn();
+            HieuXe = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
+            DienThoai = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            TienNo = new DataGridViewTextBoxColumn();
+            groupBox1 = new GroupBox();
+            editCarBtn = new Button();
             panel1.SuspendLayout();
             mnStripStatistic.SuspendLayout();
             panel2.SuspendLayout();
@@ -68,28 +67,30 @@
             // 
             // panel1
             // 
-            panel1.BackColor = System.Drawing.Color.SlateGray;
+            panel1.BackColor = Color.SlateGray;
             panel1.Controls.Add(btnOption);
             panel1.Controls.Add(bnStaff);
             panel1.Controls.Add(bnInventory);
             panel1.Controls.Add(bnService);
-            panel1.Controls.Add(bnHome);
             panel1.Controls.Add(bnMainExit);
             panel1.Controls.Add(mnStripStatistic);
-            panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            panel1.Location = new System.Drawing.Point(0, 0);
-            panel1.Margin = new System.Windows.Forms.Padding(2);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(190, 1010);
+            panel1.Size = new Size(207, 808);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
             // btnOption
             // 
-            btnOption.BackColor = System.Drawing.Color.OldLace;
-            btnOption.Location = new System.Drawing.Point(43, 699);
+            btnOption.BackColor = Color.MintCream;
+            btnOption.Cursor = Cursors.Hand;
+            btnOption.FlatStyle = FlatStyle.Popup;
+            btnOption.Location = new Point(104, 0);
+            btnOption.Margin = new Padding(2);
             btnOption.Name = "btnOption";
-            btnOption.Size = new System.Drawing.Size(105, 54);
+            btnOption.Size = new Size(105, 28);
             btnOption.TabIndex = 5;
             btnOption.Text = "CÀI ĐẶT";
             btnOption.UseVisualStyleBackColor = false;
@@ -97,12 +98,14 @@
             // 
             // bnStaff
             // 
-            bnStaff.Anchor = System.Windows.Forms.AnchorStyles.None;
-            bnStaff.BackColor = System.Drawing.Color.OldLace;
-            bnStaff.Location = new System.Drawing.Point(16, 521);
-            bnStaff.Margin = new System.Windows.Forms.Padding(2);
+            bnStaff.Anchor = AnchorStyles.None;
+            bnStaff.BackColor = Color.Linen;
+            bnStaff.Cursor = Cursors.Hand;
+            bnStaff.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bnStaff.Location = new Point(0, 488);
+            bnStaff.Margin = new Padding(2);
             bnStaff.Name = "bnStaff";
-            bnStaff.Size = new System.Drawing.Size(127, 55);
+            bnStaff.Size = new Size(209, 77);
             bnStaff.TabIndex = 3;
             bnStaff.Text = "NHÂN VIÊN";
             bnStaff.UseVisualStyleBackColor = false;
@@ -110,12 +113,14 @@
             // 
             // bnInventory
             // 
-            bnInventory.Anchor = System.Windows.Forms.AnchorStyles.None;
-            bnInventory.BackColor = System.Drawing.Color.OldLace;
-            bnInventory.Location = new System.Drawing.Point(16, 407);
-            bnInventory.Margin = new System.Windows.Forms.Padding(2);
+            bnInventory.Anchor = AnchorStyles.None;
+            bnInventory.BackColor = Color.Linen;
+            bnInventory.Cursor = Cursors.Hand;
+            bnInventory.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bnInventory.Location = new Point(0, 313);
+            bnInventory.Margin = new Padding(2);
             bnInventory.Name = "bnInventory";
-            bnInventory.Size = new System.Drawing.Size(132, 54);
+            bnInventory.Size = new Size(209, 83);
             bnInventory.TabIndex = 2;
             bnInventory.Text = "KHO HÀNG";
             bnInventory.UseVisualStyleBackColor = false;
@@ -123,37 +128,28 @@
             // 
             // bnService
             // 
-            bnService.Anchor = System.Windows.Forms.AnchorStyles.None;
-            bnService.BackColor = System.Drawing.Color.OldLace;
-            bnService.Location = new System.Drawing.Point(16, 279);
-            bnService.Margin = new System.Windows.Forms.Padding(2);
+            bnService.Anchor = AnchorStyles.None;
+            bnService.BackColor = Color.Linen;
+            bnService.Cursor = Cursors.Hand;
+            bnService.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bnService.Location = new Point(0, 145);
+            bnService.Margin = new Padding(2);
             bnService.Name = "bnService";
-            bnService.Size = new System.Drawing.Size(127, 55);
+            bnService.Size = new Size(209, 81);
             bnService.TabIndex = 1;
             bnService.Text = "DỊCH VỤ";
             bnService.UseVisualStyleBackColor = false;
             bnService.Click += bnService_Click;
             // 
-            // bnHome
-            // 
-            bnHome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            bnHome.BackColor = System.Drawing.Color.OldLace;
-            bnHome.Location = new System.Drawing.Point(16, 187);
-            bnHome.Margin = new System.Windows.Forms.Padding(2);
-            bnHome.Name = "bnHome";
-            bnHome.Size = new System.Drawing.Size(132, 47);
-            bnHome.TabIndex = 0;
-            bnHome.Text = "TRANG CHỦ";
-            bnHome.UseVisualStyleBackColor = false;
-            bnHome.Click += bnHome_Click;
-            // 
             // bnMainExit
             // 
-            bnMainExit.BackColor = System.Drawing.Color.DeepSkyBlue;
-            bnMainExit.Location = new System.Drawing.Point(29, 794);
-            bnMainExit.Margin = new System.Windows.Forms.Padding(2);
+            bnMainExit.BackColor = Color.DeepSkyBlue;
+            bnMainExit.Cursor = Cursors.Hand;
+            bnMainExit.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bnMainExit.Location = new Point(0, 738);
+            bnMainExit.Margin = new Padding(2);
             bnMainExit.Name = "bnMainExit";
-            bnMainExit.Size = new System.Drawing.Size(103, 51);
+            bnMainExit.Size = new Size(209, 59);
             bnMainExit.TabIndex = 6;
             bnMainExit.Text = "THOÁT";
             bnMainExit.UseVisualStyleBackColor = false;
@@ -161,52 +157,58 @@
             // 
             // mnStripStatistic
             // 
-            mnStripStatistic.BackColor = System.Drawing.Color.OldLace;
-            mnStripStatistic.Dock = System.Windows.Forms.DockStyle.None;
-            mnStripStatistic.ImageScalingSize = new System.Drawing.Size(20, 20);
-            mnStripStatistic.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { báoCáoToolStripMenuItem });
-            mnStripStatistic.Location = new System.Drawing.Point(16, 623);
+            mnStripStatistic.BackColor = Color.MintCream;
+            mnStripStatistic.Dock = DockStyle.None;
+            mnStripStatistic.ImageScalingSize = new Size(20, 20);
+            mnStripStatistic.Items.AddRange(new ToolStripItem[] { báoCáoToolStripMenuItem });
+            mnStripStatistic.Location = new Point(0, 0);
             mnStripStatistic.Name = "mnStripStatistic";
-            mnStripStatistic.Size = new System.Drawing.Size(121, 33);
+            mnStripStatistic.Padding = new Padding(5, 2, 0, 2);
+            mnStripStatistic.Size = new Size(102, 28);
             mnStripStatistic.TabIndex = 4;
             mnStripStatistic.Text = "Báo cáo";
             mnStripStatistic.ItemClicked += mnStripStatistic_ItemClicked_1;
             // 
             // báoCáoToolStripMenuItem
             // 
-            báoCáoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { bÁOCÁODOANHSỐToolStripMenuItem, bÁOCÁOTỒNKHOToolStripMenuItem });
+            báoCáoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bÁOCÁODOANHSỐToolStripMenuItem, bÁOCÁOTỒNKHOToolStripMenuItem });
             báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            báoCáoToolStripMenuItem.Size = new System.Drawing.Size(113, 29);
+            báoCáoToolStripMenuItem.Size = new Size(95, 24);
             báoCáoToolStripMenuItem.Text = "THỐNG KÊ";
             // 
             // bÁOCÁODOANHSỐToolStripMenuItem
             // 
+            bÁOCÁODOANHSỐToolStripMenuItem.BackColor = Color.CadetBlue;
+            bÁOCÁODOANHSỐToolStripMenuItem.Image = (Image)resources.GetObject("bÁOCÁODOANHSỐToolStripMenuItem.Image");
             bÁOCÁODOANHSỐToolStripMenuItem.Name = "bÁOCÁODOANHSỐToolStripMenuItem";
-            bÁOCÁODOANHSỐToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+            bÁOCÁODOANHSỐToolStripMenuItem.Size = new Size(237, 26);
             bÁOCÁODOANHSỐToolStripMenuItem.Text = "BÁO CÁO DOANH SỐ";
             bÁOCÁODOANHSỐToolStripMenuItem.Click += bÁOCÁODOANHSỐToolStripMenuItem_Click;
             // 
             // bÁOCÁOTỒNKHOToolStripMenuItem
             // 
+            bÁOCÁOTỒNKHOToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
+            bÁOCÁOTỒNKHOToolStripMenuItem.Image = (Image)resources.GetObject("bÁOCÁOTỒNKHOToolStripMenuItem.Image");
             bÁOCÁOTỒNKHOToolStripMenuItem.Name = "bÁOCÁOTỒNKHOToolStripMenuItem";
-            bÁOCÁOTỒNKHOToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+            bÁOCÁOTỒNKHOToolStripMenuItem.Size = new Size(237, 26);
             bÁOCÁOTỒNKHOToolStripMenuItem.Text = "BÁO CÁO TỒN KHO";
             bÁOCÁOTỒNKHOToolStripMenuItem.Click += bÁOCÁOTỒNKHOToolStripMenuItem_Click;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 11F);
+            dateTimePicker1.CalendarFont = new Font("Segoe UI", 11F);
             dateTimePicker1.Enabled = false;
-            dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new System.Drawing.Point(1247, 18);
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(998, 14);
+            dateTimePicker1.Margin = new Padding(2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new System.Drawing.Size(182, 31);
+            dateTimePicker1.Size = new Size(146, 27);
             dateTimePicker1.TabIndex = 9;
             dateTimePicker1.TabStop = false;
             // 
             // panel2
             // 
-            panel2.BackColor = System.Drawing.Color.CadetBlue;
+            panel2.BackColor = Color.CadetBlue;
             panel2.Controls.Add(dateTimePicker1);
             panel2.Controls.Add(byHieuXeRadioBtn);
             panel2.Controls.Add(byNameRadioBtn);
@@ -215,17 +217,20 @@
             panel2.Controls.Add(searchBar);
             panel2.Controls.Add(currentUser);
             panel2.Controls.Add(label1);
-            panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            panel2.Location = new System.Drawing.Point(190, 0);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(207, 0);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(1490, 112);
+            panel2.Size = new Size(1157, 90);
             panel2.TabIndex = 1;
             // 
             // byHieuXeRadioBtn
             // 
-            byHieuXeRadioBtn.Location = new System.Drawing.Point(1014, 66);
+            byHieuXeRadioBtn.Cursor = Cursors.Hand;
+            byHieuXeRadioBtn.Location = new Point(811, 53);
+            byHieuXeRadioBtn.Margin = new Padding(2);
             byHieuXeRadioBtn.Name = "byHieuXeRadioBtn";
-            byHieuXeRadioBtn.Size = new System.Drawing.Size(282, 30);
+            byHieuXeRadioBtn.Size = new Size(226, 24);
             byHieuXeRadioBtn.TabIndex = 6;
             byHieuXeRadioBtn.TabStop = true;
             byHieuXeRadioBtn.Text = "Tìm kiếm theo hiệu xe";
@@ -233,9 +238,11 @@
             // 
             // byNameRadioBtn
             // 
-            byNameRadioBtn.Location = new System.Drawing.Point(745, 66);
+            byNameRadioBtn.Cursor = Cursors.Hand;
+            byNameRadioBtn.Location = new Point(596, 53);
+            byNameRadioBtn.Margin = new Padding(2);
             byNameRadioBtn.Name = "byNameRadioBtn";
-            byNameRadioBtn.Size = new System.Drawing.Size(247, 30);
+            byNameRadioBtn.Size = new Size(198, 24);
             byNameRadioBtn.TabIndex = 5;
             byNameRadioBtn.TabStop = true;
             byNameRadioBtn.Text = "Tìm kiếm theo tên chủ xe";
@@ -243,9 +250,11 @@
             // 
             // byBienXeRadioBtn
             // 
-            byBienXeRadioBtn.Location = new System.Drawing.Point(474, 66);
+            byBienXeRadioBtn.Cursor = Cursors.Hand;
+            byBienXeRadioBtn.Location = new Point(379, 53);
+            byBienXeRadioBtn.Margin = new Padding(2);
             byBienXeRadioBtn.Name = "byBienXeRadioBtn";
-            byBienXeRadioBtn.Size = new System.Drawing.Size(219, 30);
+            byBienXeRadioBtn.Size = new Size(175, 24);
             byBienXeRadioBtn.TabIndex = 4;
             byBienXeRadioBtn.TabStop = true;
             byBienXeRadioBtn.Text = "Tìm kiếm theo biển số xe";
@@ -254,41 +263,47 @@
             // 
             // label2
             // 
-            label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            label2.ForeColor = System.Drawing.SystemColors.Window;
-            label2.Location = new System.Drawing.Point(432, 12);
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label2.ForeColor = SystemColors.Window;
+            label2.Location = new Point(346, 10);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(129, 41);
+            label2.Size = new Size(103, 33);
             label2.TabIndex = 3;
             label2.Text = "Tìm kiếm";
             // 
             // searchBar
             // 
-            searchBar.Font = new System.Drawing.Font("Segoe UI", 11F);
-            searchBar.Location = new System.Drawing.Point(567, 12);
+            searchBar.Cursor = Cursors.IBeam;
+            searchBar.Font = new Font("Segoe UI", 11F);
+            searchBar.Location = new Point(454, 10);
+            searchBar.Margin = new Padding(2);
             searchBar.Name = "searchBar";
-            searchBar.Size = new System.Drawing.Size(598, 37);
+            searchBar.Size = new Size(479, 32);
             searchBar.TabIndex = 2;
             searchBar.TextChanged += textBox2_TextChanged;
             // 
             // currentUser
             // 
-            currentUser.BackColor = System.Drawing.SystemColors.Window;
-            currentUser.Font = new System.Drawing.Font("Segoe UI", 11F);
-            currentUser.Location = new System.Drawing.Point(52, 47);
+            currentUser.BackColor = SystemColors.Window;
+            currentUser.Enabled = false;
+            currentUser.Font = new Font("Segoe UI", 11F);
+            currentUser.Location = new Point(42, 38);
+            currentUser.Margin = new Padding(2);
             currentUser.Name = "currentUser";
             currentUser.ReadOnly = true;
-            currentUser.Size = new System.Drawing.Size(217, 37);
+            currentUser.Size = new Size(174, 32);
             currentUser.TabIndex = 1;
             currentUser.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
-            label1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            label1.Location = new System.Drawing.Point(39, 9);
+            label1.Font = new Font("Segoe UI", 11F);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(31, 7);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(287, 35);
+            label1.Size = new Size(230, 28);
             label1.TabIndex = 0;
             label1.Text = "Nhân viên đang sử dụng";
             label1.Click += label1_Click;
@@ -297,13 +312,17 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { BienSo, TenChuXe, HieuXe, DiaChi, DienThoai, Email, TienNo });
-            dataGridView1.Location = new System.Drawing.Point(6, 30);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { BienSo, TenChuXe, HieuXe, DiaChi, DienThoai, Email, TienNo });
+            dataGridView1.Location = new Point(0, 24);
+            dataGridView1.Margin = new Padding(2);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new System.Drawing.Size(1461, 728);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1153, 582);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -312,83 +331,82 @@
             BienSo.MinimumWidth = 8;
             BienSo.Name = "BienSo";
             BienSo.ReadOnly = true;
-            BienSo.Width = 200;
             // 
             // TenChuXe
             // 
             TenChuXe.MinimumWidth = 8;
             TenChuXe.Name = "TenChuXe";
             TenChuXe.ReadOnly = true;
-            TenChuXe.Width = 200;
             // 
             // HieuXe
             // 
             HieuXe.MinimumWidth = 8;
             HieuXe.Name = "HieuXe";
             HieuXe.ReadOnly = true;
-            HieuXe.Width = 200;
             // 
             // DiaChi
             // 
             DiaChi.MinimumWidth = 8;
             DiaChi.Name = "DiaChi";
             DiaChi.ReadOnly = true;
-            DiaChi.Width = 200;
             // 
             // DienThoai
             // 
             DienThoai.MinimumWidth = 8;
             DienThoai.Name = "DienThoai";
             DienThoai.ReadOnly = true;
-            DienThoai.Width = 200;
             // 
             // Email
             // 
             Email.MinimumWidth = 8;
             Email.Name = "Email";
             Email.ReadOnly = true;
-            Email.Width = 200;
             // 
             // TienNo
             // 
             TienNo.MinimumWidth = 8;
             TienNo.Name = "TienNo";
             TienNo.ReadOnly = true;
-            TienNo.Width = 197;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new System.Drawing.Point(195, 118);
+            groupBox1.Location = new Point(207, 94);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(1473, 764);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(1157, 611);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách xe tiếp nhận trong ngày";
             // 
             // editCarBtn
             // 
-            editCarBtn.Location = new System.Drawing.Point(1437, 899);
+            editCarBtn.BackColor = Color.CadetBlue;
+            editCarBtn.Cursor = Cursors.Hand;
+            editCarBtn.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            editCarBtn.Location = new Point(661, 720);
+            editCarBtn.Margin = new Padding(2);
             editCarBtn.Name = "editCarBtn";
-            editCarBtn.Size = new System.Drawing.Size(202, 83);
+            editCarBtn.Size = new Size(273, 77);
             editCarBtn.TabIndex = 3;
             editCarBtn.Text = "Cập nhập thông tin xe";
-            editCarBtn.UseVisualStyleBackColor = true;
+            editCarBtn.UseVisualStyleBackColor = false;
             editCarBtn.Click += editCarBtn_Click;
             // 
             // MainScence
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1680, 1010);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1364, 808);
             Controls.Add(editCarBtn);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Icon = ((System.Drawing.Icon)resources.GetObject("$this.Icon"));
-            Margin = new System.Windows.Forms.Padding(4);
-            MinimumSize = new System.Drawing.Size(1225, 688);
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(984, 560);
+            Name = "MainScence";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "PHẦN MỀM QUẢN LÝ GARAOTO";
             Load += MainScence_Load;
             panel1.ResumeLayout(false);
@@ -436,7 +454,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bnService;
-        private System.Windows.Forms.Button bnHome;
         private System.Windows.Forms.Button bnStaff;
         private System.Windows.Forms.Button bnInventory;
         private System.Windows.Forms.Button bnMainExit;
