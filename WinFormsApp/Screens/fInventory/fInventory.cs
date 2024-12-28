@@ -30,7 +30,7 @@ namespace WinFormsApp
                 // button3.Enabled = false;
                 // button4.Enabled = false;
                 // button5.Enabled = false;
-                
+
                 // // Chỉ cho phép xem
                 // dgvPhuTung.ReadOnly = true;
             }
@@ -45,7 +45,8 @@ namespace WinFormsApp
         public void LoadPhuTung()
         {
 
-            string query = "SELECT * FROM PHUTUNG";
+            string query = "SELECT MaVTPT AS 'Id', TenVTPT AS 'Tên phụ tùng', " +
+                "SoluongTon AS 'Số lượng tồn', DonGia AS 'Đơn giá' FROM PHUTUNG";
             dgvPhuTung.DataSource = DataProvider.instance.ExecuteQuery(query);
         }
 
@@ -62,7 +63,7 @@ namespace WinFormsApp
 
         private void AddSupply_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
+            if (!SessionManager.Instance.IsAdmin())
             {
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
@@ -74,7 +75,7 @@ namespace WinFormsApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
+            if (!SessionManager.Instance.IsAdmin())
             {
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
@@ -85,18 +86,12 @@ namespace WinFormsApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
-            {
-                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
-                return;
-            }
-            history history = new history();
-            history.ShowDialog();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
+            if (!SessionManager.Instance.IsAdmin())
             {
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
@@ -137,7 +132,7 @@ namespace WinFormsApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(!SessionManager.Instance.IsAdmin())
+            if (!SessionManager.Instance.IsAdmin())
             {
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
@@ -157,7 +152,7 @@ namespace WinFormsApp
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
             }
-            
+
             if (dgvPhuTung.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn vật tư phụ tùng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -197,6 +192,21 @@ namespace WinFormsApp
                     MessageBox.Show($"Lỗi khi xóa phụ tùng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnUpdateInfor_Click(object sender, EventArgs e)
+        {
+
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            string supplyName = dgvPhuTung.SelectedRows[0].Cells[1].Value.ToString();
+            string price = dgvPhuTung.SelectedRows[0].Cells[3].Value.ToString();
+            UpdateInforSupply updateInforSupply = new UpdateInforSupply(supplyName, price);
+            updateInforSupply.ShowDialog();
+            this.LoadPhuTung();
         }
     }
 }

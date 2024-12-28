@@ -160,6 +160,7 @@
             // 
             // txt_author
             // 
+            txt_author.Enabled = false;
             txt_author.Location = new Point(221, 174);
             txt_author.Margin = new Padding(3, 4, 3, 4);
             txt_author.Name = "txt_author";

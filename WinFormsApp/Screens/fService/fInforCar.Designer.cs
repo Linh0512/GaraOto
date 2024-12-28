@@ -85,6 +85,10 @@
             btnAddRepair = new Button();
             btnCLose = new Button();
             btnDelService = new Button();
+            panel16 = new Panel();
+            lbEmail = new Label();
+            label6 = new Label();
+            pictureBox7 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel10.SuspendLayout();
@@ -107,6 +111,8 @@
             panel14.SuspendLayout();
             panel15.SuspendLayout();
             panel12.SuspendLayout();
+            panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -116,18 +122,17 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(6, 6, 6, 6);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(2033, 114);
+            panel1.Size = new Size(1259, 71);
             panel1.TabIndex = 0;
             // 
             // lbIdWage
             // 
             lbIdWage.AutoSize = true;
-            lbIdWage.Location = new Point(29, 29);
-            lbIdWage.Margin = new Padding(5, 0, 5, 0);
+            lbIdWage.Location = new Point(18, 18);
             lbIdWage.Name = "lbIdWage";
-            lbIdWage.Size = new Size(0, 32);
+            lbIdWage.Size = new Size(0, 20);
             lbIdWage.TabIndex = 1;
             lbIdWage.Visible = false;
             // 
@@ -136,10 +141,10 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(522, 14);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Location = new Point(321, 9);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(961, 81);
+            label1.Size = new Size(592, 50);
             label1.TabIndex = 0;
             label1.Text = "THÔNG TIN DỊCH VỤ SỬA CHỮA";
             // 
@@ -147,6 +152,7 @@
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.ControlDark;
+            panel2.Controls.Add(panel16);
             panel2.Controls.Add(label16);
             panel2.Controls.Add(panel10);
             panel2.Controls.Add(panel9);
@@ -155,10 +161,10 @@
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
-            panel2.Location = new Point(0, 112);
-            panel2.Margin = new Padding(6, 6, 6, 6);
+            panel2.Location = new Point(0, 77);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(458, 1074);
+            panel2.Size = new Size(282, 671);
             panel2.TabIndex = 1;
             // 
             // label16
@@ -166,10 +172,10 @@
             label16.AutoSize = true;
             label16.BackColor = Color.Beige;
             label16.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.Location = new Point(89, 18);
-            label16.Margin = new Padding(6, 0, 6, 0);
+            label16.Location = new Point(55, 11);
+            label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(268, 60);
+            label16.Size = new Size(172, 38);
             label16.TabIndex = 8;
             label16.Text = "Thông tin xe";
             // 
@@ -179,30 +185,30 @@
             panel10.BackColor = SystemColors.Control;
             panel10.Controls.Add(label14);
             panel10.Controls.Add(dtpDateReceived);
-            panel10.Location = new Point(6, 923);
-            panel10.Margin = new Padding(6, 6, 6, 6);
+            panel10.Location = new Point(4, 578);
+            panel10.Margin = new Padding(4);
             panel10.Name = "panel10";
-            panel10.Size = new Size(440, 110);
+            panel10.Size = new Size(271, 69);
             panel10.TabIndex = 6;
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.ForeColor = SystemColors.ControlDarkDark;
-            label14.Location = new Point(10, 10);
-            label14.Margin = new Padding(6, 0, 6, 0);
+            label14.Location = new Point(6, 6);
+            label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new Size(179, 32);
+            label14.Size = new Size(110, 20);
             label14.TabIndex = 1;
             label14.Text = "Ngày tiếp nhận";
             // 
             // dtpDateReceived
             // 
             dtpDateReceived.Format = DateTimePickerFormat.Short;
-            dtpDateReceived.Location = new Point(46, 48);
-            dtpDateReceived.Margin = new Padding(6, 6, 6, 6);
+            dtpDateReceived.Location = new Point(28, 30);
+            dtpDateReceived.Margin = new Padding(4);
             dtpDateReceived.Name = "dtpDateReceived";
-            dtpDateReceived.Size = new Size(368, 39);
+            dtpDateReceived.Size = new Size(228, 27);
             dtpDateReceived.TabIndex = 0;
             dtpDateReceived.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -213,10 +219,10 @@
             panel9.Controls.Add(lbDebt);
             panel9.Controls.Add(label13);
             panel9.Controls.Add(pictureBox6);
-            panel9.Location = new Point(6, 781);
-            panel9.Margin = new Padding(6, 6, 6, 6);
+            panel9.Location = new Point(4, 503);
+            panel9.Margin = new Padding(4);
             panel9.Name = "panel9";
-            panel9.Size = new Size(440, 107);
+            panel9.Size = new Size(271, 67);
             panel9.TabIndex = 5;
             // 
             // lbDebt
@@ -224,10 +230,10 @@
             lbDebt.AutoSize = true;
             lbDebt.BackColor = SystemColors.ButtonShadow;
             lbDebt.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbDebt.Location = new Point(124, 38);
-            lbDebt.Margin = new Padding(6, 0, 6, 0);
+            lbDebt.Location = new Point(76, 24);
+            lbDebt.Margin = new Padding(4, 0, 4, 0);
             lbDebt.Name = "lbDebt";
-            lbDebt.Size = new Size(184, 40);
+            lbDebt.Size = new Size(114, 25);
             lbDebt.TabIndex = 2;
             lbDebt.Text = "Trần Qui Linh";
             // 
@@ -236,20 +242,20 @@
             label13.AutoSize = true;
             label13.BackColor = SystemColors.Control;
             label13.ForeColor = SystemColors.ControlDarkDark;
-            label13.Location = new Point(124, 6);
-            label13.Margin = new Padding(6, 0, 6, 0);
+            label13.Location = new Point(76, 4);
+            label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(152, 32);
+            label13.Size = new Size(93, 20);
             label13.TabIndex = 1;
             label13.Text = "Tổng tiền nợ";
             // 
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.user_icon;
-            pictureBox6.Location = new Point(6, 6);
-            pictureBox6.Margin = new Padding(6, 6, 6, 6);
+            pictureBox6.Location = new Point(4, 4);
+            pictureBox6.Margin = new Padding(4);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(107, 85);
+            pictureBox6.Size = new Size(66, 53);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
@@ -261,10 +267,10 @@
             panel8.Controls.Add(lbAddress);
             panel8.Controls.Add(label11);
             panel8.Controls.Add(pictureBox5);
-            panel8.Location = new Point(6, 642);
-            panel8.Margin = new Padding(6, 6, 6, 6);
+            panel8.Location = new Point(4, 353);
+            panel8.Margin = new Padding(4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(440, 107);
+            panel8.Size = new Size(271, 67);
             panel8.TabIndex = 4;
             // 
             // lbAddress
@@ -272,10 +278,10 @@
             lbAddress.AutoSize = true;
             lbAddress.BackColor = SystemColors.ButtonShadow;
             lbAddress.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbAddress.Location = new Point(124, 38);
-            lbAddress.Margin = new Padding(6, 0, 6, 0);
+            lbAddress.Location = new Point(76, 24);
+            lbAddress.Margin = new Padding(4, 0, 4, 0);
             lbAddress.Name = "lbAddress";
-            lbAddress.Size = new Size(184, 40);
+            lbAddress.Size = new Size(114, 25);
             lbAddress.TabIndex = 2;
             lbAddress.Text = "Trần Qui Linh";
             // 
@@ -284,20 +290,20 @@
             label11.AutoSize = true;
             label11.BackColor = SystemColors.Control;
             label11.ForeColor = SystemColors.ControlDarkDark;
-            label11.Location = new Point(124, 6);
-            label11.Margin = new Padding(6, 0, 6, 0);
+            label11.Location = new Point(76, 4);
+            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(87, 32);
+            label11.Size = new Size(55, 20);
             label11.TabIndex = 1;
             label11.Text = "Địa chỉ";
             // 
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.address_icon;
-            pictureBox5.Location = new Point(6, 6);
-            pictureBox5.Margin = new Padding(6, 6, 6, 6);
+            pictureBox5.Location = new Point(4, 4);
+            pictureBox5.Margin = new Padding(4);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(107, 85);
+            pictureBox5.Size = new Size(66, 53);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 0;
             pictureBox5.TabStop = false;
@@ -309,10 +315,10 @@
             panel7.Controls.Add(lbPhone);
             panel7.Controls.Add(label9);
             panel7.Controls.Add(pictureBox4);
-            panel7.Location = new Point(6, 506);
-            panel7.Margin = new Padding(6, 6, 6, 6);
+            panel7.Location = new Point(4, 278);
+            panel7.Margin = new Padding(4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(440, 107);
+            panel7.Size = new Size(271, 67);
             panel7.TabIndex = 3;
             // 
             // lbPhone
@@ -320,10 +326,10 @@
             lbPhone.AutoSize = true;
             lbPhone.BackColor = SystemColors.ButtonShadow;
             lbPhone.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbPhone.Location = new Point(124, 38);
-            lbPhone.Margin = new Padding(6, 0, 6, 0);
+            lbPhone.Location = new Point(76, 24);
+            lbPhone.Margin = new Padding(4, 0, 4, 0);
             lbPhone.Name = "lbPhone";
-            lbPhone.Size = new Size(184, 40);
+            lbPhone.Size = new Size(114, 25);
             lbPhone.TabIndex = 2;
             lbPhone.Text = "Trần Qui Linh";
             // 
@@ -332,20 +338,20 @@
             label9.AutoSize = true;
             label9.BackColor = SystemColors.Control;
             label9.ForeColor = SystemColors.ControlDarkDark;
-            label9.Location = new Point(124, 6);
-            label9.Margin = new Padding(6, 0, 6, 0);
+            label9.Location = new Point(76, 4);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(156, 32);
+            label9.Size = new Size(97, 20);
             label9.TabIndex = 1;
             label9.Text = "Số điện thoại";
             // 
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.phonenumber_icon;
-            pictureBox4.Location = new Point(6, 6);
-            pictureBox4.Margin = new Padding(6, 6, 6, 6);
+            pictureBox4.Location = new Point(4, 4);
+            pictureBox4.Margin = new Padding(4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(107, 85);
+            pictureBox4.Size = new Size(66, 53);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
@@ -357,10 +363,10 @@
             panel6.Controls.Add(lbCarBrand);
             panel6.Controls.Add(label7);
             panel6.Controls.Add(pictureBox3);
-            panel6.Location = new Point(6, 370);
-            panel6.Margin = new Padding(6, 6, 6, 6);
+            panel6.Location = new Point(4, 203);
+            panel6.Margin = new Padding(4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(440, 107);
+            panel6.Size = new Size(271, 67);
             panel6.TabIndex = 3;
             // 
             // lbCarBrand
@@ -368,10 +374,10 @@
             lbCarBrand.AutoSize = true;
             lbCarBrand.BackColor = SystemColors.ButtonShadow;
             lbCarBrand.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbCarBrand.Location = new Point(124, 38);
-            lbCarBrand.Margin = new Padding(6, 0, 6, 0);
+            lbCarBrand.Location = new Point(76, 24);
+            lbCarBrand.Margin = new Padding(4, 0, 4, 0);
             lbCarBrand.Name = "lbCarBrand";
-            lbCarBrand.Size = new Size(184, 40);
+            lbCarBrand.Size = new Size(114, 25);
             lbCarBrand.TabIndex = 2;
             lbCarBrand.Text = "Trần Qui Linh";
             // 
@@ -380,20 +386,20 @@
             label7.AutoSize = true;
             label7.BackColor = SystemColors.Control;
             label7.ForeColor = SystemColors.ControlDarkDark;
-            label7.Location = new Point(124, 6);
-            label7.Margin = new Padding(6, 0, 6, 0);
+            label7.Location = new Point(76, 4);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(95, 32);
+            label7.Size = new Size(59, 20);
             label7.TabIndex = 1;
             label7.Text = "Hiệu xe";
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.user_icon;
-            pictureBox3.Location = new Point(6, 6);
-            pictureBox3.Margin = new Padding(6, 6, 6, 6);
+            pictureBox3.Location = new Point(4, 4);
+            pictureBox3.Margin = new Padding(4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(107, 85);
+            pictureBox3.Size = new Size(66, 53);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -405,10 +411,10 @@
             panel5.Controls.Add(lbPlateLicense);
             panel5.Controls.Add(label5);
             panel5.Controls.Add(pictureBox2);
-            panel5.Location = new Point(6, 235);
-            panel5.Margin = new Padding(6, 6, 6, 6);
+            panel5.Location = new Point(4, 128);
+            panel5.Margin = new Padding(4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(440, 107);
+            panel5.Size = new Size(271, 67);
             panel5.TabIndex = 1;
             // 
             // lbPlateLicense
@@ -416,10 +422,10 @@
             lbPlateLicense.AutoSize = true;
             lbPlateLicense.BackColor = SystemColors.ButtonShadow;
             lbPlateLicense.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbPlateLicense.Location = new Point(124, 38);
-            lbPlateLicense.Margin = new Padding(6, 0, 6, 0);
+            lbPlateLicense.Location = new Point(76, 24);
+            lbPlateLicense.Margin = new Padding(4, 0, 4, 0);
             lbPlateLicense.Name = "lbPlateLicense";
-            lbPlateLicense.Size = new Size(184, 40);
+            lbPlateLicense.Size = new Size(114, 25);
             lbPlateLicense.TabIndex = 2;
             lbPlateLicense.Text = "Trần Qui Linh";
             // 
@@ -428,20 +434,20 @@
             label5.AutoSize = true;
             label5.BackColor = SystemColors.Control;
             label5.ForeColor = SystemColors.ControlDarkDark;
-            label5.Location = new Point(124, 6);
-            label5.Margin = new Padding(6, 0, 6, 0);
+            label5.Location = new Point(76, 4);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(123, 32);
+            label5.Size = new Size(76, 20);
             label5.TabIndex = 1;
             label5.Text = "Biển số xe";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.user_icon;
-            pictureBox2.Location = new Point(6, 6);
-            pictureBox2.Margin = new Padding(6, 6, 6, 6);
+            pictureBox2.Location = new Point(4, 4);
+            pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(107, 85);
+            pictureBox2.Size = new Size(66, 53);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -453,10 +459,10 @@
             panel4.Controls.Add(lbCustomerName);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(pictureBox1);
-            panel4.Location = new Point(6, 99);
-            panel4.Margin = new Padding(6, 6, 6, 6);
+            panel4.Location = new Point(4, 53);
+            panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(440, 107);
+            panel4.Size = new Size(271, 67);
             panel4.TabIndex = 0;
             // 
             // lbCustomerName
@@ -464,10 +470,10 @@
             lbCustomerName.AutoSize = true;
             lbCustomerName.BackColor = SystemColors.ButtonShadow;
             lbCustomerName.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbCustomerName.Location = new Point(124, 38);
-            lbCustomerName.Margin = new Padding(6, 0, 6, 0);
+            lbCustomerName.Location = new Point(76, 24);
+            lbCustomerName.Margin = new Padding(4, 0, 4, 0);
             lbCustomerName.Name = "lbCustomerName";
-            lbCustomerName.Size = new Size(184, 40);
+            lbCustomerName.Size = new Size(114, 25);
             lbCustomerName.TabIndex = 2;
             lbCustomerName.Text = "Trần Qui Linh";
             // 
@@ -476,20 +482,20 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.Control;
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(124, 6);
-            label2.Margin = new Padding(6, 0, 6, 0);
+            label2.Location = new Point(76, 4);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(129, 32);
+            label2.Size = new Size(78, 20);
             label2.TabIndex = 1;
             label2.Text = "Tên chủ xe";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.user_icon;
-            pictureBox1.Location = new Point(6, 6);
-            pictureBox1.Margin = new Padding(6, 6, 6, 6);
+            pictureBox1.Location = new Point(4, 4);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(107, 85);
+            pictureBox1.Size = new Size(66, 53);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -500,10 +506,10 @@
             panel13.BackColor = SystemColors.Control;
             panel13.Controls.Add(lbIdRepair);
             panel13.Controls.Add(label4);
-            panel13.Location = new Point(15, 10);
-            panel13.Margin = new Padding(6, 6, 6, 6);
+            panel13.Location = new Point(4, 0);
+            panel13.Margin = new Padding(4);
             panel13.Name = "panel13";
-            panel13.Size = new Size(462, 96);
+            panel13.Size = new Size(284, 57);
             panel13.TabIndex = 9;
             // 
             // lbIdRepair
@@ -512,10 +518,10 @@
             lbIdRepair.BackColor = SystemColors.ButtonShadow;
             lbIdRepair.Enabled = false;
             lbIdRepair.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbIdRepair.Location = new Point(177, 40);
-            lbIdRepair.Margin = new Padding(6, 0, 6, 0);
+            lbIdRepair.Location = new Point(109, 25);
+            lbIdRepair.Margin = new Padding(4, 0, 4, 0);
             lbIdRepair.Name = "lbIdRepair";
-            lbIdRepair.Size = new Size(82, 40);
+            lbIdRepair.Size = new Size(53, 25);
             lbIdRepair.TabIndex = 2;
             lbIdRepair.Text = "SC01";
             // 
@@ -526,10 +532,10 @@
             label4.Enabled = false;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlDarkDark;
-            label4.Location = new Point(6, 0);
-            label4.Margin = new Padding(6, 0, 6, 0);
+            label4.Location = new Point(4, 0);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(121, 32);
+            label4.Size = new Size(74, 20);
             label4.TabIndex = 1;
             label4.Text = "Mã phiếu:";
             // 
@@ -539,56 +545,60 @@
             panel11.BackColor = SystemColors.Control;
             panel11.Controls.Add(label15);
             panel11.Controls.Add(dtpDateFix);
-            panel11.Location = new Point(1068, 0);
-            panel11.Margin = new Padding(6, 6, 6, 6);
+            panel11.Location = new Point(672, 532);
+            panel11.Margin = new Padding(4);
             panel11.Name = "panel11";
-            panel11.Size = new Size(462, 106);
+            panel11.Size = new Size(284, 57);
             panel11.TabIndex = 7;
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.ForeColor = SystemColors.ControlDarkDark;
-            label15.Location = new Point(10, 10);
-            label15.Margin = new Padding(6, 0, 6, 0);
+            label15.Location = new Point(4, 0);
+            label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new Size(171, 32);
+            label15.Size = new Size(107, 20);
             label15.TabIndex = 1;
             label15.Text = "Ngày sửa chữa";
             // 
             // dtpDateFix
             // 
             dtpDateFix.Format = DateTimePickerFormat.Short;
-            dtpDateFix.Location = new Point(46, 48);
-            dtpDateFix.Margin = new Padding(6, 6, 6, 6);
+            dtpDateFix.Location = new Point(33, 23);
+            dtpDateFix.Margin = new Padding(4);
             dtpDateFix.Name = "dtpDateFix";
-            dtpDateFix.Size = new Size(368, 39);
+            dtpDateFix.Size = new Size(228, 27);
             dtpDateFix.TabIndex = 0;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.Controls.Add(dtgvServiceCar);
+            panel3.Controls.Add(panel11);
             panel3.Controls.Add(panel14);
-            panel3.Location = new Point(471, 126);
-            panel3.Margin = new Padding(6, 6, 6, 6);
+            panel3.Location = new Point(290, 78);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1703, 962);
+            panel3.Size = new Size(969, 601);
             panel3.TabIndex = 2;
             // 
             // dtgvServiceCar
             // 
             dtgvServiceCar.AllowUserToAddRows = false;
             dtgvServiceCar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvServiceCar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvServiceCar.BackgroundColor = SystemColors.Control;
             dtgvServiceCar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvServiceCar.Columns.AddRange(new DataGridViewColumn[] { CellWage, cellIdItem, cellItem, cellQuantity, cellPricePerUnit, cellWagePrice, cellTotalMoney });
             dtgvServiceCar.GridColor = SystemColors.ActiveBorder;
-            dtgvServiceCar.Location = new Point(6, 8);
-            dtgvServiceCar.Margin = new Padding(6, 6, 6, 6);
+            dtgvServiceCar.Location = new Point(0, -1);
+            dtgvServiceCar.Margin = new Padding(4);
+            dtgvServiceCar.MultiSelect = false;
             dtgvServiceCar.Name = "dtgvServiceCar";
             dtgvServiceCar.RowHeadersWidth = 82;
-            dtgvServiceCar.Size = new Size(1558, 840);
+            dtgvServiceCar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvServiceCar.Size = new Size(969, 525);
             dtgvServiceCar.TabIndex = 0;
             dtgvServiceCar.CellContentClick += dtgvServiceCar_CellContentClick;
             // 
@@ -597,59 +607,50 @@
             CellWage.HeaderText = "Nội dung";
             CellWage.MinimumWidth = 6;
             CellWage.Name = "CellWage";
-            CellWage.Width = 125;
             // 
             // cellIdItem
             // 
             cellIdItem.HeaderText = "Mã vật tư";
             cellIdItem.MinimumWidth = 6;
             cellIdItem.Name = "cellIdItem";
-            cellIdItem.Width = 125;
             // 
             // cellItem
             // 
             cellItem.HeaderText = "Vật tư";
             cellItem.MinimumWidth = 6;
             cellItem.Name = "cellItem";
-            cellItem.Width = 125;
             // 
             // cellQuantity
             // 
             cellQuantity.HeaderText = "Số lượng";
             cellQuantity.MinimumWidth = 6;
             cellQuantity.Name = "cellQuantity";
-            cellQuantity.Width = 125;
             // 
             // cellPricePerUnit
             // 
             cellPricePerUnit.HeaderText = "Đơn giá";
             cellPricePerUnit.MinimumWidth = 6;
             cellPricePerUnit.Name = "cellPricePerUnit";
-            cellPricePerUnit.Width = 125;
             // 
             // cellWagePrice
             // 
             cellWagePrice.HeaderText = "Tiền công";
             cellWagePrice.MinimumWidth = 6;
             cellWagePrice.Name = "cellWagePrice";
-            cellWagePrice.Width = 125;
             // 
             // cellTotalMoney
             // 
             cellTotalMoney.HeaderText = "Thành tiền";
             cellTotalMoney.MinimumWidth = 6;
             cellTotalMoney.Name = "cellTotalMoney";
-            cellTotalMoney.Width = 125;
             // 
             // panel14
             // 
             panel14.Controls.Add(panel15);
-            panel14.Controls.Add(panel11);
             panel14.Controls.Add(panel13);
-            panel14.Location = new Point(11, 851);
-            panel14.Margin = new Padding(5, 5, 5, 5);
+            panel14.Location = new Point(7, 532);
             panel14.Name = "panel14";
-            panel14.Size = new Size(1558, 107);
+            panel14.Size = new Size(959, 65);
             panel14.TabIndex = 10;
             // 
             // panel15
@@ -658,10 +659,10 @@
             panel15.BackColor = SystemColors.Control;
             panel15.Controls.Add(lbTotalAmout);
             panel15.Controls.Add(lb);
-            panel15.Location = new Point(540, 10);
-            panel15.Margin = new Padding(6, 6, 6, 6);
+            panel15.Location = new Point(332, 0);
+            panel15.Margin = new Padding(4);
             panel15.Name = "panel15";
-            panel15.Size = new Size(462, 96);
+            panel15.Size = new Size(284, 57);
             panel15.TabIndex = 10;
             // 
             // lbTotalAmout
@@ -670,10 +671,10 @@
             lbTotalAmout.BackColor = SystemColors.ButtonShadow;
             lbTotalAmout.Enabled = false;
             lbTotalAmout.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbTotalAmout.Location = new Point(171, 38);
-            lbTotalAmout.Margin = new Padding(6, 0, 6, 0);
+            lbTotalAmout.Location = new Point(104, 24);
+            lbTotalAmout.Margin = new Padding(4, 0, 4, 0);
             lbTotalAmout.Name = "lbTotalAmout";
-            lbTotalAmout.Size = new Size(129, 40);
+            lbTotalAmout.Size = new Size(82, 25);
             lbTotalAmout.TabIndex = 2;
             lbTotalAmout.Text = "0000000";
             // 
@@ -684,10 +685,10 @@
             lb.Enabled = false;
             lb.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lb.ForeColor = SystemColors.ControlDarkDark;
-            lb.Location = new Point(6, 0);
-            lb.Margin = new Padding(6, 0, 6, 0);
+            lb.Location = new Point(4, 0);
+            lb.Margin = new Padding(4, 0, 4, 0);
             lb.Name = "lb";
-            lb.Size = new Size(117, 32);
+            lb.Size = new Size(72, 20);
             lb.TabIndex = 1;
             lb.Text = "Tổng tiền";
             // 
@@ -696,10 +697,10 @@
             btnAddService.Anchor = AnchorStyles.None;
             btnAddService.BackColor = Color.AliceBlue;
             btnAddService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAddService.Location = new Point(113, -21);
-            btnAddService.Margin = new Padding(6, 6, 6, 6);
+            btnAddService.Location = new Point(55, 0);
+            btnAddService.Margin = new Padding(4);
             btnAddService.Name = "btnAddService";
-            btnAddService.Size = new Size(273, 86);
+            btnAddService.Size = new Size(168, 54);
             btnAddService.TabIndex = 10;
             btnAddService.Text = "Thêm dịch vụ";
             btnAddService.UseVisualStyleBackColor = false;
@@ -712,10 +713,10 @@
             panel12.Controls.Add(btnCLose);
             panel12.Controls.Add(btnDelService);
             panel12.Controls.Add(btnAddService);
-            panel12.Location = new Point(471, 1101);
-            panel12.Margin = new Padding(6, 6, 6, 6);
+            panel12.Location = new Point(290, 682);
+            panel12.Margin = new Padding(4);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1552, 46);
+            panel12.Size = new Size(963, 60);
             panel12.TabIndex = 3;
             // 
             // btnAddRepair
@@ -723,10 +724,10 @@
             btnAddRepair.Anchor = AnchorStyles.None;
             btnAddRepair.BackColor = SystemColors.ActiveCaption;
             btnAddRepair.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAddRepair.Location = new Point(1018, -21);
-            btnAddRepair.Margin = new Padding(6, 6, 6, 6);
+            btnAddRepair.Location = new Point(599, 0);
+            btnAddRepair.Margin = new Padding(4);
             btnAddRepair.Name = "btnAddRepair";
-            btnAddRepair.Size = new Size(229, 86);
+            btnAddRepair.Size = new Size(141, 54);
             btnAddRepair.TabIndex = 13;
             btnAddRepair.Text = "Lập Phiếu";
             btnAddRepair.UseVisualStyleBackColor = false;
@@ -737,10 +738,10 @@
             btnCLose.Anchor = AnchorStyles.None;
             btnCLose.BackColor = Color.SandyBrown;
             btnCLose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCLose.Location = new Point(1331, -21);
-            btnCLose.Margin = new Padding(6, 6, 6, 6);
+            btnCLose.Location = new Point(813, 0);
+            btnCLose.Margin = new Padding(4);
             btnCLose.Name = "btnCLose";
-            btnCLose.Size = new Size(195, 86);
+            btnCLose.Size = new Size(120, 54);
             btnCLose.TabIndex = 11;
             btnCLose.Text = "Đóng";
             btnCLose.UseVisualStyleBackColor = false;
@@ -751,28 +752,76 @@
             btnDelService.Anchor = AnchorStyles.None;
             btnDelService.BackColor = SystemColors.ActiveBorder;
             btnDelService.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDelService.Location = new Point(546, -21);
-            btnDelService.Margin = new Padding(6, 6, 6, 6);
+            btnDelService.Location = new Point(308, 0);
+            btnDelService.Margin = new Padding(4);
             btnDelService.Name = "btnDelService";
-            btnDelService.Size = new Size(211, 86);
+            btnDelService.Size = new Size(130, 54);
             btnDelService.TabIndex = 11;
             btnDelService.Text = "Xóa dịch vụ";
             btnDelService.UseVisualStyleBackColor = false;
             btnDelService.Click += btnDelService_Click;
             // 
+            // panel16
+            // 
+            panel16.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel16.BackColor = SystemColors.Control;
+            panel16.Controls.Add(lbEmail);
+            panel16.Controls.Add(label6);
+            panel16.Controls.Add(pictureBox7);
+            panel16.Location = new Point(4, 428);
+            panel16.Margin = new Padding(4);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(271, 67);
+            panel16.TabIndex = 9;
+            // 
+            // lbEmail
+            // 
+            lbEmail.AutoSize = true;
+            lbEmail.BackColor = SystemColors.ButtonShadow;
+            lbEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbEmail.Location = new Point(76, 24);
+            lbEmail.Margin = new Padding(4, 0, 4, 0);
+            lbEmail.Name = "lbEmail";
+            lbEmail.Size = new Size(114, 25);
+            lbEmail.TabIndex = 2;
+            lbEmail.Text = "Trần Qui Linh";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = SystemColors.Control;
+            label6.ForeColor = SystemColors.ControlDarkDark;
+            label6.Location = new Point(76, 4);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(46, 20);
+            label6.TabIndex = 1;
+            label6.Text = "Email";
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.address_icon;
+            pictureBox7.Location = new Point(4, 4);
+            pictureBox7.Margin = new Padding(4);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(66, 53);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 0;
+            pictureBox7.TabStop = false;
+            // 
             // fInforCar
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2033, 1152);
+            ClientSize = new Size(1259, 745);
             Controls.Add(panel12);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(6, 6, 6, 6);
-            MaximumSize = new Size(2059, 1223);
-            MinimumSize = new Size(1913, 1124);
+            Margin = new Padding(4);
+            MaximumSize = new Size(1277, 792);
+            MinimumSize = new Size(1277, 792);
             Name = "fInforCar";
             StartPosition = FormStartPosition.CenterParent;
             Text = "THÊM THÔNG TIN DỊCH VỤ";
@@ -811,6 +860,9 @@
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
             panel12.ResumeLayout(false);
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 
@@ -872,5 +924,9 @@
         public Label lbTotalAmout;
         private Label lb;
         private Label lbIdWage;
+        private Panel panel16;
+        public Label lbEmail;
+        private Label label6;
+        private PictureBox pictureBox7;
     }
 }

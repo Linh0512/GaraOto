@@ -34,8 +34,8 @@ namespace WinFormsApp.DAO
 
         public void AddPhieuNhapKho(PhieuNhapKhoVTPT phieuNhapKhoVTPT)
         {
-            string query = "INSERT INTO dbo.PHIEUNHAPKHOVTPT (MaNKVTPT, NgayNhap) " +
-                           "VALUES (@MaNKVTPT, @NgayNhap)";
+            string query = "INSERT INTO dbo.PHIEUNHAPKHOVTPT (MaNKVTPT, NgayNhap, TongTienNhap, TenDangNhap) " +
+                           "VALUES (@MaNKVTPT, @NgayNhap, @TongTienNhap, @TenDangNhap)";
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
@@ -46,6 +46,8 @@ namespace WinFormsApp.DAO
 
                         cmd.Parameters.AddWithValue("@MaNKVTPT", phieuNhapKhoVTPT.maNKVTPT);
                         cmd.Parameters.AddWithValue("@NgayNhap", phieuNhapKhoVTPT.ngayNhap);
+                        cmd.Parameters.AddWithValue("@TongTienNhap", phieuNhapKhoVTPT.tongTienNhap);
+                        cmd.Parameters.AddWithValue("@TenDangNhap", phieuNhapKhoVTPT.tenDangNhap);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -324,12 +326,12 @@ namespace WinFormsApp.DAO
         public DataTable getPhieuNhapListByTerm(string term)
         {
             string sql = "SELECT c.MaNKVTPT AS 'ID', NgayNhap AS 'Ngày nhập hàng', " +
-                         "SUM(SoLuong * GiaNhap) AS 'Tổng tiền thanh toán', TenNCC AS 'Đơn vị cung cấp' " +
+                         "TongTienNhap AS 'Tổng tiền thanh toán', n.TenDangNhap AS 'Tên người nhập'" +
                          "FROM PHIEUNHAPKHOVTPT AS p " +
                          "INNER JOIN CT_PNKVTPT AS c ON p.MaNKVTPT = c.MaNKVTPT " +
-                         "INNER JOIN NHACUNGCAP AS n ON p.MaNCC = n.MaNCC " +
-                         "WHERE TenNCC LIKE '%'+ @term + '%' OR c.MaNKVTPT LIKE + '%'+ @term + '%'" +
-                         "GROUP BY c.MaNKVTPT, NgayNhap, TenNCC";
+                         "INNER JOIN NHANVIEN AS n ON p.TenDangNhap = n.TenDangNhap " +
+                         "WHERE n.TenDangNhap LIKE '%'+ @term + '%' OR c.MaNKVTPT LIKE + '%'+ @term + '%'" +
+                         "GROUP BY c.MaNKVTPT, p.NgayNhap, n.TenDangNhap, p.TongTienNhap";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
@@ -351,23 +353,24 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public DataTable getPhieuNhapListByDateRange(DateTime startDate, DateTime endDate)
+        public DataTable getPhieuNhapListByDateRange(DateTime findDate)
         {
             string sql = "SELECT c.MaNKVTPT AS 'ID', NgayNhap AS 'Ngày nhập hàng', " +
-                         "SUM(SoLuong * GiaNhap) AS 'Tổng tiền thanh toán', TenNCC AS 'Đơn vị cung cấp' " +
+                         "TongTienNhap AS 'Tổng tiền thanh toán', n.TenDangNhap AS 'Tên người nhập'" +
                          "FROM PHIEUNHAPKHOVTPT AS p " +
                          "INNER JOIN CT_PNKVTPT AS c ON p.MaNKVTPT = c.MaNKVTPT " +
-                         "INNER JOIN NHACUNGCAP AS n ON p.MaNCC = n.MaNCC " +
-                         "WHERE NgayNhap BETWEEN @startDate AND @endDate " +
-                         "GROUP BY c.MaNKVTPT, NgayNhap, TenNCC";
+                         "INNER JOIN NHANVIEN AS n ON p.TenDangNhap = n.TenDangNhap " +
+                         "WHERE CONVERT(DATE, NgayNhap) = @NgayNhap " +
+                         "GROUP BY c.MaNKVTPT, p.NgayNhap, n.TenDangNhap, p.TongTienNhap";
+
+            //string sql = "SELECT MaNKVTPT, NgayNhap, TongTienNhap, TenDangNhap FROM PHIEUNHAPKHOVTPT WHERE CONVERT(DATE, NgayNhap) = @NgayNhap";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
                 {
                     SqlCommand command = new SqlCommand(sql, connection);
-                    command.Parameters.AddWithValue("@startDate", startDate); // Add start date parameter
-                    command.Parameters.AddWithValue("@endDate", endDate); // Add end date parameter
+                    command.Parameters.AddWithValue("@NgayNhap", findDate); // Add start date parameter
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();

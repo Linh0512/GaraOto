@@ -21,6 +21,7 @@ namespace WinFormsApp.Screens.fInventory
         {
             dtpNgayNhap.Enabled = false;
             txbIdImport.Text = PhieuNhapKhoVTPTDAO.Instance.LoadIdImport();
+            txt_author.Text = SessionManager.Instance.CurrentUser.TenDangNhap;
             UpdateTongTien();
         }
 
@@ -95,54 +96,6 @@ namespace WinFormsApp.Screens.fInventory
             }
         }
 
-        //private void btnThanhToan_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Lấy mã nhà cung cấp từ cột tương ứng của dòng đầu tiên
-        //        string maNCC = dgvNhapHang.Rows[0].Cells[2].Value.ToString(); // Giả sử cột 2 chứa mã NCC
-
-        //        // Tạo đối tượng phiếu nhập kho
-        //        PhieuNhapKhoVTPT phieuNhapKho = new PhieuNhapKhoVTPT
-        //        {
-        //            ngayNhap = DateTime.Now,
-        //            maNKVTPT = maNCC
-        //        };
-
-        //        List<CT_PNKVTPT> ctPnks = new List<CT_PNKVTPT>();
-
-        //        foreach (DataGridViewRow row in dgvNhapHang.Rows)
-        //        {
-        //            if (!row.IsNewRow) 
-        //            {
-        //                var ctPnk = new CT_PNKVTPT
-        //                {
-        //                    phieuNhapKhoVTPT = new PhieuNhapKhoVTPT { maNKVTPT = maNCC }, 
-        //                    phuTung = new PhuTung
-        //                    {
-        //                        MaVTPT = PhieuNhapKhoVTPTDAO.Instance.GetMaVTPTByTenVTPT(row.Cells[1].Value.ToString()), 
-        //                        TenVTPT = row.Cells[1].Value.ToString() 
-        //                    },
-        //                    SoLuong = int.Parse(row.Cells[3].Value.ToString()),
-        //                    GiaNhap = decimal.Parse(row.Cells[2].Value.ToString()) 
-        //                };
-
-        //                ctPnks.Add(ctPnk);
-        //            }
-        //        }
-
-        //        PhieuNhapKhoVTPTDAO.Instance.addCT_PNKVTPTAndUpdatePhuTung(ctPnks);
-
-        //        MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //        dgvNhapHang.Rows.Clear(); 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             try
@@ -151,7 +104,9 @@ namespace WinFormsApp.Screens.fInventory
                 PhieuNhapKhoVTPTDAO.Instance.AddPhieuNhapKho(new PhieuNhapKhoVTPT()
                 {
                     maNKVTPT = this.txbIdImport.Text,
-                    ngayNhap = DateTime.Now
+                    ngayNhap = DateTime.Now,
+                    tongTienNhap = decimal.Parse(txtTongTien.Text),
+                    tenDangNhap = this.txt_author.Text
                 });
 
                 // Lấy danh sách chi tiết phiếu nhập kho

@@ -39,6 +39,8 @@
             báoCáoToolStripMenuItem = new ToolStripMenuItem();
             bÁOCÁODOANHSỐToolStripMenuItem = new ToolStripMenuItem();
             bÁOCÁOTỒNKHOToolStripMenuItem = new ToolStripMenuItem();
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem = new ToolStripMenuItem();
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem = new ToolStripMenuItem();
             dateTimePicker1 = new DateTimePicker();
             panel2 = new Panel();
             byHieuXeRadioBtn = new RadioButton();
@@ -58,6 +60,7 @@
             TienNo = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             editCarBtn = new Button();
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             mnStripStatistic.SuspendLayout();
             panel2.SuspendLayout();
@@ -164,24 +167,24 @@
             mnStripStatistic.Location = new Point(0, 0);
             mnStripStatistic.Name = "mnStripStatistic";
             mnStripStatistic.Padding = new Padding(5, 2, 0, 2);
-            mnStripStatistic.Size = new Size(102, 28);
+            mnStripStatistic.Size = new Size(252, 28);
             mnStripStatistic.TabIndex = 4;
             mnStripStatistic.Text = "Báo cáo";
             mnStripStatistic.ItemClicked += mnStripStatistic_ItemClicked_1;
             // 
             // báoCáoToolStripMenuItem
             // 
-            báoCáoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bÁOCÁODOANHSỐToolStripMenuItem, bÁOCÁOTỒNKHOToolStripMenuItem });
+            báoCáoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bÁOCÁODOANHSỐToolStripMenuItem, bÁOCÁOTỒNKHOToolStripMenuItem, dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem, dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem, dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem });
             báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
             báoCáoToolStripMenuItem.Size = new Size(95, 24);
             báoCáoToolStripMenuItem.Text = "THỐNG KÊ";
             // 
             // bÁOCÁODOANHSỐToolStripMenuItem
             // 
-            bÁOCÁODOANHSỐToolStripMenuItem.BackColor = Color.CadetBlue;
+            bÁOCÁODOANHSỐToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
             bÁOCÁODOANHSỐToolStripMenuItem.Image = (Image)resources.GetObject("bÁOCÁODOANHSỐToolStripMenuItem.Image");
             bÁOCÁODOANHSỐToolStripMenuItem.Name = "bÁOCÁODOANHSỐToolStripMenuItem";
-            bÁOCÁODOANHSỐToolStripMenuItem.Size = new Size(237, 26);
+            bÁOCÁODOANHSỐToolStripMenuItem.Size = new Size(303, 26);
             bÁOCÁODOANHSỐToolStripMenuItem.Text = "BÁO CÁO DOANH SỐ";
             bÁOCÁODOANHSỐToolStripMenuItem.Click += bÁOCÁODOANHSỐToolStripMenuItem_Click;
             // 
@@ -190,9 +193,27 @@
             bÁOCÁOTỒNKHOToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
             bÁOCÁOTỒNKHOToolStripMenuItem.Image = (Image)resources.GetObject("bÁOCÁOTỒNKHOToolStripMenuItem.Image");
             bÁOCÁOTỒNKHOToolStripMenuItem.Name = "bÁOCÁOTỒNKHOToolStripMenuItem";
-            bÁOCÁOTỒNKHOToolStripMenuItem.Size = new Size(237, 26);
+            bÁOCÁOTỒNKHOToolStripMenuItem.Size = new Size(303, 26);
             bÁOCÁOTỒNKHOToolStripMenuItem.Text = "BÁO CÁO TỒN KHO";
             bÁOCÁOTỒNKHOToolStripMenuItem.Click += bÁOCÁOTỒNKHOToolStripMenuItem_Click;
+            // 
+            // dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem
+            // 
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Image");
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Name = "dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem";
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Size = new Size(303, 26);
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Text = "DANH SÁCH PHIẾU SỬA CHỮA";
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Click += dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem_Click;
+            // 
+            // dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem
+            // 
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Image");
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Name = "dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem";
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Size = new Size(303, 26);
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Text = "DANH SÁCH PHIẾU THU TIỀN";
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Click += dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem_Click;
             // 
             // dateTimePicker1
             // 
@@ -394,6 +415,15 @@
             editCarBtn.UseVisualStyleBackColor = false;
             editCarBtn.Click += editCarBtn_Click;
             // 
+            // dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem
+            // 
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Image");
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Name = "dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem";
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Size = new Size(303, 26);
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Text = "DANH SÁCH PHIẾU NHẬP VTPT";
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Click += dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem_Click;
+            // 
             // MainScence
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -464,5 +494,8 @@
         private System.Windows.Forms.Button btnOption;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel2;
+        private ToolStripMenuItem dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem;
+        private ToolStripMenuItem dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem;
+        private ToolStripMenuItem dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem;
     }
 }

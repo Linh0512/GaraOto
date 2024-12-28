@@ -116,6 +116,7 @@ namespace WinFormsApp.Screens.fInventory
                 txt_price.Text = "";
                 txt_quantity.Text = "";
                 txt_total.Text = "";
+                this.Close();
             } else if (_action.Equals("Update"))
             {
                 this.Close();

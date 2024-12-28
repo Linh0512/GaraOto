@@ -88,7 +88,7 @@ namespace WinFormsApp.Screens.Option
 
         private void btnUpdatePassword_Click(object sender, EventArgs e)
         {
-            UpdatePassword updatePassword = new UpdatePassword();
+            ChangePassword updatePassword = new ChangePassword();
             updatePassword.ShowDialog();
             this.Show();
         }
@@ -210,7 +210,7 @@ namespace WinFormsApp.Screens.Option
         private void btnEditBrand_Click(object sender, EventArgs e)
         {
             if (dgvBrandDetail.SelectedRows.Count == 0) return;
-            UpdateBrand updateBrand = new UpdateBrand();
+            UpdateBrand updateBrand = new UpdateBrand(this.txtBrandName.Text);
         }
 
         private void btnRemoveWage_Click(object sender, EventArgs e)

@@ -27,7 +27,8 @@ namespace WinFormsApp.DAO
         {
             SqlConnection con = DataProvider.instance.getConnect();
             con.Open();
-            string sql = "SELECT * FROM XE WHERE BienSo = @bienso";
+            string sql = "SELECT BienSo AS 'Biển số', TenChuXe 'Tên chủ xe', HieuXe 'Hiệu xe', DiaChi 'Địa chỉ',  +" +
+                "DienThoai 'Số điện thoại', Email 'Email', TienNo 'Tiền nợ', NgayTiepNhan AS 'Ngày tiếp nhận' FROM XE WHERE BienSo = @bienso";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@bienso", bienso);
             SqlDataReader dt = cmd.ExecuteReader();
@@ -125,7 +126,8 @@ namespace WinFormsApp.DAO
         public DataTable FindCar(Dictionary<string, string> conditions, bool searchByDate = false)
         {
             // Khởi tạo câu truy vấn cơ bản
-            string query = "SELECT * FROM dbo.XE";
+            string query = "SELECT BienSo AS 'Biển số', TenChuXe 'Tên chủ xe', HieuXe 'Hiệu xe', DiaChi 'Địa chỉ'," +
+                "DienThoai 'Số điện thoại', Email 'Email', TienNo 'Tiền nợ', NgayTiepNhan AS 'Ngày tiếp nhận' FROM dbo.XE";
 
             // Nếu có điều kiện, xây dựng thêm WHERE
             if (conditions.Count > 0)

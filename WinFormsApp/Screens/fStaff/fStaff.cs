@@ -11,8 +11,18 @@ namespace WinFormsApp
         {
             InitializeComponent();
             LoadStaff();
-            
+            this.GetUserNameAutoComplete();
         }
+
+        private void GetUserNameAutoComplete()
+        {
+            string queryCarBrand = "SELECT DISTINCT TenNV FROM dbo.NHANVIEN";
+            string columnCarBrand = "TenNV";
+            txtTiemKiem.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
+            txtTiemKiem.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtTiemKiem.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
         void LoadStaff(string tenDangNhap = null)
         {
             dgvNhanVien.DataSource = NHANVIENDAO.Instane.HienThi();
@@ -310,46 +320,12 @@ namespace WinFormsApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void dgvNhanVien_SelectionChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
         private void txtTenDangNhap_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtChucVu_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
         {
 
         }

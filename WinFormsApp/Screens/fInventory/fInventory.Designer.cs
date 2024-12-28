@@ -37,7 +37,6 @@ namespace WinFormsApp
             panel2 = new Panel();
             dateTimePicker1 = new DateTimePicker();
             btnAddSupply = new Button();
-            btnHistoryImport = new Button();
             sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             txtCode = new TextBox();
             btnSearch = new Button();
@@ -107,6 +106,7 @@ namespace WinFormsApp
             // dateTimePicker1
             // 
             dateTimePicker1.Anchor = AnchorStyles.None;
+            dateTimePicker1.Enabled = false;
             dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.Location = new Point(1032, 115);
             dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
@@ -129,22 +129,6 @@ namespace WinFormsApp
             btnAddSupply.Text = "Thêm phụ tùng";
             btnAddSupply.UseVisualStyleBackColor = false;
             btnAddSupply.Click += AddSupply_Click;
-            // 
-            // btnHistoryImport
-            // 
-            btnHistoryImport.Anchor = AnchorStyles.None;
-            btnHistoryImport.AutoSize = true;
-            btnHistoryImport.BackColor = SystemColors.Highlight;
-            btnHistoryImport.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHistoryImport.ForeColor = Color.White;
-            btnHistoryImport.Location = new Point(801, 655);
-            btnHistoryImport.Margin = new Padding(3, 4, 3, 4);
-            btnHistoryImport.Name = "btnHistoryImport";
-            btnHistoryImport.Size = new Size(194, 59);
-            btnHistoryImport.TabIndex = 11;
-            btnHistoryImport.Text = "Lịch sử nhập hàng";
-            btnHistoryImport.UseVisualStyleBackColor = false;
-            btnHistoryImport.Click += button5_Click;
             // 
             // txtCode
             // 
@@ -175,7 +159,7 @@ namespace WinFormsApp
             btnImportSupplies.BackColor = SystemColors.Highlight;
             btnImportSupplies.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnImportSupplies.ForeColor = Color.White;
-            btnImportSupplies.Location = new Point(280, 655);
+            btnImportSupplies.Location = new Point(358, 655);
             btnImportSupplies.Margin = new Padding(3, 4, 3, 4);
             btnImportSupplies.Name = "btnImportSupplies";
             btnImportSupplies.Size = new Size(176, 59);
@@ -191,7 +175,7 @@ namespace WinFormsApp
             btnDelete.BackColor = SystemColors.Highlight;
             btnDelete.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(543, 655);
+            btnDelete.Location = new Point(720, 655);
             btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(176, 59);
@@ -210,6 +194,7 @@ namespace WinFormsApp
             btnUpdateInfor.TabIndex = 18;
             btnUpdateInfor.Text = "Thay đổi thông tin";
             btnUpdateInfor.UseVisualStyleBackColor = false;
+            btnUpdateInfor.Click += btnUpdateInfor_Click;
             // 
             // Inventory
             // 
@@ -222,7 +207,6 @@ namespace WinFormsApp
             Controls.Add(btnImportSupplies);
             Controls.Add(btnSearch);
             Controls.Add(txtCode);
-            Controls.Add(btnHistoryImport);
             Controls.Add(btnAddSupply);
             Controls.Add(dateTimePicker1);
             Controls.Add(panel2);
@@ -250,7 +234,6 @@ namespace WinFormsApp
         private Panel panel2;
         private DateTimePicker dateTimePicker1;
         private Button btnAddSupply;
-        private Button btnHistoryImport;
         private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
         private TextBox txtCode;
         private Button btnSearch;

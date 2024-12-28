@@ -19,6 +19,7 @@ namespace WinFormsApp.Screens.Service.AddCar
             General.Instance.TxtMakeTextDisappear(txbAddress, "Địa chỉ");
             General.Instance.TxtMakeTextDisappear(txbPhoneNumber, "Số điện thoại");
             General.Instance.TxtMakeTextDisappear(txbEmail, "Email");
+            General.Instance.CbbMakeTextDisappear(cbbCarBrandName, "Hiệu xe");
         }
 
         private void GetCarBrandAutoComplete()
@@ -70,6 +71,7 @@ namespace WinFormsApp.Screens.Service.AddCar
                 // Thêm vào cơ sở dữ liệu
                 ServiceDAO.instance.AddCar(Car.Instance);
                 MessageBox.Show("Thêm xe thành công");
+                this.Close();
             }
             catch (Exception ex)
             {

@@ -12,6 +12,9 @@ using WinFormsApp.Screens.fReport;
 using WinFormsApp.Screens.Service;
 using WinFormsApp.Utils;
 using WinFormsApp.Screens.Service.UpdateInforCar;
+using WinFormsApp.Screens.Service.ListRepair;
+using WinFormsApp.Screens.Service.ListPayment;
+using WinFormsApp.Screens.fInventory;
 
 namespace WinFormsApp.Screens.MainScene
 {
@@ -195,20 +198,27 @@ namespace WinFormsApp.Screens.MainScene
             this.Show();
         }
 
-        private void mnStripStatistic_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+
+        private void dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // throw new System.NotImplementedException();
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            fListRepair f = new fListRepair();
+            f.ShowDialog();
         }
 
-        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // throw new System.NotImplementedException();
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            // throw new System.NotImplementedException();
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            fListPayment f = new fListPayment();
+            f.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -329,7 +339,7 @@ namespace WinFormsApp.Screens.MainScene
 
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    LoadMainSceneData(); 
+                    LoadMainSceneData();
                 }
             }
         }
@@ -342,6 +352,17 @@ namespace WinFormsApp.Screens.MainScene
             //     MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
             //     return;
             // }
+        }
+
+        private void dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            history history = new history();
+            history.ShowDialog();
         }
     }
 }

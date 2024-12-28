@@ -37,7 +37,6 @@ namespace WinFormsApp.Screens.Service
             {
                 btnChangeInfor.Enabled = false;
                 bnXoa.Enabled = false;
-                StripMenuManager.Enabled = false;
                 btnAddService.Enabled = false;
             }
         }
@@ -53,7 +52,8 @@ namespace WinFormsApp.Screens.Service
 
         private void LoadCarData()
         {
-            string query = "SELECT * FROM dbo.XE";
+            string query = "SELECT BienSo AS 'Biển số', TenChuXe 'Tên chủ xe', HieuXe 'Hiệu xe', DiaChi 'Địa chỉ', " +
+                "DienThoai 'Số điện thoại', Email 'Email', TienNo 'Tiền nợ', NgayTiepNhan AS 'Ngày tiếp nhận' FROM dbo.XE";
             ServiceDAO.instance.LoadData(query, dtgvService);
         }
 
@@ -100,7 +100,7 @@ namespace WinFormsApp.Screens.Service
         {
             string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.HIEUXE ORDER BY HieuXe";
             string columnCarBrand = "HieuXe";
-            
+
             // Set up AutoComplete
             cbbCarBrand.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
             cbbCarBrand.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -177,13 +177,14 @@ namespace WinFormsApp.Screens.Service
             fInforCar f = new fInforCar();
             if (dtgvService.SelectedRows.Count > 0)
             {
-                string customerName = dtgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
-                string licensePlate = dtgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
-                string carBrand = dtgvService.SelectedRows[0].Cells["HieuXe"].Value.ToString();
-                string phoneNumber = dtgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
-                string address = dtgvService.SelectedRows[0].Cells["DiaChi"].Value.ToString();
-                string date = dtgvService.SelectedRows[0].Cells["NgayTiepNhan"].Value.ToString();
-                string debt = dtgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
+                string customerName = dtgvService.SelectedRows[0].Cells[1].Value.ToString();
+                string licensePlate = dtgvService.SelectedRows[0].Cells[0].Value.ToString();
+                string carBrand = dtgvService.SelectedRows[0].Cells[2].Value.ToString();
+                string phoneNumber = dtgvService.SelectedRows[0].Cells[4].Value.ToString();
+                string address = dtgvService.SelectedRows[0].Cells[3].Value.ToString();
+                string date = dtgvService.SelectedRows[0].Cells[7].Value.ToString();
+                string debt = dtgvService.SelectedRows[0].Cells[6].Value.ToString();
+                string email = dtgvService.SelectedRows[0].Cells[5].Value.ToString();
 
                 // Truyền thông tin sang fInforCar
                 f.lbCustomerName.Text = customerName;
@@ -193,6 +194,7 @@ namespace WinFormsApp.Screens.Service
                 f.lbAddress.Text = address;
                 f.dtpDateReceived.Text = date;
                 f.lbDebt.Text = debt;
+                f.lbEmail.Text = email;
                 f.ShowDialog();
             }
             else
@@ -205,7 +207,7 @@ namespace WinFormsApp.Screens.Service
 
         private void bnDelete_Click(object sender, EventArgs e)
         {
-            string plateLicense = (string)dtgvService.SelectedRows[0].Cells["BienSo"].Value;
+            string plateLicense = (string)dtgvService.SelectedRows[0].Cells[0].Value;
             ServiceDAO.instance.DelCar(plateLicense);
             this.LoadCarData();
         }
@@ -269,11 +271,15 @@ namespace WinFormsApp.Screens.Service
         private void bnRefresh_Click(object sender, EventArgs e)
         {
             this.LoadCarData();
+            this.cbbCustomerName.Text = "Chủ xe";
+            this.cbbCarBrand.Text = "Hiệu xe";
+            this.cbbPhoneNumber.Text = "Số điện thoại";
+            this.cbbLicensePlate.Text = "Biển số";
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(dtgvService.SelectedRows[0].Cells["TienNo"].Value) == 0)
+            if (Convert.ToDouble(dtgvService.SelectedRows[0].Cells[6].Value) == 0)
             {
                 MessageBox.Show("Không có nợ cần thanh toán");
                 return;
@@ -282,10 +288,10 @@ namespace WinFormsApp.Screens.Service
             fPayment f = new fPayment();
             if (dtgvService.SelectedRows.Count > 0)
             {
-                string customerName = dtgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
-                string licensePlate = dtgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
-                string phoneNumber = dtgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
-                string debt = dtgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
+                string customerName = dtgvService.SelectedRows[0].Cells[1].Value.ToString();
+                string licensePlate = dtgvService.SelectedRows[0].Cells[0].Value.ToString();
+                string phoneNumber = dtgvService.SelectedRows[0].Cells[4].Value.ToString();
+                string debt = dtgvService.SelectedRows[0].Cells[6].Value.ToString();
 
                 // Truyền thông tin sang fInforCar
                 f.lbNameCustomer.Text = customerName;
@@ -293,13 +299,13 @@ namespace WinFormsApp.Screens.Service
                 f.lbPhoneNumber.Text = phoneNumber;
                 f.txbDebt.Text = debt;
                 f.ShowDialog();
+                this.LoadCarData();
             }
             else
             {
                 MessageBox.Show("Please select a row before viewing details.");
             }
 
-            this.dtgvService.Refresh();
         }
 
         private void ChangeInfor_Click(object sender, EventArgs e)
@@ -308,14 +314,14 @@ namespace WinFormsApp.Screens.Service
             fUpdateInforCar f = new fUpdateInforCar();
             if (dtgvService.SelectedRows.Count > 0)
             {
-                string customerName = dtgvService.SelectedRows[0].Cells["TenChuXe"].Value.ToString();
-                string licensePlate = dtgvService.SelectedRows[0].Cells["BienSo"].Value.ToString();
-                string carBrand = dtgvService.SelectedRows[0].Cells["HieuXe"].Value.ToString();
-                string phoneNumber = dtgvService.SelectedRows[0].Cells["DienThoai"].Value.ToString();
-                string address = dtgvService.SelectedRows[0].Cells["DiaChi"].Value.ToString();
-                string date = dtgvService.SelectedRows[0].Cells["NgayTiepNhan"].Value.ToString();
-                string debt = dtgvService.SelectedRows[0].Cells["TienNo"].Value.ToString();
-                string email = dtgvService.SelectedRows[0].Cells["Email"].Value.ToString();
+                string customerName = dtgvService.SelectedRows[0].Cells[1].Value.ToString();
+                string licensePlate = dtgvService.SelectedRows[0].Cells[0].Value.ToString();
+                string carBrand = dtgvService.SelectedRows[0].Cells[2].Value.ToString();
+                string phoneNumber = dtgvService.SelectedRows[0].Cells[4].Value.ToString();
+                string address = dtgvService.SelectedRows[0].Cells[3].Value.ToString();
+                string date = dtgvService.SelectedRows[0].Cells[7].Value.ToString();
+                string debt = dtgvService.SelectedRows[0].Cells[6].Value.ToString();
+                string email = dtgvService.SelectedRows[0].Cells[5].Value.ToString();
 
                 // Truyền thông tin sang fInforCar
                 f.txbCustomerName.Text = customerName;
@@ -328,26 +334,9 @@ namespace WinFormsApp.Screens.Service
                 f.txbEmail.Text = email;
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    LoadCarData(); 
+                    LoadCarData();
                 }
             }
-        }
-
-        private void ListRepair_Click(object sender, EventArgs e)
-        {
-            fListRepair f = new fListRepair();
-            f.ShowDialog();
-        }
-
-        private void ListPayment_Click(object sender, EventArgs e)
-        {
-            fListPayment f = new fListPayment();
-            f.ShowDialog();
-        }
-
-        private void StripMenuManager_Click(object sender, EventArgs e)
-        {
-            // throw new System.NotImplementedException();
         }
 
         private void dtpDateService_ValueChanged(object sender, EventArgs e)
@@ -358,7 +347,7 @@ namespace WinFormsApp.Screens.Service
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             dtpDateService.Enabled = checkBox1.Checked;
-            
+
         }
 
         private void cbbCarBrand_SelectedIndexChanged(object sender, EventArgs e)
@@ -366,21 +355,26 @@ namespace WinFormsApp.Screens.Service
             // throw new System.NotImplementedException();
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // private void LoadCarBrandData()
         // {
         //     string query = "SELECT DISTINCT HieuXe FROM dbo.XE ORDER BY HieuXe";
         //     DataTable dt = DataProvider.instance.ExecuteQuery(query);
-            
+
         //     // Thêm item mặc định
         //     cbbCarBrand.Items.Clear();
         //     cbbCarBrand.Items.Add("Hiệu xe");
-            
+
         //     // Thêm các hiệu xe từ database
         //     foreach (DataRow row in dt.Rows)
         //     {
         //         cbbCarBrand.Items.Add(row["HieuXe"].ToString());
         //     }
-            
+
         //     // Set giá trị mặc định
         //     cbbCarBrand.Text = "Hiệu xe";
         // }

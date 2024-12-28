@@ -33,16 +33,13 @@
             dgvHistory = new DataGridView();
             txt_code = new TextBox();
             panel2 = new Panel();
-            dtpEndDate = new DateTimePicker();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
+            btnRefresh = new Button();
             button4 = new Button();
             radiobtncode = new RadioButton();
             radiobtnNgayLap = new RadioButton();
-            dtpStartDate = new DateTimePicker();
-            label1 = new Label();
-            label2 = new Label();
+            dtpFindDate = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgvHistory).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -80,7 +77,6 @@
             dgvHistory.AllowUserToAddRows = false;
             dgvHistory.Anchor = AnchorStyles.None;
             dgvHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHistory.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.GrayText;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -107,7 +103,7 @@
             txt_code.Location = new Point(26, 81);
             txt_code.Margin = new Padding(2, 3, 2, 3);
             txt_code.Name = "txt_code";
-            txt_code.PlaceholderText = "Mã phiếu nhập, tên nhà cung cấp,...";
+            txt_code.PlaceholderText = "Mã phiếu nhập, nhân viên tạo phiếu nhập";
             txt_code.Size = new Size(742, 34);
             txt_code.TabIndex = 13;
             txt_code.TextChanged += txt_code_TextChanged;
@@ -122,16 +118,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1166, 71);
             panel2.TabIndex = 5;
-            // 
-            // dtpEndDate
-            // 
-            dtpEndDate.Anchor = AnchorStyles.None;
-            dtpEndDate.Format = DateTimePickerFormat.Short;
-            dtpEndDate.Location = new Point(234, 157);
-            dtpEndDate.Margin = new Padding(2, 3, 2, 3);
-            dtpEndDate.Name = "dtpEndDate";
-            dtpEndDate.Size = new Size(142, 27);
-            dtpEndDate.TabIndex = 7;
             // 
             // button1
             // 
@@ -156,7 +142,7 @@
             button2.BackColor = Color.Green;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(1018, 81);
+            button2.Location = new Point(1018, 74);
             button2.Margin = new Padding(2, 3, 2, 3);
             button2.Name = "button2";
             button2.Size = new Size(137, 41);
@@ -164,20 +150,21 @@
             button2.Text = "Xuất";
             button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnRefresh
             // 
-            button3.Anchor = AnchorStyles.None;
-            button3.AutoSize = true;
-            button3.BackColor = SystemColors.Desktop;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(820, 129);
-            button3.Margin = new Padding(2, 3, 2, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(130, 41);
-            button3.TabIndex = 16;
-            button3.Text = "Làm mới";
-            button3.UseVisualStyleBackColor = false;
+            btnRefresh.Anchor = AnchorStyles.None;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = SystemColors.Desktop;
+            btnRefresh.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(820, 129);
+            btnRefresh.Margin = new Padding(2, 3, 2, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(130, 41);
+            btnRefresh.TabIndex = 16;
+            btnRefresh.Text = "Làm mới";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // button4
             // 
@@ -200,7 +187,7 @@
             radiobtncode.AutoSize = true;
             radiobtncode.Checked = true;
             radiobtncode.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radiobtncode.Location = new Point(84, 119);
+            radiobtncode.Location = new Point(26, 138);
             radiobtncode.Margin = new Padding(2);
             radiobtncode.Name = "radiobtncode";
             radiobtncode.Size = new Size(333, 27);
@@ -214,7 +201,7 @@
             // 
             radiobtnNgayLap.AutoSize = true;
             radiobtnNgayLap.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radiobtnNgayLap.Location = new Point(551, 119);
+            radiobtnNgayLap.Location = new Point(396, 138);
             radiobtnNgayLap.Margin = new Padding(2);
             radiobtnNgayLap.Name = "radiobtnNgayLap";
             radiobtnNgayLap.Size = new Size(217, 27);
@@ -222,35 +209,15 @@
             radiobtnNgayLap.Text = "Tìm theo ngày lập phiếu";
             radiobtnNgayLap.UseVisualStyleBackColor = true;
             // 
-            // dtpStartDate
+            // dtpFindDate
             // 
-            dtpStartDate.Anchor = AnchorStyles.None;
-            dtpStartDate.Format = DateTimePickerFormat.Short;
-            dtpStartDate.Location = new Point(525, 157);
-            dtpStartDate.Margin = new Padding(2, 3, 2, 3);
-            dtpStartDate.Name = "dtpStartDate";
-            dtpStartDate.Size = new Size(142, 27);
-            dtpStartDate.TabIndex = 20;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(111, 161);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(102, 20);
-            label1.TabIndex = 21;
-            label1.Text = "Ngày bắt đầu:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(399, 161);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(103, 20);
-            label2.TabIndex = 22;
-            label2.Text = "Ngày kết thúc:";
+            dtpFindDate.Anchor = AnchorStyles.None;
+            dtpFindDate.Format = DateTimePickerFormat.Short;
+            dtpFindDate.Location = new Point(626, 137);
+            dtpFindDate.Margin = new Padding(2, 3, 2, 3);
+            dtpFindDate.Name = "dtpFindDate";
+            dtpFindDate.Size = new Size(142, 27);
+            dtpFindDate.TabIndex = 20;
             // 
             // history
             // 
@@ -258,16 +225,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1166, 763);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(dtpStartDate);
+            Controls.Add(dtpFindDate);
             Controls.Add(radiobtnNgayLap);
             Controls.Add(radiobtncode);
             Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(btnRefresh);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(dtpEndDate);
             Controls.Add(panel2);
             Controls.Add(txt_code);
             Controls.Add(dgvHistory);
@@ -290,16 +254,13 @@
         private Label a;
         private DataGridView dgvHistory;
         private Panel panel2;
-        private DateTimePicker dtpEndDate;
         private TextBox txt_code;
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button btnRefresh;
         private Button button4;
         private System.Windows.Forms.RadioButton radiobtncode;
         private RadioButton radiobtnNgayLap;
-        private DateTimePicker dtpStartDate;
-        private Label label1;
-        private Label label2;
+        private DateTimePicker dtpFindDate;
     }
 }
