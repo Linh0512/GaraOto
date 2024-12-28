@@ -231,5 +231,11 @@ namespace WinFormsApp.DAO
             return null;
         }
 
+        public DataTable GetCarBrands()
+        {
+            string query = "SELECT DISTINCT HieuXe FROM dbo.XE ORDER BY HieuXe";
+            return DataProvider.instance.ExecuteQuery(query);
+        }
+
     }
 }

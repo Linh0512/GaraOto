@@ -1,29 +1,30 @@
-﻿using System.Data;
+using System.Data;
 using System.Data.SqlClient;
 using WinFormsApp.Models;
 
 namespace WinFormsApp.DAO;
 
-public class LoginDAO
+public class AuthDAO
 {
-    private static LoginDAO _instance;
-    public static LoginDAO Instance
+    private static AuthDAO _instance;
+    public static AuthDAO Instance
     {
         get
         {
             if (_instance == null)
-                _instance = new LoginDAO();
+                _instance = new AuthDAO();
             return _instance;
         }
     }
 
-    private LoginDAO() { }
+    private AuthDAO() { }
 
     public bool Login(string username, string password)
     {
         try
         {
             string query = $"SELECT * FROM NHANVIEN WHERE TenDangNhap = '{username}' AND MatKhau = '{password}'";
+
             
             DataTable result = DataProvider.instance.ExecuteQuery(query);
 
@@ -54,4 +55,28 @@ public class LoginDAO
     {
         SessionManager.Instance.EndSession();
     }
-}
+
+    public bool ChangePassword(string username, string oldPassword, string newPassword)
+    {
+        try
+        {
+            string checkQuery = $"SELECT * FROM NHANVIEN WHERE TenDangNhap = '{username}' AND MatKhau = '{oldPassword}'";
+
+            if (DataProvider.instance.ExecuteQuery(checkQuery).Rows.Count == 0)
+            {
+                throw new Exception("Sai mật khẩu không chính xác!");
+            }
+
+            string updateQuery = $"UPDATE NHANVIEN SET MatKhau = '{newPassword}' WHERE TenDangNhap = '{username}'";
+
+            int result = DataProvider.instance.ExecuteNonQuery(updateQuery);
+            
+            Console.WriteLine(result);
+            return result > 0;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Lỗi đổi mật khẩu: " + ex.Message);
+        }
+    }
+} 

@@ -55,5 +55,14 @@ namespace WinFormsApp.DAO
                 return data;
             }
         }
+        
+        public int ExecuteNonQuery(string query)
+        {
+            SqlConnection connection = this.getConnect();
+            connection.Open();
+            SqlCommand command = new SqlCommand(query, connection);
+            return command.ExecuteNonQuery();
+        }
+        
     }
 }

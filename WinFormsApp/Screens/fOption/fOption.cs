@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using System.Runtime.InteropServices;
+using WinFormsApp.Screens.fOption;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WinFormsApp.Screens.Option
@@ -16,11 +17,21 @@ namespace WinFormsApp.Screens.Option
             this.LoadBrandData();
             this.LoadSupplierData();
             this.LoadCarLimitData();
+            this.loadUserInfor();
         }
 
         private void fOption_Load(object sender, EventArgs e)
         {
             ShowPanel(pnlYourProfile);
+        }
+
+        private void loadUserInfor()
+        {
+            txtUsername.Text = SessionManager.Instance.CurrentUser.TenDangNhap;
+            txtAddress.Text = SessionManager.Instance.CurrentUser.DiaChi;
+            txtPhoneNumber.Text = SessionManager.Instance.CurrentUser.DienThoai;
+            txtEmail.Text = SessionManager.Instance.CurrentUser.Email;
+            txtChucVu.Text = SessionManager.Instance.CurrentUser.ChucVu;
         }
 
         private void ShowPanel(Panel panelToShow)
@@ -172,10 +183,12 @@ namespace WinFormsApp.Screens.Option
             {
                 conditions.Add("MaTienCong", wageID);
             }
+
             if (!string.IsNullOrEmpty(wageType) && wageType != "Loại tiền công")
             {
                 conditions.Add("NoiDung", wageType);
             }
+
             if (!string.IsNullOrEmpty(wageAmount) && wageAmount != "Số tiền")
             {
                 conditions.Add("TienCong", wageAmount);
@@ -210,14 +223,17 @@ namespace WinFormsApp.Screens.Option
             {
                 conditions.Add("MaNCC", supplierID);
             }
+
             if (!string.IsNullOrEmpty(supplierName) && supplierName != "Tên nhà cung cấp")
             {
                 conditions.Add("TenNCC", supplierName);
             }
+
             if (!string.IsNullOrEmpty(phoneNumber) && phoneNumber != "Số điện thoại")
             {
                 conditions.Add("SDT", phoneNumber);
             }
+
             if (!string.IsNullOrEmpty(email) && email != "Email")
             {
                 conditions.Add("Email", email);
@@ -391,7 +407,8 @@ namespace WinFormsApp.Screens.Option
 
         private void ExportButtonClick(DataGridView dgv, string defaultFileName, string worksheetName)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = defaultFileName })
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog()
+                       { Filter = "Excel Workbook|*.xlsx", FileName = defaultFileName })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -414,6 +431,28 @@ namespace WinFormsApp.Screens.Option
         {
             ExportButtonClick(dgvSupplierDetail, "SupplierData.xlsx", "Supplier Details");
         }
+        
 
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+        }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+        }
+
+        private void txtChucVu_TextChanged(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword();
+            changePassword.ShowDialog();
+            this.Show();
+        }
     }
 }

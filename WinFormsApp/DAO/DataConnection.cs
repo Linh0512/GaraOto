@@ -25,9 +25,7 @@ namespace WinFormsApp.DAO
                 connectionSTR = configuration.GetConnectionString("DefaultConnection")
                                 ?? throw new InvalidOperationException(
                                     "Connection string not found.");
-
-
-                Console.WriteLine("Connected to AWS database."); // Log để kiểm tra kết nối
+                
             }
             catch (Exception ex)
             {

@@ -28,6 +28,7 @@ namespace WinFormsApp.Screens.Service
             this.LoadCarData();
             this.LoadAutoCompleteData();
             CheckPermissions();
+            // LoadCarBrandData();
         }
 
         private void CheckPermissions()
@@ -97,10 +98,11 @@ namespace WinFormsApp.Screens.Service
 
         private void GetCarBrandAutoComplete()
         {
-            string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.XE";
+            string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.HIEUXE ORDER BY HieuXe";
             string columnCarBrand = "HieuXe";
-            cbbCarBrand.AutoCompleteCustomSource =
-                ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
+            
+            // Set up AutoComplete
+            cbbCarBrand.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
             cbbCarBrand.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbCarBrand.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
@@ -358,5 +360,29 @@ namespace WinFormsApp.Screens.Service
             dtpDateService.Enabled = checkBox1.Checked;
             
         }
+
+        private void cbbCarBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+        }
+
+        // private void LoadCarBrandData()
+        // {
+        //     string query = "SELECT DISTINCT HieuXe FROM dbo.XE ORDER BY HieuXe";
+        //     DataTable dt = DataProvider.instance.ExecuteQuery(query);
+            
+        //     // Thêm item mặc định
+        //     cbbCarBrand.Items.Clear();
+        //     cbbCarBrand.Items.Add("Hiệu xe");
+            
+        //     // Thêm các hiệu xe từ database
+        //     foreach (DataRow row in dt.Rows)
+        //     {
+        //         cbbCarBrand.Items.Add(row["HieuXe"].ToString());
+        //     }
+            
+        //     // Set giá trị mặc định
+        //     cbbCarBrand.Text = "Hiệu xe";
+        // }
     }
 }

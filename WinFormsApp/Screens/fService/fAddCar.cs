@@ -23,7 +23,7 @@ namespace WinFormsApp.Screens.Service.AddCar
 
         private void GetCarBrandAutoComplete()
         {
-            string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.XE";
+            string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.HIEUXE";
             string columnCarBrand = "HieuXe";
             cbbCarBrandName.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
             cbbCarBrandName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
