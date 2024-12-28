@@ -118,6 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnSignOut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAC0AAAAmCAYAAABQ3RJZAAAABGdBTUEAALGPC/xhBQAAA2VJREFUWEfV
+        mcmPTFEUxgsLRBtiCKmEhaEXEou2klhpkbBB2EkTU6WXHbEiNvRGJPTGP2DZzdKiERba1CGmsKBEhZKa
+        B1WGTgcpv1POa7dev6be0NWvvuTLrVfnvHO+O7777ou4RS6XW1UoFPbm8/kBeBd+gt/gTzgOS/A1PkP4
+        9sGueDw+V29vLYrF4kbEnIVPoYisNUGpSIoKXIX7+L1Qw00vSBSF5+BH6CSsWY7T6jfhzlqtNkfDBw9a
+        dwfJRm3JTX6B7+ETOIKgB5SvYBb+gE73VOCFVCq1XNMEA2kJAvfCnCZqSEpXD1OeyGazW6nY6lKptDiT
+        ySxAdEc6nV4hQwnbfq4v4/fGuNfkdezrNaU/qOCT0D5ux+Ag3JZMJuer+39BhdZwj8RzEj9C5daqq3cQ
+        KAa/GoGFcVq3J5FIzFM31yBGJy17hbJh2BD3lLp4AwG6CSTj0Qx6n2Rd6uIL0kPEOk3ciV7kuk/N7kE3
+        rRSBVjANKBOrU10CgQw/4h4l7i04IHNATe5BoDOWWOU7uFnNgUMeOFRgll66B4I3IFCWLkvwGK1+UM3h
+        hEwGQ7CM4yE/k84rdOXaDS+iYQ/Xs9XUCFnkcXpkCYZVbuhWc0sh6z69XlAd8hDqdRxCOO0SoeoorTzs
+        Zh0OEuQ/YOlQivCYmv8C0edNR669L0E+IQ8i8j809cDP/HdMXf6AP28bDhUewVvUNCNgO7AJHbKXMYWX
+        EX5YXeqiPxjGtzCqJlegsosqlcpSv5R9jMwp1WIKL/H/oXoyLsw9xj1q1FE3NAmZ4dx3HMpkfhEQn0Gn
+        zZogJqJ/wfqfMgndvmUw49dxr9+9dtOkUQttKzqo4TFKpV9SOnW3Wz6HgkmCKevDI7CJWK1Wl/lluVxe
+        QuW3qxZTdMNEvGMYwrLkPTY0CWXJO6Iubfpw4Y/2e4y35YZJgKO8AlmiQ7E1lVJWJjVNBqKdXgJ61Bxe
+        INz+uhWH4X3dEszQi+0lXy+2ApmABGo4QlDhgbR44EcIFggkhzX206XwHtYIdAZPeSwmvRG6YzGBCp/q
+        ALJKi92gnDiAlP3CPw4g7XsIi8EdQJogefsc9ZogQZQh0U+Z1KRe2ZpDdRPS5ST2+vnimgwXfrfm84Ud
+        tJTTh6Lv0PpQVIQyRAbxnYYPRZHIbzRcE0euvCPDAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="picEmail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

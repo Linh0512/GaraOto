@@ -30,13 +30,13 @@ namespace WinFormsApp.Screens.Option
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fOption));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fOption));
             panel1 = new Panel();
             lblSupplierDetail = new Label();
             lblAccount = new Label();
@@ -105,6 +105,9 @@ namespace WinFormsApp.Screens.Option
             txtSupplierName = new TextBox();
             lblSupplierName = new Label();
             txtSupplierEmail = new TextBox();
+            btnEdit = new Button();
+            btnChangePassword = new Button();
+            btnSignOut = new Button();
             panel1.SuspendLayout();
             pnlYourProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picEmail).BeginInit();
@@ -130,10 +133,9 @@ namespace WinFormsApp.Screens.Option
             panel1.Controls.Add(lblWageDetail);
             panel1.Controls.Add(lblGarageDetail);
             panel1.Controls.Add(lblBrandDetail);
-            panel1.Location = new Point(2, 2);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1390, 90);
+            panel1.Size = new Size(1807, 115);
             panel1.TabIndex = 0;
             // 
             // lblSupplierDetail
@@ -141,10 +143,9 @@ namespace WinFormsApp.Screens.Option
             lblSupplierDetail.AutoSize = true;
             lblSupplierDetail.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSupplierDetail.ForeColor = Color.White;
-            lblSupplierDetail.Location = new Point(1090, 30);
-            lblSupplierDetail.Margin = new Padding(2, 0, 2, 0);
+            lblSupplierDetail.Location = new Point(1417, 38);
             lblSupplierDetail.Name = "lblSupplierDetail";
-            lblSupplierDetail.Size = new Size(229, 38);
+            lblSupplierDetail.Size = new Size(302, 50);
             lblSupplierDetail.TabIndex = 22;
             lblSupplierDetail.Text = "NHÀ CUNG CẤP";
             lblSupplierDetail.Click += lblSupplierDetail_Click;
@@ -154,10 +155,9 @@ namespace WinFormsApp.Screens.Option
             lblAccount.AutoSize = true;
             lblAccount.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAccount.ForeColor = Color.White;
-            lblAccount.Location = new Point(65, 30);
-            lblAccount.Margin = new Padding(2, 0, 2, 0);
+            lblAccount.Location = new Point(84, 38);
             lblAccount.Name = "lblAccount";
-            lblAccount.Size = new Size(170, 38);
+            lblAccount.Size = new Size(225, 50);
             lblAccount.TabIndex = 18;
             lblAccount.Text = "TÀI KHOẢN";
             lblAccount.Click += lblAccount_Click;
@@ -167,10 +167,9 @@ namespace WinFormsApp.Screens.Option
             lblWageDetail.AutoSize = true;
             lblWageDetail.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWageDetail.ForeColor = Color.White;
-            lblWageDetail.Location = new Point(598, 30);
-            lblWageDetail.Margin = new Padding(2, 0, 2, 0);
+            lblWageDetail.Location = new Point(777, 38);
             lblWageDetail.Name = "lblWageDetail";
-            lblWageDetail.Size = new Size(166, 38);
+            lblWageDetail.Size = new Size(220, 50);
             lblWageDetail.TabIndex = 20;
             lblWageDetail.Text = "TIỀN CÔNG";
             lblWageDetail.Click += lblWageDetail_Click;
@@ -180,10 +179,9 @@ namespace WinFormsApp.Screens.Option
             lblGarageDetail.AutoSize = true;
             lblGarageDetail.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGarageDetail.ForeColor = Color.White;
-            lblGarageDetail.Location = new Point(352, 30);
-            lblGarageDetail.Margin = new Padding(2, 0, 2, 0);
+            lblGarageDetail.Location = new Point(458, 38);
             lblGarageDetail.Name = "lblGarageDetail";
-            lblGarageDetail.Size = new Size(130, 38);
+            lblGarageDetail.Size = new Size(170, 50);
             lblGarageDetail.TabIndex = 19;
             lblGarageDetail.Text = "GARAGE";
             lblGarageDetail.Click += lblGarageDetail_Click;
@@ -193,10 +191,9 @@ namespace WinFormsApp.Screens.Option
             lblBrandDetail.AutoSize = true;
             lblBrandDetail.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblBrandDetail.ForeColor = Color.White;
-            lblBrandDetail.Location = new Point(873, 30);
-            lblBrandDetail.Margin = new Padding(2, 0, 2, 0);
+            lblBrandDetail.Location = new Point(1135, 38);
             lblBrandDetail.Name = "lblBrandDetail";
-            lblBrandDetail.Size = new Size(100, 38);
+            lblBrandDetail.Size = new Size(131, 50);
             lblBrandDetail.TabIndex = 21;
             lblBrandDetail.Text = "HÃNG";
             lblBrandDetail.Click += lblBrandDetail_Click;
@@ -204,6 +201,9 @@ namespace WinFormsApp.Screens.Option
             // pnlYourProfile
             // 
             pnlYourProfile.BackColor = SystemColors.ControlLightLight;
+            pnlYourProfile.Controls.Add(btnSignOut);
+            pnlYourProfile.Controls.Add(btnChangePassword);
+            pnlYourProfile.Controls.Add(btnEdit);
             pnlYourProfile.Controls.Add(picEmail);
             pnlYourProfile.Controls.Add(picPhoneNumber);
             pnlYourProfile.Controls.Add(picAddress);
@@ -220,19 +220,17 @@ namespace WinFormsApp.Screens.Option
             pnlYourProfile.Controls.Add(lblBirthdate);
             pnlYourProfile.Controls.Add(lblUsername);
             pnlYourProfile.Font = new Font("Segoe UI", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            pnlYourProfile.Location = new Point(2, 95);
-            pnlYourProfile.Margin = new Padding(2, 2, 2, 2);
+            pnlYourProfile.Location = new Point(3, 122);
             pnlYourProfile.Name = "pnlYourProfile";
-            pnlYourProfile.Size = new Size(1390, 802);
+            pnlYourProfile.Size = new Size(1807, 1027);
             pnlYourProfile.TabIndex = 1;
             // 
             // picEmail
             // 
             picEmail.Image = (Image)resources.GetObject("picEmail.Image");
-            picEmail.Location = new Point(797, 262);
-            picEmail.Margin = new Padding(2, 2, 2, 2);
+            picEmail.Location = new Point(1036, 335);
             picEmail.Name = "picEmail";
-            picEmail.Size = new Size(122, 123);
+            picEmail.Size = new Size(159, 157);
             picEmail.SizeMode = PictureBoxSizeMode.StretchImage;
             picEmail.TabIndex = 14;
             picEmail.TabStop = false;
@@ -240,10 +238,9 @@ namespace WinFormsApp.Screens.Option
             // picPhoneNumber
             // 
             picPhoneNumber.Image = (Image)resources.GetObject("picPhoneNumber.Image");
-            picPhoneNumber.Location = new Point(797, 96);
-            picPhoneNumber.Margin = new Padding(2, 2, 2, 2);
+            picPhoneNumber.Location = new Point(1036, 123);
             picPhoneNumber.Name = "picPhoneNumber";
-            picPhoneNumber.Size = new Size(122, 123);
+            picPhoneNumber.Size = new Size(159, 157);
             picPhoneNumber.SizeMode = PictureBoxSizeMode.StretchImage;
             picPhoneNumber.TabIndex = 13;
             picPhoneNumber.TabStop = false;
@@ -251,10 +248,9 @@ namespace WinFormsApp.Screens.Option
             // picAddress
             // 
             picAddress.Image = (Image)resources.GetObject("picAddress.Image");
-            picAddress.Location = new Point(187, 419);
-            picAddress.Margin = new Padding(2, 2, 2, 2);
+            picAddress.Location = new Point(243, 536);
             picAddress.Name = "picAddress";
-            picAddress.Size = new Size(122, 123);
+            picAddress.Size = new Size(159, 157);
             picAddress.SizeMode = PictureBoxSizeMode.StretchImage;
             picAddress.TabIndex = 12;
             picAddress.TabStop = false;
@@ -262,10 +258,9 @@ namespace WinFormsApp.Screens.Option
             // picBirthdate
             // 
             picBirthdate.Image = (Image)resources.GetObject("picBirthdate.Image");
-            picBirthdate.Location = new Point(187, 262);
-            picBirthdate.Margin = new Padding(2, 2, 2, 2);
+            picBirthdate.Location = new Point(243, 335);
             picBirthdate.Name = "picBirthdate";
-            picBirthdate.Size = new Size(122, 123);
+            picBirthdate.Size = new Size(159, 157);
             picBirthdate.SizeMode = PictureBoxSizeMode.StretchImage;
             picBirthdate.TabIndex = 11;
             picBirthdate.TabStop = false;
@@ -273,10 +268,9 @@ namespace WinFormsApp.Screens.Option
             // picUsername
             // 
             picUsername.Image = (Image)resources.GetObject("picUsername.Image");
-            picUsername.Location = new Point(187, 96);
-            picUsername.Margin = new Padding(2, 2, 2, 2);
+            picUsername.Location = new Point(243, 123);
             picUsername.Name = "picUsername";
-            picUsername.Size = new Size(122, 123);
+            picUsername.Size = new Size(159, 157);
             picUsername.SizeMode = PictureBoxSizeMode.StretchImage;
             picUsername.TabIndex = 10;
             picUsername.TabStop = false;
@@ -285,70 +279,64 @@ namespace WinFormsApp.Screens.Option
             // 
             txtEmail.BackColor = SystemColors.ControlLightLight;
             txtEmail.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtEmail.Location = new Point(950, 321);
-            txtEmail.Margin = new Padding(2, 2, 2, 2);
+            txtEmail.Location = new Point(1235, 411);
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
-            txtEmail.Size = new Size(242, 62);
+            txtEmail.Size = new Size(313, 78);
             txtEmail.TabIndex = 9;
             // 
             // txtPhoneNumber
             // 
             txtPhoneNumber.BackColor = SystemColors.ControlLightLight;
             txtPhoneNumber.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPhoneNumber.Location = new Point(950, 158);
-            txtPhoneNumber.Margin = new Padding(2, 2, 2, 2);
+            txtPhoneNumber.Location = new Point(1235, 202);
             txtPhoneNumber.Multiline = true;
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.ReadOnly = true;
-            txtPhoneNumber.Size = new Size(242, 62);
+            txtPhoneNumber.Size = new Size(313, 78);
             txtPhoneNumber.TabIndex = 8;
             // 
             // txtAddress
             // 
             txtAddress.BackColor = SystemColors.ControlLightLight;
             txtAddress.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtAddress.Location = new Point(341, 477);
-            txtAddress.Margin = new Padding(2, 2, 2, 2);
+            txtAddress.Location = new Point(443, 611);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
             txtAddress.ReadOnly = true;
-            txtAddress.Size = new Size(242, 62);
+            txtAddress.Size = new Size(313, 78);
             txtAddress.TabIndex = 7;
             // 
             // txtBirthdate
             // 
             txtBirthdate.BackColor = SystemColors.ControlLightLight;
             txtBirthdate.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBirthdate.Location = new Point(341, 321);
-            txtBirthdate.Margin = new Padding(2, 2, 2, 2);
+            txtBirthdate.Location = new Point(443, 411);
             txtBirthdate.Multiline = true;
             txtBirthdate.Name = "txtBirthdate";
             txtBirthdate.ReadOnly = true;
-            txtBirthdate.Size = new Size(242, 62);
+            txtBirthdate.Size = new Size(313, 78);
             txtBirthdate.TabIndex = 6;
             // 
             // txtUsername
             // 
             txtUsername.BackColor = SystemColors.ControlLightLight;
             txtUsername.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(341, 158);
-            txtUsername.Margin = new Padding(2, 2, 2, 2);
+            txtUsername.Location = new Point(443, 202);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
             txtUsername.ReadOnly = true;
-            txtUsername.Size = new Size(242, 62);
+            txtUsername.Size = new Size(313, 78);
             txtUsername.TabIndex = 5;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmail.Location = new Point(950, 262);
-            lblEmail.Margin = new Padding(2, 0, 2, 0);
+            lblEmail.Location = new Point(1235, 335);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(83, 38);
+            lblEmail.Size = new Size(110, 50);
             lblEmail.TabIndex = 4;
             lblEmail.Text = "Email";
             // 
@@ -356,10 +344,9 @@ namespace WinFormsApp.Screens.Option
             // 
             lblPhoneNumber.AutoSize = true;
             lblPhoneNumber.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhoneNumber.Location = new Point(950, 96);
-            lblPhoneNumber.Margin = new Padding(2, 0, 2, 0);
+            lblPhoneNumber.Location = new Point(1235, 123);
             lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(180, 38);
+            lblPhoneNumber.Size = new Size(239, 50);
             lblPhoneNumber.TabIndex = 3;
             lblPhoneNumber.Text = "Số điện thoại";
             // 
@@ -367,10 +354,9 @@ namespace WinFormsApp.Screens.Option
             // 
             lblAddress.AutoSize = true;
             lblAddress.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAddress.Location = new Point(341, 419);
-            lblAddress.Margin = new Padding(2, 0, 2, 0);
+            lblAddress.Location = new Point(443, 536);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(102, 38);
+            lblAddress.Size = new Size(133, 50);
             lblAddress.TabIndex = 2;
             lblAddress.Text = "Địa chỉ";
             // 
@@ -378,10 +364,9 @@ namespace WinFormsApp.Screens.Option
             // 
             lblBirthdate.AutoSize = true;
             lblBirthdate.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBirthdate.Location = new Point(341, 262);
-            lblBirthdate.Margin = new Padding(2, 0, 2, 0);
+            lblBirthdate.Location = new Point(443, 335);
             lblBirthdate.Name = "lblBirthdate";
-            lblBirthdate.Size = new Size(141, 38);
+            lblBirthdate.Size = new Size(186, 50);
             lblBirthdate.TabIndex = 1;
             lblBirthdate.Text = "Ngày sinh";
             // 
@@ -389,10 +374,9 @@ namespace WinFormsApp.Screens.Option
             // 
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUsername.Location = new Point(341, 96);
-            lblUsername.Margin = new Padding(2, 0, 2, 0);
+            lblUsername.Location = new Point(443, 123);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(212, 38);
+            lblUsername.Size = new Size(279, 50);
             lblUsername.TabIndex = 0;
             lblUsername.Text = "Tên người dùng";
             // 
@@ -412,30 +396,27 @@ namespace WinFormsApp.Screens.Option
             pnlWageDetail.Controls.Add(txtWageAmount);
             pnlWageDetail.Controls.Add(txtWageType);
             pnlWageDetail.Controls.Add(lblWageType);
-            pnlWageDetail.Location = new Point(2, 95);
-            pnlWageDetail.Margin = new Padding(2, 2, 2, 2);
+            pnlWageDetail.Location = new Point(3, 122);
             pnlWageDetail.Name = "pnlWageDetail";
-            pnlWageDetail.Size = new Size(1390, 802);
+            pnlWageDetail.Size = new Size(1807, 1027);
             pnlWageDetail.TabIndex = 6;
             // 
             // txtWageID
             // 
             txtWageID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtWageID.Location = new Point(52, 115);
-            txtWageID.Margin = new Padding(2, 2, 2, 2);
+            txtWageID.Location = new Point(68, 147);
             txtWageID.Multiline = true;
             txtWageID.Name = "txtWageID";
-            txtWageID.Size = new Size(150, 46);
+            txtWageID.Size = new Size(194, 58);
             txtWageID.TabIndex = 12;
             // 
             // lblWageID
             // 
             lblWageID.AutoSize = true;
             lblWageID.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWageID.Location = new Point(52, 48);
-            lblWageID.Margin = new Padding(2, 0, 2, 0);
+            lblWageID.Location = new Point(68, 61);
             lblWageID.Name = "lblWageID";
-            lblWageID.Size = new Size(56, 38);
+            lblWageID.Size = new Size(74, 50);
             lblWageID.TabIndex = 11;
             lblWageID.Text = "Mã";
             // 
@@ -443,10 +424,9 @@ namespace WinFormsApp.Screens.Option
             // 
             lblWageAmount.AutoSize = true;
             lblWageAmount.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWageAmount.Location = new Point(541, 48);
-            lblWageAmount.Margin = new Padding(2, 0, 2, 0);
+            lblWageAmount.Location = new Point(703, 61);
             lblWageAmount.Name = "lblWageAmount";
-            lblWageAmount.Size = new Size(103, 38);
+            lblWageAmount.Size = new Size(136, 50);
             lblWageAmount.TabIndex = 10;
             lblWageAmount.Text = "Số tiền";
             // 
@@ -472,14 +452,13 @@ namespace WinFormsApp.Screens.Option
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvWageDetail.DefaultCellStyle = dataGridViewCellStyle2;
             dgvWageDetail.EnableHeadersVisualStyles = false;
-            dgvWageDetail.Location = new Point(38, 215);
-            dgvWageDetail.Margin = new Padding(2, 2, 2, 2);
+            dgvWageDetail.Location = new Point(49, 275);
             dgvWageDetail.Name = "dgvWageDetail";
             dgvWageDetail.ReadOnly = true;
             dgvWageDetail.RowHeadersVisible = false;
             dgvWageDetail.RowHeadersWidth = 82;
             dgvWageDetail.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvWageDetail.Size = new Size(1312, 565);
+            dgvWageDetail.Size = new Size(1706, 723);
             dgvWageDetail.TabIndex = 9;
             // 
             // btnRemoveWage
@@ -490,10 +469,9 @@ namespace WinFormsApp.Screens.Option
             btnRemoveWage.ForeColor = Color.White;
             btnRemoveWage.Image = (Image)resources.GetObject("btnRemoveWage.Image");
             btnRemoveWage.ImageAlign = ContentAlignment.MiddleRight;
-            btnRemoveWage.Location = new Point(1195, 122);
-            btnRemoveWage.Margin = new Padding(2, 2, 2, 2);
+            btnRemoveWage.Location = new Point(1554, 156);
             btnRemoveWage.Name = "btnRemoveWage";
-            btnRemoveWage.Size = new Size(138, 58);
+            btnRemoveWage.Size = new Size(179, 74);
             btnRemoveWage.TabIndex = 8;
             btnRemoveWage.Text = "Xóa";
             btnRemoveWage.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -508,10 +486,9 @@ namespace WinFormsApp.Screens.Option
             btnEditWage.ForeColor = Color.White;
             btnEditWage.Image = (Image)resources.GetObject("btnEditWage.Image");
             btnEditWage.ImageAlign = ContentAlignment.MiddleRight;
-            btnEditWage.Location = new Point(1014, 123);
-            btnEditWage.Margin = new Padding(2, 2, 2, 2);
+            btnEditWage.Location = new Point(1318, 157);
             btnEditWage.Name = "btnEditWage";
-            btnEditWage.Size = new Size(138, 58);
+            btnEditWage.Size = new Size(179, 74);
             btnEditWage.TabIndex = 7;
             btnEditWage.Text = "Sửa";
             btnEditWage.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -526,10 +503,9 @@ namespace WinFormsApp.Screens.Option
             btnAddWage.ForeColor = Color.White;
             btnAddWage.Image = (Image)resources.GetObject("btnAddWage.Image");
             btnAddWage.ImageAlign = ContentAlignment.MiddleRight;
-            btnAddWage.Location = new Point(835, 122);
-            btnAddWage.Margin = new Padding(2, 2, 2, 2);
+            btnAddWage.Location = new Point(1086, 156);
             btnAddWage.Name = "btnAddWage";
-            btnAddWage.Size = new Size(138, 58);
+            btnAddWage.Size = new Size(179, 74);
             btnAddWage.TabIndex = 6;
             btnAddWage.Text = "Thêm";
             btnAddWage.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -544,10 +520,9 @@ namespace WinFormsApp.Screens.Option
             btnExportWage.ForeColor = Color.White;
             btnExportWage.Image = (Image)resources.GetObject("btnExportWage.Image");
             btnExportWage.ImageAlign = ContentAlignment.MiddleRight;
-            btnExportWage.Location = new Point(1195, 28);
-            btnExportWage.Margin = new Padding(2, 2, 2, 2);
+            btnExportWage.Location = new Point(1554, 36);
             btnExportWage.Name = "btnExportWage";
-            btnExportWage.Size = new Size(138, 58);
+            btnExportWage.Size = new Size(179, 74);
             btnExportWage.TabIndex = 5;
             btnExportWage.Text = "Xuất";
             btnExportWage.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -562,10 +537,9 @@ namespace WinFormsApp.Screens.Option
             btnRefreshWage.ForeColor = Color.White;
             btnRefreshWage.Image = (Image)resources.GetObject("btnRefreshWage.Image");
             btnRefreshWage.ImageAlign = ContentAlignment.MiddleRight;
-            btnRefreshWage.Location = new Point(1014, 29);
-            btnRefreshWage.Margin = new Padding(2, 2, 2, 2);
+            btnRefreshWage.Location = new Point(1318, 37);
             btnRefreshWage.Name = "btnRefreshWage";
-            btnRefreshWage.Size = new Size(138, 58);
+            btnRefreshWage.Size = new Size(179, 74);
             btnRefreshWage.TabIndex = 4;
             btnRefreshWage.Text = "Làm mới";
             btnRefreshWage.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -580,10 +554,9 @@ namespace WinFormsApp.Screens.Option
             btnSearchWage.ForeColor = Color.White;
             btnSearchWage.Image = (Image)resources.GetObject("btnSearchWage.Image");
             btnSearchWage.ImageAlign = ContentAlignment.MiddleRight;
-            btnSearchWage.Location = new Point(835, 29);
-            btnSearchWage.Margin = new Padding(2, 2, 2, 2);
+            btnSearchWage.Location = new Point(1086, 37);
             btnSearchWage.Name = "btnSearchWage";
-            btnSearchWage.Size = new Size(138, 58);
+            btnSearchWage.Size = new Size(179, 74);
             btnSearchWage.TabIndex = 3;
             btnSearchWage.Text = "Tìm";
             btnSearchWage.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -593,31 +566,28 @@ namespace WinFormsApp.Screens.Option
             // txtWageAmount
             // 
             txtWageAmount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtWageAmount.Location = new Point(541, 115);
-            txtWageAmount.Margin = new Padding(2, 2, 2, 2);
+            txtWageAmount.Location = new Point(703, 147);
             txtWageAmount.Multiline = true;
             txtWageAmount.Name = "txtWageAmount";
-            txtWageAmount.Size = new Size(226, 46);
+            txtWageAmount.Size = new Size(293, 58);
             txtWageAmount.TabIndex = 2;
             // 
             // txtWageType
             // 
             txtWageType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtWageType.Location = new Point(262, 115);
-            txtWageType.Margin = new Padding(2, 2, 2, 2);
+            txtWageType.Location = new Point(341, 147);
             txtWageType.Multiline = true;
             txtWageType.Name = "txtWageType";
-            txtWageType.Size = new Size(222, 46);
+            txtWageType.Size = new Size(287, 58);
             txtWageType.TabIndex = 1;
             // 
             // lblWageType
             // 
             lblWageType.AutoSize = true;
             lblWageType.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWageType.Location = new Point(262, 48);
-            lblWageType.Margin = new Padding(2, 0, 2, 0);
+            lblWageType.Location = new Point(341, 61);
             lblWageType.Name = "lblWageType";
-            lblWageType.Size = new Size(191, 38);
+            lblWageType.Size = new Size(253, 50);
             lblWageType.TabIndex = 0;
             lblWageType.Text = "Loại tiền công";
             // 
@@ -629,10 +599,9 @@ namespace WinFormsApp.Screens.Option
             pnlGarageDetail.Controls.Add(txtCarLimit);
             pnlGarageDetail.Controls.Add(lblCarLimit);
             pnlGarageDetail.Controls.Add(picCar);
-            pnlGarageDetail.Location = new Point(2, 95);
-            pnlGarageDetail.Margin = new Padding(2, 2, 2, 2);
+            pnlGarageDetail.Location = new Point(3, 122);
             pnlGarageDetail.Name = "pnlGarageDetail";
-            pnlGarageDetail.Size = new Size(1390, 802);
+            pnlGarageDetail.Size = new Size(1807, 1027);
             pnlGarageDetail.TabIndex = 17;
             // 
             // btnChangeCarLimit
@@ -640,10 +609,9 @@ namespace WinFormsApp.Screens.Option
             btnChangeCarLimit.BackColor = Color.Teal;
             btnChangeCarLimit.Font = new Font("Segoe UI", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChangeCarLimit.ForeColor = Color.White;
-            btnChangeCarLimit.Location = new Point(668, 441);
-            btnChangeCarLimit.Margin = new Padding(2, 2, 2, 2);
+            btnChangeCarLimit.Location = new Point(868, 564);
             btnChangeCarLimit.Name = "btnChangeCarLimit";
-            btnChangeCarLimit.Size = new Size(132, 52);
+            btnChangeCarLimit.Size = new Size(172, 67);
             btnChangeCarLimit.TabIndex = 4;
             btnChangeCarLimit.Text = "Thay đổi";
             btnChangeCarLimit.UseVisualStyleBackColor = false;
@@ -653,10 +621,9 @@ namespace WinFormsApp.Screens.Option
             // 
             ckbOverDebt.AutoSize = true;
             ckbOverDebt.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ckbOverDebt.Location = new Point(598, 339);
-            ckbOverDebt.Margin = new Padding(2, 2, 2, 2);
+            ckbOverDebt.Location = new Point(777, 434);
             ckbOverDebt.Name = "ckbOverDebt";
-            ckbOverDebt.Size = new Size(289, 34);
+            ckbOverDebt.Size = new Size(379, 44);
             ckbOverDebt.TabIndex = 3;
             ckbOverDebt.Text = "Cho phép trả vượt tiền nợ";
             ckbOverDebt.UseMnemonic = false;
@@ -665,31 +632,28 @@ namespace WinFormsApp.Screens.Option
             // txtCarLimit
             // 
             txtCarLimit.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCarLimit.Location = new Point(675, 248);
-            txtCarLimit.Margin = new Padding(2, 2, 2, 2);
+            txtCarLimit.Location = new Point(877, 317);
             txtCarLimit.Multiline = true;
             txtCarLimit.Name = "txtCarLimit";
-            txtCarLimit.Size = new Size(252, 54);
+            txtCarLimit.Size = new Size(326, 68);
             txtCarLimit.TabIndex = 2;
             // 
             // lblCarLimit
             // 
             lblCarLimit.AutoSize = true;
             lblCarLimit.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCarLimit.Location = new Point(675, 177);
-            lblCarLimit.Margin = new Padding(2, 0, 2, 0);
+            lblCarLimit.Location = new Point(877, 227);
             lblCarLimit.Name = "lblCarLimit";
-            lblCarLimit.Size = new Size(162, 38);
+            lblCarLimit.Size = new Size(215, 50);
             lblCarLimit.TabIndex = 1;
             lblCarLimit.Text = "Số xe tối đa";
             // 
             // picCar
             // 
             picCar.Image = (Image)resources.GetObject("picCar.Image");
-            picCar.Location = new Point(468, 177);
-            picCar.Margin = new Padding(2, 2, 2, 2);
+            picCar.Location = new Point(608, 227);
             picCar.Name = "picCar";
-            picCar.Size = new Size(142, 123);
+            picCar.Size = new Size(185, 157);
             picCar.SizeMode = PictureBoxSizeMode.StretchImage;
             picCar.TabIndex = 0;
             picCar.TabStop = false;
@@ -706,10 +670,9 @@ namespace WinFormsApp.Screens.Option
             pnlBrandDetail.Controls.Add(txtBrandName);
             pnlBrandDetail.Controls.Add(lblBrandName);
             pnlBrandDetail.Controls.Add(dgvBrandDetail);
-            pnlBrandDetail.Location = new Point(2, 95);
-            pnlBrandDetail.Margin = new Padding(2, 2, 2, 2);
+            pnlBrandDetail.Location = new Point(3, 122);
             pnlBrandDetail.Name = "pnlBrandDetail";
-            pnlBrandDetail.Size = new Size(1390, 802);
+            pnlBrandDetail.Size = new Size(1807, 1027);
             pnlBrandDetail.TabIndex = 11;
             // 
             // btnRemoveBrand
@@ -720,10 +683,9 @@ namespace WinFormsApp.Screens.Option
             btnRemoveBrand.ForeColor = Color.White;
             btnRemoveBrand.Image = (Image)resources.GetObject("btnRemoveBrand.Image");
             btnRemoveBrand.ImageAlign = ContentAlignment.MiddleRight;
-            btnRemoveBrand.Location = new Point(735, 123);
-            btnRemoveBrand.Margin = new Padding(2, 2, 2, 2);
+            btnRemoveBrand.Location = new Point(955, 157);
             btnRemoveBrand.Name = "btnRemoveBrand";
-            btnRemoveBrand.Size = new Size(144, 58);
+            btnRemoveBrand.Size = new Size(187, 74);
             btnRemoveBrand.TabIndex = 8;
             btnRemoveBrand.Text = "Xóa";
             btnRemoveBrand.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -738,10 +700,9 @@ namespace WinFormsApp.Screens.Option
             btnEditBrand.ForeColor = Color.White;
             btnEditBrand.Image = (Image)resources.GetObject("btnEditBrand.Image");
             btnEditBrand.ImageAlign = ContentAlignment.MiddleRight;
-            btnEditBrand.Location = new Point(555, 123);
-            btnEditBrand.Margin = new Padding(2, 2, 2, 2);
+            btnEditBrand.Location = new Point(722, 157);
             btnEditBrand.Name = "btnEditBrand";
-            btnEditBrand.Size = new Size(144, 58);
+            btnEditBrand.Size = new Size(187, 74);
             btnEditBrand.TabIndex = 7;
             btnEditBrand.Text = "Sửa";
             btnEditBrand.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -756,10 +717,9 @@ namespace WinFormsApp.Screens.Option
             btnAddBrand.ForeColor = Color.White;
             btnAddBrand.Image = (Image)resources.GetObject("btnAddBrand.Image");
             btnAddBrand.ImageAlign = ContentAlignment.MiddleRight;
-            btnAddBrand.Location = new Point(375, 123);
-            btnAddBrand.Margin = new Padding(2, 2, 2, 2);
+            btnAddBrand.Location = new Point(487, 157);
             btnAddBrand.Name = "btnAddBrand";
-            btnAddBrand.Size = new Size(144, 58);
+            btnAddBrand.Size = new Size(187, 74);
             btnAddBrand.TabIndex = 6;
             btnAddBrand.Text = "Thêm";
             btnAddBrand.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -774,10 +734,9 @@ namespace WinFormsApp.Screens.Option
             btnExportBrand.ForeColor = Color.White;
             btnExportBrand.Image = (Image)resources.GetObject("btnExportBrand.Image");
             btnExportBrand.ImageAlign = ContentAlignment.MiddleRight;
-            btnExportBrand.Location = new Point(735, 30);
-            btnExportBrand.Margin = new Padding(2, 2, 2, 2);
+            btnExportBrand.Location = new Point(955, 38);
             btnExportBrand.Name = "btnExportBrand";
-            btnExportBrand.Size = new Size(144, 58);
+            btnExportBrand.Size = new Size(187, 74);
             btnExportBrand.TabIndex = 5;
             btnExportBrand.Text = "Xuất";
             btnExportBrand.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -792,10 +751,9 @@ namespace WinFormsApp.Screens.Option
             btnRefreshBrand.ForeColor = Color.White;
             btnRefreshBrand.Image = (Image)resources.GetObject("btnRefreshBrand.Image");
             btnRefreshBrand.ImageAlign = ContentAlignment.MiddleRight;
-            btnRefreshBrand.Location = new Point(555, 30);
-            btnRefreshBrand.Margin = new Padding(2, 2, 2, 2);
+            btnRefreshBrand.Location = new Point(722, 38);
             btnRefreshBrand.Name = "btnRefreshBrand";
-            btnRefreshBrand.Size = new Size(144, 58);
+            btnRefreshBrand.Size = new Size(187, 74);
             btnRefreshBrand.TabIndex = 4;
             btnRefreshBrand.Text = "Làm mới";
             btnRefreshBrand.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -810,10 +768,9 @@ namespace WinFormsApp.Screens.Option
             btnSearchBrand.ForeColor = Color.White;
             btnSearchBrand.Image = (Image)resources.GetObject("btnSearchBrand.Image");
             btnSearchBrand.ImageAlign = ContentAlignment.MiddleRight;
-            btnSearchBrand.Location = new Point(375, 30);
-            btnSearchBrand.Margin = new Padding(2, 2, 2, 2);
+            btnSearchBrand.Location = new Point(487, 38);
             btnSearchBrand.Name = "btnSearchBrand";
-            btnSearchBrand.Size = new Size(144, 58);
+            btnSearchBrand.Size = new Size(187, 74);
             btnSearchBrand.TabIndex = 3;
             btnSearchBrand.Text = "Tìm";
             btnSearchBrand.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -823,21 +780,19 @@ namespace WinFormsApp.Screens.Option
             // txtBrandName
             // 
             txtBrandName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBrandName.Location = new Point(75, 102);
-            txtBrandName.Margin = new Padding(2, 2, 2, 2);
+            txtBrandName.Location = new Point(98, 131);
             txtBrandName.Multiline = true;
             txtBrandName.Name = "txtBrandName";
-            txtBrandName.Size = new Size(222, 46);
+            txtBrandName.Size = new Size(287, 58);
             txtBrandName.TabIndex = 1;
             // 
             // lblBrandName
             // 
             lblBrandName.AutoSize = true;
             lblBrandName.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBrandName.Location = new Point(75, 36);
-            lblBrandName.Margin = new Padding(2, 0, 2, 0);
+            lblBrandName.Location = new Point(98, 46);
             lblBrandName.Name = "lblBrandName";
-            lblBrandName.Size = new Size(119, 38);
+            lblBrandName.Size = new Size(156, 50);
             lblBrandName.TabIndex = 0;
             lblBrandName.Text = "Hãng xe";
             // 
@@ -863,14 +818,13 @@ namespace WinFormsApp.Screens.Option
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             dgvBrandDetail.DefaultCellStyle = dataGridViewCellStyle4;
             dgvBrandDetail.EnableHeadersVisualStyles = false;
-            dgvBrandDetail.Location = new Point(38, 215);
-            dgvBrandDetail.Margin = new Padding(2, 2, 2, 2);
+            dgvBrandDetail.Location = new Point(49, 275);
             dgvBrandDetail.Name = "dgvBrandDetail";
             dgvBrandDetail.ReadOnly = true;
             dgvBrandDetail.RowHeadersVisible = false;
             dgvBrandDetail.RowHeadersWidth = 82;
             dgvBrandDetail.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBrandDetail.Size = new Size(1312, 565);
+            dgvBrandDetail.Size = new Size(1706, 723);
             dgvBrandDetail.TabIndex = 9;
             // 
             // pnlSupplierDetail
@@ -891,51 +845,46 @@ namespace WinFormsApp.Screens.Option
             pnlSupplierDetail.Controls.Add(txtSupplierName);
             pnlSupplierDetail.Controls.Add(lblSupplierName);
             pnlSupplierDetail.Controls.Add(txtSupplierEmail);
-            pnlSupplierDetail.Location = new Point(2, 95);
-            pnlSupplierDetail.Margin = new Padding(2, 2, 2, 2);
+            pnlSupplierDetail.Location = new Point(3, 122);
             pnlSupplierDetail.Name = "pnlSupplierDetail";
-            pnlSupplierDetail.Size = new Size(1390, 802);
+            pnlSupplierDetail.Size = new Size(1807, 1027);
             pnlSupplierDetail.TabIndex = 12;
             // 
             // txtSupplierID
             // 
             txtSupplierID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSupplierID.Location = new Point(98, 67);
-            txtSupplierID.Margin = new Padding(2, 2, 2, 2);
+            txtSupplierID.Location = new Point(127, 86);
             txtSupplierID.Multiline = true;
             txtSupplierID.Name = "txtSupplierID";
-            txtSupplierID.Size = new Size(248, 44);
+            txtSupplierID.Size = new Size(321, 55);
             txtSupplierID.TabIndex = 15;
             // 
             // lblSupplierID
             // 
             lblSupplierID.AutoSize = true;
             lblSupplierID.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSupplierID.Location = new Point(98, 10);
-            lblSupplierID.Margin = new Padding(2, 0, 2, 0);
+            lblSupplierID.Location = new Point(127, 13);
             lblSupplierID.Name = "lblSupplierID";
-            lblSupplierID.Size = new Size(56, 38);
+            lblSupplierID.Size = new Size(74, 50);
             lblSupplierID.TabIndex = 14;
             lblSupplierID.Text = "Mã";
             // 
             // txtSupplierPhoneNumber
             // 
             txtSupplierPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSupplierPhoneNumber.Location = new Point(424, 67);
-            txtSupplierPhoneNumber.Margin = new Padding(2, 2, 2, 2);
+            txtSupplierPhoneNumber.Location = new Point(551, 86);
             txtSupplierPhoneNumber.Multiline = true;
             txtSupplierPhoneNumber.Name = "txtSupplierPhoneNumber";
-            txtSupplierPhoneNumber.Size = new Size(248, 44);
+            txtSupplierPhoneNumber.Size = new Size(321, 55);
             txtSupplierPhoneNumber.TabIndex = 12;
             // 
             // lblSupplierEmail
             // 
             lblSupplierEmail.AutoSize = true;
             lblSupplierEmail.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSupplierEmail.Location = new Point(424, 135);
-            lblSupplierEmail.Margin = new Padding(2, 0, 2, 0);
+            lblSupplierEmail.Location = new Point(551, 173);
             lblSupplierEmail.Name = "lblSupplierEmail";
-            lblSupplierEmail.Size = new Size(83, 38);
+            lblSupplierEmail.Size = new Size(110, 50);
             lblSupplierEmail.TabIndex = 11;
             lblSupplierEmail.Text = "Email";
             // 
@@ -943,10 +892,9 @@ namespace WinFormsApp.Screens.Option
             // 
             lblSupplierPhoneNumber.AutoSize = true;
             lblSupplierPhoneNumber.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSupplierPhoneNumber.Location = new Point(424, 10);
-            lblSupplierPhoneNumber.Margin = new Padding(2, 0, 2, 0);
+            lblSupplierPhoneNumber.Location = new Point(551, 13);
             lblSupplierPhoneNumber.Name = "lblSupplierPhoneNumber";
-            lblSupplierPhoneNumber.Size = new Size(180, 38);
+            lblSupplierPhoneNumber.Size = new Size(239, 50);
             lblSupplierPhoneNumber.TabIndex = 10;
             lblSupplierPhoneNumber.Text = "Số điện thoại";
             // 
@@ -972,14 +920,13 @@ namespace WinFormsApp.Screens.Option
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
             dgvSupplierDetail.DefaultCellStyle = dataGridViewCellStyle6;
             dgvSupplierDetail.EnableHeadersVisualStyles = false;
-            dgvSupplierDetail.Location = new Point(38, 248);
-            dgvSupplierDetail.Margin = new Padding(2, 2, 2, 2);
+            dgvSupplierDetail.Location = new Point(49, 317);
             dgvSupplierDetail.Name = "dgvSupplierDetail";
             dgvSupplierDetail.ReadOnly = true;
             dgvSupplierDetail.RowHeadersVisible = false;
             dgvSupplierDetail.RowHeadersWidth = 82;
             dgvSupplierDetail.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSupplierDetail.Size = new Size(1312, 532);
+            dgvSupplierDetail.Size = new Size(1706, 681);
             dgvSupplierDetail.TabIndex = 9;
             // 
             // btnRemoveSupplier
@@ -990,10 +937,9 @@ namespace WinFormsApp.Screens.Option
             btnRemoveSupplier.ForeColor = Color.White;
             btnRemoveSupplier.Image = (Image)resources.GetObject("btnRemoveSupplier.Image");
             btnRemoveSupplier.ImageAlign = ContentAlignment.MiddleRight;
-            btnRemoveSupplier.Location = new Point(1167, 141);
-            btnRemoveSupplier.Margin = new Padding(2, 2, 2, 2);
+            btnRemoveSupplier.Location = new Point(1517, 180);
             btnRemoveSupplier.Name = "btnRemoveSupplier";
-            btnRemoveSupplier.Size = new Size(152, 58);
+            btnRemoveSupplier.Size = new Size(198, 74);
             btnRemoveSupplier.TabIndex = 8;
             btnRemoveSupplier.Text = "Xóa";
             btnRemoveSupplier.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -1008,10 +954,9 @@ namespace WinFormsApp.Screens.Option
             btnEditSupplier.ForeColor = Color.White;
             btnEditSupplier.Image = (Image)resources.GetObject("btnEditSupplier.Image");
             btnEditSupplier.ImageAlign = ContentAlignment.MiddleRight;
-            btnEditSupplier.Location = new Point(978, 141);
-            btnEditSupplier.Margin = new Padding(2, 2, 2, 2);
+            btnEditSupplier.Location = new Point(1271, 180);
             btnEditSupplier.Name = "btnEditSupplier";
-            btnEditSupplier.Size = new Size(152, 58);
+            btnEditSupplier.Size = new Size(198, 74);
             btnEditSupplier.TabIndex = 7;
             btnEditSupplier.Text = "Sửa";
             btnEditSupplier.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -1026,10 +971,9 @@ namespace WinFormsApp.Screens.Option
             btnAddSupplier.ForeColor = Color.White;
             btnAddSupplier.Image = (Image)resources.GetObject("btnAddSupplier.Image");
             btnAddSupplier.ImageAlign = ContentAlignment.MiddleRight;
-            btnAddSupplier.Location = new Point(794, 141);
-            btnAddSupplier.Margin = new Padding(2, 2, 2, 2);
+            btnAddSupplier.Location = new Point(1032, 180);
             btnAddSupplier.Name = "btnAddSupplier";
-            btnAddSupplier.Size = new Size(152, 58);
+            btnAddSupplier.Size = new Size(198, 74);
             btnAddSupplier.TabIndex = 6;
             btnAddSupplier.Text = "Thêm";
             btnAddSupplier.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -1044,10 +988,9 @@ namespace WinFormsApp.Screens.Option
             btnExportSupplier.ForeColor = Color.White;
             btnExportSupplier.Image = (Image)resources.GetObject("btnExportSupplier.Image");
             btnExportSupplier.ImageAlign = ContentAlignment.MiddleRight;
-            btnExportSupplier.Location = new Point(1167, 48);
-            btnExportSupplier.Margin = new Padding(2, 2, 2, 2);
+            btnExportSupplier.Location = new Point(1517, 61);
             btnExportSupplier.Name = "btnExportSupplier";
-            btnExportSupplier.Size = new Size(152, 58);
+            btnExportSupplier.Size = new Size(198, 74);
             btnExportSupplier.TabIndex = 5;
             btnExportSupplier.Text = "Xuất";
             btnExportSupplier.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -1062,10 +1005,9 @@ namespace WinFormsApp.Screens.Option
             btnRefreshSupplier.ForeColor = Color.White;
             btnRefreshSupplier.Image = (Image)resources.GetObject("btnRefreshSupplier.Image");
             btnRefreshSupplier.ImageAlign = ContentAlignment.MiddleRight;
-            btnRefreshSupplier.Location = new Point(978, 48);
-            btnRefreshSupplier.Margin = new Padding(2, 2, 2, 2);
+            btnRefreshSupplier.Location = new Point(1271, 61);
             btnRefreshSupplier.Name = "btnRefreshSupplier";
-            btnRefreshSupplier.Size = new Size(152, 58);
+            btnRefreshSupplier.Size = new Size(198, 74);
             btnRefreshSupplier.TabIndex = 4;
             btnRefreshSupplier.Text = "Làm mới";
             btnRefreshSupplier.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -1080,10 +1022,9 @@ namespace WinFormsApp.Screens.Option
             btnSearchSupplier.ForeColor = Color.White;
             btnSearchSupplier.Image = (Image)resources.GetObject("btnSearchSupplier.Image");
             btnSearchSupplier.ImageAlign = ContentAlignment.MiddleRight;
-            btnSearchSupplier.Location = new Point(794, 48);
-            btnSearchSupplier.Margin = new Padding(2, 2, 2, 2);
+            btnSearchSupplier.Location = new Point(1032, 61);
             btnSearchSupplier.Name = "btnSearchSupplier";
-            btnSearchSupplier.Size = new Size(152, 58);
+            btnSearchSupplier.Size = new Size(198, 74);
             btnSearchSupplier.TabIndex = 3;
             btnSearchSupplier.Text = "Tìm";
             btnSearchSupplier.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -1093,50 +1034,93 @@ namespace WinFormsApp.Screens.Option
             // txtSupplierName
             // 
             txtSupplierName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSupplierName.Location = new Point(100, 189);
-            txtSupplierName.Margin = new Padding(2, 2, 2, 2);
+            txtSupplierName.Location = new Point(130, 242);
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
-            txtSupplierName.Size = new Size(246, 44);
+            txtSupplierName.Size = new Size(319, 55);
             txtSupplierName.TabIndex = 1;
             // 
             // lblSupplierName
             // 
             lblSupplierName.AutoSize = true;
             lblSupplierName.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSupplierName.Location = new Point(100, 135);
-            lblSupplierName.Margin = new Padding(2, 0, 2, 0);
+            lblSupplierName.Location = new Point(130, 173);
             lblSupplierName.Name = "lblSupplierName";
-            lblSupplierName.Size = new Size(234, 38);
+            lblSupplierName.Size = new Size(307, 50);
             lblSupplierName.TabIndex = 0;
             lblSupplierName.Text = "Tên nhà cung cấp";
             // 
             // txtSupplierEmail
             // 
             txtSupplierEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSupplierEmail.Location = new Point(424, 189);
-            txtSupplierEmail.Margin = new Padding(2, 2, 2, 2);
+            txtSupplierEmail.Location = new Point(551, 242);
             txtSupplierEmail.Multiline = true;
             txtSupplierEmail.Name = "txtSupplierEmail";
-            txtSupplierEmail.Size = new Size(248, 44);
+            txtSupplierEmail.Size = new Size(321, 55);
             txtSupplierEmail.TabIndex = 13;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = Color.Teal;
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEdit.ForeColor = Color.White;
+            btnEdit.ImageAlign = ContentAlignment.MiddleRight;
+            btnEdit.Location = new Point(1032, 588);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(183, 74);
+            btnEdit.TabIndex = 15;
+            btnEdit.Text = "Sửa";
+            btnEdit.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnChangePassword
+            // 
+            btnChangePassword.BackColor = Color.Teal;
+            btnChangePassword.FlatStyle = FlatStyle.Flat;
+            btnChangePassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnChangePassword.ForeColor = Color.White;
+            btnChangePassword.ImageAlign = ContentAlignment.MiddleRight;
+            btnChangePassword.Location = new Point(1292, 588);
+            btnChangePassword.Name = "btnChangePassword";
+            btnChangePassword.Size = new Size(259, 74);
+            btnChangePassword.TabIndex = 16;
+            btnChangePassword.Text = "Đổi mật khẩu";
+            btnChangePassword.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnChangePassword.UseVisualStyleBackColor = false;
+            // 
+            // btnSignOut
+            // 
+            btnSignOut.BackColor = Color.IndianRed;
+            btnSignOut.FlatStyle = FlatStyle.Flat;
+            btnSignOut.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSignOut.ForeColor = Color.White;
+            btnSignOut.Image = (Image)resources.GetObject("btnSignOut.Image");
+            btnSignOut.ImageAlign = ContentAlignment.MiddleRight;
+            btnSignOut.Location = new Point(768, 778);
+            btnSignOut.Name = "btnSignOut";
+            btnSignOut.Size = new Size(257, 79);
+            btnSignOut.TabIndex = 17;
+            btnSignOut.Text = "Đăng xuất";
+            btnSignOut.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSignOut.UseVisualStyleBackColor = false;
             // 
             // fOption
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1385, 820);
+            ClientSize = new Size(1795, 1050);
             Controls.Add(panel1);
-            Controls.Add(pnlSupplierDetail);
             Controls.Add(pnlYourProfile);
             Controls.Add(pnlGarageDetail);
             Controls.Add(pnlWageDetail);
             Controls.Add(pnlBrandDetail);
+            Controls.Add(pnlSupplierDetail);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(5, 2, 5, 2);
-            MaximumSize = new Size(1407, 935);
-            MinimumSize = new Size(1407, 808);
+            Margin = new Padding(6, 3, 6, 3);
+            MaximumSize = new Size(1821, 1177);
+            MinimumSize = new Size(1821, 1014);
             Name = "fOption";
             StartPosition = FormStartPosition.CenterParent;
             Text = "CÀI ĐẶT";
@@ -1235,5 +1219,8 @@ namespace WinFormsApp.Screens.Option
         private Label lblWageID;
         private TextBox txtSupplierID;
         private Label lblSupplierID;
+        private Button btnSignOut;
+        private Button btnChangePassword;
+        private Button btnEdit;
     }
 }
