@@ -14,26 +14,41 @@ namespace WinFormsApp.Screens.Option
 {
     public partial class UpdateWage : Form
     {
-        public UpdateWage()
+        private string WageID;
+        private string WageType;
+        private string WageAmount;
+        public UpdateWage(string wageID, string wageType, string wageAmount)
         {
             InitializeComponent();
+            WageID = wageID;
+            WageType = wageType;
+            WageAmount = wageAmount;
+
+            txtWageType.Text = WageType;
+            txtValue.Text = WageAmount;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtWageType.Text)
-                    || String.IsNullOrEmpty(txtValue.Text))
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-            else
+            if (String.IsNullOrEmpty(txtWageType.Text) || String.IsNullOrEmpty(txtValue.Text))
             {
-                OptionDAO.Instance.UpdateWage(new Wage()
-                {
-                    NoiDung = txtWageType.Text,
-                    TienCong = txtValue.Text
-                });
-
-                MessageBox.Show("Cập nhật thông tin thành công!");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
             }
+
+            OptionDAO.Instance.UpdateWage(new Wage()
+            {
+                MaTienCong = WageID,
+                NoiDung = txtWageType.Text,
+                TienCong = txtValue.Text
+            });
+
+            MessageBox.Show("Cập nhật thông tin thành công!");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

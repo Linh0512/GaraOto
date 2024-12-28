@@ -14,9 +14,13 @@ namespace WinFormsApp.Screens.Option
 {
     public partial class UpdateBrand : Form
     {
-        public UpdateBrand()
+        private string OldHieuXe;
+        public UpdateBrand(string oldHieuXe)
         {
             InitializeComponent();
+            OldHieuXe = oldHieuXe;
+
+            txtBrandName.Text = oldHieuXe;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -30,10 +34,9 @@ namespace WinFormsApp.Screens.Option
                 MessageBox.Show("Vui lòng nhập thông tin hãng xe!");
             else
             {
-                OptionDAO.Instance.UpdateBrand(new Brand()
-                {
-                    HieuXe = txtBrandName.Text
-                });
+                string newHieuXe = txtBrandName.Text;
+
+                OptionDAO.Instance.UpdateBrand(OldHieuXe, newHieuXe);
 
                 MessageBox.Show("Cập nhật thông tin thành công!");
             }
