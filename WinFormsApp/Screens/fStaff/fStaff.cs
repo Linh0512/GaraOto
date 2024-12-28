@@ -209,7 +209,11 @@ namespace WinFormsApp
             {
 
                 string tenDangNhap = dgvNhanVien.SelectedRows[0].Cells["TenDangNhap"].Value.ToString();
-
+                if(tenDangNhap == SessionManager.Instance.CurrentUser.TenDangNhap)
+                {
+                    MessageBox.Show("Không thể xóa tài khoản đang đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 DialogResult result = MessageBox.Show(
                     $"Bạn có chắc chắn muốn xóa nhân viên có Tên Đăng Nhập là '{tenDangNhap}' không?",
                     "Xác nhận xóa",
