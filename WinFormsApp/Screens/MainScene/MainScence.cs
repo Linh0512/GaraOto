@@ -11,7 +11,6 @@ using WinFormsApp.DAO;
 using WinFormsApp.Screens.fReport;
 using WinFormsApp.Screens.Service;
 using WinFormsApp.Utils;
-using WinFormsApp.Screens.Option;
 using WinFormsApp.Screens.Service.UpdateInforCar;
 
 namespace WinFormsApp.Screens.MainScene
@@ -156,7 +155,7 @@ namespace WinFormsApp.Screens.MainScene
 
         private void btnOption_Click(object sender, EventArgs e)
         {
-            fOption fOption = new fOption();
+            Option.fOption fOption = new Option.fOption();
             fOption.ShowDialog();
             this.Show();
         }
@@ -284,6 +283,7 @@ namespace WinFormsApp.Screens.MainScene
             {
                 if (string.IsNullOrWhiteSpace(searchValue))
                 {
+                    // Nếu không có giá trị tìm kiếm, load lại toàn bộ dữ liệu
                     LoadMainSceneData();
                     return;
                 }

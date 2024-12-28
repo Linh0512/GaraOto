@@ -75,5 +75,9 @@ namespace WinFormsApp.Screens.Service.UpdateInforCar
             this.Close();
         }
 
+        private void txbLicensePlate_TextChanged(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+        }
     }
 }

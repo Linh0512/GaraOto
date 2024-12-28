@@ -72,13 +72,11 @@
             // 
             panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             panel1.Controls.Add(label1);
-
             panel1.Dock = System.Windows.Forms.DockStyle.Top;
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(1855, 126);
-
             panel1.TabIndex = 1;
             // 
             // label1
@@ -90,7 +88,6 @@
             label1.Location = new System.Drawing.Point(0, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(336, 96);
-
             label1.TabIndex = 1;
             label1.Text = "DỊCH VỤ";
             label1.Click += label1_Click_1;
@@ -107,7 +104,6 @@
             panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(1050, 58);
-
             panel2.TabIndex = 2;
             // 
             // checkBox1
@@ -129,7 +125,6 @@
             dtpDateService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dtpDateService.Name = "dtpDateService";
             dtpDateService.Size = new System.Drawing.Size(246, 31);
-
             dtpDateService.TabIndex = 4;
             dtpDateService.Value = new System.DateTime(2024, 12, 28, 15, 41, 20, 372);
             dtpDateService.ValueChanged += dtpDateService_ValueChanged;
@@ -146,7 +141,6 @@
             cbbPhoneNumber.Name = "cbbPhoneNumber";
             cbbPhoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.No;
             cbbPhoneNumber.Size = new System.Drawing.Size(201, 42);
-
             cbbPhoneNumber.TabIndex = 3;
             cbbPhoneNumber.Text = "Số điện thoại";
             cbbPhoneNumber.Click += cbbTienNo_Click;
@@ -162,7 +156,6 @@
             cbbCustomerName.Name = "cbbCustomerName";
             cbbCustomerName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             cbbCustomerName.Size = new System.Drawing.Size(232, 33);
-
             cbbCustomerName.TabIndex = 2;
             cbbCustomerName.Text = "Chủ xe";
             cbbCustomerName.SelectedIndexChanged += cbbChuXe_SelectedIndexChanged;
@@ -179,8 +172,8 @@
             cbbCarBrand.Name = "cbbCarBrand";
             cbbCarBrand.RightToLeft = System.Windows.Forms.RightToLeft.No;
             cbbCarBrand.Size = new System.Drawing.Size(152, 33);
-
             cbbCarBrand.TabIndex = 1;
+            cbbCarBrand.SelectedIndexChanged += cbbCarBrand_SelectedIndexChanged;
             cbbCarBrand.Click += cbbHieuXe_Click;
             // 
             // hieuXeBindingSource
@@ -199,7 +192,6 @@
             cbbLicensePlate.Name = "cbbLicensePlate";
             cbbLicensePlate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             cbbLicensePlate.Size = new System.Drawing.Size(168, 42);
-
             cbbLicensePlate.TabIndex = 0;
             cbbLicensePlate.SelectedIndexChanged += cbbLicensePlate_SelectedIndexChanged;
             cbbLicensePlate.Click += cbbLicensePlate_Click;
@@ -221,7 +213,6 @@
             panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
             panel3.Size = new System.Drawing.Size(790, 174);
-
             panel3.TabIndex = 3;
             // 
             // btnPayment
@@ -230,7 +221,6 @@
             btnPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnPayment.Name = "btnPayment";
             btnPayment.Size = new System.Drawing.Size(172, 91);
-
             btnPayment.TabIndex = 6;
             btnPayment.Text = "Thanh toán";
             btnPayment.UseVisualStyleBackColor = true;
@@ -246,7 +236,6 @@
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
             menuStrip1.Size = new System.Drawing.Size(101, 35);
-
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -256,7 +245,6 @@
             StripMenuManager.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { ListRepair, ListPayment });
             StripMenuManager.Name = "StripMenuManager";
             StripMenuManager.Size = new System.Drawing.Size(89, 29);
-
             StripMenuManager.Text = "Quản lý";
             StripMenuManager.Click += StripMenuManager_Click;
             // 
@@ -264,7 +252,6 @@
             // 
             ListRepair.Name = "ListRepair";
             ListRepair.Size = new System.Drawing.Size(321, 34);
-
             ListRepair.Text = "Danh sách phiếu sửa chữa";
             ListRepair.Click += ListRepair_Click;
             // 
@@ -272,7 +259,6 @@
             // 
             ListPayment.Name = "ListPayment";
             ListPayment.Size = new System.Drawing.Size(321, 34);
-
             ListPayment.Text = "Danh sách phiếu thu tiền";
             ListPayment.Click += ListPayment_Click;
             // 
@@ -282,7 +268,6 @@
             bnAddCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             bnAddCar.Name = "bnAddCar";
             bnAddCar.Size = new System.Drawing.Size(185, 123);
-
             bnAddCar.TabIndex = 5;
             bnAddCar.Text = "Tiếp nhận xe";
             bnAddCar.UseVisualStyleBackColor = true;
@@ -294,7 +279,6 @@
             btnAddService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnAddService.Name = "btnAddService";
             btnAddService.Size = new System.Drawing.Size(177, 90);
-
             btnAddService.TabIndex = 4;
             btnAddService.Text = "Thêm dịch vụ";
             btnAddService.UseVisualStyleBackColor = true;
@@ -306,7 +290,6 @@
             bnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             bnXoa.Name = "bnXoa";
             bnXoa.Size = new System.Drawing.Size(153, 90);
-
             bnXoa.TabIndex = 3;
             bnXoa.Text = "Xóa";
             bnXoa.UseVisualStyleBackColor = true;
@@ -318,7 +301,6 @@
             bnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             bnRefresh.Name = "bnRefresh";
             bnRefresh.Size = new System.Drawing.Size(172, 82);
-
             bnRefresh.TabIndex = 1;
             bnRefresh.Text = "Làm mới";
             bnRefresh.UseVisualStyleBackColor = true;
@@ -330,7 +312,6 @@
             bnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             bnFind.Name = "bnFind";
             bnFind.Size = new System.Drawing.Size(177, 82);
-
             bnFind.TabIndex = 5;
             bnFind.Text = "Tìm xe";
             bnFind.UseVisualStyleBackColor = true;
@@ -344,7 +325,6 @@
             panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
             panel4.Size = new System.Drawing.Size(254, 72);
-
             panel4.TabIndex = 5;
             // 
             // label2
@@ -354,7 +334,6 @@
             label2.Location = new System.Drawing.Point(3, 8);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(180, 32);
-
             label2.TabIndex = 0;
             label2.Text = "DANH SÁCH XE";
             // 
@@ -365,7 +344,6 @@
             panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
             panel5.Size = new System.Drawing.Size(1848, 834);
-
             panel5.TabIndex = 6;
             // 
             // dtgvService
@@ -379,13 +357,11 @@
             dtgvService.GridColor = System.Drawing.SystemColors.InactiveCaptionText;
             dtgvService.Location = new System.Drawing.Point(11, 21);
             dtgvService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-
             dtgvService.Name = "dtgvService";
             dtgvService.ReadOnly = true;
             dtgvService.RowHeadersWidth = 51;
             dtgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dtgvService.Size = new System.Drawing.Size(1823, 811);
-
             dtgvService.TabIndex = 4;
             dtgvService.TabStop = false;
             dtgvService.CellContentClick += dgvService_CellContentClick;
@@ -397,7 +373,6 @@
             btnChangeInfor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             btnChangeInfor.Name = "btnChangeInfor";
             btnChangeInfor.Size = new System.Drawing.Size(172, 90);
-
             btnChangeInfor.TabIndex = 7;
             btnChangeInfor.Text = "Sửa thông tin";
             btnChangeInfor.UseVisualStyleBackColor = true;
@@ -409,7 +384,6 @@
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1855, 1101);
-
             Controls.Add(btnChangeInfor);
             Controls.Add(panel5);
             Controls.Add(panel3);
@@ -422,7 +396,6 @@
             MaximumSize = new System.Drawing.Size(1877, 1157);
             MinimumSize = new System.Drawing.Size(1877, 1157);
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-
             Text = "DỊCH VỤ";
             Load += Service_Load;
             panel1.ResumeLayout(false);
@@ -451,7 +424,7 @@
         private ComboBox cbbLicensePlate;
         private ComboBox cbbPhoneNumber;
         private ComboBox cbbCustomerName;
-        private ComboBox cbbCarBrand;
+        private System.Windows.Forms.ComboBox cbbCarBrand;
         private System.Windows.Forms.DateTimePicker dtpDateService;
         private Panel panel3;
         private Button bnRefresh;
