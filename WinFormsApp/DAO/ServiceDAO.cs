@@ -122,7 +122,7 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public DataTable FindCar(Dictionary<string, string> conditions)
+        public DataTable FindCar(Dictionary<string, string> conditions, bool searchByDate = false)
         {
             // Khởi tạo câu truy vấn cơ bản
             string query = "SELECT * FROM dbo.XE";
@@ -133,16 +133,24 @@ namespace WinFormsApp.DAO
                 List<string> filters = new List<string>();
                 foreach (var condition in conditions)
                 {
-                    if (condition.Key == "NgayTiepNhan") // Điều kiện đặc biệt xử lý kiểu ngày
+                    // Bỏ qua điều kiện ngày nếu không tìm theo ngày
+                    if (condition.Key == "NgayTiepNhan" && !searchByDate)
+                        continue;
+
+                    if (condition.Key == "NgayTiepNhan" && searchByDate)
                     {
                         filters.Add($"CONVERT(DATE, {condition.Key}) = '{condition.Value}'");
                     }
-                    else
+                    else if (!string.IsNullOrEmpty(condition.Value)) // Chỉ thêm điều kiện nếu có giá trị
                     {
                         filters.Add($"{condition.Key} LIKE N'%{condition.Value}%'");
                     }
                 }
-                query += " WHERE " + string.Join(" AND ", filters);
+
+                if (filters.Count > 0)
+                {
+                    query += " WHERE " + string.Join(" AND ", filters);
+                }
             }
 
             // Thực thi câu truy vấn

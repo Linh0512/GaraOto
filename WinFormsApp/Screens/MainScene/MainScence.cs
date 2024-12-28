@@ -284,7 +284,6 @@ namespace WinFormsApp.Screens.MainScene
             {
                 if (string.IsNullOrWhiteSpace(searchValue))
                 {
-                    // Nếu không có giá trị tìm kiếm, load lại toàn bộ dữ liệu
                     LoadMainSceneData();
                     return;
                 }
@@ -323,7 +322,7 @@ namespace WinFormsApp.Screens.MainScene
 
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    LoadMainSceneData(); // Refresh lại dữ liệu ngay sau khi cập nhật thành công
+                    LoadMainSceneData(); 
                 }
             }
         }

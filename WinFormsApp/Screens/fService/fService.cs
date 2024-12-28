@@ -29,7 +29,7 @@ namespace WinFormsApp.Screens.Service
             this.LoadAutoCompleteData();
             CheckPermissions();
         }
-        
+
         private void CheckPermissions()
         {
             if (!SessionManager.Instance.IsAdmin())
@@ -38,7 +38,6 @@ namespace WinFormsApp.Screens.Service
                 bnXoa.Enabled = false;
                 StripMenuManager.Enabled = false;
                 btnAddService.Enabled = false;
-                
             }
         }
 
@@ -56,6 +55,7 @@ namespace WinFormsApp.Screens.Service
             string query = "SELECT * FROM dbo.XE";
             ServiceDAO.instance.LoadData(query, dtgvService);
         }
+
         //load auto complete data
         private void LoadAutoCompleteData()
         {
@@ -69,7 +69,8 @@ namespace WinFormsApp.Screens.Service
         {
             string queryLicensePlate = "SELECT DISTINCT BienSo FROM dbo.XE";
             string columnLicensePlate = "BienSo";
-            cbbLicensePlate.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryLicensePlate, columnLicensePlate);
+            cbbLicensePlate.AutoCompleteCustomSource =
+                ServiceDAO.instance.LoadAutoCompleteData(queryLicensePlate, columnLicensePlate);
             cbbLicensePlate.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbLicensePlate.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
@@ -78,7 +79,8 @@ namespace WinFormsApp.Screens.Service
         {
             string queryPhoneNumber = "SELECT DISTINCT DienThoai FROM dbo.XE";
             string columnPhoneNumber = "DienThoai";
-            cbbPhoneNumber.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryPhoneNumber, columnPhoneNumber);
+            cbbPhoneNumber.AutoCompleteCustomSource =
+                ServiceDAO.instance.LoadAutoCompleteData(queryPhoneNumber, columnPhoneNumber);
             cbbPhoneNumber.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbPhoneNumber.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
@@ -87,7 +89,8 @@ namespace WinFormsApp.Screens.Service
         {
             string queryCustomerName = "SELECT DISTINCT TenChuXe FROM dbo.XE";
             string columnCustomerName = "TenChuXe";
-            cbbCustomerName.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCustomerName, columnCustomerName);
+            cbbCustomerName.AutoCompleteCustomSource =
+                ServiceDAO.instance.LoadAutoCompleteData(queryCustomerName, columnCustomerName);
             cbbCustomerName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbCustomerName.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
@@ -96,19 +99,18 @@ namespace WinFormsApp.Screens.Service
         {
             string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.XE";
             string columnCarBrand = "HieuXe";
-            cbbCarBrand.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
+            cbbCarBrand.AutoCompleteCustomSource =
+                ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
             cbbCarBrand.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbCarBrand.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
-
         }
 
         private void cbbLicensePlate_Click(object sender, EventArgs e)
@@ -145,7 +147,6 @@ namespace WinFormsApp.Screens.Service
 
         private void cbbHieuXe_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnAddCar_Click(object sender, EventArgs e)
@@ -159,17 +160,14 @@ namespace WinFormsApp.Screens.Service
 
         private void dgvService_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void dgvService_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void cbbLicensePlate_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnAddService_Click(object sender, EventArgs e)
@@ -199,6 +197,7 @@ namespace WinFormsApp.Screens.Service
             {
                 MessageBox.Show("Please select a row before viewing details.");
             }
+
             this.dtgvService.Refresh();
         }
 
@@ -215,7 +214,6 @@ namespace WinFormsApp.Screens.Service
             string carBrand = cbbCarBrand.Text.Trim();
             string customerName = cbbCustomerName.Text.Trim();
             string phoneNumber = cbbPhoneNumber.Text.Trim();
-            string date = dtpDateService.Value.ToString("yyyy-MM-dd");
 
             // Tạo dictionary chứa các điều kiện tìm kiếm
             Dictionary<string, string> conditions = new Dictionary<string, string>();
@@ -224,27 +222,32 @@ namespace WinFormsApp.Screens.Service
             {
                 conditions.Add("BienSo", plateLicense);
             }
+
             if (!string.IsNullOrEmpty(carBrand) && carBrand != "Hiệu xe")
             {
                 conditions.Add("HieuXe", carBrand);
             }
+
             if (!string.IsNullOrEmpty(customerName) && customerName != "Chủ xe")
             {
                 conditions.Add("TenChuXe", customerName);
             }
+
             if (!string.IsNullOrEmpty(phoneNumber) && phoneNumber != "Số điện thoại")
             {
                 conditions.Add("DienThoai", phoneNumber);
             }
-            if (!string.IsNullOrEmpty(date))
+
+            // Chỉ thêm điều kiện ngày nếu checkbox được check
+            if (checkBox1.Checked)
             {
+                string date = dtpDateService.Value.ToString("yyyy-MM-dd");
                 conditions.Add("NgayTiepNhan", date);
             }
 
             // Gọi hàm FindCar từ ServiceDAO
-            DataTable result = ServiceDAO.instance.FindCar(conditions);
+            DataTable result = ServiceDAO.instance.FindCar(conditions, checkBox1.Checked);
 
-            // Kiểm tra kết quả và hiển thị
             if (result != null && result.Rows.Count > 0)
             {
                 dtgvService.DataSource = result;
@@ -259,7 +262,6 @@ namespace WinFormsApp.Screens.Service
 
         private void cbbChuXe_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void bnRefresh_Click(object sender, EventArgs e)
@@ -274,6 +276,7 @@ namespace WinFormsApp.Screens.Service
                 MessageBox.Show("Không có nợ cần thanh toán");
                 return;
             }
+
             fPayment f = new fPayment();
             if (dtgvService.SelectedRows.Count > 0)
             {
@@ -293,6 +296,7 @@ namespace WinFormsApp.Screens.Service
             {
                 MessageBox.Show("Please select a row before viewing details.");
             }
+
             this.dtgvService.Refresh();
         }
 
@@ -320,7 +324,10 @@ namespace WinFormsApp.Screens.Service
                 f.dtpDateReceived.Text = date;
                 f.txbDebt.Text = debt;
                 f.txbEmail.Text = email;
-                f.ShowDialog();
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    LoadCarData(); 
+                }
             }
         }
 
@@ -339,6 +346,17 @@ namespace WinFormsApp.Screens.Service
         private void StripMenuManager_Click(object sender, EventArgs e)
         {
             // throw new System.NotImplementedException();
+        }
+
+        private void dtpDateService_ValueChanged(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpDateService.Enabled = checkBox1.Checked;
+            
         }
     }
 }
