@@ -11,7 +11,6 @@ using WinFormsApp.DAO;
 using WinFormsApp.Screens.fReport;
 using WinFormsApp.Screens.Service;
 using WinFormsApp.Utils;
-using WinFormsApp.Screens.Option;
 using WinFormsApp.Screens.Service.UpdateInforCar;
 
 namespace WinFormsApp.Screens.MainScene
@@ -157,7 +156,7 @@ namespace WinFormsApp.Screens.MainScene
 
         private void btnOption_Click(object sender, EventArgs e)
         {
-            fOption fOption = new fOption();
+            Option.fOption fOption = new Option.fOption();
             fOption.ShowDialog();
             this.Show();
         }
@@ -330,7 +329,7 @@ namespace WinFormsApp.Screens.MainScene
 
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    LoadMainSceneData(); // Refresh lại dữ liệu ngay sau khi cập nhật thành công
+                    LoadMainSceneData(); 
                 }
             }
         }

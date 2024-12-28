@@ -148,9 +148,9 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public void UpdateBrand(Brand brand)
+        public void UpdateBrand(string oldHieuXe, string newHieuXe)
         {
-            string query = "UPDATE HIEUXE SET HieuXe = @hieuxe";
+            string query = "UPDATE HIEUXE SET HieuXe = @newHieuXe WHERE HieuXe = @oldHieuXe;";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
@@ -158,7 +158,8 @@ namespace WinFormsApp.DAO
                 {
                     SqlCommand command = new SqlCommand(query, connection);
                     connection.Open();
-                    command.Parameters.AddWithValue("@hieuxe", brand.HieuXe);
+                    command.Parameters.AddWithValue("@newHieuXe", newHieuXe);
+                    command.Parameters.AddWithValue("@oldHieuXe", oldHieuXe);
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
@@ -171,24 +172,33 @@ namespace WinFormsApp.DAO
 
         public void DelWage(string wageID)
         {
-            string query = "DELETE FROM dbo.TIENCONG WHERE MaTienCong = @matiencong";
+            string query1 = "DELETE FROM CT_PSC WHERE MaTienCong = @matiencong";
+            string query2 = "DELETE FROM TIENCONG WHERE MaTienCong = @matiencong";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlCommand cmd1 = new SqlCommand(query1, connection);
+                    SqlCommand cmd2 = new SqlCommand(query2, connection);
+
                     connection.Open();
-                    cmd.Parameters.AddWithValue("@matiencong", wageID);
-                    cmd.ExecuteNonQuery();
+
+                    cmd1.Parameters.AddWithValue("@matiencong", wageID);
+                    cmd1.ExecuteNonQuery();
+
+                    cmd2.Parameters.AddWithValue("@matiencong", wageID);
+                    cmd2.ExecuteNonQuery();
+
                     connection.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa tiền công thất bại, có thể được tham chiếu bởi bảng khác");
+                    MessageBox.Show("Xóa tiền công thất bại: " + ex.Message);
                 }
             }
         }
+
 
         public void DelBrand(string brandName)
         {

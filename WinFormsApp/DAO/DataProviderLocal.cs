@@ -11,8 +11,7 @@ namespace WinFormsApp.DAO
     public class DataProviderLocal
 
     {
-
-
+        
         public static DataProviderLocal instance = new DataProviderLocal();
         
         public DataTable ExecuteQuery (string query , object[] parameter = null)

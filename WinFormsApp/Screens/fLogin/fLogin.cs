@@ -74,7 +74,7 @@ namespace WinFormsApp.Screens.Login
                 String username = txbUserName.Text;
                 String password = txbPassword.Text;
                 
-                if(LoginDAO.Instance.Login(username, password))
+                if(AuthDAO.Instance.Login(username, password))
                 {
                     MainScence f = new MainScence();
                     this.Hide();
@@ -95,7 +95,7 @@ namespace WinFormsApp.Screens.Login
 
         private void bnExit_Click(object sender, EventArgs e)
         {
-            LoginDAO.Instance.Logout();
+            AuthDAO.Instance.Logout();
             Application.Exit();
         }
 
