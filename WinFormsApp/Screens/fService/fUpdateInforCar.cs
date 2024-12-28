@@ -14,6 +14,8 @@ namespace WinFormsApp.Screens.Service.UpdateInforCar
 {
     public partial class fUpdateInforCar : Form
     {
+        public bool IsUpdated { get; private set; } = false;
+
         public fUpdateInforCar()
         {
             InitializeComponent();
@@ -38,8 +40,12 @@ namespace WinFormsApp.Screens.Service.UpdateInforCar
             if (String.IsNullOrEmpty(txbLicensePlate.Text) || String.IsNullOrEmpty(cbbCarBrand.Text)
                     || String.IsNullOrEmpty(txbCustomerName.Text) || String.IsNullOrEmpty(txbEmail.Text)
                     || String.IsNullOrEmpty(txbAddress.Text) || String.IsNullOrEmpty(txbPhoneNumber.Text))
+            {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-            else
+                return;
+            }
+
+            try 
             {
                 ServiceDAO.instance.UpdateInforCar(new Car()
                 {
@@ -54,6 +60,13 @@ namespace WinFormsApp.Screens.Service.UpdateInforCar
                 });
 
                 MessageBox.Show("Cập nhật thông tin thành công!");
+                IsUpdated = true;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
             }
         }
 

@@ -137,5 +137,10 @@ namespace WinFormsApp.Screens.fInventory
         {
 
         }
+
+        private void radiobtncode_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
