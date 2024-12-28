@@ -91,13 +91,6 @@ namespace WinFormsApp.Screens.Option
             this.Show();
         }
 
-        private void btnUpdatePassword_Click(object sender, EventArgs e)
-        {
-            UpdatePassword updatePassword = new UpdatePassword();
-            updatePassword.ShowDialog();
-            this.Show();
-        }
-
         private void lblAccount_Click(object sender, EventArgs e)
         {
             ShowPanel(pnlYourProfile);
@@ -247,19 +240,52 @@ namespace WinFormsApp.Screens.Option
 
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
-            if (dgvSupplierDetail.SelectedRows.Count == 0) return;
-            UpdateSupplier updateSupplier = new UpdateSupplier();
+            if (dgvSupplierDetail.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn hàng cần sửa.");
+                return;
+            }
+
+            string supplierID = dgvSupplierDetail.SelectedRows[0].Cells["MaNCC"].Value.ToString();
+            string supplierName = dgvSupplierDetail.SelectedRows[0].Cells["TenNCC"].Value.ToString();
+            string phoneNumber = dgvSupplierDetail.SelectedRows[0].Cells["SDT"].Value.ToString();
+            string email = dgvSupplierDetail.SelectedRows[0].Cells["Email"].Value.ToString();
+
+            UpdateSupplier updateSupplier = new UpdateSupplier(supplierID, supplierName, phoneNumber, email);
+            updateSupplier.ShowDialog();
+            this.LoadSupplierData();
         }
 
         private void btnEditWage_Click(object sender, EventArgs e)
         {
-            if (dgvWageDetail.SelectedRows.Count == 0) return;
-            UpdateWage updateWage = new UpdateWage();
+            if (dgvWageDetail.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn hàng cần sửa.");
+                return;
+            }
+
+            string wageID = dgvWageDetail.SelectedRows[0].Cells["MaTienCong"].Value.ToString();
+            string wageType = dgvWageDetail.SelectedRows[0].Cells["NoiDung"].Value.ToString();
+            string wageAmount = dgvWageDetail.SelectedRows[0].Cells["TienCong"].Value.ToString();
+
+            UpdateWage updateWage = new UpdateWage(wageID, wageType, wageAmount);
+            updateWage.ShowDialog();
+            this.LoadWageData();
         }
+
         private void btnEditBrand_Click(object sender, EventArgs e)
         {
-            if (dgvSupplierDetail.SelectedRows.Count == 0) return;
-            UpdateBrand updateBrand = new UpdateBrand();
+            if (dgvBrandDetail.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn hàng cần sửa.");
+                return;
+            }
+
+            string oldHieuXe = dgvBrandDetail.SelectedRows[0].Cells["HieuXe"].Value.ToString();
+            UpdateBrand updateBrand = new UpdateBrand(oldHieuXe);
+            updateBrand.ShowDialog();
+
+            this.LoadBrandData();
         }
 
         private void btnRemoveSupplier_Click(object sender, EventArgs e)

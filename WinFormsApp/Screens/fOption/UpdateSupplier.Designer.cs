@@ -96,6 +96,7 @@
             btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnConfirm
             // 

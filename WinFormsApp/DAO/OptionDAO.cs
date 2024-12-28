@@ -226,9 +226,9 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public void UpdateBrand(Brand brand)
+        public void UpdateBrand(string oldHieuXe, string newHieuXe)
         {
-            string query = "UPDATE HIEUXE SET HieuXe = @hieuxe";
+            string query = "UPDATE HIEUXE SET HieuXe = @newHieuXe WHERE HieuXe = @oldHieuXe;";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
@@ -236,7 +236,8 @@ namespace WinFormsApp.DAO
                 {
                     SqlCommand command = new SqlCommand(query, connection);
                     connection.Open();
-                    command.Parameters.AddWithValue("@hieuxe", brand.HieuXe);
+                    command.Parameters.AddWithValue("@newHieuXe", newHieuXe);
+                    command.Parameters.AddWithValue("@oldHieuXe", oldHieuXe);
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
@@ -249,45 +250,68 @@ namespace WinFormsApp.DAO
 
         public void DelSupplier(string supplierID)
         {
-            string query = "DELETE FROM dbo.NHACUNGCAP WHERE MaNCC = @mancc";
+            string query1 = "DELETE FROM CT_PNKVTPT WHERE MaNKVTPT IN (SELECT MaNKVTPT FROM PHIEUNHAPKHOVTPT WHERE MaNCC = @mancc)";
+            string query2 = "DELETE FROM PHIEUNHAPKHOVTPT WHERE MaNCC = @mancc";
+            string query3 = "DELETE FROM NHACUNGCAP WHERE MaNCC = @mancc";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlCommand cmd1 = new SqlCommand(query1, connection);
+                    SqlCommand cmd2 = new SqlCommand(query2, connection);
+                    SqlCommand cmd3 = new SqlCommand(query3, connection);
+
                     connection.Open();
-                    cmd.Parameters.AddWithValue("@mancc", supplierID);
-                    cmd.ExecuteNonQuery();
+
+                    cmd1.Parameters.AddWithValue("@mancc", supplierID);
+                    cmd1.ExecuteNonQuery();
+
+                    cmd2.Parameters.AddWithValue("@mancc", supplierID);
+                    cmd2.ExecuteNonQuery();
+
+                    cmd3.Parameters.AddWithValue("@mancc", supplierID);
+                    cmd3.ExecuteNonQuery();
+
                     connection.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa nhà cung cấp thất bại, có thể được tham chiếu bởi bảng khác");
+                    MessageBox.Show("Xóa nhà cung cấp thất bại: " + ex.Message);
                 }
             }
         }
+
 
         public void DelWage(string wageID)
         {
-            string query = "DELETE FROM dbo.TIENCONG WHERE MaTienCong = @matiencong";
+            string query1 = "DELETE FROM CT_PSC WHERE MaTienCong = @matiencong";
+            string query2 = "DELETE FROM TIENCONG WHERE MaTienCong = @matiencong";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlCommand cmd1 = new SqlCommand(query1, connection);
+                    SqlCommand cmd2 = new SqlCommand(query2, connection);
+
                     connection.Open();
-                    cmd.Parameters.AddWithValue("@matiencong", wageID);
-                    cmd.ExecuteNonQuery();
+
+                    cmd1.Parameters.AddWithValue("@matiencong", wageID);
+                    cmd1.ExecuteNonQuery();
+
+                    cmd2.Parameters.AddWithValue("@matiencong", wageID);
+                    cmd2.ExecuteNonQuery();
+
                     connection.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa tiền công thất bại, có thể được tham chiếu bởi bảng khác");
+                    MessageBox.Show("Xóa tiền công thất bại: " + ex.Message);
                 }
             }
         }
+
 
         public void DelBrand(string brandName)
         {

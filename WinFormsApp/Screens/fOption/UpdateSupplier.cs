@@ -15,27 +15,47 @@ namespace WinFormsApp.Screens.Option
 {
     public partial class UpdateSupplier : Form
     {
-        public UpdateSupplier()
+        private string SupplierID;
+        private string SupplierName;
+        private string PhoneNumber;
+        private string Email;
+        public UpdateSupplier(string supplierID, string supplierName, string phoneNumber, string email)
         {
             InitializeComponent();
+            SupplierID = supplierID;
+            SupplierName = supplierName;
+            PhoneNumber = phoneNumber;
+            Email = email;
+
+            // Populate fields
+            txtSupplierName.Text = SupplierName;
+            txtPhoneNumber.Text = PhoneNumber;
+            txtEmail.Text = Email;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtSupplierName.Text)
-                    || String.IsNullOrEmpty(txtPhoneNumber.Text) || String.IsNullOrEmpty(txtEmail.Text))
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-            else
+            if (String.IsNullOrEmpty(txtSupplierName.Text) ||
+                String.IsNullOrEmpty(txtPhoneNumber.Text) || String.IsNullOrEmpty(txtEmail.Text))
             {
-                OptionDAO.Instance.UpdateSupplier(new Supplier()
-                {
-                    TenNCC = txtSupplierName.Text,
-                    SDT = txtPhoneNumber.Text,
-                    Email = txtEmail.Text
-                });
-
-                MessageBox.Show("Cập nhật thông tin thành công!");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
             }
+
+            OptionDAO.Instance.UpdateSupplier(new Supplier()
+            {
+                MaNCC = SupplierID,
+                TenNCC = txtSupplierName.Text,
+                SDT = txtPhoneNumber.Text,
+                Email = txtEmail.Text
+            });
+
+            MessageBox.Show("Cập nhật thông tin thành công!");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
