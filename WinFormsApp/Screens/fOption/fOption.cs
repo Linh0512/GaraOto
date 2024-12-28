@@ -341,7 +341,7 @@ namespace WinFormsApp.Screens.Option
             }
         }
 
-        private void ExportToExcel(DataGridView dgv, string fileName)
+        private void ExportDataGridViewToExcel(DataGridView dgv, string worksheetName, string fileName)
         {
             if (dgv.Rows.Count == 0)
             {
@@ -351,21 +351,19 @@ namespace WinFormsApp.Screens.Option
 
             try
             {
-                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel.Worksheet worksheet = null;
+                var excel = new Microsoft.Office.Interop.Excel.Application();
+                var workbook = excel.Workbooks.Add(Type.Missing);
+                var worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
 
-                worksheet = (Microsoft.Office.Interop.Excel.Worksheet?)workbook.Sheets["Sheet1"];
-                worksheet = (Microsoft.Office.Interop.Excel.Worksheet?)workbook.ActiveSheet;
-                worksheet.Name = "ExportedData";
+                worksheet.Name = worksheetName;
 
                 // Add column headers
-                for (int i = 1; i <= dgv.Columns.Count; i++)
+                for (int i = 0; i < dgv.Columns.Count; i++)
                 {
-                    worksheet.Cells[1, i] = dgv.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i + 1] = dgv.Columns[i].HeaderText;
                 }
 
-                // Add rows
+                // Add data rows
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     for (int j = 0; j < dgv.Columns.Count; j++)
@@ -374,50 +372,48 @@ namespace WinFormsApp.Screens.Option
                     }
                 }
 
-                // Save the file
                 workbook.SaveAs(fileName);
                 workbook.Close();
                 excel.Quit();
+
+                // Release COM objects to prevent memory leaks
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excel);
 
                 MessageBox.Show("Xuất dữ liệu thành công!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xuất dữ liệu: " + ex.Message);
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+        }
+
+        private void ExportButtonClick(DataGridView dgv, string defaultFileName, string worksheetName)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = defaultFileName })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportDataGridViewToExcel(dgv, worksheetName, saveFileDialog.FileName);
+                }
             }
         }
 
         private void btnExportWage_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "WageData.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(dgvWageDetail, sfd.FileName);
-                }
-            }
+            ExportButtonClick(dgvWageDetail, "WageData.xlsx", "Wage Details");
         }
 
         private void btnExportBrand_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "BrandData.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(dgvBrandDetail, sfd.FileName);
-                }
-            }
+            ExportButtonClick(dgvBrandDetail, "BrandData.xlsx", "Brand Details");
         }
 
         private void btnExportSupplier_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "SupplierData.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(dgvSupplierDetail, sfd.FileName);
-                }
-            }
+            ExportButtonClick(dgvSupplierDetail, "SupplierData.xlsx", "Supplier Details");
         }
+
     }
 }
