@@ -138,73 +138,83 @@ namespace WinFormsApp.DAO
 
         public List<BaoCaoTon> GetBaoCaoTon(int thang, int nam)
         {
-            // Xử lý tháng trước
-            int thangTruoc = thang - 1;
-            int namTruoc = nam;
-            if (thangTruoc == 0)
-            {
-                thangTruoc = 12;
-                namTruoc = nam - 1;
-            }
-
             string query = $@"
-                WITH TonDauKy AS (
-                    -- Tính tồn đầu kỳ (là tồn cuối của tháng trước)
-                    SELECT 
-                        pt.MaVTPT,
-                        pt.TenVTPT,
-                        pt.SoLuongTon + 
-                        ISNULL((
-                            SELECT SUM(ct.SoLuong)
-                            FROM CT_PNKVTPT ct 
-                            JOIN PHIEUNHAPKHOVTPT p ON ct.MaNKVTPT = p.MaNKVTPT
-                            WHERE ct.MaVTPT = pt.MaVTPT 
-                            AND ((YEAR(p.NgayNhap) = {namTruoc}) OR 
-                                 (YEAR(p.NgayNhap) = {nam} AND MONTH(p.NgayNhap) <= {thangTruoc}))
-                        ), 0) -
-                        ISNULL((
-                            SELECT SUM(ct.SoLuong)
-                            FROM CT_PSC ct 
-                            JOIN PHIEUSUACHUA p ON ct.MaPSC = p.MaPSC
-                            WHERE ct.MaVTPT = pt.MaVTPT
-                            AND ((YEAR(p.NgaySuaChua) = {namTruoc}) OR 
-                                 (YEAR(p.NgaySuaChua) = {nam} AND MONTH(p.NgaySuaChua) <= {thangTruoc}))
-                        ), 0) as TonDau
-                    FROM PHUTUNG pt
-                ),
-                NhapTrongKy AS (
-                    -- Tính số lượng nhập trong kỳ
-                    SELECT 
-                        pt.MaVTPT,
-                        ISNULL(SUM(ct.SoLuong), 0) as SoLuongNhap
-                    FROM PHUTUNG pt
-                    LEFT JOIN CT_PNKVTPT ct ON pt.MaVTPT = ct.MaVTPT
-                    LEFT JOIN PHIEUNHAPKHOVTPT p ON ct.MaNKVTPT = p.MaNKVTPT
-                    WHERE MONTH(p.NgayNhap) = {thang} AND YEAR(p.NgayNhap) = {nam}
-                    GROUP BY pt.MaVTPT
-                ),
-                XuatTrongKy AS (
-                    -- Tính số lượng xuất trong kỳ
-                    SELECT 
-                        pt.MaVTPT,
-                        ISNULL(SUM(ct.SoLuong), 0) as SoLuongXuat
-                    FROM PHUTUNG pt
-                    LEFT JOIN CT_PSC ct ON pt.MaVTPT = ct.MaVTPT
-                    LEFT JOIN PHIEUSUACHUA p ON ct.MaPSC = p.MaPSC
-                    WHERE MONTH(p.NgaySuaChua) = {thang} AND YEAR(p.NgaySuaChua) = {nam}
-                    GROUP BY pt.MaVTPT
-                )
-                SELECT 
-                    t.MaVTPT,
-                    t.TenVTPT,
-                    t.TonDau,
-                    ISNULL(n.SoLuongNhap, 0) as SoLuongNhap,
-                    ISNULL(x.SoLuongXuat, 0) as SoLuongSuDung,
-                    t.TonDau + ISNULL(n.SoLuongNhap, 0) - ISNULL(x.SoLuongXuat, 0) as TonCuoi
-                FROM TonDauKy t
-                LEFT JOIN NhapTrongKy n ON t.MaVTPT = n.MaVTPT
-                LEFT JOIN XuatTrongKy x ON t.MaVTPT = x.MaVTPT
-                ORDER BY t.MaVTPT;";
+        WITH TonDauKy AS (
+            SELECT 
+                pt.MaVTPT,
+                pt.TenVTPT,
+                CASE 
+                    WHEN EXISTS (
+                        SELECT 1 
+                        FROM CT_PNKVTPT ct 
+                        JOIN PHIEUNHAPKHOVTPT p ON ct.MaNKVTPT = p.MaNKVTPT
+                        WHERE ct.MaVTPT = pt.MaVTPT 
+                        AND (
+                            (MONTH(p.NgayNhap) < {thang} AND YEAR(p.NgayNhap) = {nam})
+                            OR YEAR(p.NgayNhap) < {nam}
+                        )
+                    ) THEN
+                        (
+                            SELECT ISNULL(
+                                (
+                                    SELECT SUM(ct.SoLuong)
+                                    FROM CT_PNKVTPT ct 
+                                    JOIN PHIEUNHAPKHOVTPT p ON ct.MaNKVTPT = p.MaNKVTPT
+                                    WHERE ct.MaVTPT = pt.MaVTPT 
+                                    AND (
+                                        (MONTH(p.NgayNhap) < {thang} AND YEAR(p.NgayNhap) = {nam})
+                                        OR YEAR(p.NgayNhap) < {nam}
+                                    )
+                                ) -
+                                ISNULL(
+                                    (
+                                        SELECT SUM(ct.SoLuong)
+                                        FROM CT_PSC ct 
+                                        JOIN PHIEUSUACHUA p ON ct.MaPSC = p.MaPSC
+                                        WHERE ct.MaVTPT = pt.MaVTPT 
+                                        AND (
+                                            (MONTH(p.NgaySuaChua) < {thang} AND YEAR(p.NgaySuaChua) = {nam})
+                                            OR YEAR(p.NgaySuaChua) < {nam}
+                                        )
+                                    ), 0
+                                ), 0
+                            )
+                        )
+                    ELSE 0
+                END as TonDau
+            FROM PHUTUNG pt
+        ),
+        NhapTrongKy AS (
+            SELECT 
+                ct.MaVTPT,
+                SUM(ct.SoLuong) as SoLuongNhap
+            FROM CT_PNKVTPT ct
+            JOIN PHIEUNHAPKHOVTPT p ON ct.MaNKVTPT = p.MaNKVTPT
+            WHERE MONTH(p.NgayNhap) = {thang} 
+            AND YEAR(p.NgayNhap) = {nam}
+            GROUP BY ct.MaVTPT
+        ),
+        XuatTrongKy AS (
+            SELECT 
+                ct.MaVTPT,
+                SUM(ct.SoLuong) as SoLuongXuat
+            FROM CT_PSC ct
+            JOIN PHIEUSUACHUA p ON ct.MaPSC = p.MaPSC
+            WHERE MONTH(p.NgaySuaChua) = {thang}
+            AND YEAR(p.NgaySuaChua) = {nam}
+            GROUP BY ct.MaVTPT
+        )
+        SELECT 
+            t.MaVTPT,
+            t.TenVTPT,
+            t.TonDau,
+            ISNULL(n.SoLuongNhap, 0) as SoLuongNhap,
+            ISNULL(x.SoLuongXuat, 0) as SoLuongSuDung,
+            t.TonDau + ISNULL(n.SoLuongNhap, 0) - ISNULL(x.SoLuongXuat, 0) as TonCuoi
+        FROM TonDauKy t
+        LEFT JOIN NhapTrongKy n ON t.MaVTPT = n.MaVTPT
+        LEFT JOIN XuatTrongKy x ON t.MaVTPT = x.MaVTPT
+        ORDER BY t.MaVTPT";
 
             try
             {
@@ -237,23 +247,30 @@ namespace WinFormsApp.DAO
 
         private int GetTonDauThang(string maVTPT, int thang, int nam)
         {
+            if (thang == 1)
+            {
+                thang = 12;
+                nam--;
+            }
+            else
+            {
+                thang--;
+            }
+
             string query = $@"
-                SELECT ISNULL(
-                    (SELECT SoLuongTon FROM PHUTUNG WHERE MaVTPT = '{maVTPT}') +
-                    ISNULL((
-                        SELECT SUM(SoLuong) 
-                        FROM CT_PNKVTPT ct JOIN PHIEUNHAPKHOVTPT p ON ct.MaNKVTPT = p.MaNKVTPT
-                        WHERE ct.MaVTPT = '{maVTPT}' 
-                        AND (MONTH(p.NgayNhap) < {thang} AND YEAR(p.NgayNhap) = {nam})
-                    ), 0) -
-                    ISNULL((
-                        SELECT SUM(SoLuong)
-                        FROM CT_PSC ct JOIN PHIEUSUACHUA p ON ct.MaPSC = p.MaPSC
-                        WHERE ct.MaVTPT = '{maVTPT}'
-                        AND (MONTH(p.NgaySuaChua) < {thang} AND YEAR(p.NgaySuaChua) = {nam})
-                    ), 0),
-                    0
-                ) AS TonDau";
+        SELECT ISNULL((
+            SELECT pt.SoLuongTon - 
+            ISNULL((
+                SELECT SUM(ct.SoLuong)
+                FROM CT_PSC ct 
+                JOIN PHIEUSUACHUA p ON ct.MaPSC = p.MaPSC
+                WHERE ct.MaVTPT = pt.MaVTPT 
+                AND MONTH(p.NgaySuaChua) = {thang}
+                AND YEAR(p.NgaySuaChua) = {nam}
+            ), 0)
+            FROM PHUTUNG pt
+            WHERE pt.MaVTPT = '{maVTPT}'
+        ), 0) as TonDau";
 
             DataTable result = DataProvider.instance.ExecuteQuery(query);
             if (result.Rows.Count > 0)

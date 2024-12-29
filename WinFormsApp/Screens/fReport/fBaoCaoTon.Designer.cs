@@ -155,12 +155,14 @@ partial class fBaoCaoTon
         // 
         tableBCTK.AllowUserToAddRows = false;
         tableBCTK.AllowUserToDeleteRows = false;
+        tableBCTK.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         tableBCTK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         tableBCTK.Columns.AddRange(new DataGridViewColumn[] { MaVTPT, TenVTPT, TonDau, SoLuongNhap, SoLuongSuDung, TonCuoi });
         tableBCTK.Location = new Point(5, 30);
         tableBCTK.Margin = new Padding(2);
         tableBCTK.Name = "tableBCTK";
         tableBCTK.RowHeadersWidth = 62;
+        tableBCTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         tableBCTK.Size = new Size(1098, 363);
         tableBCTK.TabIndex = 1;
         // 
@@ -169,52 +171,48 @@ partial class fBaoCaoTon
         MaVTPT.HeaderText = "Mã VTPT";
         MaVTPT.MinimumWidth = 8;
         MaVTPT.Name = "MaVTPT";
-        MaVTPT.Width = 220;
         // 
         // TenVTPT
         // 
         TenVTPT.HeaderText = "Tên VTPT";
         TenVTPT.MinimumWidth = 8;
         TenVTPT.Name = "TenVTPT";
-        TenVTPT.Width = 220;
         // 
         // TonDau
         // 
         TonDau.HeaderText = "Tồn Đầu";
         TonDau.MinimumWidth = 8;
         TonDau.Name = "TonDau";
-        TonDau.Width = 217;
         // 
         // SoLuongNhap
         // 
         SoLuongNhap.HeaderText = "Số Lượng Nhập";
         SoLuongNhap.MinimumWidth = 8;
         SoLuongNhap.Name = "SoLuongNhap";
-        SoLuongNhap.Width = 217;
         // 
         // SoLuongSuDung
         // 
         SoLuongSuDung.HeaderText = "SoLuongSuDung";
         SoLuongSuDung.MinimumWidth = 8;
         SoLuongSuDung.Name = "SoLuongSuDung";
-        SoLuongSuDung.Width = 217;
         // 
         // TonCuoi
         // 
         TonCuoi.HeaderText = "Tồn Cuối";
         TonCuoi.MinimumWidth = 8;
         TonCuoi.Name = "TonCuoi";
-        TonCuoi.Width = 217;
         // 
         // btnExit
         // 
-        btnExit.Location = new Point(994, 616);
+        btnExit.BackColor = Color.Red;
+        btnExit.Location = new Point(929, 598);
         btnExit.Margin = new Padding(2);
         btnExit.Name = "btnExit";
-        btnExit.Size = new Size(73, 31);
+        btnExit.Size = new Size(101, 49);
         btnExit.TabIndex = 3;
         btnExit.Text = "Thoát";
-        btnExit.UseVisualStyleBackColor = true;
+        btnExit.UseVisualStyleBackColor = false;
+        btnExit.Click += btnExit_Click_1;
         // 
         // fBaoCaoTon
         // 

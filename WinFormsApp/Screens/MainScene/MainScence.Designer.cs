@@ -480,6 +480,7 @@
             // soXeDaTN
             // 
             soXeDaTN.BackColor = SystemColors.Window;
+            soXeDaTN.Enabled = false;
             soXeDaTN.Location = new Point(420, 75);
             soXeDaTN.Margin = new Padding(2);
             soXeDaTN.Name = "soXeDaTN";

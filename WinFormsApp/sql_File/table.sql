@@ -192,6 +192,12 @@ ADD LoaiTienCongToiDa int NOT NULL DEFAULT 100;
 
 GO
 
+alter table PHIEUNHAPKHOVTPT
+ADD TongTienNhap money
+
+go
+
+
 --Phân quyền
 alter table PHIEUNHAPKHOVTPT
 ADD TenDangNhap nvarchar(20)

@@ -36,10 +36,18 @@ namespace WinFormsApp.Screens.Service.Payment
 
         private void CalulateTheRest()
         {
-            double debt = Convert.ToDouble(txbDebt.Text);
-            double paying = Convert.ToDouble(txtAmoutPaying.Text);
-            double theRest = debt - paying;
-            txbTheRest.Text = theRest.ToString();
+            try
+            {
+                double debt = Convert.ToDouble(txbDebt.Text);
+                double paying = Convert.ToDouble(txtAmoutPaying.Text);
+                double theRest = debt - paying;
+                txbTheRest.Text = theRest.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -106,6 +114,34 @@ namespace WinFormsApp.Screens.Service.Payment
                             return;
                         }
                     }
+                }
+            }
+            else
+            {
+                try
+                {
+                    SqlDataReader dr1 = ServiceDAO.instance.LoadDataByLicensePlate(lbPlateLicense.Text);
+                    if (dr1.Read())
+                    {
+                        double newDebt = debt - amountPaying;
+                        ServiceDAO.instance.UpdateDebt(lbPlateLicense.Text, newDebt);
+                    }
+
+                    ReceiptDAO.instance.Add(new PhieuThuTien()
+                    {
+                        MaPTT = txbIdReceipt.Text,
+                        BienSo = lbPlateLicense.Text,
+                        //NgayThuTien = this.dtpDatePay.Value,
+                        SoTienThu = Convert.ToDecimal(amountPaying)
+                    });
+
+                    MessageBox.Show("Thanh toán thành công!");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Thanh toán thất bại: {ex.Message}");
+                    return;
                 }
             }
         }

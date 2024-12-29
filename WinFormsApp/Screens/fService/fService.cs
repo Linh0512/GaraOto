@@ -35,9 +35,9 @@ namespace WinFormsApp.Screens.Service
         {
             if (!SessionManager.Instance.IsAdmin())
             {
-                btnChangeInfor.Enabled = false;
-                bnXoa.Enabled = false;
-                btnAddService.Enabled = false;
+                // btnChangeInfor.Enabled = false;
+                // bnXoa.Enabled = false;
+                // btnAddService.Enabled = false;
             }
         }
 
@@ -213,6 +213,12 @@ namespace WinFormsApp.Screens.Service
 
         private void bnDelete_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền xóa xe");
+                return;
+            }
+
             string plateLicense = (string)dtgvService.SelectedRows[0].Cells[0].Value;
             ServiceDAO.instance.DelCar(plateLicense);
             this.LoadCarData();
@@ -318,6 +324,12 @@ namespace WinFormsApp.Screens.Service
 
         private void ChangeInfor_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền sửa thông tin xe");
+                return;
+            }
+
             if (dtgvService.SelectedRows.Count == 0) return;
             fUpdateInforCar f = new fUpdateInforCar();
             if (dtgvService.SelectedRows.Count > 0)

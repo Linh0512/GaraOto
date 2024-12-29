@@ -149,6 +149,7 @@
             MaximumSize = new Size(635, 497);
             MinimumSize = new Size(635, 497);
             Name = "UpdateInforSupply";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "UpdateInforSupply";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

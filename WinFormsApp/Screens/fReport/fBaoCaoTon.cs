@@ -15,10 +15,10 @@ public partial class fBaoCaoTon : Form
     {
         numericMonth.Value = DateTime.Now.Month;
         numericYear.Value = DateTime.Now.Year;
-        
+
         // Cấu hình DataGridView
         ConfigureDataGridView();
-        
+
         // Clear data
         tableBCTK.DataSource = null;
     }
@@ -77,11 +77,11 @@ public partial class fBaoCaoTon : Form
         {
             int thang = (int)numericMonth.Value;
             int nam = (int)numericYear.Value;
-            
+
             var data = BaoCaoDAO.Instance.GetBaoCaoTon(thang, nam);
             if (data == null || data.Count == 0)
             {
-                MessageBox.Show($"Không có dữ liệu báo cáo tồn kho cho tháng {thang}/{nam}", 
+                MessageBox.Show($"Không có dữ liệu báo cáo tồn kho cho tháng {thang}/{nam}",
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tableBCTK.DataSource = null;
                 return;
@@ -91,7 +91,7 @@ public partial class fBaoCaoTon : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Có lỗi xảy ra khi tải dữ liệu: {ex.Message}", 
+            MessageBox.Show($"Có lỗi xảy ra khi tải dữ liệu: {ex.Message}",
                 "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
@@ -108,4 +108,9 @@ public partial class fBaoCaoTon : Form
 
     private void label3_Click(object sender, EventArgs e) { }
     private void groupBox1_Enter(object sender, EventArgs e) { }
+
+    private void btnExit_Click_1(object sender, EventArgs e)
+    {
+        this.Close();
+    }
 }

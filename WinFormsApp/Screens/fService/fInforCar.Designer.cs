@@ -33,6 +33,10 @@
             lbIdWage = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            panel16 = new Panel();
+            lbEmail = new Label();
+            label6 = new Label();
+            pictureBox7 = new PictureBox();
             label16 = new Label();
             panel10 = new Panel();
             label14 = new Label();
@@ -85,12 +89,10 @@
             btnAddRepair = new Button();
             btnCLose = new Button();
             btnDelService = new Button();
-            panel16 = new Panel();
-            lbEmail = new Label();
-            label6 = new Label();
-            pictureBox7 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel10.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -111,8 +113,6 @@
             panel14.SuspendLayout();
             panel15.SuspendLayout();
             panel12.SuspendLayout();
-            panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -166,6 +166,54 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(282, 671);
             panel2.TabIndex = 1;
+            // 
+            // panel16
+            // 
+            panel16.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel16.BackColor = SystemColors.Control;
+            panel16.Controls.Add(lbEmail);
+            panel16.Controls.Add(label6);
+            panel16.Controls.Add(pictureBox7);
+            panel16.Location = new Point(4, 428);
+            panel16.Margin = new Padding(4);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(271, 67);
+            panel16.TabIndex = 9;
+            // 
+            // lbEmail
+            // 
+            lbEmail.AutoSize = true;
+            lbEmail.BackColor = SystemColors.ButtonShadow;
+            lbEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbEmail.Location = new Point(76, 24);
+            lbEmail.Margin = new Padding(4, 0, 4, 0);
+            lbEmail.Name = "lbEmail";
+            lbEmail.Size = new Size(114, 25);
+            lbEmail.TabIndex = 2;
+            lbEmail.Text = "Trần Qui Linh";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = SystemColors.Control;
+            label6.ForeColor = SystemColors.ControlDarkDark;
+            label6.Location = new Point(76, 4);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(46, 20);
+            label6.TabIndex = 1;
+            label6.Text = "Email";
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.address_icon;
+            pictureBox7.Location = new Point(4, 4);
+            pictureBox7.Margin = new Padding(4);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(66, 53);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 0;
+            pictureBox7.TabStop = false;
             // 
             // label16
             // 
@@ -591,11 +639,13 @@
             dtgvServiceCar.BackgroundColor = SystemColors.Control;
             dtgvServiceCar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvServiceCar.Columns.AddRange(new DataGridViewColumn[] { CellWage, cellIdItem, cellItem, cellQuantity, cellPricePerUnit, cellWagePrice, cellTotalMoney });
+            dtgvServiceCar.Enabled = false;
             dtgvServiceCar.GridColor = SystemColors.ActiveBorder;
             dtgvServiceCar.Location = new Point(0, -1);
             dtgvServiceCar.Margin = new Padding(4);
             dtgvServiceCar.MultiSelect = false;
             dtgvServiceCar.Name = "dtgvServiceCar";
+            dtgvServiceCar.ReadOnly = true;
             dtgvServiceCar.RowHeadersWidth = 82;
             dtgvServiceCar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvServiceCar.Size = new Size(969, 525);
@@ -607,42 +657,49 @@
             CellWage.HeaderText = "Nội dung";
             CellWage.MinimumWidth = 6;
             CellWage.Name = "CellWage";
+            CellWage.ReadOnly = true;
             // 
             // cellIdItem
             // 
             cellIdItem.HeaderText = "Mã vật tư";
             cellIdItem.MinimumWidth = 6;
             cellIdItem.Name = "cellIdItem";
+            cellIdItem.ReadOnly = true;
             // 
             // cellItem
             // 
             cellItem.HeaderText = "Vật tư";
             cellItem.MinimumWidth = 6;
             cellItem.Name = "cellItem";
+            cellItem.ReadOnly = true;
             // 
             // cellQuantity
             // 
             cellQuantity.HeaderText = "Số lượng";
             cellQuantity.MinimumWidth = 6;
             cellQuantity.Name = "cellQuantity";
+            cellQuantity.ReadOnly = true;
             // 
             // cellPricePerUnit
             // 
             cellPricePerUnit.HeaderText = "Đơn giá";
             cellPricePerUnit.MinimumWidth = 6;
             cellPricePerUnit.Name = "cellPricePerUnit";
+            cellPricePerUnit.ReadOnly = true;
             // 
             // cellWagePrice
             // 
             cellWagePrice.HeaderText = "Tiền công";
             cellWagePrice.MinimumWidth = 6;
             cellWagePrice.Name = "cellWagePrice";
+            cellWagePrice.ReadOnly = true;
             // 
             // cellTotalMoney
             // 
             cellTotalMoney.HeaderText = "Thành tiền";
             cellTotalMoney.MinimumWidth = 6;
             cellTotalMoney.Name = "cellTotalMoney";
+            cellTotalMoney.ReadOnly = true;
             // 
             // panel14
             // 
@@ -761,54 +818,6 @@
             btnDelService.UseVisualStyleBackColor = false;
             btnDelService.Click += btnDelService_Click;
             // 
-            // panel16
-            // 
-            panel16.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel16.BackColor = SystemColors.Control;
-            panel16.Controls.Add(lbEmail);
-            panel16.Controls.Add(label6);
-            panel16.Controls.Add(pictureBox7);
-            panel16.Location = new Point(4, 428);
-            panel16.Margin = new Padding(4);
-            panel16.Name = "panel16";
-            panel16.Size = new Size(271, 67);
-            panel16.TabIndex = 9;
-            // 
-            // lbEmail
-            // 
-            lbEmail.AutoSize = true;
-            lbEmail.BackColor = SystemColors.ButtonShadow;
-            lbEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbEmail.Location = new Point(76, 24);
-            lbEmail.Margin = new Padding(4, 0, 4, 0);
-            lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(114, 25);
-            lbEmail.TabIndex = 2;
-            lbEmail.Text = "Trần Qui Linh";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = SystemColors.Control;
-            label6.ForeColor = SystemColors.ControlDarkDark;
-            label6.Location = new Point(76, 4);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(46, 20);
-            label6.TabIndex = 1;
-            label6.Text = "Email";
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.Image = Properties.Resources.address_icon;
-            pictureBox7.Location = new Point(4, 4);
-            pictureBox7.Margin = new Padding(4);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(66, 53);
-            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox7.TabIndex = 0;
-            pictureBox7.TabStop = false;
-            // 
             // fInforCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -830,6 +839,9 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             panel9.ResumeLayout(false);
@@ -860,9 +872,6 @@
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
             panel12.ResumeLayout(false);
-            panel16.ResumeLayout(false);
-            panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 

@@ -31,48 +31,48 @@ partial class fBaoCaoDS
     /// </summary>
     private void InitializeComponent()
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBaoCaoDS));
-        label1 = new System.Windows.Forms.Label();
-        groupBox1 = new System.Windows.Forms.GroupBox();
-        numericMonth = new System.Windows.Forms.NumericUpDown();
-        btnShowBCDS = new System.Windows.Forms.Button();
-        numericYear = new System.Windows.Forms.NumericUpDown();
-        label3 = new System.Windows.Forms.Label();
-        label2 = new System.Windows.Forms.Label();
-        label4 = new System.Windows.Forms.Label();
-        tb_TongDTHU = new System.Windows.Forms.TextBox();
-        tableBCDS = new System.Windows.Forms.DataGridView();
-        HieuXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        SoLuotSua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        TiLe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        btnExit = new System.Windows.Forms.Button();
-        groupBox2 = new System.Windows.Forms.GroupBox();
-        MaVTPT = new System.Windows.Forms.DataGridViewColumn();
-        TenVTPT = new System.Windows.Forms.DataGridViewColumn();
-        TonDau = new System.Windows.Forms.DataGridViewColumn();
-        PhatSinh = new System.Windows.Forms.DataGridViewColumn();
-        SuDung = new System.Windows.Forms.DataGridViewColumn();
-        TonCuoi = new System.Windows.Forms.DataGridViewColumn();
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(fBaoCaoDS));
+        label1 = new Label();
+        groupBox1 = new GroupBox();
+        numericMonth = new NumericUpDown();
+        btnShowBCDS = new Button();
+        numericYear = new NumericUpDown();
+        label3 = new Label();
+        label2 = new Label();
+        label4 = new Label();
+        tb_TongDTHU = new TextBox();
+        tableBCDS = new DataGridView();
+        HieuXe = new DataGridViewTextBoxColumn();
+        SoLuotSua = new DataGridViewTextBoxColumn();
+        ThanhTien = new DataGridViewTextBoxColumn();
+        TiLe = new DataGridViewTextBoxColumn();
+        btnExit = new Button();
+        groupBox2 = new GroupBox();
+        MaVTPT = new DataGridViewColumn();
+        TenVTPT = new DataGridViewColumn();
+        TonDau = new DataGridViewColumn();
+        PhatSinh = new DataGridViewColumn();
+        SuDung = new DataGridViewColumn();
+        TonCuoi = new DataGridViewColumn();
         groupBox1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)numericMonth).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericYear).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)tableBCDS).BeginInit();
+        ((ISupportInitialize)numericMonth).BeginInit();
+        ((ISupportInitialize)numericYear).BeginInit();
+        ((ISupportInitialize)tableBCDS).BeginInit();
         groupBox2.SuspendLayout();
         SuspendLayout();
         // 
         // label1
         // 
-        label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-        label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-        label1.ForeColor = System.Drawing.SystemColors.Window;
-        label1.Location = new System.Drawing.Point(-2, 0);
-        label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        label1.BackColor = SystemColors.MenuHighlight;
+        label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+        label1.ForeColor = SystemColors.Window;
+        label1.Location = new Point(-2, 0);
+        label1.Margin = new Padding(2, 0, 2, 0);
         label1.Name = "label1";
-        label1.Size = new System.Drawing.Size(1241, 73);
+        label1.Size = new Size(993, 58);
         label1.TabIndex = 4;
         label1.Text = "BÁO CÁO DOANH SỐ";
-        label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        label1.TextAlign = ContentAlignment.MiddleCenter;
         label1.Click += label1_Click;
         // 
         // groupBox1
@@ -82,12 +82,12 @@ partial class fBaoCaoDS
         groupBox1.Controls.Add(numericYear);
         groupBox1.Controls.Add(label3);
         groupBox1.Controls.Add(label2);
-        groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-        groupBox1.Location = new System.Drawing.Point(10, 75);
-        groupBox1.Margin = new System.Windows.Forms.Padding(2);
+        groupBox1.Font = new Font("Segoe UI", 12F);
+        groupBox1.Location = new Point(8, 60);
+        groupBox1.Margin = new Padding(2);
         groupBox1.Name = "groupBox1";
-        groupBox1.Padding = new System.Windows.Forms.Padding(2);
-        groupBox1.Size = new System.Drawing.Size(1115, 106);
+        groupBox1.Padding = new Padding(2);
+        groupBox1.Size = new Size(892, 85);
         groupBox1.TabIndex = 5;
         groupBox1.TabStop = false;
         groupBox1.Text = "Báo cáo doanh số";
@@ -95,22 +95,22 @@ partial class fBaoCaoDS
         // 
         // numericMonth
         // 
-        numericMonth.Location = new System.Drawing.Point(122, 45);
-        numericMonth.Margin = new System.Windows.Forms.Padding(2);
+        numericMonth.Location = new Point(98, 36);
+        numericMonth.Margin = new Padding(2);
         numericMonth.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
         numericMonth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
         numericMonth.Name = "numericMonth";
-        numericMonth.Size = new System.Drawing.Size(105, 39);
+        numericMonth.Size = new Size(84, 34);
         numericMonth.TabIndex = 5;
         numericMonth.Value = new decimal(new int[] { 1, 0, 0, 0 });
         numericMonth.ValueChanged += numericMonth_ValueChanged;
         // 
         // btnShowBCDS
         // 
-        btnShowBCDS.Location = new System.Drawing.Point(740, 16);
-        btnShowBCDS.Margin = new System.Windows.Forms.Padding(2);
+        btnShowBCDS.Location = new Point(707, 16);
+        btnShowBCDS.Margin = new Padding(2);
         btnShowBCDS.Name = "btnShowBCDS";
-        btnShowBCDS.Size = new System.Drawing.Size(226, 81);
+        btnShowBCDS.Size = new Size(181, 65);
         btnShowBCDS.TabIndex = 4;
         btnShowBCDS.Text = "Hiện Báo Cáo";
         btnShowBCDS.UseVisualStyleBackColor = true;
@@ -118,55 +118,55 @@ partial class fBaoCaoDS
         // 
         // numericYear
         // 
-        numericYear.Location = new System.Drawing.Point(355, 45);
-        numericYear.Margin = new System.Windows.Forms.Padding(2);
+        numericYear.Location = new Point(284, 36);
+        numericYear.Margin = new Padding(2);
         numericYear.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
         numericYear.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
         numericYear.Name = "numericYear";
-        numericYear.Size = new System.Drawing.Size(122, 39);
+        numericYear.Size = new Size(98, 34);
         numericYear.TabIndex = 3;
         numericYear.Value = new decimal(new int[] { 2024, 0, 0, 0 });
         numericYear.ValueChanged += numericYear_ValueChanged;
         // 
         // label3
         // 
-        label3.Font = new System.Drawing.Font("Segoe UI", 14F);
-        label3.Location = new System.Drawing.Point(269, 42);
-        label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        label3.Font = new Font("Segoe UI", 14F);
+        label3.Location = new Point(215, 34);
+        label3.Margin = new Padding(2, 0, 2, 0);
         label3.Name = "label3";
-        label3.Size = new System.Drawing.Size(82, 32);
+        label3.Size = new Size(66, 26);
         label3.TabIndex = 2;
         label3.Text = "Năm: ";
         label3.Click += label3_Click;
         // 
         // label2
         // 
-        label2.Font = new System.Drawing.Font("Segoe UI", 14F);
-        label2.Location = new System.Drawing.Point(20, 45);
-        label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        label2.Font = new Font("Segoe UI", 14F);
+        label2.Location = new Point(16, 36);
+        label2.Margin = new Padding(2, 0, 2, 0);
         label2.Name = "label2";
-        label2.Size = new System.Drawing.Size(98, 32);
+        label2.Size = new Size(78, 26);
         label2.TabIndex = 0;
         label2.Text = "Tháng:";
         label2.Click += label2_Click;
         // 
         // label4
         // 
-        label4.Font = new System.Drawing.Font("Segoe UI", 14F);
-        label4.Location = new System.Drawing.Point(285, 700);
-        label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        label4.Font = new Font("Segoe UI", 14F);
+        label4.Location = new Point(228, 560);
+        label4.Margin = new Padding(2, 0, 2, 0);
         label4.Name = "label4";
-        label4.Size = new System.Drawing.Size(202, 32);
+        label4.Size = new Size(162, 26);
         label4.TabIndex = 5;
         label4.Text = "Tổng Doanh Thu:";
         label4.Click += label4_Click;
         // 
         // tb_TongDTHU
         // 
-        tb_TongDTHU.Location = new System.Drawing.Point(512, 693);
-        tb_TongDTHU.Margin = new System.Windows.Forms.Padding(2);
+        tb_TongDTHU.Location = new Point(411, 560);
+        tb_TongDTHU.Margin = new Padding(2);
         tb_TongDTHU.Name = "tb_TongDTHU";
-        tb_TongDTHU.Size = new System.Drawing.Size(329, 31);
+        tb_TongDTHU.Size = new Size(264, 27);
         tb_TongDTHU.TabIndex = 7;
         tb_TongDTHU.TextChanged += textBox1_TextChanged;
         // 
@@ -174,14 +174,16 @@ partial class fBaoCaoDS
         // 
         tableBCDS.AllowUserToAddRows = false;
         tableBCDS.AllowUserToDeleteRows = false;
-        tableBCDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableBCDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { HieuXe, SoLuotSua, ThanhTien, TiLe });
-        tableBCDS.Location = new System.Drawing.Point(5, 30);
-        tableBCDS.Margin = new System.Windows.Forms.Padding(2);
+        tableBCDS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        tableBCDS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        tableBCDS.Columns.AddRange(new DataGridViewColumn[] { HieuXe, SoLuotSua, ThanhTien, TiLe });
+        tableBCDS.Location = new Point(4, 24);
+        tableBCDS.Margin = new Padding(2);
         tableBCDS.Name = "tableBCDS";
         tableBCDS.ReadOnly = true;
         tableBCDS.RowHeadersWidth = 62;
-        tableBCDS.Size = new System.Drawing.Size(1208, 473);
+        tableBCDS.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        tableBCDS.Size = new Size(966, 378);
         tableBCDS.TabIndex = 1;
         tableBCDS.CellContentClick += tableBCDS_CellContentClick;
         // 
@@ -191,7 +193,6 @@ partial class fBaoCaoDS
         HieuXe.MinimumWidth = 8;
         HieuXe.Name = "HieuXe";
         HieuXe.ReadOnly = true;
-        HieuXe.Width = 329;
         // 
         // SoLuotSua
         // 
@@ -199,7 +200,6 @@ partial class fBaoCaoDS
         SoLuotSua.MinimumWidth = 8;
         SoLuotSua.Name = "SoLuotSua";
         SoLuotSua.ReadOnly = true;
-        SoLuotSua.Width = 329;
         // 
         // ThanhTien
         // 
@@ -207,7 +207,6 @@ partial class fBaoCaoDS
         ThanhTien.MinimumWidth = 8;
         ThanhTien.Name = "ThanhTien";
         ThanhTien.ReadOnly = true;
-        ThanhTien.Width = 330;
         // 
         // TiLe
         // 
@@ -215,14 +214,13 @@ partial class fBaoCaoDS
         TiLe.MinimumWidth = 8;
         TiLe.Name = "TiLe";
         TiLe.ReadOnly = true;
-        TiLe.Width = 330;
         // 
         // btnExit
         // 
-        btnExit.Location = new System.Drawing.Point(960, 700);
-        btnExit.Margin = new System.Windows.Forms.Padding(2);
+        btnExit.Location = new Point(768, 560);
+        btnExit.Margin = new Padding(2);
         btnExit.Name = "btnExit";
-        btnExit.Size = new System.Drawing.Size(81, 24);
+        btnExit.Size = new Size(87, 50);
         btnExit.TabIndex = 9;
         btnExit.Text = "Thoát";
         btnExit.UseVisualStyleBackColor = true;
@@ -231,12 +229,12 @@ partial class fBaoCaoDS
         // groupBox2
         // 
         groupBox2.Controls.Add(tableBCDS);
-        groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-        groupBox2.Location = new System.Drawing.Point(10, 186);
-        groupBox2.Margin = new System.Windows.Forms.Padding(2);
+        groupBox2.Font = new Font("Segoe UI", 12F);
+        groupBox2.Location = new Point(8, 149);
+        groupBox2.Margin = new Padding(2);
         groupBox2.Name = "groupBox2";
-        groupBox2.Padding = new System.Windows.Forms.Padding(2);
-        groupBox2.Size = new System.Drawing.Size(1217, 512);
+        groupBox2.Padding = new Padding(2);
+        groupBox2.Size = new Size(974, 410);
         groupBox2.TabIndex = 10;
         groupBox2.TabStop = false;
         groupBox2.Text = "Chi tiết báo cáo";
@@ -292,26 +290,27 @@ partial class fBaoCaoDS
         // 
         // fBaoCaoDS
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        BackColor = System.Drawing.SystemColors.Control;
-        ClientSize = new System.Drawing.Size(1238, 776);
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.Control;
+        ClientSize = new Size(990, 621);
         Controls.Add(groupBox2);
         Controls.Add(btnExit);
         Controls.Add(tb_TongDTHU);
         Controls.Add(label4);
         Controls.Add(groupBox1);
         Controls.Add(label1);
-        Icon = ((System.Drawing.Icon)resources.GetObject("$this.Icon"));
-        Margin = new System.Windows.Forms.Padding(2);
-        MinimumSize = new System.Drawing.Size(1152, 745);
-        StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        Margin = new Padding(2);
+        MinimumSize = new Size(925, 605);
+        Name = "fBaoCaoDS";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "BÁO CÁO DOANH SỐ";
         Load += fBaoCaoDS_Load;
         groupBox1.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)numericMonth).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericYear).EndInit();
-        ((System.ComponentModel.ISupportInitialize)tableBCDS).EndInit();
+        ((ISupportInitialize)numericMonth).EndInit();
+        ((ISupportInitialize)numericYear).EndInit();
+        ((ISupportInitialize)tableBCDS).EndInit();
         groupBox2.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();

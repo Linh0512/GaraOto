@@ -64,7 +64,7 @@ public class AuthDAO
 
             if (DataProvider.instance.ExecuteQuery(checkQuery).Rows.Count == 0)
             {
-                throw new Exception("Sai mật khẩu không chính xác!");
+                throw new Exception("Mật khẩu cũ không chính xác!");
             }
 
             string updateQuery = $"UPDATE NHANVIEN SET MatKhau = '{newPassword}' WHERE TenDangNhap = '{username}'";
@@ -76,7 +76,8 @@ public class AuthDAO
         }
         catch (Exception ex)
         {
-            throw new Exception("Lỗi đổi mật khẩu: " + ex.Message);
+            MessageBox.Show("Lỗi: " + ex.Message);
+            return false;
         }
     }
 } 
