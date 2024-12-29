@@ -44,6 +44,7 @@ namespace WinFormsApp.Screens.Option
             });
 
             MessageBox.Show("Cập nhật thông tin thành công!");
+            this.Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

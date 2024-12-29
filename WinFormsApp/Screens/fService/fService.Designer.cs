@@ -123,7 +123,7 @@
             dtpDateService.Name = "dtpDateService";
             dtpDateService.Size = new Size(198, 27);
             dtpDateService.TabIndex = 4;
-            dtpDateService.Value = DateTime.Now;
+            dtpDateService.Value = new DateTime(2024, 12, 29, 13, 57, 59, 673);
             dtpDateService.ValueChanged += dtpDateService_ValueChanged;
             // 
             // cbbPhoneNumber

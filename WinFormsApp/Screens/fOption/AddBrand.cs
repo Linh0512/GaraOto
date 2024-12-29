@@ -48,6 +48,7 @@ namespace WinFormsApp.Screens.Option
 
                 OptionDAO.Instance.AddBrand(Brand.Instance);
                 MessageBox.Show("Thêm hãng xe thành công.");
+                this.Close();
             }
             catch (Exception ex)
             {

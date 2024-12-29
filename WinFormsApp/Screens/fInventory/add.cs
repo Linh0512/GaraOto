@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Models;
+using WinFormsApp.Utils;
 
 namespace WinFormsApp.Screens.fInventory
 {
@@ -30,6 +31,11 @@ namespace WinFormsApp.Screens.fInventory
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (QuyDinhManager.Instance.canAddVTPT() == false)
+            {
+                MessageBox.Show("Số loại vật tư phụ tùng đã đạt tối đa.");
+                return;
+            }
             string tenPhuTung = txtTenPT.Text.Trim();
             string giaBan = txt_price.Text.Trim();
 

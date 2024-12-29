@@ -23,6 +23,66 @@ namespace WinFormsApp.DAO
         {
         }
 
+        public void ExportButtonClick(DataGridView dgv, string defaultFileName, string worksheetName)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog()
+            { Filter = "Excel Workbook|*.xlsx", FileName = defaultFileName })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportDataGridViewToExcel(dgv, worksheetName, saveFileDialog.FileName);
+                }
+            }
+        }
+
+        public void ExportDataGridViewToExcel(DataGridView dgv, string worksheetName, string fileName)
+        {
+            if (dgv.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!");
+                return;
+            }
+
+            try
+            {
+                var excel = new Microsoft.Office.Interop.Excel.Application();
+                var workbook = excel.Workbooks.Add(Type.Missing);
+                var worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
+
+                worksheet.Name = worksheetName;
+
+                // Add column headers
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = dgv.Columns[i].HeaderText;
+                }
+
+                // Add data rows
+                for (int i = 0; i < dgv.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgv.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dgv.Rows[i].Cells[j].Value?.ToString() ?? "";
+                    }
+                }
+
+                workbook.SaveAs(fileName);
+                workbook.Close();
+                excel.Quit();
+
+                // Release COM objects to prevent memory leaks
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excel);
+
+                MessageBox.Show("Xuất dữ liệu thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+        }
+
         public List<BaoCaoDoanhSo> GetBaoCaoDoanhSo(int thang, int nam)
         {
             string query = $@"

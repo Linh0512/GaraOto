@@ -10,22 +10,19 @@ public partial class fRegulations : Form
     {
         InitializeComponent();
         LoadQuyDinh();
-        
+
         // Chỉ cho phép nhập số
         txtCarTodayLimit.KeyPress += NumberOnly_KeyPress;
         txtCarBrandLimit.KeyPress += NumberOnly_KeyPress; // Số hiệu xe
         txtTiLeLai.KeyPress += NumberAndDot_KeyPress; // Cho phép số thập phân
         txtVTPTLimit.KeyPress += NumberOnly_KeyPress;
         txtTienCongLimit.KeyPress += NumberOnly_KeyPress;
-        
-        // Thêm sự kiện click cho nút cập nhật
-        btnUpdate.Click += btnUpdate_Click;
     }
 
     private void LoadQuyDinh()
     {
         QuyDinh currentQuyDinh = QuyDinhManager.Instance.CurrentQuyDinh;
-        
+
         txtCarTodayLimit.Text = currentQuyDinh.SoXeSuaChuaToiDa.ToString();
         txtCarBrandLimit.Text = currentQuyDinh.SoHieuXeToiDa.ToString();
         txtTiLeLai.Text = currentQuyDinh.TiLeLai.ToString();
@@ -41,7 +38,7 @@ public partial class fRegulations : Form
             e.Handled = true;
         }
     }
-    
+
     private void NumberAndDot_KeyPress(object sender, KeyPressEventArgs e)
     {
         if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -71,22 +68,22 @@ public partial class fRegulations : Form
             };
 
             // Kiểm tra các giá trị hợp lệ
-            if (quyDinh.SoXeSuaChuaToiDa <= 0 || quyDinh.SoHieuXeToiDa <= 0 || 
+            if (quyDinh.SoXeSuaChuaToiDa <= 0 || quyDinh.SoHieuXeToiDa <= 0 ||
                 quyDinh.TiLeLai <= 0 || quyDinh.VTPTToiDA <= 0 || quyDinh.LoaiTienCongToiDa <= 0)
             {
-                MessageBox.Show("Vui lòng nhập các giá trị lớn hơn 0", "Lỗi", 
+                MessageBox.Show("Vui lòng nhập các giá trị lớn hơn 0", "Lỗi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             QuyDinhDAO.Instance.UpdateQuyDinh(quyDinh);
             DataUpdateEvent.NotifyPermissionChanged(); // Thông báo các form khác về thay đổi
-            MessageBox.Show("Cập nhật quy định thành công!", "Thông báo", 
+            MessageBox.Show("Cập nhật quy định thành công!", "Thông báo",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Lỗi khi cập nhật quy định: {ex.Message}", "Lỗi", 
+            MessageBox.Show($"Lỗi khi cập nhật quy định: {ex.Message}", "Lỗi",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

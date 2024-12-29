@@ -16,6 +16,7 @@ using WinFormsApp.Screens.Service.UpdateInforCar;
 using WinFormsApp.Screens.Service.ListRepair;
 using WinFormsApp.Screens.Service.ListPayment;
 using WinFormsApp.Screens.fInventory;
+using WinFormsApp.Screens.fOption;
 
 namespace WinFormsApp.Screens.MainScene
 {
@@ -405,6 +406,39 @@ namespace WinFormsApp.Screens.MainScene
                 return;
             }
             fRegulations f = new fRegulations();
+            f.ShowDialog();
+        }
+
+        private void tÀIKHOẢNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            Account f = new Account();
+            f.ShowDialog();
+        }
+
+        private void dANHSÁCHHÃNGXEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            ListCarBrand f = new ListCarBrand();
+            f.ShowDialog();
+        }
+
+        private void dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            WageList f = new WageList();
             f.ShowDialog();
         }
     }

@@ -153,6 +153,11 @@ namespace WinFormsApp.Screens.Service
 
         private void btnAddCar_Click(object sender, EventArgs e)
         {
+            if (QuyDinhManager.Instance.canReceiveCar() == false)
+            {
+                MessageBox.Show("Số xe tiếp nhận trong ngày đã đạt tối đa.");
+                return;
+            }
             fAddCar f = new fAddCar();
             f.ShowDialog();
             this.LoadCarData();

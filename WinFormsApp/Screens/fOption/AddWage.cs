@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Model;
+using WinFormsApp.Utils;
 
 namespace WinFormsApp.Screens.Option
 {
@@ -18,6 +19,7 @@ namespace WinFormsApp.Screens.Option
         public AddWage()
         {
             InitializeComponent();
+            txtWageID.Text = WageDAO.instance.LoadIdWage();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -27,6 +29,11 @@ namespace WinFormsApp.Screens.Option
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (QuyDinhManager.Instance.canAddTienCong() == false)
+            {
+                MessageBox.Show("Số loại tiền công đã đạt tối đa.");
+                return;
+            }
             try
             {
                 Wage.Instance = new Wage
@@ -46,6 +53,7 @@ namespace WinFormsApp.Screens.Option
 
                 OptionDAO.Instance.AddWage(Wage.Instance);
                 MessageBox.Show("Thêm tiền công thành công.");
+                this.Close();
             }
             catch (Exception ex)
             {

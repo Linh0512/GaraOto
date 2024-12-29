@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Screens.fInventory;
+using WinFormsApp.Utils;
 
 namespace WinFormsApp
 {
@@ -66,6 +67,12 @@ namespace WinFormsApp
             if (!SessionManager.Instance.IsAdmin())
             {
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+
+            if (QuyDinhManager.Instance.canAddVTPT() == false)
+            {
+                MessageBox.Show("Số loại vật tư phụ tùng đã đạt tối đa.");
                 return;
             }
 

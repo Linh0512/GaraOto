@@ -44,9 +44,10 @@
             // 
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(lblAddWage);
-            panel1.Location = new Point(-6, 0);
+            panel1.Location = new Point(-4, 0);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1206, 131);
+            panel1.Size = new Size(742, 82);
             panel1.TabIndex = 9;
             // 
             // lblAddWage
@@ -54,9 +55,10 @@
             lblAddWage.AutoSize = true;
             lblAddWage.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAddWage.ForeColor = Color.White;
-            lblAddWage.Location = new Point(368, 21);
+            lblAddWage.Location = new Point(226, 13);
+            lblAddWage.Margin = new Padding(2, 0, 2, 0);
             lblAddWage.Name = "lblAddWage";
-            lblAddWage.Size = new Size(496, 81);
+            lblAddWage.Size = new Size(306, 50);
             lblAddWage.TabIndex = 0;
             lblAddWage.Text = "SỬA TIỀN CÔNG";
             // 
@@ -68,9 +70,10 @@
             btnClose.ForeColor = Color.White;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
             btnClose.ImageAlign = ContentAlignment.MiddleRight;
-            btnClose.Location = new Point(655, 482);
+            btnClose.Location = new Point(457, 301);
+            btnClose.Margin = new Padding(2, 2, 2, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(177, 83);
+            btnClose.Size = new Size(109, 52);
             btnClose.TabIndex = 15;
             btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -85,9 +88,10 @@
             btnConfirm.ForeColor = Color.White;
             btnConfirm.Image = (Image)resources.GetObject("btnConfirm.Image");
             btnConfirm.ImageAlign = ContentAlignment.MiddleRight;
-            btnConfirm.Location = new Point(347, 482);
+            btnConfirm.Location = new Point(214, 301);
+            btnConfirm.Margin = new Padding(2, 2, 2, 2);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(215, 83);
+            btnConfirm.Size = new Size(154, 52);
             btnConfirm.TabIndex = 14;
             btnConfirm.Text = "Xác nhận";
             btnConfirm.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -97,28 +101,31 @@
             // txtValue
             // 
             txtValue.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtValue.Location = new Point(461, 323);
+            txtValue.Location = new Point(284, 202);
+            txtValue.Margin = new Padding(2, 2, 2, 2);
             txtValue.Multiline = true;
             txtValue.Name = "txtValue";
-            txtValue.Size = new Size(564, 54);
+            txtValue.Size = new Size(349, 35);
             txtValue.TabIndex = 13;
             // 
             // txtWageType
             // 
             txtWageType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtWageType.Location = new Point(461, 217);
+            txtWageType.Location = new Point(284, 136);
+            txtWageType.Margin = new Padding(2, 2, 2, 2);
             txtWageType.Multiline = true;
             txtWageType.Name = "txtWageType";
-            txtWageType.Size = new Size(564, 54);
+            txtWageType.Size = new Size(349, 35);
             txtWageType.TabIndex = 12;
             // 
             // lblValue
             // 
             lblValue.AutoSize = true;
             lblValue.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblValue.Location = new Point(151, 323);
+            lblValue.Location = new Point(93, 202);
+            lblValue.Margin = new Padding(2, 0, 2, 0);
             lblValue.Name = "lblValue";
-            lblValue.Size = new Size(120, 50);
+            lblValue.Size = new Size(77, 32);
             lblValue.TabIndex = 11;
             lblValue.Text = "Giá trị";
             // 
@@ -126,18 +133,19 @@
             // 
             lblWageType.AutoSize = true;
             lblWageType.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWageType.Location = new Point(151, 220);
+            lblWageType.Location = new Point(93, 138);
+            lblWageType.Margin = new Padding(2, 0, 2, 0);
             lblWageType.Name = "lblWageType";
-            lblWageType.Size = new Size(253, 50);
+            lblWageType.Size = new Size(165, 32);
             lblWageType.TabIndex = 10;
             lblWageType.Text = "Loại tiền công";
             // 
             // UpdateWage
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1194, 651);
+            ClientSize = new Size(740, 422);
             Controls.Add(panel1);
             Controls.Add(btnClose);
             Controls.Add(btnConfirm);
@@ -145,9 +153,11 @@
             Controls.Add(txtWageType);
             Controls.Add(lblValue);
             Controls.Add(lblWageType);
-            MaximumSize = new Size(1220, 722);
-            MinimumSize = new Size(1220, 722);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(758, 469);
+            MinimumSize = new Size(758, 469);
             Name = "UpdateWage";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "UpdateWage";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
