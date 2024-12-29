@@ -55,25 +55,6 @@ namespace WinFormsApp.Screens.Service.ListRepair
             ServiceDAO.instance.LoadData(query, dtgvRepairList);
         }
 
-        private void btnRefresh_Leave(object sender, EventArgs e)
-        {
-            string query = "SELECT * FROM PHIEUSUACHUA WHERE @ngaysuachua";
-            string date = dtpSearchByDate.Value.ToString("yyyy-MM-dd");
-
-            DataTable result = RepairDAO.instance.SearchRepairByDate(query, "@ngaysuachua", date);
-
-            if (result != null && result.Rows.Count > 0)
-            {
-                dtgvRepairList.DataSource = result;
-                dtgvRepairList.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy dữ liệu cho ngày này!");
-                dtgvRepairList.DataSource = null;
-            }
-        }
-
         private void btnDetail_Click(object sender, EventArgs e)
         {
             try
@@ -119,6 +100,25 @@ namespace WinFormsApp.Screens.Service.ListRepair
                         }
                     }
                 }
+            }
+        }
+
+        private void dtpSearchByDate_ValueChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM PHIEUSUACHUA WHERE @ngaysuachua";
+            string date = dtpSearchByDate.Value.ToString("yyyy-MM-dd");
+
+            DataTable result = RepairDAO.instance.SearchRepairByDate(query, "@ngaysuachua", date);
+
+            if (result != null && result.Rows.Count > 0)
+            {
+                dtgvRepairList.DataSource = result;
+                dtgvRepairList.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu cho ngày này!");
+                dtgvRepairList.DataSource = null;
             }
         }
     }

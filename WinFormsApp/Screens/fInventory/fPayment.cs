@@ -19,13 +19,9 @@ namespace WinFormsApp.Screens.fInventory
 
         private void Payment_Load(object sender, EventArgs e)
         {
-            txt_author.Text = "Admin";
             dtpNgayNhap.Enabled = false;
-            List<Supplier> suppliers = NhaCungCapDAO.Instance.GetAllNhaCungCap();
-            cmbNCC.DataSource = suppliers;
-            cmbNCC.DisplayMember = "TenNCC";
-            cmbNCC.ValueMember = "MaNCC";
-            cmbNCC.SelectedIndex = 0;
+            txbIdImport.Text = PhieuNhapKhoVTPTDAO.Instance.LoadIdImport();
+            txt_author.Text = SessionManager.Instance.CurrentUser.TenDangNhap;
             UpdateTongTien();
         }
 
@@ -100,70 +96,53 @@ namespace WinFormsApp.Screens.fInventory
             }
         }
 
-        private void cmbNCC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Supplier selectedSupplier = cmbNCC.SelectedItem as Supplier;
-
-            if (selectedSupplier != null)
-            {
-                txtDT.Text = selectedSupplier.SDT;
-                txtEmail.Text = selectedSupplier.Email;
-            }
-            else
-            {
-                txtDT.Text = "";
-                txtEmail.Text = "";
-            }
-        }
-
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             try
             {
-                PhieuNhapKhoVTPT phieuNhapKho = new PhieuNhapKhoVTPT
+                // Thêm phiếu nhập kho vào database
+                PhieuNhapKhoVTPTDAO.Instance.AddPhieuNhapKho(new PhieuNhapKhoVTPT()
                 {
-                    ngayNhap = DateTime.Now, 
-                    supplier = new Supplier
-                    {
-                        MaNCC = cmbNCC.SelectedValue.ToString() 
-                    }
-                };
+                    maNKVTPT = this.txbIdImport.Text,
+                    ngayNhap = DateTime.Now,
+                    tongTienNhap = decimal.Parse(txtTongTien.Text),
+                    tenDangNhap = this.txt_author.Text
+                });
 
-                string maNKVTPT = PhieuNhapKhoVTPTDAO.Instance.AddPhieuNhapKho(phieuNhapKho);
-
+                // Lấy danh sách chi tiết phiếu nhập kho
                 List<CT_PNKVTPT> ctPnks = new List<CT_PNKVTPT>();
-
                 foreach (DataGridViewRow row in dgvNhapHang.Rows)
                 {
-                    if (!row.IsNewRow) 
+                    if (!row.IsNewRow)
                     {
                         var ctPnk = new CT_PNKVTPT
                         {
-                            phieuNhapKhoVTPT = new PhieuNhapKhoVTPT { maNKVTPT = maNKVTPT }, 
                             phuTung = new PhuTung
                             {
-                                MaVTPT = PhieuNhapKhoVTPTDAO.Instance.GetMaVTPTByTenVTPT(row.Cells[1].Value.ToString()), 
-                                TenVTPT = row.Cells[1].Value.ToString() 
+                                MaVTPT = PhieuNhapKhoVTPTDAO.Instance.GetMaVTPTByTenVTPT(row.Cells[1].Value.ToString()),
+                                TenVTPT = row.Cells[1].Value.ToString()
                             },
+                            phieuNhapKhoVTPT = new PhieuNhapKhoVTPT { maNKVTPT = this.txbIdImport.Text },
                             SoLuong = int.Parse(row.Cells[3].Value.ToString()),
-                            GiaNhap = decimal.Parse(row.Cells[2].Value.ToString()) 
+                            GiaNhap = decimal.Parse(row.Cells[2].Value.ToString())
                         };
-
                         ctPnks.Add(ctPnk);
                     }
                 }
 
+                // Thêm chi tiết phiếu nhập kho và cập nhật số lượng tồn
                 PhieuNhapKhoVTPTDAO.Instance.addCT_PNKVTPTAndUpdatePhuTung(ctPnks);
 
                 MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                dgvNhapHang.Rows.Clear(); 
+                // Xóa các dòng trên DataGridView sau khi lưu
+                dgvNhapHang.Rows.Clear();
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

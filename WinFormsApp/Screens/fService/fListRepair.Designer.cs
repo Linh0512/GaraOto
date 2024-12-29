@@ -43,6 +43,7 @@
             btnClose = new Button();
             btnExport = new Button();
             btnDetail = new Button();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvRepairList).BeginInit();
             panel2.SuspendLayout();
@@ -101,6 +102,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(label3);
             panel3.Controls.Add(btnRefresh);
             panel3.Controls.Add(dtpSearchByDate);
             panel3.Controls.Add(btnSearch);
@@ -129,7 +131,7 @@
             dtpSearchByDate.Name = "dtpSearchByDate";
             dtpSearchByDate.Size = new Size(250, 27);
             dtpSearchByDate.TabIndex = 2;
-            dtpSearchByDate.Leave += btnRefresh_Leave;
+            dtpSearchByDate.ValueChanged += dtpSearchByDate_ValueChanged;
             // 
             // btnSearch
             // 
@@ -198,6 +200,16 @@
             btnDetail.UseVisualStyleBackColor = false;
             btnDetail.Click += btnDetail_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(145, 43);
+            label3.Name = "label3";
+            label3.Size = new Size(232, 28);
+            label3.TabIndex = 5;
+            label3.Text = "Chọn ngày để tìm kiếm";
+            // 
             // fListRepair
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -240,5 +252,6 @@
         private Button btnDetail;
         private Button btnClose;
         private Button btnExport;
+        private Label label3;
     }
 }

@@ -21,7 +21,8 @@ namespace WinFormsApp.Screens.fInventory
 
         private void History_Load(object sender, EventArgs e)
         {
-            string query = "SELECT  c.MaNKVTPT AS 'ID', NgayNhap AS 'Ngay nhập hàng',   SUM(SoLuong * GiaNhap) AS 'Tổng tiền thanh toán', TenNCC as 'Đơn vị cung cap' FROM   PHIEUNHAPKHOVTPT AS p  INNER JOIN CT_PNKVTPT AS c ON  p.MaNKVTPT = c.MaNKVTPT INNER JOIN NHACUNGCAP as n ON p.MaNCC = n.MaNCC GROUP BY c.MaNKVTPT, NgayNhap, TenNCC";
+            string query = "SELECT MaNKVTPT AS 'ID', NgayNhap AS 'Ngày nhập hàng'," +
+                "TongTienNhap AS 'Tổng tiền thanh toán', TenDangNhap AS 'Tên người nhập' FROM PHIEUNHAPKHOVTPT";
             DataProvider dataProvider = new DataProvider();
             dgvHistory.DataSource = dataProvider.ExecuteQuery(query);
         }
@@ -44,11 +45,12 @@ namespace WinFormsApp.Screens.fInventory
                     if (selectedRow.Cells[0].Value != null && selectedRow.Cells[1].Value != null)
                     {
                         string selectedId = selectedRow.Cells[0].Value.ToString();
+                        string seletecdTotalAmout = selectedRow.Cells[2].Value.ToString();
 
                         if (DateTime.TryParse(selectedRow.Cells[1].Value.ToString(), out DateTime ngayNhap))
                         {
-                            ct_history ct_History = new ct_history(selectedId, ngayNhap);
-                            ct_History.Show();
+                            ct_history ct_History = new ct_history(selectedId, ngayNhap, seletecdTotalAmout);
+                            ct_History.ShowDialog();
                         }
                         else
                         {
@@ -88,17 +90,17 @@ namespace WinFormsApp.Screens.fInventory
                 }
                 else if (radiobtnNgayLap.Checked == true)
                 {
-                    DateTime startDate = dtpStartDate.Value.Date;
-                    DateTime endDate = dtpEndDate.Value.Date;
+                    DateTime findDate = dtpFindDate.Value.Date;
+                    DateTime currentDate = DateTime.Now;
 
-                    if (startDate > endDate)
+                    if (findDate > currentDate)
                     {
-                        MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Ngày tìm kiếm không được lớn hơn ngày hiện tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         History_Load(sender, e);
                         return;
                     }
 
-                    dgvHistory.DataSource = PhieuNhapKhoVTPTDAO.Instance.getPhieuNhapListByDateRange(startDate, endDate);
+                    dgvHistory.DataSource = PhieuNhapKhoVTPTDAO.Instance.getPhieuNhapListByDateRange(findDate);
                 }
                 else
                 {
@@ -136,6 +138,16 @@ namespace WinFormsApp.Screens.fInventory
         private void dgvHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void radiobtncode_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            this.History_Load(sender, e);
         }
     }
 }

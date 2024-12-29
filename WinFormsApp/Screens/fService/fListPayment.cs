@@ -53,25 +53,6 @@ namespace WinFormsApp.Screens.Service.ListPayment
             ServiceDAO.instance.LoadData(query, dtgvPaymentList);
         }
 
-        private void dtpSearchByDate_Leave(object sender, EventArgs e)
-        {
-            string query = "SELECT * FROM PHIEUTHUTIEN WHERE @ngaythutien";
-            string date = dtpSearchByDate.Value.ToString("yyyy-MM-dd");
-
-            DataTable result = ReceiptDAO.instance.SearchPaymentByDate(query, "@ngaythutien", date);
-
-            if (result != null && result.Rows.Count > 0)
-            {
-                dtgvPaymentList.DataSource = result;
-                dtgvPaymentList.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy dữ liệu cho ngày này!");
-                dtgvPaymentList.DataSource = null;
-            }
-        }
-
         private void btnExport_Click(object sender, EventArgs e)
         {
             if (this.dtgvPaymentList.Rows.Count == 0)
@@ -97,6 +78,25 @@ namespace WinFormsApp.Screens.Service.ListPayment
                         }
                     }
                 }
+            }
+        }
+
+        private void dtpSearchByDate_ValueChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM PHIEUTHUTIEN WHERE @ngaythutien";
+            string date = dtpSearchByDate.Value.ToString("yyyy-MM-dd");
+
+            DataTable result = ReceiptDAO.instance.SearchPaymentByDate(query, "@ngaythutien", date);
+
+            if (result != null && result.Rows.Count > 0)
+            {
+                dtgvPaymentList.DataSource = result;
+                dtgvPaymentList.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu cho ngày này!");
+                dtgvPaymentList.DataSource = null;
             }
         }
     }

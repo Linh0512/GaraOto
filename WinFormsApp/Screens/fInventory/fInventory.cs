@@ -17,6 +17,23 @@ namespace WinFormsApp
         public Inventory()
         {
             InitializeComponent();
+            CheckPermissions();
+        }
+
+        private void CheckPermissions()
+        {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                // // Disable tất cả buttons thao tác
+                // button1.Enabled = false;
+                // button2.Enabled = false;
+                // button3.Enabled = false;
+                // button4.Enabled = false;
+                // button5.Enabled = false;
+
+                // // Chỉ cho phép xem
+                // dgvPhuTung.ReadOnly = true;
+            }
         }
 
         private void Inventory_Load(object sender, EventArgs e)
@@ -28,9 +45,9 @@ namespace WinFormsApp
         public void LoadPhuTung()
         {
 
-            string query = "SELECT p.TenVTPT as 'Phụ Tùng', c.GiaNhap as 'Gía Nhập', p.SoLuongTon as 'Số lượng', p.DonGia as 'Đơn giá'  FROM PHUTUNG as p LEFT JOIN CT_PNKVTPT as c ON p.MaVTPT = c.MaVTPT";
-            DataProvider dataProvider = new DataProvider();
-            dgvPhuTung.DataSource = dataProvider.ExecuteQuery(query);
+            string query = "SELECT MaVTPT AS 'Id', TenVTPT AS 'Tên phụ tùng', " +
+                "SoluongTon AS 'Số lượng tồn', DonGia AS 'Đơn giá' FROM PHUTUNG";
+            dgvPhuTung.DataSource = DataProvider.instance.ExecuteQuery(query);
         }
 
         private void btn_payment_Click(object sender, EventArgs e)
@@ -44,26 +61,42 @@ namespace WinFormsApp
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddSupply_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+
             add add = new add(this);
             add.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
             invoice invoice = new invoice();
             invoice.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            history history = new history();
-            history.ShowDialog();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+
             fPayment payment = new fPayment();
             payment.ShowDialog();
         }
@@ -99,6 +132,11 @@ namespace WinFormsApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
             timKiem();
         }
 
@@ -109,6 +147,12 @@ namespace WinFormsApp
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+
             if (dgvPhuTung.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn vật tư phụ tùng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -148,6 +192,21 @@ namespace WinFormsApp
                     MessageBox.Show($"Lỗi khi xóa phụ tùng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnUpdateInfor_Click(object sender, EventArgs e)
+        {
+
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            string supplyName = dgvPhuTung.SelectedRows[0].Cells[1].Value.ToString();
+            string price = dgvPhuTung.SelectedRows[0].Cells[3].Value.ToString();
+            UpdateInforSupply updateInforSupply = new UpdateInforSupply(supplyName, price);
+            updateInforSupply.ShowDialog();
+            this.LoadPhuTung();
         }
     }
 }

@@ -97,7 +97,7 @@
             dtpDateReceived.Name = "dtpDateReceived";
             dtpDateReceived.Size = new Size(250, 27);
             dtpDateReceived.TabIndex = 6;
-            dtpDateReceived.Value = new DateTime(2024, 12, 19, 21, 17, 43, 0);
+            dtpDateReceived.Value = new DateTime(2024, 12, 28, 23, 36, 21, 0);
             // 
             // cbbCarBrandName
             // 

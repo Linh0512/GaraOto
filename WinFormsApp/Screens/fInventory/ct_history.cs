@@ -17,11 +17,12 @@ namespace WinFormsApp.Screens.fInventory
     {
         private string maPN;
         private DateTime ngayNhap;
-        public ct_history(string maPN, DateTime ngayNhap)
+        public ct_history(string maPN, DateTime ngayNhap, string totalAmount)
         {
             InitializeComponent();
             this.maPN = maPN;
             this.ngayNhap = ngayNhap;
+            this.txbTotalAmount.Text = totalAmount;
         }
 
         private void ct_history_Load(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace WinFormsApp.Screens.fInventory
 
                 if (ngayNhap < datetimepiker.MinDate || ngayNhap > datetimepiker.MaxDate)
                 {
-                    datetimepiker.Value = DateTime.Now; 
+                    datetimepiker.Value = DateTime.Now;
                 }
                 else
                 {
@@ -60,6 +61,11 @@ namespace WinFormsApp.Screens.fInventory
                 MessageBox.Show($"Đã xảy ra lỗi khi tải lịch sử: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

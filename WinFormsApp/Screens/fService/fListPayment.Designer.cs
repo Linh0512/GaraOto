@@ -42,6 +42,7 @@
             panel4 = new Panel();
             btnClose = new Button();
             btnExport = new Button();
+            label3 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvPaymentList).BeginInit();
@@ -99,6 +100,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(label3);
             panel3.Controls.Add(btnRefresh);
             panel3.Controls.Add(dtpSearchByDate);
             panel3.Controls.Add(btnSearch);
@@ -126,7 +128,7 @@
             dtpSearchByDate.Name = "dtpSearchByDate";
             dtpSearchByDate.Size = new Size(250, 27);
             dtpSearchByDate.TabIndex = 2;
-            dtpSearchByDate.Leave += dtpSearchByDate_Leave;
+            dtpSearchByDate.ValueChanged += dtpSearchByDate_ValueChanged;
             // 
             // btnSearch
             // 
@@ -182,6 +184,16 @@
             btnExport.UseVisualStyleBackColor = false;
             btnExport.Click += btnExport_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(145, 50);
+            label3.Name = "label3";
+            label3.Size = new Size(232, 28);
+            label3.TabIndex = 4;
+            label3.Text = "Chọn ngày để tìm kiếm";
+            // 
             // fListPayment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -225,5 +237,6 @@
         private Panel panel4;
         private Button btnClose;
         private Button btnExport;
+        private Label label3;
     }
 }

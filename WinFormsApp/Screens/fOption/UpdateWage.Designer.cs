@@ -75,6 +75,7 @@
             btnClose.Text = "Đóng";
             btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnConfirm
             // 
@@ -96,26 +97,26 @@
             // txtValue
             // 
             txtValue.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtValue.Location = new Point(522, 326);
+            txtValue.Location = new Point(461, 323);
             txtValue.Multiline = true;
             txtValue.Name = "txtValue";
-            txtValue.Size = new Size(405, 54);
+            txtValue.Size = new Size(564, 54);
             txtValue.TabIndex = 13;
             // 
             // txtWageType
             // 
             txtWageType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtWageType.Location = new Point(522, 220);
+            txtWageType.Location = new Point(461, 217);
             txtWageType.Multiline = true;
             txtWageType.Name = "txtWageType";
-            txtWageType.Size = new Size(405, 54);
+            txtWageType.Size = new Size(564, 54);
             txtWageType.TabIndex = 12;
             // 
             // lblValue
             // 
             lblValue.AutoSize = true;
             lblValue.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblValue.Location = new Point(212, 326);
+            lblValue.Location = new Point(151, 323);
             lblValue.Name = "lblValue";
             lblValue.Size = new Size(120, 50);
             lblValue.TabIndex = 11;
@@ -125,7 +126,7 @@
             // 
             lblWageType.AutoSize = true;
             lblWageType.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWageType.Location = new Point(212, 223);
+            lblWageType.Location = new Point(151, 220);
             lblWageType.Name = "lblWageType";
             lblWageType.Size = new Size(253, 50);
             lblWageType.TabIndex = 10;

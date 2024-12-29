@@ -92,8 +92,7 @@
             label16.AutoSize = true;
             label16.BackColor = SystemColors.ButtonShadow;
             label16.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(52, 6);
-            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Location = new Point(60, 9);
             label16.Name = "label16";
             label16.Size = new Size(371, 50);
             label16.TabIndex = 16;
@@ -104,18 +103,16 @@
             panel10.BackColor = SystemColors.Control;
             panel10.Controls.Add(label14);
             panel10.Controls.Add(dtpDateReceived);
-            panel10.Location = new Point(243, 310);
-            panel10.Margin = new Padding(4);
+            panel10.Location = new Point(248, 252);
             panel10.Name = "panel10";
-            panel10.Size = new Size(220, 60);
+            panel10.Size = new Size(213, 57);
             panel10.TabIndex = 15;
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.ForeColor = SystemColors.ControlDarkDark;
-            label14.Location = new Point(6, 6);
-            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Location = new Point(5, 5);
             label14.Name = "label14";
             label14.Size = new Size(110, 20);
             label14.TabIndex = 1;
@@ -125,10 +122,9 @@
             // 
             dtpDateReceived.Enabled = false;
             dtpDateReceived.Format = DateTimePickerFormat.Short;
-            dtpDateReceived.Location = new Point(28, 30);
-            dtpDateReceived.Margin = new Padding(4);
+            dtpDateReceived.Location = new Point(22, 24);
             dtpDateReceived.Name = "dtpDateReceived";
-            dtpDateReceived.Size = new Size(173, 27);
+            dtpDateReceived.Size = new Size(161, 27);
             dtpDateReceived.TabIndex = 0;
             // 
             // label13
@@ -136,8 +132,7 @@
             label13.AutoSize = true;
             label13.BackColor = SystemColors.Control;
             label13.ForeColor = SystemColors.ControlDarkDark;
-            label13.Location = new Point(76, 4);
-            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Location = new Point(61, 3);
             label13.Name = "label13";
             label13.Size = new Size(93, 20);
             label13.TabIndex = 1;
@@ -146,10 +141,9 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.user_icon;
-            pictureBox6.Location = new Point(4, 4);
-            pictureBox6.Margin = new Padding(4);
+            pictureBox6.Location = new Point(3, 3);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(66, 53);
+            pictureBox6.Size = new Size(53, 42);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
@@ -159,8 +153,7 @@
             label11.AutoSize = true;
             label11.BackColor = SystemColors.Control;
             label11.ForeColor = SystemColors.ControlDarkDark;
-            label11.Location = new Point(76, 4);
-            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Location = new Point(61, 3);
             label11.Name = "label11";
             label11.Size = new Size(55, 20);
             label11.TabIndex = 1;
@@ -169,10 +162,9 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.address_icon;
-            pictureBox5.Location = new Point(4, 4);
-            pictureBox5.Margin = new Padding(4);
+            pictureBox5.Location = new Point(3, 3);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(66, 53);
+            pictureBox5.Size = new Size(53, 42);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 0;
             pictureBox5.TabStop = false;
@@ -183,18 +175,18 @@
             panel7.Controls.Add(txbPhoneNumber);
             panel7.Controls.Add(label9);
             panel7.Controls.Add(pictureBox4);
-            panel7.Location = new Point(243, 128);
-            panel7.Margin = new Padding(4);
+            panel7.Location = new Point(248, 99);
             panel7.Name = "panel7";
-            panel7.Size = new Size(220, 60);
+            panel7.Size = new Size(216, 59);
             panel7.TabIndex = 11;
             // 
             // txbPhoneNumber
             // 
             txbPhoneNumber.BackColor = SystemColors.ButtonShadow;
-            txbPhoneNumber.Location = new Point(76, 27);
+            txbPhoneNumber.Location = new Point(61, 22);
+            txbPhoneNumber.Margin = new Padding(2, 2, 2, 2);
             txbPhoneNumber.Name = "txbPhoneNumber";
-            txbPhoneNumber.Size = new Size(125, 27);
+            txbPhoneNumber.Size = new Size(136, 27);
             txbPhoneNumber.TabIndex = 3;
             // 
             // label9
@@ -202,8 +194,7 @@
             label9.AutoSize = true;
             label9.BackColor = SystemColors.Control;
             label9.ForeColor = SystemColors.ControlDarkDark;
-            label9.Location = new Point(76, 4);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(61, 3);
             label9.Name = "label9";
             label9.Size = new Size(97, 20);
             label9.TabIndex = 1;
@@ -212,10 +203,9 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.phonenumber_icon;
-            pictureBox4.Location = new Point(4, 4);
-            pictureBox4.Margin = new Padding(4);
+            pictureBox4.Location = new Point(3, 3);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(66, 53);
+            pictureBox4.Size = new Size(53, 42);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
@@ -226,19 +216,19 @@
             panel6.Controls.Add(cbbCarBrand);
             panel6.Controls.Add(label7);
             panel6.Controls.Add(pictureBox3);
-            panel6.Location = new Point(4, 128);
-            panel6.Margin = new Padding(4);
+            panel6.Location = new Point(3, 102);
             panel6.Name = "panel6";
-            panel6.Size = new Size(220, 60);
+            panel6.Size = new Size(214, 56);
             panel6.TabIndex = 12;
             // 
             // cbbCarBrand
             // 
             cbbCarBrand.BackColor = SystemColors.ButtonShadow;
             cbbCarBrand.FormattingEnabled = true;
-            cbbCarBrand.Location = new Point(76, 26);
+            cbbCarBrand.Location = new Point(61, 21);
+            cbbCarBrand.Margin = new Padding(2, 2, 2, 2);
             cbbCarBrand.Name = "cbbCarBrand";
-            cbbCarBrand.Size = new Size(141, 28);
+            cbbCarBrand.Size = new Size(145, 28);
             cbbCarBrand.TabIndex = 2;
             // 
             // label7
@@ -246,8 +236,7 @@
             label7.AutoSize = true;
             label7.BackColor = SystemColors.Control;
             label7.ForeColor = SystemColors.ControlDarkDark;
-            label7.Location = new Point(76, 4);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(61, 3);
             label7.Name = "label7";
             label7.Size = new Size(59, 20);
             label7.TabIndex = 1;
@@ -256,10 +245,9 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.user_icon;
-            pictureBox3.Location = new Point(4, 4);
-            pictureBox3.Margin = new Padding(4);
+            pictureBox3.Location = new Point(3, 3);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(66, 53);
+            pictureBox3.Size = new Size(53, 42);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -270,27 +258,28 @@
             panel5.Controls.Add(txbLicensePlate);
             panel5.Controls.Add(label5);
             panel5.Controls.Add(pictureBox2);
-            panel5.Location = new Point(243, 39);
-            panel5.Margin = new Padding(4);
+            panel5.Location = new Point(248, 6);
             panel5.Name = "panel5";
-            panel5.Size = new Size(220, 60);
+            panel5.Size = new Size(216, 63);
             panel5.TabIndex = 10;
             // 
             // txbLicensePlate
             // 
             txbLicensePlate.BackColor = SystemColors.ButtonShadow;
-            txbLicensePlate.Location = new Point(76, 27);
+            txbLicensePlate.Location = new Point(61, 22);
+            txbLicensePlate.Margin = new Padding(2, 2, 2, 2);
             txbLicensePlate.Name = "txbLicensePlate";
-            txbLicensePlate.Size = new Size(125, 27);
+            txbLicensePlate.ReadOnly = true;
+            txbLicensePlate.Size = new Size(136, 27);
             txbLicensePlate.TabIndex = 3;
+            txbLicensePlate.TextChanged += txbLicensePlate_TextChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = SystemColors.Control;
             label5.ForeColor = SystemColors.ControlDarkDark;
-            label5.Location = new Point(76, 4);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(62, 4);
             label5.Name = "label5";
             label5.Size = new Size(76, 20);
             label5.TabIndex = 1;
@@ -299,10 +288,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.user_icon;
-            pictureBox2.Location = new Point(4, 4);
-            pictureBox2.Margin = new Padding(4);
+            pictureBox2.Location = new Point(3, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(66, 53);
+            pictureBox2.Size = new Size(53, 42);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -313,18 +301,18 @@
             panel4.Controls.Add(txbCustomerName);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(pictureBox1);
-            panel4.Location = new Point(4, 39);
-            panel4.Margin = new Padding(4);
+            panel4.Location = new Point(3, 7);
             panel4.Name = "panel4";
-            panel4.Size = new Size(220, 60);
+            panel4.Size = new Size(214, 62);
             panel4.TabIndex = 9;
             // 
             // txbCustomerName
             // 
             txbCustomerName.BackColor = SystemColors.ButtonShadow;
-            txbCustomerName.Location = new Point(76, 27);
+            txbCustomerName.Location = new Point(61, 22);
+            txbCustomerName.Margin = new Padding(2, 2, 2, 2);
             txbCustomerName.Name = "txbCustomerName";
-            txbCustomerName.Size = new Size(125, 27);
+            txbCustomerName.Size = new Size(145, 27);
             txbCustomerName.TabIndex = 2;
             // 
             // label2
@@ -332,8 +320,7 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.Control;
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(76, 4);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(61, 3);
             label2.Name = "label2";
             label2.Size = new Size(78, 20);
             label2.TabIndex = 1;
@@ -342,10 +329,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.user_icon;
-            pictureBox1.Location = new Point(4, 4);
-            pictureBox1.Margin = new Padding(4);
+            pictureBox1.Location = new Point(3, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(66, 53);
+            pictureBox1.Size = new Size(53, 42);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -361,9 +347,10 @@
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel8);
-            panel1.Location = new Point(0, 56);
+            panel1.Location = new Point(11, 93);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(463, 386);
+            panel1.Size = new Size(467, 329);
             panel1.TabIndex = 17;
             // 
             // panel3
@@ -372,18 +359,18 @@
             panel3.Controls.Add(txbEmail);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(pictureBox7);
-            panel3.Location = new Point(4, 310);
-            panel3.Margin = new Padding(4);
+            panel3.Location = new Point(3, 252);
             panel3.Name = "panel3";
-            panel3.Size = new Size(220, 60);
+            panel3.Size = new Size(214, 57);
             panel3.TabIndex = 16;
             // 
             // txbEmail
             // 
             txbEmail.BackColor = SystemColors.ButtonShadow;
-            txbEmail.Location = new Point(76, 27);
+            txbEmail.Location = new Point(61, 26);
+            txbEmail.Margin = new Padding(2, 2, 2, 2);
             txbEmail.Name = "txbEmail";
-            txbEmail.Size = new Size(125, 27);
+            txbEmail.Size = new Size(145, 27);
             txbEmail.TabIndex = 3;
             // 
             // label1
@@ -391,8 +378,7 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.Control;
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(76, 4);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(61, 5);
             label1.Name = "label1";
             label1.Size = new Size(46, 20);
             label1.TabIndex = 1;
@@ -401,10 +387,9 @@
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources.user_icon;
-            pictureBox7.Location = new Point(4, 4);
-            pictureBox7.Margin = new Padding(4);
+            pictureBox7.Location = new Point(3, 3);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(66, 53);
+            pictureBox7.Size = new Size(53, 42);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 0;
             pictureBox7.TabStop = false;
@@ -415,19 +400,19 @@
             panel9.Controls.Add(txbDebt);
             panel9.Controls.Add(label13);
             panel9.Controls.Add(pictureBox6);
-            panel9.Location = new Point(243, 219);
-            panel9.Margin = new Padding(4);
+            panel9.Location = new Point(248, 178);
             panel9.Name = "panel9";
-            panel9.Size = new Size(220, 60);
+            panel9.Size = new Size(216, 55);
             panel9.TabIndex = 14;
             // 
             // txbDebt
             // 
             txbDebt.BackColor = SystemColors.ButtonShadow;
             txbDebt.Enabled = false;
-            txbDebt.Location = new Point(76, 27);
+            txbDebt.Location = new Point(61, 22);
+            txbDebt.Margin = new Padding(2, 2, 2, 2);
             txbDebt.Name = "txbDebt";
-            txbDebt.Size = new Size(125, 27);
+            txbDebt.Size = new Size(136, 27);
             txbDebt.TabIndex = 3;
             // 
             // panel8
@@ -436,18 +421,18 @@
             panel8.Controls.Add(txbAddress);
             panel8.Controls.Add(label11);
             panel8.Controls.Add(pictureBox5);
-            panel8.Location = new Point(4, 219);
-            panel8.Margin = new Padding(4);
+            panel8.Location = new Point(3, 175);
             panel8.Name = "panel8";
-            panel8.Size = new Size(220, 60);
+            panel8.Size = new Size(214, 58);
             panel8.TabIndex = 13;
             // 
             // txbAddress
             // 
             txbAddress.BackColor = SystemColors.ButtonShadow;
-            txbAddress.Location = new Point(76, 27);
+            txbAddress.Location = new Point(61, 22);
+            txbAddress.Margin = new Padding(2, 2, 2, 2);
             txbAddress.Name = "txbAddress";
-            txbAddress.Size = new Size(125, 27);
+            txbAddress.Size = new Size(145, 27);
             txbAddress.TabIndex = 3;
             // 
             // panel2
@@ -455,9 +440,10 @@
             panel2.Anchor = AnchorStyles.None;
             panel2.Controls.Add(btnClose);
             panel2.Controls.Add(btnChangeInfo);
-            panel2.Location = new Point(12, 451);
+            panel2.Location = new Point(57, 446);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(440, 78);
+            panel2.Size = new Size(370, 79);
             panel2.TabIndex = 18;
             // 
             // btnClose
@@ -465,10 +451,9 @@
             btnClose.Anchor = AnchorStyles.None;
             btnClose.BackColor = SystemColors.ActiveBorder;
             btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClose.Location = new Point(302, 4);
-            btnClose.Margin = new Padding(4);
+            btnClose.Location = new Point(238, 11);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(80, 59);
+            btnClose.Size = new Size(102, 55);
             btnClose.TabIndex = 11;
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = false;
@@ -479,10 +464,9 @@
             btnChangeInfo.Anchor = AnchorStyles.None;
             btnChangeInfo.BackColor = Color.AliceBlue;
             btnChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnChangeInfo.Location = new Point(63, 4);
-            btnChangeInfo.Margin = new Padding(4);
+            btnChangeInfo.Location = new Point(18, 11);
             btnChangeInfo.Name = "btnChangeInfo";
-            btnChangeInfo.Size = new Size(130, 59);
+            btnChangeInfo.Size = new Size(126, 55);
             btnChangeInfo.TabIndex = 10;
             btnChangeInfo.Text = "Xác nhận";
             btnChangeInfo.UseVisualStyleBackColor = false;
@@ -494,21 +478,20 @@
             panel11.Controls.Add(label16);
             panel11.Dock = DockStyle.Top;
             panel11.Location = new Point(0, 0);
+            panel11.Margin = new Padding(2, 2, 2, 2);
             panel11.Name = "panel11";
-            panel11.Size = new Size(464, 56);
+            panel11.Size = new Size(489, 72);
             panel11.TabIndex = 19;
             // 
             // fUpdateInforCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(464, 541);
+            ClientSize = new Size(489, 535);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel11);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(482, 588);
-            MinimumSize = new Size(482, 588);
             Name = "fUpdateInforCar";
             StartPosition = FormStartPosition.CenterParent;
             Text = "THAY ĐỔI THÔNG TIN";

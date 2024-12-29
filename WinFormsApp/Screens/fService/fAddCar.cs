@@ -19,11 +19,12 @@ namespace WinFormsApp.Screens.Service.AddCar
             General.Instance.TxtMakeTextDisappear(txbAddress, "Địa chỉ");
             General.Instance.TxtMakeTextDisappear(txbPhoneNumber, "Số điện thoại");
             General.Instance.TxtMakeTextDisappear(txbEmail, "Email");
+            General.Instance.CbbMakeTextDisappear(cbbCarBrandName, "Hiệu xe");
         }
 
         private void GetCarBrandAutoComplete()
         {
-            string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.XE";
+            string queryCarBrand = "SELECT DISTINCT HieuXe FROM dbo.HIEUXE";
             string columnCarBrand = "HieuXe";
             cbbCarBrandName.AutoCompleteCustomSource = ServiceDAO.instance.LoadAutoCompleteData(queryCarBrand, columnCarBrand);
             cbbCarBrandName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -70,6 +71,7 @@ namespace WinFormsApp.Screens.Service.AddCar
                 // Thêm vào cơ sở dữ liệu
                 ServiceDAO.instance.AddCar(Car.Instance);
                 MessageBox.Show("Thêm xe thành công");
+                this.Close();
             }
             catch (Exception ex)
             {

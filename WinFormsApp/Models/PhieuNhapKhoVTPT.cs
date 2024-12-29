@@ -1,4 +1,5 @@
-﻿using WinFormsApp.Model;
+﻿using System.Data.SqlTypes;
+using WinFormsApp.Model;
 
 namespace WinFormsApp.Models
 {
@@ -7,7 +8,9 @@ namespace WinFormsApp.Models
         public string maNKVTPT { get; set; }
         public DateTime ngayNhap { get; set; }
 
-        public Supplier supplier { get; set; }
+        public SqlMoney tongTienNhap { get; set; }
+
+        public string tenDangNhap { get; set; }
 
         public PhieuNhapKhoVTPT() { }
 

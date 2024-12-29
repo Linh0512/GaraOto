@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using System.Runtime.InteropServices;
+using WinFormsApp.Screens.fOption;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WinFormsApp.Screens.Option
@@ -14,13 +15,22 @@ namespace WinFormsApp.Screens.Option
             InitializeComponent();
             this.LoadWageData();
             this.LoadBrandData();
-            this.LoadSupplierData();
             this.LoadCarLimitData();
+            this.loadUserInfor();
         }
 
         private void fOption_Load(object sender, EventArgs e)
         {
             ShowPanel(pnlYourProfile);
+        }
+
+        private void loadUserInfor()
+        {
+            txtUsername.Text = SessionManager.Instance.CurrentUser.TenDangNhap;
+            txtAddress.Text = SessionManager.Instance.CurrentUser.DiaChi;
+            txtPhoneNumber.Text = SessionManager.Instance.CurrentUser.DienThoai;
+            txtEmail.Text = SessionManager.Instance.CurrentUser.Email;
+            txtChucVu.Text = SessionManager.Instance.CurrentUser.ChucVu;
         }
 
         private void ShowPanel(Panel panelToShow)
@@ -29,7 +39,6 @@ namespace WinFormsApp.Screens.Option
             pnlGarageDetail.Visible = false;
             pnlWageDetail.Visible = false;
             pnlBrandDetail.Visible = false;
-            pnlSupplierDetail.Visible = false;
 
             panelToShow.Visible = true;
         }
@@ -46,13 +55,6 @@ namespace WinFormsApp.Screens.Option
             string query = "SELECT * FROM dbo.HIEUXE";
             DataProvider dataProvider = new DataProvider();
             dgvBrandDetail.DataSource = dataProvider.ExecuteQuery(query);
-        }
-
-        private void LoadSupplierData()
-        {
-            string query = "SELECT * FROM dbo.NHACUNGCAP";
-            DataProvider dataProvider = new DataProvider();
-            dgvSupplierDetail.DataSource = dataProvider.ExecuteQuery(query);
         }
 
         private void LoadCarLimitData()
@@ -84,16 +86,9 @@ namespace WinFormsApp.Screens.Option
             this.Show();
         }
 
-        private void btnAddSupplier_Click(object sender, EventArgs e)
-        {
-            AddSupplier addSupplier = new AddSupplier();
-            addSupplier.ShowDialog();
-            this.Show();
-        }
-
         private void btnUpdatePassword_Click(object sender, EventArgs e)
         {
-            UpdatePassword updatePassword = new UpdatePassword();
+            ChangePassword updatePassword = new ChangePassword();
             updatePassword.ShowDialog();
             this.Show();
         }
@@ -116,16 +111,6 @@ namespace WinFormsApp.Screens.Option
         private void lblBrandDetail_Click(object sender, EventArgs e)
         {
             ShowPanel(pnlBrandDetail);
-        }
-
-        private void lblSupplierDetail_Click(object sender, EventArgs e)
-        {
-            ShowPanel(pnlSupplierDetail);
-        }
-
-        private void btnRefreshSupplier_Click(object sender, EventArgs e)
-        {
-            this.LoadSupplierData();
         }
 
         private void btnRefreshWage_Click(object sender, EventArgs e)
@@ -179,10 +164,12 @@ namespace WinFormsApp.Screens.Option
             {
                 conditions.Add("MaTienCong", wageID);
             }
+
             if (!string.IsNullOrEmpty(wageType) && wageType != "Loại tiền công")
             {
                 conditions.Add("NoiDung", wageType);
             }
+
             if (!string.IsNullOrEmpty(wageAmount) && wageAmount != "Số tiền")
             {
                 conditions.Add("TienCong", wageAmount);
@@ -203,70 +190,27 @@ namespace WinFormsApp.Screens.Option
             }
         }
 
-        private void btnSearchSupplier_Click(object sender, EventArgs e)
-        {
-            string supplierID = txtSupplierID.Text.Trim();
-            string supplierName = txtSupplierName.Text.Trim();
-            string phoneNumber = txtPhoneNumber.Text.Trim();
-            string email = txtEmail.Text.Trim();
-
-            // Tạo dictionary chứa các điều kiện tìm kiếm
-            Dictionary<string, string> conditions = new Dictionary<string, string>();
-
-            if (!string.IsNullOrEmpty(supplierID) && supplierID != "Mã")
-            {
-                conditions.Add("MaNCC", supplierID);
-            }
-            if (!string.IsNullOrEmpty(supplierName) && supplierName != "Tên nhà cung cấp")
-            {
-                conditions.Add("TenNCC", supplierName);
-            }
-            if (!string.IsNullOrEmpty(phoneNumber) && phoneNumber != "Số điện thoại")
-            {
-                conditions.Add("SDT", phoneNumber);
-            }
-            if (!string.IsNullOrEmpty(email) && email != "Email")
-            {
-                conditions.Add("Email", email);
-            }
-
-            // Gọi hàm FindSupplier từ OptionDAO
-            DataTable result = OptionDAO.Instance.FindSupplier(conditions);
-
-            // Kiểm tra kết quả và hiển thị
-            if (result != null && result.Rows.Count > 0)
-            {
-                dgvSupplierDetail.DataSource = result;
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy xe với thông tin này.");
-                this.LoadSupplierData();
-            }
-        }
-
-        private void btnEditSupplier_Click(object sender, EventArgs e)
-        {
-            if (dgvSupplierDetail.SelectedRows.Count == 0) return;
-            UpdateSupplier updateSupplier = new UpdateSupplier();
-        }
-
         private void btnEditWage_Click(object sender, EventArgs e)
         {
-            if (dgvWageDetail.SelectedRows.Count == 0) return;
-            UpdateWage updateWage = new UpdateWage();
-        }
-        private void btnEditBrand_Click(object sender, EventArgs e)
-        {
-            if (dgvSupplierDetail.SelectedRows.Count == 0) return;
-            UpdateBrand updateBrand = new UpdateBrand();
+            if (dgvWageDetail.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn hàng cần sửa.");
+                return;
+            }
+
+            string wageID = dgvWageDetail.SelectedRows[0].Cells["MaTienCong"].Value.ToString();
+            string wageType = dgvWageDetail.SelectedRows[0].Cells["NoiDung"].Value.ToString();
+            string wageAmount = dgvWageDetail.SelectedRows[0].Cells["TienCong"].Value.ToString();
+
+            UpdateWage updateWage = new UpdateWage(wageID, wageType, wageAmount);
+            updateWage.ShowDialog();
+            this.LoadWageData();
         }
 
-        private void btnRemoveSupplier_Click(object sender, EventArgs e)
+        private void btnEditBrand_Click(object sender, EventArgs e)
         {
-            string supplierID = (string)dgvSupplierDetail.SelectedRows[0].Cells["MaNCC"].Value;
-            OptionDAO.Instance.DelSupplier(supplierID);
-            this.LoadSupplierData();
+            if (dgvBrandDetail.SelectedRows.Count == 0) return;
+            UpdateBrand updateBrand = new UpdateBrand(this.txtBrandName.Text);
         }
 
         private void btnRemoveWage_Click(object sender, EventArgs e)
@@ -315,7 +259,7 @@ namespace WinFormsApp.Screens.Option
             }
         }
 
-        private void ExportToExcel(DataGridView dgv, string fileName)
+        private void ExportDataGridViewToExcel(DataGridView dgv, string worksheetName, string fileName)
         {
             if (dgv.Rows.Count == 0)
             {
@@ -325,21 +269,19 @@ namespace WinFormsApp.Screens.Option
 
             try
             {
-                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel.Worksheet worksheet = null;
+                var excel = new Microsoft.Office.Interop.Excel.Application();
+                var workbook = excel.Workbooks.Add(Type.Missing);
+                var worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
 
-                worksheet = (Microsoft.Office.Interop.Excel.Worksheet?)workbook.Sheets["Sheet1"];
-                worksheet = (Microsoft.Office.Interop.Excel.Worksheet?)workbook.ActiveSheet;
-                worksheet.Name = "ExportedData";
+                worksheet.Name = worksheetName;
 
                 // Add column headers
-                for (int i = 1; i <= dgv.Columns.Count; i++)
+                for (int i = 0; i < dgv.Columns.Count; i++)
                 {
-                    worksheet.Cells[1, i] = dgv.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i + 1] = dgv.Columns[i].HeaderText;
                 }
 
-                // Add rows
+                // Add data rows
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     for (int j = 0; j < dgv.Columns.Count; j++)
@@ -348,50 +290,43 @@ namespace WinFormsApp.Screens.Option
                     }
                 }
 
-                // Save the file
                 workbook.SaveAs(fileName);
                 workbook.Close();
                 excel.Quit();
+
+                // Release COM objects to prevent memory leaks
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excel);
 
                 MessageBox.Show("Xuất dữ liệu thành công!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xuất dữ liệu: " + ex.Message);
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+        }
+
+        private void ExportButtonClick(DataGridView dgv, string defaultFileName, string worksheetName)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog()
+                       { Filter = "Excel Workbook|*.xlsx", FileName = defaultFileName })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportDataGridViewToExcel(dgv, worksheetName, saveFileDialog.FileName);
+                }
             }
         }
 
         private void btnExportWage_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "WageData.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(dgvWageDetail, sfd.FileName);
-                }
-            }
+            ExportButtonClick(dgvWageDetail, "WageData.xlsx", "Wage Details");
         }
 
         private void btnExportBrand_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "BrandData.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(dgvBrandDetail, sfd.FileName);
-                }
-            }
-        }
-
-        private void btnExportSupplier_Click(object sender, EventArgs e)
-        {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "SupplierData.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(dgvSupplierDetail, sfd.FileName);
-                }
-            }
+            ExportButtonClick(dgvBrandDetail, "BrandData.xlsx", "Brand Details");
         }
     }
 }

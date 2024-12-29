@@ -41,6 +41,8 @@
             button1 = new Button();
             panel1 = new Panel();
             label3 = new Label();
+            txbTotalAmount = new TextBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvCTPN).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -124,6 +126,7 @@
             button1.TabIndex = 5;
             button1.Text = "Thoát";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // panel1
             // 
@@ -140,17 +143,42 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlText;
-            label3.Location = new Point(215, 9);
+            label3.Location = new Point(126, 9);
             label3.Name = "label3";
-            label3.Size = new Size(594, 50);
+            label3.Size = new Size(753, 50);
             label3.TabIndex = 0;
-            label3.Text = "PHIẾU NHẬP VẬT TƯ PHỤ TÙNG";
+            label3.Text = "CHI TIẾT PHIẾU NHẬP VẬT TƯ PHỤ TÙNG";
+            // 
+            // txbTotalAmount
+            // 
+            txbTotalAmount.Anchor = AnchorStyles.Top;
+            txbTotalAmount.BackColor = Color.Gainsboro;
+            txbTotalAmount.Enabled = false;
+            txbTotalAmount.Location = new Point(393, 614);
+            txbTotalAmount.Name = "txbTotalAmount";
+            txbTotalAmount.ReadOnly = true;
+            txbTotalAmount.ShortcutsEnabled = false;
+            txbTotalAmount.Size = new Size(220, 27);
+            txbTotalAmount.TabIndex = 16;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(200, 613);
+            label4.Name = "label4";
+            label4.Size = new Size(154, 28);
+            label4.TabIndex = 15;
+            label4.Text = "Tổng thành tiền:";
             // 
             // ct_history
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1017, 673);
+            Controls.Add(txbTotalAmount);
+            Controls.Add(label4);
             Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(datetimepiker);
@@ -163,7 +191,7 @@
             MinimumSize = new Size(1035, 720);
             Name = "ct_history";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PHIẾU NHẬP VẬT TƯ PHỤ TÙNG";
+            Text = "CHI TIẾT PHIẾU NHẬP VẬT TƯ PHỤ TÙNG";
             Load += ct_history_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCTPN).EndInit();
             panel1.ResumeLayout(false);
@@ -186,5 +214,7 @@
         private DataGridViewTextBoxColumn Column4;
         private Panel panel1;
         private Label label3;
+        private TextBox txbTotalAmount;
+        private Label label4;
     }
 }

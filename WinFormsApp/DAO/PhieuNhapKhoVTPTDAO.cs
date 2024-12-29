@@ -15,11 +15,27 @@ namespace WinFormsApp.DAO
     {
         public static PhieuNhapKhoVTPTDAO Instance = new PhieuNhapKhoVTPTDAO();
 
-        public string AddPhieuNhapKho(PhieuNhapKhoVTPT phieuNhapKhoVTPT)
+        public string LoadIdImport()
         {
-            string maNKVTPT = getNextPhieuNhapKhoCode();
-            string query = "INSERT INTO dbo.PHIEUNHAPKHOVTPT (MaNKVTPT, NgayNhap, MaNCC) " +
-                           "VALUES (@MaNKVTPT, @NgayNhap, @MaNCC)";
+            SqlConnection con = DataProvider.instance.getConnect();
+            using (con)
+            {
+                con.Open();
+                string sql = "SELECT COUNT(*) + 1 AS SO FROM PHIEUNHAPKHOVTPT";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                string l = "";
+                if (dr.Read())
+                    l = dr["SO"].ToString();
+                con.Close();
+                return "NK" + l;
+            }
+        }
+
+        public void AddPhieuNhapKho(PhieuNhapKhoVTPT phieuNhapKhoVTPT)
+        {
+            string query = "INSERT INTO dbo.PHIEUNHAPKHOVTPT (MaNKVTPT, NgayNhap, TongTienNhap, TenDangNhap) " +
+                           "VALUES (@MaNKVTPT, @NgayNhap, @TongTienNhap, @TenDangNhap)";
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
@@ -28,12 +44,11 @@ namespace WinFormsApp.DAO
                     {
                         connection.Open();
 
-                        cmd.Parameters.AddWithValue("@MaNKVTPT", maNKVTPT);
+                        cmd.Parameters.AddWithValue("@MaNKVTPT", phieuNhapKhoVTPT.maNKVTPT);
                         cmd.Parameters.AddWithValue("@NgayNhap", phieuNhapKhoVTPT.ngayNhap);
-                        cmd.Parameters.AddWithValue("@MaNCC", phieuNhapKhoVTPT.supplier.MaNCC); 
-
+                        cmd.Parameters.AddWithValue("@TongTienNhap", phieuNhapKhoVTPT.tongTienNhap);
+                        cmd.Parameters.AddWithValue("@TenDangNhap", phieuNhapKhoVTPT.tenDangNhap);
                         cmd.ExecuteNonQuery();
-                        return maNKVTPT;
                     }
                 }
                 catch (SqlException sqlEx)
@@ -69,7 +84,8 @@ namespace WinFormsApp.DAO
                 }
                 catch (Exception ex)
                 {
-                    throw new InvalidOperationException("Lỗi khi tìm MaVTPT: " + ex.Message, ex);
+                    MessageBox.Show("Lỗi kết nối: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
                 }
                 finally
                 {
@@ -81,14 +97,13 @@ namespace WinFormsApp.DAO
             }
         }
 
-
         public void addCT_PNKVTPTAndUpdatePhuTung(List<CT_PNKVTPT> cT_PNKVTPTs)
         {
-           
+            string checkExistQuery = "SELECT COUNT(*) FROM CT_PNKVTPT WHERE MaNKVTPT = @MaNKVTPT AND MaVTPT = @MaVTPT";
+            string updateCTQuery = "UPDATE CT_PNKVTPT SET SoLuong = SoLuong + @SoLuong WHERE MaNKVTPT = @MaNKVTPT AND MaVTPT = @MaVTPT";
             string insertQuery = "INSERT INTO CT_PNKVTPT (MaNKVTPT, MaVTPT, TenVTPT, SoLuong, GiaNhap) " +
                                  "VALUES (@MaNKVTPT, @MaVTPT, @TenVTPT, @SoLuong, @GiaNhap)";
-
-            string updateQuery = "UPDATE PHUTUNG SET SoLuongTon = SoLuongTon + @SoLuong WHERE MaVTPT = @MaVTPT";
+            string updatePhuTungQuery = "UPDATE PHUTUNG SET SoLuongTon = SoLuongTon + @SoLuong WHERE MaVTPT = @MaVTPT";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
@@ -101,23 +116,51 @@ namespace WinFormsApp.DAO
 
                     foreach (var item in cT_PNKVTPTs)
                     {
-                        using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection, transaction))
-                        {
-                            insertCommand.Parameters.AddWithValue("@MaNKVTPT", item.phieuNhapKhoVTPT.maNKVTPT);
-                            insertCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
-                            insertCommand.Parameters.AddWithValue("@TenVTPT", item.phuTung.TenVTPT);
-                            insertCommand.Parameters.AddWithValue("@SoLuong", item.SoLuong);
-                            insertCommand.Parameters.AddWithValue("@GiaNhap", item.GiaNhap);
+                        int count;
 
-                            insertCommand.ExecuteNonQuery();
+                        // Kiểm tra xem bản ghi đã tồn tại chưa
+                        using (SqlCommand checkExistCommand = new SqlCommand(checkExistQuery, connection, transaction))
+                        {
+                            checkExistCommand.Parameters.AddWithValue("@MaNKVTPT", item.phieuNhapKhoVTPT.maNKVTPT);
+                            checkExistCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
+
+                            count = (int)checkExistCommand.ExecuteScalar();
                         }
 
-                        using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection, transaction))
+                        if (count > 0)
                         {
-                            updateCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
-                            updateCommand.Parameters.AddWithValue("@SoLuong", item.SoLuong);
+                            // Nếu tồn tại, cập nhật số lượng
+                            using (SqlCommand updateCTCommand = new SqlCommand(updateCTQuery, connection, transaction))
+                            {
+                                updateCTCommand.Parameters.AddWithValue("@MaNKVTPT", item.phieuNhapKhoVTPT.maNKVTPT);
+                                updateCTCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
+                                updateCTCommand.Parameters.AddWithValue("@SoLuong", item.SoLuong);
 
-                            updateCommand.ExecuteNonQuery();
+                                updateCTCommand.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            // Nếu chưa tồn tại, thêm mới
+                            using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection, transaction))
+                            {
+                                insertCommand.Parameters.AddWithValue("@MaNKVTPT", item.phieuNhapKhoVTPT.maNKVTPT);
+                                insertCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
+                                insertCommand.Parameters.AddWithValue("@TenVTPT", item.phuTung.TenVTPT);
+                                insertCommand.Parameters.AddWithValue("@SoLuong", item.SoLuong);
+                                insertCommand.Parameters.AddWithValue("@GiaNhap", item.GiaNhap);
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Cập nhật số lượng tồn của phụ tùng
+                        using (SqlCommand updatePhuTungCommand = new SqlCommand(updatePhuTungQuery, connection, transaction))
+                        {
+                            updatePhuTungCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
+                            updatePhuTungCommand.Parameters.AddWithValue("@SoLuong", item.SoLuong);
+
+                            updatePhuTungCommand.ExecuteNonQuery();
                         }
                     }
 
@@ -125,7 +168,7 @@ namespace WinFormsApp.DAO
                 }
                 catch (Exception ex)
                 {
-                    transaction?.Rollback(); 
+                    transaction?.Rollback();
                     throw new InvalidOperationException("Lỗi khi thêm dữ liệu và cập nhật SoLuongTon: " + ex.Message, ex);
                 }
                 finally
@@ -137,6 +180,63 @@ namespace WinFormsApp.DAO
                 }
             }
         }
+
+
+        //public void addCT_PNKVTPTAndUpdatePhuTung(List<CT_PNKVTPT> cT_PNKVTPTs)
+        //{
+
+        //    string insertQuery = "INSERT INTO CT_PNKVTPT (MaNKVTPT, MaVTPT, TenVTPT, SoLuong, GiaNhap) " +
+        //                         "VALUES (@MaNKVTPT, @MaVTPT, @TenVTPT, @SoLuong, @GiaNhap)";
+
+        //    string updateQuery = "UPDATE PHUTUNG SET SoLuongTon = SoLuongTon + @SoLuong WHERE MaVTPT = @MaVTPT";
+
+        //    using (SqlConnection connection = DataProvider.instance.getConnect())
+        //    {
+        //        SqlTransaction transaction = null;
+
+        //        try
+        //        {
+        //            connection.Open();
+        //            transaction = connection.BeginTransaction();
+
+        //            foreach (var item in cT_PNKVTPTs)
+        //            {
+        //                using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection, transaction))
+        //                {
+        //                    insertCommand.Parameters.AddWithValue("@MaNKVTPT", item.phieuNhapKhoVTPT.maNKVTPT);
+        //                    insertCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
+        //                    insertCommand.Parameters.AddWithValue("@TenVTPT", item.phuTung.TenVTPT);
+        //                    insertCommand.Parameters.AddWithValue("@SoLuong", item.SoLuong);
+        //                    insertCommand.Parameters.AddWithValue("@GiaNhap", item.GiaNhap);
+
+        //                    insertCommand.ExecuteNonQuery();
+        //                }
+
+        //                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection, transaction))
+        //                {
+        //                    updateCommand.Parameters.AddWithValue("@MaVTPT", item.phuTung.MaVTPT);
+        //                    updateCommand.Parameters.AddWithValue("@SoLuong", item.SoLuong);
+
+        //                    updateCommand.ExecuteNonQuery();
+        //                }
+        //            }
+
+        //            transaction.Commit();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            transaction?.Rollback(); 
+        //            throw new InvalidOperationException("Lỗi khi thêm dữ liệu và cập nhật SoLuongTon: " + ex.Message, ex);
+        //        }
+        //        finally
+        //        {
+        //            if (connection.State == System.Data.ConnectionState.Open)
+        //            {
+        //                connection.Close();
+        //            }
+        //        }
+        //    }
+        //}
 
 
         public string getNextPhieuNhapKhoCode()
@@ -226,12 +326,12 @@ namespace WinFormsApp.DAO
         public DataTable getPhieuNhapListByTerm(string term)
         {
             string sql = "SELECT c.MaNKVTPT AS 'ID', NgayNhap AS 'Ngày nhập hàng', " +
-                         "SUM(SoLuong * GiaNhap) AS 'Tổng tiền thanh toán', TenNCC AS 'Đơn vị cung cấp' " +
+                         "TongTienNhap AS 'Tổng tiền thanh toán', n.TenDangNhap AS 'Tên người nhập'" +
                          "FROM PHIEUNHAPKHOVTPT AS p " +
                          "INNER JOIN CT_PNKVTPT AS c ON p.MaNKVTPT = c.MaNKVTPT " +
-                         "INNER JOIN NHACUNGCAP AS n ON p.MaNCC = n.MaNCC " +
-                         "WHERE TenNCC LIKE '%'+ @term + '%' OR c.MaNKVTPT LIKE + '%'+ @term + '%'" +
-                         "GROUP BY c.MaNKVTPT, NgayNhap, TenNCC";
+                         "INNER JOIN NHANVIEN AS n ON p.TenDangNhap = n.TenDangNhap " +
+                         "WHERE n.TenDangNhap LIKE '%'+ @term + '%' OR c.MaNKVTPT LIKE + '%'+ @term + '%'" +
+                         "GROUP BY c.MaNKVTPT, p.NgayNhap, n.TenDangNhap, p.TongTienNhap";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
@@ -253,23 +353,24 @@ namespace WinFormsApp.DAO
             }
         }
 
-        public DataTable getPhieuNhapListByDateRange(DateTime startDate, DateTime endDate)
+        public DataTable getPhieuNhapListByDateRange(DateTime findDate)
         {
             string sql = "SELECT c.MaNKVTPT AS 'ID', NgayNhap AS 'Ngày nhập hàng', " +
-                         "SUM(SoLuong * GiaNhap) AS 'Tổng tiền thanh toán', TenNCC AS 'Đơn vị cung cấp' " +
+                         "TongTienNhap AS 'Tổng tiền thanh toán', n.TenDangNhap AS 'Tên người nhập'" +
                          "FROM PHIEUNHAPKHOVTPT AS p " +
                          "INNER JOIN CT_PNKVTPT AS c ON p.MaNKVTPT = c.MaNKVTPT " +
-                         "INNER JOIN NHACUNGCAP AS n ON p.MaNCC = n.MaNCC " +
-                         "WHERE NgayNhap BETWEEN @startDate AND @endDate " +
-                         "GROUP BY c.MaNKVTPT, NgayNhap, TenNCC";
+                         "INNER JOIN NHANVIEN AS n ON p.TenDangNhap = n.TenDangNhap " +
+                         "WHERE CONVERT(DATE, NgayNhap) = @NgayNhap " +
+                         "GROUP BY c.MaNKVTPT, p.NgayNhap, n.TenDangNhap, p.TongTienNhap";
+
+            //string sql = "SELECT MaNKVTPT, NgayNhap, TongTienNhap, TenDangNhap FROM PHIEUNHAPKHOVTPT WHERE CONVERT(DATE, NgayNhap) = @NgayNhap";
 
             using (SqlConnection connection = DataProvider.instance.getConnect())
             {
                 try
                 {
                     SqlCommand command = new SqlCommand(sql, connection);
-                    command.Parameters.AddWithValue("@startDate", startDate); // Add start date parameter
-                    command.Parameters.AddWithValue("@endDate", endDate); // Add end date parameter
+                    command.Parameters.AddWithValue("@NgayNhap", findDate); // Add start date parameter
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();

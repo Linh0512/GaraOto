@@ -41,7 +41,10 @@ namespace WinFormsApp.Screens.fInventory
 
               
                 cbb_inventory.SelectedIndex = 0;
-            } else if (_action.Equals("Update")){
+            } 
+            
+            else if (_action.Equals("Update"))
+            {
                 if(_payment.dgvNhapHang.SelectedRows.Count > 0)
                 {
                     DataGridViewRow selectedRow = _payment.dgvNhapHang.SelectedRows[0];
@@ -56,6 +59,7 @@ namespace WinFormsApp.Screens.fInventory
                     this.Close();
                 }
             }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,16 +83,19 @@ namespace WinFormsApp.Screens.fInventory
                 MessageBox.Show("Đã thêm phụ tùng vào danh sách!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _payment.UpdateTongTien();
                 this.Close();
-            } else if (_action.Equals("Update")){
+            } 
+
+            else if (_action.Equals("Update"))
+            {
                 if (_payment.dgvNhapHang.SelectedRows.Count > 0)
                 {
                     ValidateAndCalculateTotal();
                     DataGridViewRow selectedRow = _payment.dgvNhapHang.SelectedRows[0];
 
-                    selectedRow.Cells[1].Value = cbb_inventory.Text; 
-                    selectedRow.Cells[2].Value = txt_price.Text;     
-                    selectedRow.Cells[3].Value = txt_quantity.Text;  
-                    selectedRow.Cells[4].Value = txt_total.Text;   
+                    selectedRow.Cells[1].Value = cbb_inventory.Text;
+                    selectedRow.Cells[2].Value = txt_price.Text;  
+                    selectedRow.Cells[3].Value = txt_quantity.Text;
+                    selectedRow.Cells[4].Value = txt_total.Text;
 
                     MessageBox.Show("Dữ liệu đã được cập nhật!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _payment.UpdateTongTien();
@@ -109,6 +116,7 @@ namespace WinFormsApp.Screens.fInventory
                 txt_price.Text = "";
                 txt_quantity.Text = "";
                 txt_total.Text = "";
+                this.Close();
             } else if (_action.Equals("Update"))
             {
                 this.Close();

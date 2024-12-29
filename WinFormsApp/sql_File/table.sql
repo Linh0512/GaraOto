@@ -100,7 +100,8 @@ create table PHIEUNHAPKHOVTPT
 (
 
     MaNKVTPT char(10),
-    NgayNhap smalldatetime
+    NgayNhap smalldatetime,
+    TongTienNhap money,
         constraint PK_PHIEUNHAPKHOVTPT primary key (MaNKVTPT)
 )
 
@@ -117,21 +118,21 @@ create table CT_PNKVTPT
 
 
 -- Table NHÀ CUNG CẤP
-CREATE TABLE NHACUNGCAP
-(
-    MaNCC     char(10),
-    TenNCC    nvarchar(100),
-    SDT varchar(20),
-    Email     varchar(50),
-    CONSTRAINT PK_NHACUNGCAP PRIMARY KEY (MaNCC)
-)
+--CREATE TABLE NHACUNGCAP
+--(
+--    MaNCC     char(10),
+--    TenNCC    nvarchar(100),
+--    SDT varchar(20),
+--    Email     varchar(50),
+--    CONSTRAINT PK_NHACUNGCAP PRIMARY KEY (MaNCC)
+--)
 
-ALTER TABLE PHIEUNHAPKHOVTPT
-    ADD MaNCC char(10)
+--ALTER TABLE PHIEUNHAPKHOVTPT
+--    ADD MaNCC char(10)
 
-ALTER TABLE PHIEUNHAPKHOVTPT
-    ADD CONSTRAINT FK_PHIEUNHAPKHO_NCC
-        FOREIGN KEY (MaNCC) REFERENCES NHACUNGCAP (MaNCC)
+--ALTER TABLE PHIEUNHAPKHOVTPT
+--    ADD CONSTRAINT FK_PHIEUNHAPKHO_NCC
+--        FOREIGN KEY (MaNCC) REFERENCES NHACUNGCAP (MaNCC)
 
 -- TAO KHOA NGOAI
 -- 1. BANG XE
@@ -178,6 +179,28 @@ GO
 --Cập nhật cho phép trả vượt tiền nợ:
 ALTER TABLE QUYDINH
 ADD ChoPhepTraVuotTienNo BIT NOT NULL DEFAULT 0;
+
+GO
+
+ALTER TABLE QUYDINH
+ADD VTPTToiDA int NOT NULL DEFAULT 200;
+
+GO
+
+ALTER TABLE QUYDINH
+ADD LoaiTienCongToiDa int NOT NULL DEFAULT 100;
+
+GO
+
+--Phân quyền
+alter table PHIEUNHAPKHOVTPT
+ADD TenDangNhap nvarchar(20)
+
+go
+ALTER TABLE PHIEUNHAPKHOVTPT
+    ADD CONSTRAINT FK1_PNKVTPT foreign key (TenDangNhap) references NHANVIEN (TenDangNhap)
+
+go
 
 
 

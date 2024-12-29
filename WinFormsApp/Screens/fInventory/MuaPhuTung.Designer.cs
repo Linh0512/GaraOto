@@ -42,8 +42,8 @@
             label2 = new Label();
             btnAdd = new Button();
             button3 = new Button();
-            label6 = new Label();
             panel2 = new Panel();
+            label6 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -97,7 +97,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(61, 513);
+            label5.Location = new Point(20, 515);
             label5.Name = "label5";
             label5.Size = new Size(59, 25);
             label5.TabIndex = 18;
@@ -107,7 +107,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(44, 425);
+            label4.Location = new Point(20, 430);
             label4.Name = "label4";
             label4.Size = new Size(94, 25);
             label4.TabIndex = 17;
@@ -117,7 +117,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(44, 335);
+            label3.Location = new Point(20, 349);
             label3.Name = "label3";
             label3.Size = new Size(91, 25);
             label3.TabIndex = 16;
@@ -126,7 +126,7 @@
             // txt_total
             // 
             txt_total.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_total.Location = new Point(185, 511);
+            txt_total.Location = new Point(185, 509);
             txt_total.Margin = new Padding(3, 4, 3, 4);
             txt_total.Name = "txt_total";
             txt_total.Size = new Size(292, 34);
@@ -135,7 +135,7 @@
             // txt_quantity
             // 
             txt_quantity.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_quantity.Location = new Point(185, 423);
+            txt_quantity.Location = new Point(185, 424);
             txt_quantity.Margin = new Padding(3, 4, 3, 4);
             txt_quantity.Name = "txt_quantity";
             txt_quantity.Size = new Size(292, 34);
@@ -145,7 +145,7 @@
             // txt_price
             // 
             txt_price.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_price.Location = new Point(185, 336);
+            txt_price.Location = new Point(185, 340);
             txt_price.Margin = new Padding(3, 4, 3, 4);
             txt_price.Name = "txt_price";
             txt_price.Size = new Size(292, 34);
@@ -206,6 +206,15 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ButtonShadow;
+            panel2.Controls.Add(label6);
+            panel2.Location = new Point(-2, 130);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(531, 91);
+            panel2.TabIndex = 21;
+            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -216,15 +225,6 @@
             label6.Size = new Size(445, 50);
             label6.TabIndex = 20;
             label6.Text = "NHẬP THÊM PHỤ TÙNG";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ButtonShadow;
-            panel2.Controls.Add(label6);
-            panel2.Location = new Point(-2, 130);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(531, 91);
-            panel2.TabIndex = 21;
             // 
             // MuaPhuTung
             // 
