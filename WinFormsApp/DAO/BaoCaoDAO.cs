@@ -86,19 +86,27 @@ namespace WinFormsApp.DAO
         public List<BaoCaoDoanhSo> GetBaoCaoDoanhSo(int thang, int nam)
         {
             string query = $@"
-                SELECT 
-                    x.HieuXe,
-                    COUNT(DISTINCT psc.MaPSC) as SoLuotSua,
-                    SUM(ct.ThanhTien) as ThanhTien,
-                    CAST(COUNT(DISTINCT psc.MaPSC) * 100.0 / 
-                        NULLIF((SELECT COUNT(DISTINCT MaPSC) FROM PHIEUSUACHUA 
-                         WHERE MONTH(NgaySuaChua) = {thang} AND YEAR(NgaySuaChua) = {nam}), 0)
-                    AS float) as TiLe
-                FROM XE x
-                JOIN PHIEUSUACHUA psc ON x.BienSo = psc.BienSo
-                JOIN CT_PSC ct ON psc.MaPSC = ct.MaPSC
-                WHERE MONTH(psc.NgaySuaChua) = {thang} AND YEAR(psc.NgaySuaChua) = {nam}
-                GROUP BY x.HieuXe";
+        WITH TongDoanhThu AS (
+            SELECT SUM(ct.ThanhTien) as TongTien
+            FROM PHIEUSUACHUA psc
+            JOIN CT_PSC ct ON psc.MaPSC = ct.MaPSC
+            WHERE MONTH(psc.NgaySuaChua) = {thang} 
+            AND YEAR(psc.NgaySuaChua) = {nam}
+        )
+        SELECT 
+            x.HieuXe,
+            COUNT(DISTINCT psc.MaPSC) as SoLuotSua,
+            SUM(ct.ThanhTien) as ThanhTien,
+            CAST(
+                SUM(ct.ThanhTien) * 100.0 / NULLIF((SELECT TongTien FROM TongDoanhThu), 0)
+                AS float
+            ) as TiLe
+        FROM XE x
+        JOIN PHIEUSUACHUA psc ON x.BienSo = psc.BienSo
+        JOIN CT_PSC ct ON psc.MaPSC = ct.MaPSC
+        WHERE MONTH(psc.NgaySuaChua) = {thang} 
+        AND YEAR(psc.NgaySuaChua) = {nam}
+        GROUP BY x.HieuXe";
 
             DataTable data = DataProvider.instance.ExecuteQuery(query);
             List<BaoCaoDoanhSo> result = new List<BaoCaoDoanhSo>();

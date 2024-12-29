@@ -11,6 +11,7 @@ namespace WinFormsApp
         {
             InitializeComponent();
             LoadStaff();
+            NHANVIENDAO.Instane.LoadComboBoxData(cbbChucVu);
             this.GetUserNameAutoComplete();
         }
 
@@ -51,7 +52,6 @@ namespace WinFormsApp
             dgvNhanVien.Columns["TenNV"].ReadOnly = true;
             dgvNhanVien.Columns["ChucVu"].ReadOnly = true;
 
-            NHANVIENDAO.Instane.LoadComboBoxData(cbbChucVu);
 
             // Cấu hình các TextBox và nút
             txtDiaChi.Enabled = false;

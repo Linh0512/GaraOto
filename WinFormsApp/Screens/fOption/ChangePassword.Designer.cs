@@ -47,7 +47,7 @@
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(lblChangePassword);
             panel1.Location = new Point(-6, 2);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(965, 105);
             panel1.TabIndex = 9;
@@ -68,7 +68,7 @@
             // 
             txtOldPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOldPassword.Location = new Point(414, 145);
-            txtOldPassword.Margin = new Padding(2, 2, 2, 2);
+            txtOldPassword.Margin = new Padding(2);
             txtOldPassword.Multiline = true;
             txtOldPassword.Name = "txtOldPassword";
             txtOldPassword.PasswordChar = '*';
@@ -96,7 +96,7 @@
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
             btnClose.ImageAlign = ContentAlignment.MiddleRight;
             btnClose.Location = new Point(524, 402);
-            btnClose.Margin = new Padding(2, 2, 2, 2);
+            btnClose.Margin = new Padding(2);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(142, 66);
             btnClose.TabIndex = 15;
@@ -114,7 +114,7 @@
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleRight;
             btnAdd.Location = new Point(276, 402);
-            btnAdd.Margin = new Padding(2, 2, 2, 2);
+            btnAdd.Margin = new Padding(2);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(174, 66);
             btnAdd.TabIndex = 14;
@@ -127,7 +127,7 @@
             // 
             txtConfirmPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtConfirmPassword.Location = new Point(414, 307);
-            txtConfirmPassword.Margin = new Padding(2, 2, 2, 2);
+            txtConfirmPassword.Margin = new Padding(2);
             txtConfirmPassword.Multiline = true;
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PasswordChar = '*';
@@ -139,7 +139,7 @@
             // 
             txtNewPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNewPassword.Location = new Point(414, 222);
-            txtNewPassword.Margin = new Padding(2, 2, 2, 2);
+            txtNewPassword.Margin = new Padding(2);
             txtNewPassword.Multiline = true;
             txtNewPassword.Name = "txtNewPassword";
             txtNewPassword.PasswordChar = '*';
@@ -184,12 +184,13 @@
             Controls.Add(txtNewPassword);
             Controls.Add(lblConfirmPassword);
             Controls.Add(lblNewPassword);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             MaximumSize = new Size(976, 563);
             MinimumSize = new Size(976, 563);
             Name = "ChangePassword";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "ChangePassword";
+            Text = "ĐỔI MẬT KHẨU";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

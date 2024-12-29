@@ -32,6 +32,8 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WageList));
             pnlWageDetail = new Panel();
+            txtWageType = new TextBox();
+            txtWageID = new TextBox();
             lblWageID = new Label();
             dgvWageDetail = new DataGridView();
             btnRemoveWage = new Button();
@@ -43,8 +45,6 @@
             lblWageType = new Label();
             panel1 = new Panel();
             label1 = new Label();
-            txtWageID = new TextBox();
-            txtWageType = new TextBox();
             pnlWageDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvWageDetail).BeginInit();
             panel1.SuspendLayout();
@@ -69,6 +69,20 @@
             pnlWageDetail.Name = "pnlWageDetail";
             pnlWageDetail.Size = new Size(953, 522);
             pnlWageDetail.TabIndex = 7;
+            // 
+            // txtWageType
+            // 
+            txtWageType.Location = new Point(239, 78);
+            txtWageType.Name = "txtWageType";
+            txtWageType.Size = new Size(219, 27);
+            txtWageType.TabIndex = 13;
+            // 
+            // txtWageID
+            // 
+            txtWageID.Location = new Point(12, 78);
+            txtWageID.Name = "txtWageID";
+            txtWageID.Size = new Size(125, 27);
+            txtWageID.TabIndex = 12;
             // 
             // lblWageID
             // 
@@ -252,20 +266,6 @@
             label1.TabIndex = 0;
             label1.Text = "DANH SÁCH TIỀN CÔNG";
             // 
-            // txtWageID
-            // 
-            txtWageID.Location = new Point(12, 78);
-            txtWageID.Name = "txtWageID";
-            txtWageID.Size = new Size(125, 27);
-            txtWageID.TabIndex = 12;
-            // 
-            // txtWageType
-            // 
-            txtWageType.Location = new Point(239, 78);
-            txtWageType.Name = "txtWageType";
-            txtWageType.Size = new Size(219, 27);
-            txtWageType.TabIndex = 13;
-            // 
             // WageList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -273,11 +273,12 @@
             ClientSize = new Size(953, 625);
             Controls.Add(panel1);
             Controls.Add(pnlWageDetail);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(971, 672);
             MinimumSize = new Size(971, 672);
             Name = "WageList";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "WageList";
+            Text = "DANH SÁCH TIỀN CÔNG";
             pnlWageDetail.ResumeLayout(false);
             pnlWageDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvWageDetail).EndInit();

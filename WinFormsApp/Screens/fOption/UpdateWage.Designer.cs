@@ -45,7 +45,7 @@
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(lblAddWage);
             panel1.Location = new Point(-4, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(742, 82);
             panel1.TabIndex = 9;
@@ -71,7 +71,7 @@
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
             btnClose.ImageAlign = ContentAlignment.MiddleRight;
             btnClose.Location = new Point(457, 301);
-            btnClose.Margin = new Padding(2, 2, 2, 2);
+            btnClose.Margin = new Padding(2);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(109, 52);
             btnClose.TabIndex = 15;
@@ -89,7 +89,7 @@
             btnConfirm.Image = (Image)resources.GetObject("btnConfirm.Image");
             btnConfirm.ImageAlign = ContentAlignment.MiddleRight;
             btnConfirm.Location = new Point(214, 301);
-            btnConfirm.Margin = new Padding(2, 2, 2, 2);
+            btnConfirm.Margin = new Padding(2);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(154, 52);
             btnConfirm.TabIndex = 14;
@@ -102,7 +102,7 @@
             // 
             txtValue.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtValue.Location = new Point(284, 202);
-            txtValue.Margin = new Padding(2, 2, 2, 2);
+            txtValue.Margin = new Padding(2);
             txtValue.Multiline = true;
             txtValue.Name = "txtValue";
             txtValue.Size = new Size(349, 35);
@@ -112,7 +112,7 @@
             // 
             txtWageType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtWageType.Location = new Point(284, 136);
-            txtWageType.Margin = new Padding(2, 2, 2, 2);
+            txtWageType.Margin = new Padding(2);
             txtWageType.Multiline = true;
             txtWageType.Name = "txtWageType";
             txtWageType.Size = new Size(349, 35);
@@ -153,12 +153,13 @@
             Controls.Add(txtWageType);
             Controls.Add(lblValue);
             Controls.Add(lblWageType);
-            Margin = new Padding(2, 2, 2, 2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
             MaximumSize = new Size(758, 469);
             MinimumSize = new Size(758, 469);
             Name = "UpdateWage";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "UpdateWage";
+            Text = "SỬA TIỀN CÔNG";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

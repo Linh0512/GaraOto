@@ -34,6 +34,7 @@ partial class fBaoCaoTon
         ComponentResourceManager resources = new ComponentResourceManager(typeof(fBaoCaoTon));
         label1 = new Label();
         groupBox1 = new GroupBox();
+        btnExportFile = new Button();
         numericYear = new NumericUpDown();
         numericMonth = new NumericUpDown();
         label3 = new Label();
@@ -48,11 +49,15 @@ partial class fBaoCaoTon
         SoLuongSuDung = new DataGridViewTextBoxColumn();
         TonCuoi = new DataGridViewTextBoxColumn();
         btnExit = new Button();
+        panel1 = new Panel();
+        lable10 = new Label();
+        lbUser = new Label();
         groupBox1.SuspendLayout();
         ((ISupportInitialize)numericYear).BeginInit();
         ((ISupportInitialize)numericMonth).BeginInit();
         groupBox2.SuspendLayout();
         ((ISupportInitialize)tableBCTK).BeginInit();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
         // label1
@@ -70,6 +75,7 @@ partial class fBaoCaoTon
         // 
         // groupBox1
         // 
+        groupBox1.Controls.Add(btnExportFile);
         groupBox1.Controls.Add(numericYear);
         groupBox1.Controls.Add(numericMonth);
         groupBox1.Controls.Add(label3);
@@ -85,6 +91,18 @@ partial class fBaoCaoTon
         groupBox1.TabStop = false;
         groupBox1.Text = "Báo cáo tồn kho";
         groupBox1.Enter += groupBox1_Enter;
+        // 
+        // btnExportFile
+        // 
+        btnExportFile.BackColor = SystemColors.ButtonShadow;
+        btnExportFile.Location = new Point(903, 28);
+        btnExportFile.Margin = new Padding(2);
+        btnExportFile.Name = "btnExportFile";
+        btnExportFile.Size = new Size(181, 74);
+        btnExportFile.TabIndex = 7;
+        btnExportFile.Text = "Xuất file báo cáo";
+        btnExportFile.UseVisualStyleBackColor = false;
+        btnExportFile.Click += btnExportFile_Click;
         // 
         // numericYear
         // 
@@ -129,13 +147,14 @@ partial class fBaoCaoTon
         // 
         // btnShowBCTK
         // 
-        btnShowBCTK.Location = new Point(717, 25);
+        btnShowBCTK.BackColor = Color.CadetBlue;
+        btnShowBCTK.Location = new Point(631, 28);
         btnShowBCTK.Margin = new Padding(2);
         btnShowBCTK.Name = "btnShowBCTK";
         btnShowBCTK.Size = new Size(222, 74);
         btnShowBCTK.TabIndex = 0;
         btnShowBCTK.Text = "Hiện báo cáo";
-        btnShowBCTK.UseVisualStyleBackColor = true;
+        btnShowBCTK.UseVisualStyleBackColor = false;
         btnShowBCTK.Click += btnShowBCTK_Click;
         // 
         // groupBox2
@@ -214,11 +233,42 @@ partial class fBaoCaoTon
         btnExit.UseVisualStyleBackColor = false;
         btnExit.Click += btnExit_Click_1;
         // 
+        // panel1
+        // 
+        panel1.BackColor = SystemColors.ButtonShadow;
+        panel1.Controls.Add(lbUser);
+        panel1.Controls.Add(lable10);
+        panel1.Location = new Point(65, 604);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(366, 43);
+        panel1.TabIndex = 4;
+        // 
+        // lable10
+        // 
+        lable10.AutoSize = true;
+        lable10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lable10.Location = new Point(0, 1);
+        lable10.Name = "lable10";
+        lable10.Size = new Size(181, 28);
+        lable10.TabIndex = 0;
+        lable10.Text = "TÊN NGƯỜI DÙNG:";
+        // 
+        // lbUser
+        // 
+        lbUser.AutoSize = true;
+        lbUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lbUser.Location = new Point(187, 0);
+        lbUser.Name = "lbUser";
+        lbUser.Size = new Size(149, 28);
+        lbUser.TabIndex = 1;
+        lbUser.Text = "Tên người dùng";
+        // 
         // fBaoCaoTon
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1126, 657);
+        Controls.Add(panel1);
         Controls.Add(btnExit);
         Controls.Add(groupBox2);
         Controls.Add(groupBox1);
@@ -235,6 +285,8 @@ partial class fBaoCaoTon
         ((ISupportInitialize)numericMonth).EndInit();
         groupBox2.ResumeLayout(false);
         ((ISupportInitialize)tableBCTK).EndInit();
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -261,4 +313,9 @@ partial class fBaoCaoTon
     private System.Windows.Forms.Label label1;
 
     #endregion
+
+    private Button btnExportFile;
+    private Panel panel1;
+    private Label lbUser;
+    private Label lable10;
 }

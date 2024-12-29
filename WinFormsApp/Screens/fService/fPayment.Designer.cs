@@ -253,6 +253,7 @@
             // 
             // dtpDatePay
             // 
+            dtpDatePay.Enabled = false;
             dtpDatePay.Format = DateTimePickerFormat.Short;
             dtpDatePay.Location = new Point(138, 7);
             dtpDatePay.Name = "dtpDatePay";

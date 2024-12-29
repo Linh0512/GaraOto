@@ -21,6 +21,7 @@ public partial class fBaoCaoTon : Form
 
         // Clear data
         tableBCTK.DataSource = null;
+        this.lbUser.Text = SessionManager.Instance.CurrentUser.TenDangNhap;
     }
 
     private void ConfigureDataGridView()
@@ -112,5 +113,10 @@ public partial class fBaoCaoTon : Form
     private void btnExit_Click_1(object sender, EventArgs e)
     {
         this.Close();
+    }
+
+    private void btnExportFile_Click(object sender, EventArgs e)
+    {
+        BaoCaoDAO.Instance.ExportButtonClick(tableBCTK, "BaoCaoTonKho.xlsx", "BCTK Details");
     }
 }

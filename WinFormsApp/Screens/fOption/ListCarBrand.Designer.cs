@@ -251,11 +251,12 @@
             ClientSize = new Size(996, 591);
             Controls.Add(panel1);
             Controls.Add(pnlBrandDetail);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1014, 638);
             MinimumSize = new Size(1014, 638);
             Name = "ListCarBrand";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "ListCarBrand";
+            Text = "DANH SÁCH HIỆU XE";
             pnlBrandDetail.ResumeLayout(false);
             pnlBrandDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBrandDetail).EndInit();

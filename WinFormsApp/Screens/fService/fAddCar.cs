@@ -44,6 +44,11 @@ namespace WinFormsApp.Screens.Service.AddCar
 
         private void btConfirm_Click(object sender, EventArgs e)
         {
+            if(this.dtpDateReceived.Value != DateTime.Now)
+            {
+                MessageBox.Show("Ngày tiếp nhận không hợp lệ");
+                return;
+            }
             try
             { 
                 if (!QuyDinhManager.Instance.canReceiveCar())

@@ -20,10 +20,10 @@ namespace WinFormsApp.Screens.fReport
         {
             numericMonth.Value = DateTime.Now.Month;
             numericYear.Value = DateTime.Now.Year;
-            
+
             // Cấu hình DataGridView
             ConfigureDataGridView();
-            
+
             // Clear data
             tableBCDS.DataSource = null;
             tb_TongDTHU.Clear();
@@ -32,7 +32,7 @@ namespace WinFormsApp.Screens.fReport
         private void ConfigureDataGridView()
         {
             tableBCDS.Columns.Clear();
-            
+
             tableBCDS.AutoGenerateColumns = false;
 
             DataGridViewTextBoxColumn colHieuXe = new DataGridViewTextBoxColumn();
@@ -114,10 +114,10 @@ namespace WinFormsApp.Screens.fReport
                 int nam = (int)numericYear.Value;
 
                 var data = BaoCaoDAO.Instance.GetBaoCaoDoanhSo(thang, nam);
-                
+
                 if (data.Count == 0)
                 {
-                    MessageBox.Show($"Không có dữ liệu báo cáo cho tháng {thang}/{nam}", 
+                    MessageBox.Show($"Không có dữ liệu báo cáo cho tháng {thang}/{nam}",
                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tableBCDS.DataSource = null;
                     tb_TongDTHU.Text = "0 VNĐ";
@@ -131,7 +131,7 @@ namespace WinFormsApp.Screens.fReport
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Có lỗi xảy ra khi tải dữ liệu: {ex.Message}", 
+                MessageBox.Show($"Có lỗi xảy ra khi tải dữ liệu: {ex.Message}",
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -149,6 +149,11 @@ namespace WinFormsApp.Screens.fReport
         private void groupBox2_Enter(object sender, EventArgs e)
         {
             //throw new System.NotImplementedException();
+        }
+
+        private void btnExportFile_Click(object sender, EventArgs e)
+        {
+            BaoCaoDAO.Instance.ExportButtonClick(tableBCDS, "BaoCaoDoanhSo.xlsx", "BCDS Details");
         }
     }
 }

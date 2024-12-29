@@ -34,6 +34,7 @@ partial class fBaoCaoDS
         ComponentResourceManager resources = new ComponentResourceManager(typeof(fBaoCaoDS));
         label1 = new Label();
         groupBox1 = new GroupBox();
+        btnExportFile = new Button();
         numericMonth = new NumericUpDown();
         btnShowBCDS = new Button();
         numericYear = new NumericUpDown();
@@ -54,11 +55,15 @@ partial class fBaoCaoDS
         PhatSinh = new DataGridViewColumn();
         SuDung = new DataGridViewColumn();
         TonCuoi = new DataGridViewColumn();
+        panel1 = new Panel();
+        lbUser = new Label();
+        lable10 = new Label();
         groupBox1.SuspendLayout();
         ((ISupportInitialize)numericMonth).BeginInit();
         ((ISupportInitialize)numericYear).BeginInit();
         ((ISupportInitialize)tableBCDS).BeginInit();
         groupBox2.SuspendLayout();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
         // label1
@@ -77,6 +82,7 @@ partial class fBaoCaoDS
         // 
         // groupBox1
         // 
+        groupBox1.Controls.Add(btnExportFile);
         groupBox1.Controls.Add(numericMonth);
         groupBox1.Controls.Add(btnShowBCDS);
         groupBox1.Controls.Add(numericYear);
@@ -87,15 +93,27 @@ partial class fBaoCaoDS
         groupBox1.Margin = new Padding(2);
         groupBox1.Name = "groupBox1";
         groupBox1.Padding = new Padding(2);
-        groupBox1.Size = new Size(892, 85);
+        groupBox1.Size = new Size(970, 85);
         groupBox1.TabIndex = 5;
         groupBox1.TabStop = false;
         groupBox1.Text = "Báo cáo doanh số";
         groupBox1.Enter += groupBox1_Enter;
         // 
+        // btnExportFile
+        // 
+        btnExportFile.BackColor = SystemColors.ButtonShadow;
+        btnExportFile.Location = new Point(749, 18);
+        btnExportFile.Margin = new Padding(2);
+        btnExportFile.Name = "btnExportFile";
+        btnExportFile.Size = new Size(181, 65);
+        btnExportFile.TabIndex = 6;
+        btnExportFile.Text = "Xuất file báo cáo";
+        btnExportFile.UseVisualStyleBackColor = false;
+        btnExportFile.Click += btnExportFile_Click;
+        // 
         // numericMonth
         // 
-        numericMonth.Location = new Point(98, 36);
+        numericMonth.Location = new Point(160, 34);
         numericMonth.Margin = new Padding(2);
         numericMonth.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
         numericMonth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -107,18 +125,19 @@ partial class fBaoCaoDS
         // 
         // btnShowBCDS
         // 
-        btnShowBCDS.Location = new Point(707, 16);
+        btnShowBCDS.BackColor = Color.CadetBlue;
+        btnShowBCDS.Location = new Point(531, 18);
         btnShowBCDS.Margin = new Padding(2);
         btnShowBCDS.Name = "btnShowBCDS";
         btnShowBCDS.Size = new Size(181, 65);
         btnShowBCDS.TabIndex = 4;
         btnShowBCDS.Text = "Hiện Báo Cáo";
-        btnShowBCDS.UseVisualStyleBackColor = true;
+        btnShowBCDS.UseVisualStyleBackColor = false;
         btnShowBCDS.Click += btnShowBCDS_Click;
         // 
         // numericYear
         // 
-        numericYear.Location = new Point(284, 36);
+        numericYear.Location = new Point(366, 36);
         numericYear.Margin = new Padding(2);
         numericYear.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
         numericYear.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
@@ -131,10 +150,10 @@ partial class fBaoCaoDS
         // label3
         // 
         label3.Font = new Font("Segoe UI", 14F);
-        label3.Location = new Point(215, 34);
+        label3.Location = new Point(291, 34);
         label3.Margin = new Padding(2, 0, 2, 0);
         label3.Name = "label3";
-        label3.Size = new Size(66, 26);
+        label3.Size = new Size(71, 36);
         label3.TabIndex = 2;
         label3.Text = "Năm: ";
         label3.Click += label3_Click;
@@ -142,10 +161,10 @@ partial class fBaoCaoDS
         // label2
         // 
         label2.Font = new Font("Segoe UI", 14F);
-        label2.Location = new Point(16, 36);
+        label2.Location = new Point(66, 34);
         label2.Margin = new Padding(2, 0, 2, 0);
         label2.Name = "label2";
-        label2.Size = new Size(78, 26);
+        label2.Size = new Size(90, 34);
         label2.TabIndex = 0;
         label2.Text = "Tháng:";
         label2.Click += label2_Click;
@@ -153,19 +172,21 @@ partial class fBaoCaoDS
         // label4
         // 
         label4.Font = new Font("Segoe UI", 14F);
-        label4.Location = new Point(228, 560);
+        label4.Location = new Point(378, 557);
         label4.Margin = new Padding(2, 0, 2, 0);
         label4.Name = "label4";
-        label4.Size = new Size(162, 26);
+        label4.Size = new Size(211, 40);
         label4.TabIndex = 5;
         label4.Text = "Tổng Doanh Thu:";
         label4.Click += label4_Click;
         // 
         // tb_TongDTHU
         // 
-        tb_TongDTHU.Location = new Point(411, 560);
+        tb_TongDTHU.Enabled = false;
+        tb_TongDTHU.Location = new Point(593, 563);
         tb_TongDTHU.Margin = new Padding(2);
         tb_TongDTHU.Name = "tb_TongDTHU";
+        tb_TongDTHU.ReadOnly = true;
         tb_TongDTHU.Size = new Size(264, 27);
         tb_TongDTHU.TabIndex = 7;
         tb_TongDTHU.TextChanged += textBox1_TextChanged;
@@ -217,13 +238,15 @@ partial class fBaoCaoDS
         // 
         // btnExit
         // 
-        btnExit.Location = new Point(768, 560);
+        btnExit.BackColor = Color.Red;
+        btnExit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnExit.Location = new Point(884, 563);
         btnExit.Margin = new Padding(2);
         btnExit.Name = "btnExit";
-        btnExit.Size = new Size(87, 50);
+        btnExit.Size = new Size(94, 50);
         btnExit.TabIndex = 9;
         btnExit.Text = "Thoát";
-        btnExit.UseVisualStyleBackColor = true;
+        btnExit.UseVisualStyleBackColor = false;
         btnExit.Click += btnExit_Click;
         // 
         // groupBox2
@@ -288,12 +311,43 @@ partial class fBaoCaoDS
         TonCuoi.ReadOnly = true;
         TonCuoi.Width = 150;
         // 
+        // panel1
+        // 
+        panel1.BackColor = SystemColors.ButtonShadow;
+        panel1.Controls.Add(lbUser);
+        panel1.Controls.Add(lable10);
+        panel1.Location = new Point(12, 563);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(345, 41);
+        panel1.TabIndex = 11;
+        // 
+        // lbUser
+        // 
+        lbUser.AutoSize = true;
+        lbUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lbUser.Location = new Point(193, 1);
+        lbUser.Name = "lbUser";
+        lbUser.Size = new Size(149, 28);
+        lbUser.TabIndex = 1;
+        lbUser.Text = "Tên người dùng";
+        // 
+        // lable10
+        // 
+        lable10.AutoSize = true;
+        lable10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lable10.Location = new Point(6, 2);
+        lable10.Name = "lable10";
+        lable10.Size = new Size(181, 28);
+        lable10.TabIndex = 0;
+        lable10.Text = "TÊN NGƯỜI DÙNG:";
+        // 
         // fBaoCaoDS
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.Control;
         ClientSize = new Size(990, 621);
+        Controls.Add(panel1);
         Controls.Add(groupBox2);
         Controls.Add(btnExit);
         Controls.Add(tb_TongDTHU);
@@ -312,6 +366,8 @@ partial class fBaoCaoDS
         ((ISupportInitialize)numericYear).EndInit();
         ((ISupportInitialize)tableBCDS).EndInit();
         groupBox2.ResumeLayout(false);
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -356,4 +412,9 @@ partial class fBaoCaoDS
     private System.Windows.Forms.Label label1;
 
     #endregion
+
+    private Button btnExportFile;
+    private Panel panel1;
+    private Label lbUser;
+    private Label lable10;
 }

@@ -53,7 +53,7 @@
             panel1.Controls.Add(lbTiepNhanXe);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(452, 57);
             panel1.TabIndex = 0;
@@ -80,7 +80,7 @@
             panel2.Controls.Add(txbLicensePlate);
             panel2.Controls.Add(txbNameCarOwner);
             panel2.Location = new Point(10, 75);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(406, 296);
             panel2.TabIndex = 1;
@@ -88,7 +88,7 @@
             // txbEmail
             // 
             txbEmail.Location = new Point(75, 208);
-            txbEmail.Margin = new Padding(2, 2, 2, 2);
+            txbEmail.Margin = new Padding(2);
             txbEmail.Name = "txbEmail";
             txbEmail.Size = new Size(269, 27);
             txbEmail.TabIndex = 5;
@@ -96,9 +96,10 @@
             // 
             // dtpDateReceived
             // 
+            dtpDateReceived.Enabled = false;
             dtpDateReceived.Format = DateTimePickerFormat.Short;
             dtpDateReceived.Location = new Point(75, 250);
-            dtpDateReceived.Margin = new Padding(2, 2, 2, 2);
+            dtpDateReceived.Margin = new Padding(2);
             dtpDateReceived.Name = "dtpDateReceived";
             dtpDateReceived.Size = new Size(269, 27);
             dtpDateReceived.TabIndex = 6;
@@ -109,7 +110,7 @@
             // 
             cbbCarBrandName.FormattingEnabled = true;
             cbbCarBrandName.Location = new Point(75, 92);
-            cbbCarBrandName.Margin = new Padding(2, 2, 2, 2);
+            cbbCarBrandName.Margin = new Padding(2);
             cbbCarBrandName.Name = "cbbCarBrandName";
             cbbCarBrandName.Size = new Size(269, 28);
             cbbCarBrandName.TabIndex = 2;
@@ -119,7 +120,7 @@
             // txbPhoneNumber
             // 
             txbPhoneNumber.Location = new Point(75, 133);
-            txbPhoneNumber.Margin = new Padding(2, 2, 2, 2);
+            txbPhoneNumber.Margin = new Padding(2);
             txbPhoneNumber.Name = "txbPhoneNumber";
             txbPhoneNumber.Size = new Size(269, 27);
             txbPhoneNumber.TabIndex = 3;
@@ -129,7 +130,7 @@
             // txbAddress
             // 
             txbAddress.Location = new Point(75, 172);
-            txbAddress.Margin = new Padding(2, 2, 2, 2);
+            txbAddress.Margin = new Padding(2);
             txbAddress.Name = "txbAddress";
             txbAddress.Size = new Size(269, 27);
             txbAddress.TabIndex = 4;
@@ -138,7 +139,7 @@
             // txbLicensePlate
             // 
             txbLicensePlate.Location = new Point(75, 56);
-            txbLicensePlate.Margin = new Padding(2, 2, 2, 2);
+            txbLicensePlate.Margin = new Padding(2);
             txbLicensePlate.Name = "txbLicensePlate";
             txbLicensePlate.Size = new Size(269, 27);
             txbLicensePlate.TabIndex = 1;
@@ -147,7 +148,7 @@
             // txbNameCarOwner
             // 
             txbNameCarOwner.Location = new Point(75, 20);
-            txbNameCarOwner.Margin = new Padding(2, 2, 2, 2);
+            txbNameCarOwner.Margin = new Padding(2);
             txbNameCarOwner.Name = "txbNameCarOwner";
             txbNameCarOwner.Size = new Size(269, 27);
             txbNameCarOwner.TabIndex = 0;
@@ -158,7 +159,7 @@
             panel3.Controls.Add(btClose);
             panel3.Controls.Add(btConfirm);
             panel3.Location = new Point(10, 375);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(406, 77);
             panel3.TabIndex = 2;
@@ -168,7 +169,7 @@
             btClose.BackColor = Color.IndianRed;
             btClose.DialogResult = DialogResult.Cancel;
             btClose.Location = new Point(248, 16);
-            btClose.Margin = new Padding(2, 2, 2, 2);
+            btClose.Margin = new Padding(2);
             btClose.Name = "btClose";
             btClose.Size = new Size(101, 45);
             btClose.TabIndex = 1;
@@ -180,7 +181,7 @@
             // 
             btConfirm.BackColor = Color.DeepSkyBlue;
             btConfirm.Location = new Point(78, 16);
-            btConfirm.Margin = new Padding(2, 2, 2, 2);
+            btConfirm.Margin = new Padding(2);
             btConfirm.Name = "btConfirm";
             btConfirm.Size = new Size(104, 45);
             btConfirm.TabIndex = 0;

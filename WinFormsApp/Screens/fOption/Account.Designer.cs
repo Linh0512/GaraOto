@@ -312,11 +312,12 @@
             ClientSize = new Size(735, 556);
             Controls.Add(panel1);
             Controls.Add(pnlYourProfile);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(753, 603);
             MinimumSize = new Size(753, 603);
             Name = "Account";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Account";
+            Text = "TÀI KHOẢN";
             pnlYourProfile.ResumeLayout(false);
             pnlYourProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

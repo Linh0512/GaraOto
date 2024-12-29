@@ -192,6 +192,7 @@
             // 
             // dtpNgayNhap
             // 
+            dtpNgayNhap.Enabled = false;
             dtpNgayNhap.Format = DateTimePickerFormat.Short;
             dtpNgayNhap.Location = new Point(221, 94);
             dtpNgayNhap.Margin = new Padding(3, 4, 3, 4);
@@ -287,11 +288,11 @@
             txtTongTien.AutoSize = true;
             txtTongTien.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold);
             txtTongTien.ForeColor = SystemColors.HotTrack;
-            txtTongTien.Location = new Point(1268, 466);
+            txtTongTien.Location = new Point(1197, 466);
             txtTongTien.Name = "txtTongTien";
-            txtTongTien.Size = new Size(148, 50);
+            txtTongTien.Size = new Size(43, 50);
             txtTongTien.TabIndex = 23;
-            txtTongTien.Text = "200000";
+            txtTongTien.Text = "0";
             // 
             // button2
             // 
