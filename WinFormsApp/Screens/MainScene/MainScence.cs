@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
+using WinFormsApp.Models;
 using WinFormsApp.Screens.fReport;
 using WinFormsApp.Screens.Service;
 using WinFormsApp.Utils;
@@ -29,14 +30,23 @@ namespace WinFormsApp.Screens.MainScene
             LoadMainSceneData();
             SetupSearchControls();
             DisplayCurrentUser();
+            LoadPermisssion();
 
             // Đăng ký lắng nghe sự kiện
             DataUpdateEvent.CarListChanged += OnCarListChanged;
+            DataUpdateEvent.PermissionChanged += OnPermissionChanged;
         }
 
         private void DisplayCurrentUser()
         {
             currentUser.Text = SessionManager.Instance.CurrentUser.TenNV;
+        }
+
+        private void LoadPermisssion()
+        {
+            soXeDaTN.Text = (MainSceneDAO.Instance.getTodayReceivedCarsCount()).ToString();
+            soXeDaTN.Text += "/";
+            soXeDaTN.Text += QuyDinhManager.Instance.CurrentQuyDinh.SoXeSuaChuaToiDa.ToString();
         }
 
         private void OnCarListChanged(object sender, EventArgs e)
@@ -50,6 +60,11 @@ namespace WinFormsApp.Screens.MainScene
             {
                 RefreshData();
             }
+        }
+
+        private void OnPermissionChanged(object sender, EventArgs e)
+        {
+            LoadPermisssion();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -66,11 +81,16 @@ namespace WinFormsApp.Screens.MainScene
 
             dataGridView1.Columns.AddRange(new DataGridViewColumn[]
             {
-                new DataGridViewTextBoxColumn() { Name = "BienSo", HeaderText = "Biển số", DataPropertyName = "BienSo" },
-                new DataGridViewTextBoxColumn() { Name = "TenChuXe", HeaderText = "Chủ xe", DataPropertyName = "TenChuXe" },
-                new DataGridViewTextBoxColumn() { Name = "HieuXe", HeaderText = "Hiệu xe", DataPropertyName = "HieuXe" },
-                new DataGridViewTextBoxColumn() {Name = "DiaChi", HeaderText = "Địa chỉ", DataPropertyName = "DiaChi"},
-                new DataGridViewTextBoxColumn() { Name = "DienThoai", HeaderText = "Điện thoại", DataPropertyName = "DienThoai" },
+                new DataGridViewTextBoxColumn()
+                    { Name = "BienSo", HeaderText = "Biển số", DataPropertyName = "BienSo" },
+                new DataGridViewTextBoxColumn()
+                    { Name = "TenChuXe", HeaderText = "Chủ xe", DataPropertyName = "TenChuXe" },
+                new DataGridViewTextBoxColumn()
+                    { Name = "HieuXe", HeaderText = "Hiệu xe", DataPropertyName = "HieuXe" },
+                new DataGridViewTextBoxColumn()
+                    { Name = "DiaChi", HeaderText = "Địa chỉ", DataPropertyName = "DiaChi" },
+                new DataGridViewTextBoxColumn()
+                    { Name = "DienThoai", HeaderText = "Điện thoại", DataPropertyName = "DienThoai" },
                 new DataGridViewTextBoxColumn() { Name = "Email", HeaderText = "Email", DataPropertyName = "Email" },
                 new DataGridViewTextBoxColumn() { Name = "TienNo", HeaderText = "Tiền nợ", DataPropertyName = "TienNo" }
             });
@@ -113,6 +133,7 @@ namespace WinFormsApp.Screens.MainScene
         private void panel1_Paint(object sender, EventArgs e)
         {
         }
+
         private void MainScence_Load(object sender, EventArgs e)
         {
         }
@@ -147,6 +168,7 @@ namespace WinFormsApp.Screens.MainScene
                 {
                     throw new InvalidOperationException("Failed to initialize fService.");
                 }
+
                 f.ShowDialog();
                 this.Show();
             }
@@ -180,6 +202,7 @@ namespace WinFormsApp.Screens.MainScene
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
             }
+
             fBaoCaoDS fBaoCaoDS = new fBaoCaoDS();
             fBaoCaoDS.ShowDialog();
             this.Show();
@@ -206,6 +229,7 @@ namespace WinFormsApp.Screens.MainScene
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
             }
+
             fListRepair f = new fListRepair();
             f.ShowDialog();
         }
@@ -217,6 +241,7 @@ namespace WinFormsApp.Screens.MainScene
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
             }
+
             fListPayment f = new fListPayment();
             f.ShowDialog();
         }
@@ -229,7 +254,6 @@ namespace WinFormsApp.Screens.MainScene
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             // throw new System.NotImplementedException();
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -316,6 +340,7 @@ namespace WinFormsApp.Screens.MainScene
                 MessageBox.Show("Bạn không có quyền sử dụng chức năng này!");
                 return;
             }
+
             if (dataGridView1.SelectedRows.Count == 0) return;
             fUpdateInforCar f = new fUpdateInforCar();
             if (dataGridView1.SelectedRows.Count > 0)
@@ -361,8 +386,26 @@ namespace WinFormsApp.Screens.MainScene
                 MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
                 return;
             }
+
             history history = new history();
             history.ShowDialog();
+        }
+
+        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+        }
+
+        private void btnQuyDinh_Click(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
+            if (!SessionManager.Instance.IsAdmin())
+            {
+                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
+                return;
+            }
+            fRegulations f = new fRegulations();
+            f.ShowDialog();
         }
     }
 }
