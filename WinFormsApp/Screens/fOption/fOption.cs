@@ -3,7 +3,9 @@ using System.Data;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using System.Runtime.InteropServices;
+using WinFormsApp.Models;
 using WinFormsApp.Screens.fOption;
+using WinFormsApp.Utils;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WinFormsApp.Screens.Option
@@ -231,18 +233,16 @@ namespace WinFormsApp.Screens.Option
         {
             try
             {
-                int carLimit;
-                if (!int.TryParse(txtCarLimit.Text.Trim(), out carLimit) || carLimit <= 0)
-                {
-                    MessageBox.Show("Vui lòng nhập số xe sửa chữa tối đa hợp lệ.");
-                    return;
-                }
-
+                int carLimit = int.Parse(txtCarLimit.Text);
                 bool allowOverDebt = ckbOverDebt.Checked;
-
-                OptionDAO.Instance.UpdateCarLimit(carLimit, allowOverDebt);
-
+                QuyDinh quyDinh = new QuyDinh
+                {
+                    SoXeSuaChuaToiDa = carLimit,
+                    ChoPhepTraVuotTienNo = allowOverDebt ? 1 : 0 
+                };
+                QuyDinhDAO.Instance.UpdateQuyDinh(quyDinh);
                 MessageBox.Show("Cập nhật quy định thành công!");
+                DataUpdateEvent.NotifyPermissionChanged();
             }
             catch (Exception ex)
             {

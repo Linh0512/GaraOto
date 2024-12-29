@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddCar));
-            panel1 = new Panel();
-            lbTiepNhanXe = new Label();
-            panel2 = new Panel();
-            txbEmail = new TextBox();
-            dtpDateReceived = new DateTimePicker();
-            cbbCarBrandName = new ComboBox();
-            txbPhoneNumber = new TextBox();
-            txbAddress = new TextBox();
-            txbLicensePlate = new TextBox();
-            txbNameCarOwner = new TextBox();
-            panel3 = new Panel();
-            btClose = new Button();
-            btConfirm = new Button();
+            panel1 = new System.Windows.Forms.Panel();
+            lbTiepNhanXe = new System.Windows.Forms.Label();
+            panel2 = new System.Windows.Forms.Panel();
+            txbEmail = new System.Windows.Forms.TextBox();
+            dtpDateReceived = new System.Windows.Forms.DateTimePicker();
+            cbbCarBrandName = new System.Windows.Forms.ComboBox();
+            txbPhoneNumber = new System.Windows.Forms.TextBox();
+            txbAddress = new System.Windows.Forms.TextBox();
+            txbLicensePlate = new System.Windows.Forms.TextBox();
+            txbNameCarOwner = new System.Windows.Forms.TextBox();
+            panel3 = new System.Windows.Forms.Panel();
+            btClose = new System.Windows.Forms.Button();
+            btConfirm = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -49,22 +49,22 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ButtonShadow;
+            panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             panel1.Controls.Add(lbTiepNhanXe);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(482, 71);
+            panel1.Size = new System.Drawing.Size(478, 71);
             panel1.TabIndex = 0;
             // 
             // lbTiepNhanXe
             // 
-            lbTiepNhanXe.Anchor = AnchorStyles.Top;
+            lbTiepNhanXe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lbTiepNhanXe.AutoSize = true;
-            lbTiepNhanXe.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTiepNhanXe.Location = new Point(104, 9);
+            lbTiepNhanXe.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
+            lbTiepNhanXe.Location = new System.Drawing.Point(102, 9);
             lbTiepNhanXe.Name = "lbTiepNhanXe";
-            lbTiepNhanXe.Size = new Size(275, 50);
+            lbTiepNhanXe.Size = new System.Drawing.Size(334, 61);
             lbTiepNhanXe.TabIndex = 0;
             lbTiepNhanXe.Text = "TIẾP NHẬN XE";
             // 
@@ -77,68 +77,69 @@
             panel2.Controls.Add(txbAddress);
             panel2.Controls.Add(txbLicensePlate);
             panel2.Controls.Add(txbNameCarOwner);
-            panel2.Location = new Point(12, 94);
+            panel2.Location = new System.Drawing.Point(12, 94);
             panel2.Name = "panel2";
-            panel2.Size = new Size(450, 323);
+            panel2.Size = new System.Drawing.Size(450, 323);
             panel2.TabIndex = 1;
             // 
             // txbEmail
             // 
-            txbEmail.Location = new Point(97, 237);
+            txbEmail.Location = new System.Drawing.Point(97, 237);
             txbEmail.Name = "txbEmail";
-            txbEmail.Size = new Size(250, 27);
+            txbEmail.Size = new System.Drawing.Size(250, 31);
             txbEmail.TabIndex = 5;
             txbEmail.Text = "Email";
             // 
             // dtpDateReceived
             // 
-            dtpDateReceived.Format = DateTimePickerFormat.Short;
-            dtpDateReceived.Location = new Point(97, 279);
+            dtpDateReceived.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dtpDateReceived.Location = new System.Drawing.Point(97, 279);
             dtpDateReceived.Name = "dtpDateReceived";
-            dtpDateReceived.Size = new Size(250, 27);
+            dtpDateReceived.Size = new System.Drawing.Size(250, 31);
             dtpDateReceived.TabIndex = 6;
-            dtpDateReceived.Value = new DateTime(2024, 12, 28, 23, 36, 21, 0);
+            dtpDateReceived.Value = DateTime.Now;
+            dtpDateReceived.ValueChanged += dtpDateReceived_ValueChanged;
             // 
             // cbbCarBrandName
             // 
             cbbCarBrandName.FormattingEnabled = true;
-            cbbCarBrandName.Location = new Point(97, 93);
+            cbbCarBrandName.Location = new System.Drawing.Point(97, 93);
             cbbCarBrandName.Name = "cbbCarBrandName";
-            cbbCarBrandName.Size = new Size(250, 28);
+            cbbCarBrandName.Size = new System.Drawing.Size(250, 33);
             cbbCarBrandName.TabIndex = 2;
             cbbCarBrandName.Text = "Hiệu xe";
             cbbCarBrandName.SelectedIndexChanged += cbbTypeOfCar_SelectedIndexChanged;
             // 
             // txbPhoneNumber
             // 
-            txbPhoneNumber.Location = new Point(97, 144);
+            txbPhoneNumber.Location = new System.Drawing.Point(97, 144);
             txbPhoneNumber.Name = "txbPhoneNumber";
-            txbPhoneNumber.Size = new Size(250, 27);
+            txbPhoneNumber.Size = new System.Drawing.Size(250, 31);
             txbPhoneNumber.TabIndex = 3;
             txbPhoneNumber.Text = "Số điện thoại";
             txbPhoneNumber.TextChanged += textBox1_TextChanged;
             // 
             // txbAddress
             // 
-            txbAddress.Location = new Point(97, 192);
+            txbAddress.Location = new System.Drawing.Point(97, 192);
             txbAddress.Name = "txbAddress";
-            txbAddress.Size = new Size(250, 27);
+            txbAddress.Size = new System.Drawing.Size(250, 31);
             txbAddress.TabIndex = 4;
             txbAddress.Text = "Địa Chỉ";
             // 
             // txbLicensePlate
             // 
-            txbLicensePlate.Location = new Point(97, 47);
+            txbLicensePlate.Location = new System.Drawing.Point(97, 47);
             txbLicensePlate.Name = "txbLicensePlate";
-            txbLicensePlate.Size = new Size(250, 27);
+            txbLicensePlate.Size = new System.Drawing.Size(250, 31);
             txbLicensePlate.TabIndex = 1;
             txbLicensePlate.Text = "Biển số xe";
             // 
             // txbNameCarOwner
             // 
-            txbNameCarOwner.Location = new Point(97, 3);
+            txbNameCarOwner.Location = new System.Drawing.Point(97, 3);
             txbNameCarOwner.Name = "txbNameCarOwner";
-            txbNameCarOwner.Size = new Size(250, 27);
+            txbNameCarOwner.Size = new System.Drawing.Size(250, 31);
             txbNameCarOwner.TabIndex = 0;
             txbNameCarOwner.Text = "Tên Chủ Xe";
             // 
@@ -146,17 +147,18 @@
             // 
             panel3.Controls.Add(btClose);
             panel3.Controls.Add(btConfirm);
-            panel3.Location = new Point(12, 423);
+            panel3.Location = new System.Drawing.Point(12, 423);
             panel3.Name = "panel3";
-            panel3.Size = new Size(450, 71);
+            panel3.Size = new System.Drawing.Size(450, 71);
             panel3.TabIndex = 2;
             // 
             // btClose
             // 
-            btClose.BackColor = Color.IndianRed;
-            btClose.Location = new Point(253, 18);
+            btClose.BackColor = System.Drawing.Color.IndianRed;
+            btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btClose.Location = new System.Drawing.Point(253, 18);
             btClose.Name = "btClose";
-            btClose.Size = new Size(94, 38);
+            btClose.Size = new System.Drawing.Size(94, 38);
             btClose.TabIndex = 1;
             btClose.Text = "Đóng";
             btClose.UseVisualStyleBackColor = false;
@@ -164,10 +166,10 @@
             // 
             // btConfirm
             // 
-            btConfirm.BackColor = Color.DeepSkyBlue;
-            btConfirm.Location = new Point(97, 18);
+            btConfirm.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btConfirm.Location = new System.Drawing.Point(97, 18);
             btConfirm.Name = "btConfirm";
-            btConfirm.Size = new Size(94, 38);
+            btConfirm.Size = new System.Drawing.Size(94, 38);
             btConfirm.TabIndex = 0;
             btConfirm.Text = "Xác nhận";
             btConfirm.UseVisualStyleBackColor = false;
@@ -176,18 +178,18 @@
             // fAddCar
             // 
             AcceptButton = btConfirm;
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             CancelButton = btClose;
-            ClientSize = new Size(482, 501);
+            ClientSize = new System.Drawing.Size(478, 492);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(500, 548);
-            MinimumSize = new Size(500, 548);
-            Name = "fAddCar";
-            StartPosition = FormStartPosition.CenterParent;
+            Icon = ((System.Drawing.Icon)resources.GetObject("$this.Icon"));
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            MaximumSize = new System.Drawing.Size(500, 548);
+            MinimumSize = new System.Drawing.Size(500, 548);
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "TIẾP NHẬN XE";
             Load += fAddCar_Load;
             panel1.ResumeLayout(false);
@@ -208,7 +210,7 @@
         private TextBox txbLicensePlate;
         private TextBox txbPhoneNumber;
         private ComboBox cbbCarBrandName;
-        private DateTimePicker dtpDateReceived;
+        private System.Windows.Forms.DateTimePicker dtpDateReceived;
         private Panel panel3;
         private Button btClose;
         private Button btConfirm;
