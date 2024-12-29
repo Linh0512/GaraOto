@@ -1,6 +1,7 @@
 ﻿using WinFormsApp.DAO;
 using WinFormsApp.Model;
 using WinFormsApp.Screens.Service;
+using WinFormsApp.Utils;
 
 namespace WinFormsApp.Screens.Service.AddCar
 {
@@ -44,7 +45,13 @@ namespace WinFormsApp.Screens.Service.AddCar
         private void btConfirm_Click(object sender, EventArgs e)
         {
             try
-            {
+            { 
+                if (!QuyDinhManager.Instance.canReceiveCar())
+                {
+                    MessageBox.Show("Số lượng xe đã tiếp nhận trong ngày đã đạt giới hạn.");
+                    return;
+                }
+
                 Car.Instance = new Car
                 {
                     TenChuXe = txbNameCarOwner.Text,
@@ -83,6 +90,11 @@ namespace WinFormsApp.Screens.Service.AddCar
         private void cbbTypeOfCar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtpDateReceived_ValueChanged(object sender, EventArgs e)
+        {
+            // throw new System.NotImplementedException();
         }
     }
 }

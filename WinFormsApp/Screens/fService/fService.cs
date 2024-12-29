@@ -158,6 +158,7 @@ namespace WinFormsApp.Screens.Service
             this.LoadCarData();
             this.Show();
             DataUpdateEvent.NotifyCarListChanged();
+            DataUpdateEvent.NotifyPermissionChanged();
         }
 
         private void dgvService_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -210,6 +211,8 @@ namespace WinFormsApp.Screens.Service
             string plateLicense = (string)dtgvService.SelectedRows[0].Cells[0].Value;
             ServiceDAO.instance.DelCar(plateLicense);
             this.LoadCarData();
+            DataUpdateEvent.NotifyCarListChanged();
+            DataUpdateEvent.NotifyPermissionChanged();
         }
 
         private void bnFind_Click(object sender, EventArgs e)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.DAO;
 using WinFormsApp.Model;
+using WinFormsApp.Utils;
 
 namespace WinFormsApp.Screens.Option
 {
@@ -28,6 +29,12 @@ namespace WinFormsApp.Screens.Option
         {
             try
             {
+                if(QuyDinhManager.Instance.canAddBrand() == false)
+                {
+                    MessageBox.Show("Số hãng xe đã đạt tối đa.");
+                    return;
+                }
+                
                 Brand.Instance = new Brand
                 {
                     HieuXe = txtBrandName.Text,
