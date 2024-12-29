@@ -39,7 +39,7 @@ namespace WinFormsApp.Screens.Service.ListRepair
 
         private void LoadDataRepair()
         {
-            string query = "SELECT * FROM PHIEUSUACHUA";
+            string query = "SELECT MaPSC AS 'Id', BienSo AS 'Biển số', NgaySuaChua AS 'Ngày sửa chữa', TongTien AS 'Tổng tiền' FROM PHIEUSUACHUA";
             ServiceDAO.instance.LoadData(query, dtgvRepairList);
         }
 
@@ -51,8 +51,7 @@ namespace WinFormsApp.Screens.Service.ListRepair
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM PHIEUSUACHUA";
-            ServiceDAO.instance.LoadData(query, dtgvRepairList);
+            this.LoadDataRepair();
         }
 
         private void btnDetail_Click(object sender, EventArgs e)
@@ -61,10 +60,10 @@ namespace WinFormsApp.Screens.Service.ListRepair
             {
                 if (this.dtgvRepairList.SelectedRows.Count != 1) return;
 
-                string idRepair = this.dtgvRepairList.SelectedRows[0].Cells["MaPSC"].Value.ToString();
-                string licensePlate = this.dtgvRepairList.SelectedRows[0].Cells["BienSo"].Value.ToString();
-                string date = this.dtgvRepairList.SelectedRows[0].Cells["NgaySuaChua"].Value.ToString();
-                string totalAmout = this.dtgvRepairList.SelectedRows[0].Cells["TongTien"].Value.ToString();
+                string idRepair = this.dtgvRepairList.SelectedRows[0].Cells[0].Value.ToString();
+                string licensePlate = this.dtgvRepairList.SelectedRows[0].Cells[1].Value.ToString();
+                string date = this.dtgvRepairList.SelectedRows[0].Cells[2].Value.ToString();
+                string totalAmout = this.dtgvRepairList.SelectedRows[0].Cells[3].Value.ToString();
                 fListRepair_Detail f = new fListRepair_Detail(idRepair, licensePlate, date, totalAmout);
                 f.ShowDialog();
             }
@@ -105,7 +104,8 @@ namespace WinFormsApp.Screens.Service.ListRepair
 
         private void dtpSearchByDate_ValueChanged(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM PHIEUSUACHUA WHERE @ngaysuachua";
+            string query = "SELECT MaPSC AS 'Id', BienSo AS 'Biển số', NgaySuaChua AS 'Ngày sửa chữa', " +
+                "TongTien AS 'Tổng tiền' FROM PHIEUSUACHUA WHERE @ngaysuachua";
             string date = dtpSearchByDate.Value.ToString("yyyy-MM-dd");
 
             DataTable result = RepairDAO.instance.SearchRepairByDate(query, "@ngaysuachua", date);

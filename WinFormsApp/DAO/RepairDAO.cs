@@ -24,7 +24,9 @@ namespace WinFormsApp.DAO
                 using (con)
                 {
                     con.Open();
-                    string sql = "SELECT * FROM PHIEUSUACHUA WHERE BienSo = @bienso";
+                    string sql = "SELECT MaPSC AS 'Id', BienSo AS 'Biển số', " +
+                        "NgaySuaChua AS 'Ngày sửa chữa', TongTien AS 'Tổng tiền' " +
+                        "FROM PHIEUSUACHUA WHERE BienSo = @bienso";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.AddWithValue("@bienso", s);
                     DataTable dt = new DataTable();
@@ -151,7 +153,10 @@ namespace WinFormsApp.DAO
                 using (con)
                 {
                     con.Open();
-                    string sql = "SELECT NoiDung, MaVTPT, TenVTPT, SoLuong, DonGia, TienCong, ThanhTien FROM CT_PSC WHERE MaPSC = @ma";
+                    string sql = "SELECT NoiDung AS 'Nội dung', MaVTPT AS 'Mã vật tư', TenVTPT AS 'Tên vật tư', " +
+                        "SoLuong AS 'Số lượng', " +
+                        "DonGia AS 'Đơn giá', TienCong AS 'Tiền công', " +
+                        "ThanhTien AS 'Thành tiền' FROM CT_PSC WHERE MaPSC = @ma";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.AddWithValue("@ma", s);
                     da = new SqlDataAdapter(cmd);

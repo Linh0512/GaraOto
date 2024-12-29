@@ -37,7 +37,7 @@ namespace WinFormsApp.Screens.Service.ListPayment
 
         private void LoadDataPayment()
         {
-            string query = "SELECT * FROM PHIEUTHUTIEN";
+            string query = "SELECT MaPTT AS 'Id', BienSo AS 'Biển số', NgayThuTien AS 'Ngày thu tiền', SoTienThu AS 'Số tiền thu' FROM PHIEUTHUTIEN";
             ServiceDAO.instance.LoadData(query, dtgvPaymentList);
         }
 
@@ -49,8 +49,7 @@ namespace WinFormsApp.Screens.Service.ListPayment
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM PHIEUTHUTIEN";
-            ServiceDAO.instance.LoadData(query, dtgvPaymentList);
+            this.LoadDataPayment();
         }
 
         private void btnExport_Click(object sender, EventArgs e)

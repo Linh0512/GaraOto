@@ -129,14 +129,14 @@ namespace WinFormsApp.Screens.Service.InforCar
             {
                 MaPSC = this.lbIdRepair.Text,
                 BienSo = lbPlateLicense.Text,
-                //NgaySuaChua = this.dtpDateFix.Value,
+                NgaySuaChua = this.dtpDateFix.Value,
                 TongTien = Convert.ToDouble(lbTotalAmout.Text)
             });
 
             SqlDataReader dr1 = ServiceDAO.instance.LoadDataByLicensePlate(lbPlateLicense.Text);
             if (dr1.Read())
             {
-                double tiennocu = Convert.ToDouble(dr1["TienNo"]);
+                double tiennocu = Convert.ToDouble(dr1["Tiền nợ"]);
                 double tongTien = Convert.ToDouble(lbTotalAmout.Text);
                 double tiennomoi = tiennocu + tongTien;
                 ServiceDAO.instance.UpdateDebt(lbPlateLicense.Text, tiennomoi);

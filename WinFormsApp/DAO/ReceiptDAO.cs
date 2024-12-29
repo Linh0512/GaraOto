@@ -22,7 +22,8 @@ namespace WinFormsApp.DAO
                 using (con)
                 {
                     con.Open();
-                    string sql = "SELECT * FROM PHIEUTHUTIEN WHERE BienSo = @bienso";
+                    string sql = "SELECT MaPTT AS 'Id', BienSo AS 'Biển số', NgayThuTien AS 'Ngày thu tiền', " +
+                        "SoTienThu AS 'Số tiền thu' FROM PHIEUTHUTIEN WHERE BienSo = @bienso"; 
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.AddWithValue("@bienso", s);
                     DataTable dt = new DataTable();
