@@ -12,6 +12,7 @@ public partial class fRegulations : Form
         LoadQuyDinh();
 
         // Chỉ cho phép nhập số
+        btnUpdate.Text = "Cập nhật"; 
         txtCarTodayLimit.KeyPress += NumberOnly_KeyPress;
         txtCarBrandLimit.KeyPress += NumberOnly_KeyPress; // Số hiệu xe
         txtTiLeLai.KeyPress += NumberAndDot_KeyPress; // Cho phép số thập phân

@@ -411,11 +411,7 @@ namespace WinFormsApp.Screens.MainScene
 
         private void tÀIKHOẢNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!SessionManager.Instance.IsAdmin())
-            {
-                MessageBox.Show("Bạn không có quyền truy cập chức năng này!");
-                return;
-            }
+            
             Account f = new Account();
             f.ShowDialog();
         }
