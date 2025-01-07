@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateInforSupply));
             txtTenPT = new TextBox();
             btn_update = new Button();
             button3 = new Button();
@@ -128,11 +129,11 @@
             a.AutoSize = true;
             a.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             a.ForeColor = SystemColors.ButtonHighlight;
-            a.Location = new Point(282, 37);
+            a.Location = new Point(235, 41);
             a.Name = "a";
-            a.Size = new Size(355, 54);
+            a.Size = new Size(444, 54);
             a.TabIndex = 1;
-            a.Text = "THÊM PHỤ TÙNG";
+            a.Text = "THAY ĐỔI THÔNG TIN";
             // 
             // UpdateInforSupply
             // 
@@ -146,11 +147,12 @@
             Controls.Add(txt_price);
             Controls.Add(label2);
             Controls.Add(panel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(635, 497);
             MinimumSize = new Size(635, 497);
             Name = "UpdateInforSupply";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "UpdateInforSupply";
+            Text = "Thay đổi thông tin phụ tùng";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);

@@ -257,14 +257,14 @@ namespace WinFormsApp.Screens.Service
             }
 
             // Chỉ thêm điều kiện ngày nếu checkbox được check
-            if (checkBox1.Checked)
+            if (checkBox.Checked)
             {
                 string date = dtpDateService.Value.ToString("yyyy-MM-dd");
                 conditions.Add("NgayTiepNhan", date);
             }
 
             // Gọi hàm FindCar từ ServiceDAO
-            DataTable result = ServiceDAO.instance.FindCar(conditions, checkBox1.Checked);
+            DataTable result = ServiceDAO.instance.FindCar(conditions, checkBox.Checked);
 
             if (result != null && result.Rows.Count > 0)
             {
@@ -366,7 +366,7 @@ namespace WinFormsApp.Screens.Service
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            dtpDateService.Enabled = checkBox1.Checked;
+            dtpDateService.Enabled = checkBox.Checked;
 
         }
 

@@ -27,6 +27,7 @@ namespace WinFormsApp.Screens.fReport
             // Clear data
             tableBCDS.DataSource = null;
             tb_TongDTHU.Clear();
+            this.lbUser.Text = SessionManager.Instance.CurrentUser.TenDangNhap;
         }
 
         private void ConfigureDataGridView()
@@ -153,7 +154,7 @@ namespace WinFormsApp.Screens.fReport
 
         private void btnExportFile_Click(object sender, EventArgs e)
         {
-            BaoCaoDAO.Instance.ExportButtonClick(tableBCDS, "BaoCaoDoanhSo.xlsx", "BCDS Details");
+            BaoCaoDAO.Instance.ExportButtonClick(tableBCDS, "BaoCaoDoanhSo.xlsx", this.lbUser.Text);
         }
     }
 }

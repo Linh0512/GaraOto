@@ -117,6 +117,6 @@ public partial class fBaoCaoTon : Form
 
     private void btnExportFile_Click(object sender, EventArgs e)
     {
-        BaoCaoDAO.Instance.ExportButtonClick(tableBCTK, "BaoCaoTonKho.xlsx", "BCTK Details");
+        BaoCaoDAO.Instance.ExportButtonClick(tableBCTK, "BaoCaoTonKho.xlsx", this.lbUser.Text);
     }
 }

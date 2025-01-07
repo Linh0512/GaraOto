@@ -33,7 +33,7 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            checkBox1 = new CheckBox();
+            checkBox = new CheckBox();
             dtpDateService = new DateTimePicker();
             cbbPhoneNumber = new ComboBox();
             cbbCustomerName = new ComboBox();
@@ -90,7 +90,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(checkBox1);
+            panel2.Controls.Add(checkBox);
             panel2.Controls.Add(dtpDateService);
             panel2.Controls.Add(cbbPhoneNumber);
             panel2.Controls.Add(cbbCustomerName);
@@ -102,17 +102,17 @@
             panel2.Size = new Size(840, 66);
             panel2.TabIndex = 2;
             // 
-            // checkBox1
+            // checkBox
             // 
-            checkBox1.CausesValidation = false;
-            checkBox1.Location = new Point(626, 37);
-            checkBox1.Margin = new Padding(2);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(211, 26);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Sử dụng ngày để tìm kiếm";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            checkBox.CausesValidation = false;
+            checkBox.Location = new Point(626, 37);
+            checkBox.Margin = new Padding(2);
+            checkBox.Name = "checkBox";
+            checkBox.Size = new Size(211, 26);
+            checkBox.TabIndex = 5;
+            checkBox.Text = "Sử dụng ngày để tìm kiếm";
+            checkBox.UseVisualStyleBackColor = true;
+            checkBox.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // dtpDateService
             // 
@@ -367,7 +367,7 @@
             ResumeLayout(false);
         }
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox;
 
         #endregion
 
