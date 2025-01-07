@@ -35,3 +35,12 @@ Phan Trung Kiên	| 22520710 | 22520710@gm.uit.edu.vn |
 Họ tên | Email
 --- | --- 
 ĐỖ THỊ THANH TUYỀN | tuyendtt@uit.edu.vn
+
+### RUNNING
+1. Chạy file table.sql sau đó chạy file insert.sql trong SQL server
+(loại server phổ thông (không phải express,....) Có thể sửa lại file appsetting.json cho phù hợp với sql) 
+3. Cài đặt một số extension (nếu cần)
+4. Chạy chương trình
+5. Nhập tài khoản:
+Tên tài khoản: Linh
+Mật khẩu: 123
