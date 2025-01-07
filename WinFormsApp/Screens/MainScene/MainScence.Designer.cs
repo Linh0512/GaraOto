@@ -87,7 +87,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(183, 646);
+            panel1.Size = new Size(229, 796);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -97,10 +97,10 @@
             btnQuyDinh.BackColor = Color.Linen;
             btnQuyDinh.Cursor = Cursors.Hand;
             btnQuyDinh.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnQuyDinh.Location = new Point(1, 447);
+            btnQuyDinh.Location = new Point(1, 553);
             btnQuyDinh.Margin = new Padding(2);
             btnQuyDinh.Name = "btnQuyDinh";
-            btnQuyDinh.Size = new Size(182, 62);
+            btnQuyDinh.Size = new Size(228, 78);
             btnQuyDinh.TabIndex = 7;
             btnQuyDinh.Text = "QUY ĐỊNH";
             btnQuyDinh.UseVisualStyleBackColor = false;
@@ -112,10 +112,10 @@
             bnStaff.BackColor = Color.Linen;
             bnStaff.Cursor = Cursors.Hand;
             bnStaff.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bnStaff.Location = new Point(0, 334);
+            bnStaff.Location = new Point(0, 412);
             bnStaff.Margin = new Padding(2);
             bnStaff.Name = "bnStaff";
-            bnStaff.Size = new Size(182, 62);
+            bnStaff.Size = new Size(228, 78);
             bnStaff.TabIndex = 3;
             bnStaff.Text = "NHÂN VIÊN";
             bnStaff.UseVisualStyleBackColor = false;
@@ -127,10 +127,10 @@
             bnInventory.BackColor = Color.Linen;
             bnInventory.Cursor = Cursors.Hand;
             bnInventory.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bnInventory.Location = new Point(1, 209);
+            bnInventory.Location = new Point(1, 255);
             bnInventory.Margin = new Padding(2);
             bnInventory.Name = "bnInventory";
-            bnInventory.Size = new Size(182, 66);
+            bnInventory.Size = new Size(228, 82);
             bnInventory.TabIndex = 2;
             bnInventory.Text = "KHO HÀNG";
             bnInventory.UseVisualStyleBackColor = false;
@@ -142,10 +142,10 @@
             bnService.BackColor = Color.Linen;
             bnService.Cursor = Cursors.Hand;
             bnService.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bnService.Location = new Point(0, 91);
+            bnService.Location = new Point(0, 108);
             bnService.Margin = new Padding(2);
             bnService.Name = "bnService";
-            bnService.Size = new Size(183, 65);
+            bnService.Size = new Size(229, 81);
             bnService.TabIndex = 1;
             bnService.Text = "DỊCH VỤ";
             bnService.UseVisualStyleBackColor = false;
@@ -156,10 +156,10 @@
             bnMainExit.BackColor = Color.DeepSkyBlue;
             bnMainExit.Cursor = Cursors.Hand;
             bnMainExit.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bnMainExit.Location = new Point(0, 591);
+            bnMainExit.Location = new Point(0, 739);
             bnMainExit.Margin = new Padding(2);
             bnMainExit.Name = "bnMainExit";
-            bnMainExit.Size = new Size(185, 47);
+            bnMainExit.Size = new Size(231, 59);
             bnMainExit.TabIndex = 6;
             bnMainExit.Text = "THOÁT";
             bnMainExit.UseVisualStyleBackColor = false;
@@ -173,8 +173,8 @@
             mnStripStatistic.Items.AddRange(new ToolStripItem[] { báoCáoToolStripMenuItem, cÀIĐẶTToolStripMenuItem });
             mnStripStatistic.Location = new Point(0, 0);
             mnStripStatistic.Name = "mnStripStatistic";
-            mnStripStatistic.Padding = new Padding(4, 2, 0, 2);
-            mnStripStatistic.Size = new Size(180, 28);
+            mnStripStatistic.Padding = new Padding(5, 2, 0, 2);
+            mnStripStatistic.Size = new Size(215, 33);
             mnStripStatistic.TabIndex = 4;
             mnStripStatistic.Text = "Báo cáo";
             mnStripStatistic.ItemClicked += mnStripStatistic_ItemClicked_1;
@@ -183,7 +183,7 @@
             // 
             báoCáoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bÁOCÁODOANHSỐToolStripMenuItem, bÁOCÁOTỒNKHOToolStripMenuItem, dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem, dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem, dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem });
             báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            báoCáoToolStripMenuItem.Size = new Size(95, 24);
+            báoCáoToolStripMenuItem.Size = new Size(113, 29);
             báoCáoToolStripMenuItem.Text = "THỐNG KÊ";
             báoCáoToolStripMenuItem.Click += báoCáoToolStripMenuItem_Click;
             // 
@@ -192,7 +192,7 @@
             bÁOCÁODOANHSỐToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
             bÁOCÁODOANHSỐToolStripMenuItem.Image = (Image)resources.GetObject("bÁOCÁODOANHSỐToolStripMenuItem.Image");
             bÁOCÁODOANHSỐToolStripMenuItem.Name = "bÁOCÁODOANHSỐToolStripMenuItem";
-            bÁOCÁODOANHSỐToolStripMenuItem.Size = new Size(303, 26);
+            bÁOCÁODOANHSỐToolStripMenuItem.Size = new Size(367, 34);
             bÁOCÁODOANHSỐToolStripMenuItem.Text = "BÁO CÁO DOANH SỐ";
             bÁOCÁODOANHSỐToolStripMenuItem.Click += bÁOCÁODOANHSỐToolStripMenuItem_Click;
             // 
@@ -201,7 +201,7 @@
             bÁOCÁOTỒNKHOToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
             bÁOCÁOTỒNKHOToolStripMenuItem.Image = (Image)resources.GetObject("bÁOCÁOTỒNKHOToolStripMenuItem.Image");
             bÁOCÁOTỒNKHOToolStripMenuItem.Name = "bÁOCÁOTỒNKHOToolStripMenuItem";
-            bÁOCÁOTỒNKHOToolStripMenuItem.Size = new Size(303, 26);
+            bÁOCÁOTỒNKHOToolStripMenuItem.Size = new Size(367, 34);
             bÁOCÁOTỒNKHOToolStripMenuItem.Text = "BÁO CÁO TỒN KHO";
             bÁOCÁOTỒNKHOToolStripMenuItem.Click += bÁOCÁOTỒNKHOToolStripMenuItem_Click;
             // 
@@ -210,7 +210,7 @@
             dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
             dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Image");
             dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Name = "dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem";
-            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Size = new Size(303, 26);
+            dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Size = new Size(367, 34);
             dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Text = "DANH SÁCH PHIẾU SỬA CHỮA";
             dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem.Click += dANHSÁCHPHIẾUSỬACHỮAToolStripMenuItem_Click;
             // 
@@ -219,7 +219,7 @@
             dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
             dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Image");
             dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Name = "dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem";
-            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Size = new Size(303, 26);
+            dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Size = new Size(367, 34);
             dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Text = "DANH SÁCH PHIẾU THU TIỀN";
             dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem.Click += dANHSÁCHPHIẾUTHUTIỀNToolStripMenuItem_Click;
             // 
@@ -228,7 +228,7 @@
             dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.BackColor = SystemColors.ButtonShadow;
             dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Image");
             dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Name = "dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem";
-            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Size = new Size(303, 26);
+            dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Size = new Size(367, 34);
             dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Text = "DANH SÁCH PHIẾU NHẬP VTPT";
             dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem.Click += dANHSÁCHPHIẾUNHẬPVTPTToolStripMenuItem_Click;
             // 
@@ -236,7 +236,7 @@
             // 
             cÀIĐẶTToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tÀIKHOẢNToolStripMenuItem, dANHSÁCHHÃNGXEToolStripMenuItem, dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem });
             cÀIĐẶTToolStripMenuItem.Name = "cÀIĐẶTToolStripMenuItem";
-            cÀIĐẶTToolStripMenuItem.Size = new Size(79, 24);
+            cÀIĐẶTToolStripMenuItem.Size = new Size(95, 29);
             cÀIĐẶTToolStripMenuItem.Text = "CÀI ĐẶT";
             // 
             // tÀIKHOẢNToolStripMenuItem
@@ -244,7 +244,7 @@
             tÀIKHOẢNToolStripMenuItem.BackColor = Color.CadetBlue;
             tÀIKHOẢNToolStripMenuItem.Image = Properties.Resources.user_icon;
             tÀIKHOẢNToolStripMenuItem.Name = "tÀIKHOẢNToolStripMenuItem";
-            tÀIKHOẢNToolStripMenuItem.Size = new Size(292, 26);
+            tÀIKHOẢNToolStripMenuItem.Size = new Size(355, 34);
             tÀIKHOẢNToolStripMenuItem.Text = "THÔNG TIN TÀI KHOẢN";
             tÀIKHOẢNToolStripMenuItem.Click += tÀIKHOẢNToolStripMenuItem_Click;
             // 
@@ -253,7 +253,7 @@
             dANHSÁCHHÃNGXEToolStripMenuItem.BackColor = Color.CadetBlue;
             dANHSÁCHHÃNGXEToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHHÃNGXEToolStripMenuItem.Image");
             dANHSÁCHHÃNGXEToolStripMenuItem.Name = "dANHSÁCHHÃNGXEToolStripMenuItem";
-            dANHSÁCHHÃNGXEToolStripMenuItem.Size = new Size(292, 26);
+            dANHSÁCHHÃNGXEToolStripMenuItem.Size = new Size(355, 34);
             dANHSÁCHHÃNGXEToolStripMenuItem.Text = "DANH SÁCH HIỆU XE";
             dANHSÁCHHÃNGXEToolStripMenuItem.Click += dANHSÁCHHÃNGXEToolStripMenuItem_Click;
             // 
@@ -262,7 +262,7 @@
             dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.BackColor = Color.CadetBlue;
             dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.Image = (Image)resources.GetObject("dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.Image");
             dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.Name = "dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem";
-            dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.Size = new Size(292, 26);
+            dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.Size = new Size(355, 34);
             dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.Text = "DANH SÁCH LOẠI TIỀN CÔNG";
             dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem.Click += dANHSÁCHLOẠITIỀNCÔNGToolStripMenuItem_Click;
             // 
@@ -271,10 +271,10 @@
             dateTimePicker1.CalendarFont = new Font("Segoe UI", 11F);
             dateTimePicker1.Enabled = false;
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(798, 11);
+            dateTimePicker1.Location = new Point(998, 14);
             dateTimePicker1.Margin = new Padding(2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(118, 27);
+            dateTimePicker1.Size = new Size(146, 31);
             dateTimePicker1.TabIndex = 9;
             dateTimePicker1.TabStop = false;
             // 
@@ -290,19 +290,19 @@
             panel2.Controls.Add(currentUser);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(183, 0);
+            panel2.Location = new Point(229, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1024, 72);
+            panel2.Size = new Size(1275, 90);
             panel2.TabIndex = 1;
             // 
             // byHieuXeRadioBtn
             // 
             byHieuXeRadioBtn.Cursor = Cursors.Hand;
-            byHieuXeRadioBtn.Location = new Point(649, 42);
+            byHieuXeRadioBtn.Location = new Point(811, 52);
             byHieuXeRadioBtn.Margin = new Padding(2);
             byHieuXeRadioBtn.Name = "byHieuXeRadioBtn";
-            byHieuXeRadioBtn.Size = new Size(181, 28);
+            byHieuXeRadioBtn.Size = new Size(226, 35);
             byHieuXeRadioBtn.TabIndex = 6;
             byHieuXeRadioBtn.TabStop = true;
             byHieuXeRadioBtn.Text = "Tìm kiếm theo hiệu xe";
@@ -311,10 +311,10 @@
             // byNameRadioBtn
             // 
             byNameRadioBtn.Cursor = Cursors.Hand;
-            byNameRadioBtn.Location = new Point(477, 42);
+            byNameRadioBtn.Location = new Point(596, 52);
             byNameRadioBtn.Margin = new Padding(2);
             byNameRadioBtn.Name = "byNameRadioBtn";
-            byNameRadioBtn.Size = new Size(158, 30);
+            byNameRadioBtn.Size = new Size(198, 38);
             byNameRadioBtn.TabIndex = 5;
             byNameRadioBtn.TabStop = true;
             byNameRadioBtn.Text = "Tìm kiếm theo tên chủ xe";
@@ -323,10 +323,10 @@
             // byBienXeRadioBtn
             // 
             byBienXeRadioBtn.Cursor = Cursors.Hand;
-            byBienXeRadioBtn.Location = new Point(303, 42);
+            byBienXeRadioBtn.Location = new Point(379, 52);
             byBienXeRadioBtn.Margin = new Padding(2);
             byBienXeRadioBtn.Name = "byBienXeRadioBtn";
-            byBienXeRadioBtn.Size = new Size(140, 28);
+            byBienXeRadioBtn.Size = new Size(175, 35);
             byBienXeRadioBtn.TabIndex = 4;
             byBienXeRadioBtn.TabStop = true;
             byBienXeRadioBtn.Text = "Tìm kiếm theo biển số xe";
@@ -337,10 +337,10 @@
             // 
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(256, 8);
+            label2.Location = new Point(320, 10);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(103, 26);
+            label2.Size = new Size(129, 32);
             label2.TabIndex = 3;
             label2.Text = "Tìm kiếm";
             // 
@@ -348,10 +348,10 @@
             // 
             searchBar.Cursor = Cursors.IBeam;
             searchBar.Font = new Font("Segoe UI", 11F);
-            searchBar.Location = new Point(363, 8);
+            searchBar.Location = new Point(454, 10);
             searchBar.Margin = new Padding(2);
             searchBar.Name = "searchBar";
-            searchBar.Size = new Size(384, 32);
+            searchBar.Size = new Size(479, 37);
             searchBar.TabIndex = 2;
             searchBar.TextChanged += textBox2_TextChanged;
             // 
@@ -360,11 +360,11 @@
             currentUser.BackColor = SystemColors.Window;
             currentUser.Enabled = false;
             currentUser.Font = new Font("Segoe UI", 11F);
-            currentUser.Location = new Point(34, 30);
+            currentUser.Location = new Point(42, 38);
             currentUser.Margin = new Padding(2);
             currentUser.Name = "currentUser";
             currentUser.ReadOnly = true;
-            currentUser.Size = new Size(140, 32);
+            currentUser.Size = new Size(174, 37);
             currentUser.TabIndex = 1;
             currentUser.TextChanged += textBox1_TextChanged;
             // 
@@ -372,10 +372,10 @@
             // 
             label1.Font = new Font("Segoe UI", 11F);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(25, 0);
+            label1.Location = new Point(31, 0);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(227, 28);
+            label1.Size = new Size(284, 35);
             label1.TabIndex = 0;
             label1.Text = "Nhân viên đang sử dụng";
             label1.Click += label1_Click;
@@ -387,16 +387,16 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { BienSo, TenChuXe, HieuXe, DiaChi, DienThoai, Email, TienNo });
-            dataGridView1.Location = new Point(3, 22);
+            dataGridView1.Location = new Point(4, 28);
             dataGridView1.Margin = new Padding(2);
-            dataGridView1.MaximumSize = new Size(1008, 438);
-            dataGridView1.MinimumSize = new Size(1008, 438);
+            dataGridView1.MaximumSize = new Size(1260, 548);
+            dataGridView1.MinimumSize = new Size(1260, 548);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1008, 438);
+            dataGridView1.Size = new Size(1260, 548);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -445,11 +445,11 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new Point(191, 106);
+            groupBox1.Location = new Point(239, 132);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(1016, 466);
+            groupBox1.Size = new Size(1270, 582);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách xe tiếp nhận trong ngày";
@@ -459,21 +459,21 @@
             editCarBtn.BackColor = Color.CadetBlue;
             editCarBtn.Cursor = Cursors.Hand;
             editCarBtn.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            editCarBtn.Location = new Point(550, 576);
+            editCarBtn.Location = new Point(688, 720);
             editCarBtn.Margin = new Padding(2);
             editCarBtn.Name = "editCarBtn";
-            editCarBtn.Size = new Size(276, 62);
+            editCarBtn.Size = new Size(345, 78);
             editCarBtn.TabIndex = 3;
-            editCarBtn.Text = "Cập nhập thông tin xe";
+            editCarBtn.Text = "Cập nhật thông tin xe";
             editCarBtn.UseVisualStyleBackColor = false;
             editCarBtn.Click += editCarBtn_Click;
             // 
             // label3
             // 
-            label3.Location = new Point(194, 80);
+            label3.Location = new Point(242, 100);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(222, 18);
+            label3.Size = new Size(278, 22);
             label3.TabIndex = 4;
             label3.Text = "Số xe đã tiếp nhận trong ngày";
             // 
@@ -481,18 +481,18 @@
             // 
             soXeDaTN.BackColor = SystemColors.Window;
             soXeDaTN.Enabled = false;
-            soXeDaTN.Location = new Point(420, 75);
+            soXeDaTN.Location = new Point(525, 94);
             soXeDaTN.Margin = new Padding(2);
             soXeDaTN.Name = "soXeDaTN";
             soXeDaTN.ReadOnly = true;
-            soXeDaTN.Size = new Size(126, 27);
+            soXeDaTN.Size = new Size(156, 31);
             soXeDaTN.TabIndex = 5;
             // 
             // MainScence
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1207, 646);
+            ClientSize = new Size(1504, 796);
             Controls.Add(soXeDaTN);
             Controls.Add(label3);
             Controls.Add(editCarBtn);
@@ -500,8 +500,9 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(1225, 693);
-            MinimumSize = new Size(1225, 693);
+            Margin = new Padding(4, 4, 4, 4);
+            MaximumSize = new Size(1526, 852);
+            MinimumSize = new Size(1526, 852);
             Name = "MainScence";
             StartPosition = FormStartPosition.CenterParent;
             Text = "PHẦN MỀM QUẢN LÝ GARAOTO";
