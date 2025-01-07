@@ -253,7 +253,7 @@ insert into CHUCVU
 VALUES (N'Quản lý'),
        (N'Nhân viên')
 insert into NHANVIEN
-VALUES ('Tuan', '123', N'Lâm Minh Tuấn', '098', '@gmail', 'TPHCM', N'Quản lý')
+VALUES ('Linh', '123', N'Trần Qui Linh', '098', '@gmail', 'TPHCM', N'Quản lý')
 
 --INSERT INTO NHACUNGCAP(MaNCC, TenNCC, SDT, Email)
 --VALUES ('NCC001', N'Công ty 1','028123456',
