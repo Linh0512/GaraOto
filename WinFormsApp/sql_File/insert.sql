@@ -255,17 +255,17 @@ VALUES (N'Quản lý'),
 insert into NHANVIEN
 VALUES ('Tuan', '123', N'Lâm Minh Tuấn', '098', '@gmail', 'TPHCM', N'Quản lý')
 
-INSERT INTO NHACUNGCAP(MaNCC, TenNCC, SDT, Email)
-VALUES ('NCC001', N'Công ty 1','028123456',
-        '1@gmail.com'),
-       ('NCC002', N'Công ty 2', '028789012',
-        '2@gmail.com'),
-       ('NCC003', N'Công ty 3', '028345678',
-        '3@gmail.com'),
-       ('NCC004', N'Công ty 4', '028901234',
-        '4@gmail.com'),
-       ('NCC005', N'Công ty 5', '028567890',
-        '5@gmail.com')
+--INSERT INTO NHACUNGCAP(MaNCC, TenNCC, SDT, Email)
+--VALUES ('NCC001', N'Công ty 1','028123456',
+--        '1@gmail.com'),
+--       ('NCC002', N'Công ty 2', '028789012',
+--        '2@gmail.com'),
+--       ('NCC003', N'Công ty 3', '028345678',
+--        '3@gmail.com'),
+--       ('NCC004', N'Công ty 4', '028901234',
+--        '4@gmail.com'),
+--       ('NCC005', N'Công ty 5', '028567890',
+--        '5@gmail.com')
 
 INSERT INTO PHIEUSUACHUA(MaPSC, BienSo, NgaySuaChua, TongTien)
 VALUES ('PSC001', '72F-48539', '2022-05-06', 2500000),
